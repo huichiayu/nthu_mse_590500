@@ -1,0 +1,67 @@
+# Configuration
+
+# Optional: set a URL if hosting as username.github.io
+# url: "https://USERNAME.github.io"
+# baseurl: "/REPO-NAME"  # for project sites (not needed for username.github.io)
+
+# Optional: add a GitHub repo link in the header
+aux_links:
+  "GitHub":
+    - "https://github.com/USERNAME/REPO-NAME"
+
+
+# Book settings
+title                       : MSE 590400 Course Website
+author                      : Hui-Chia Yu
+copyright                   : "2025"
+logo                        : Spartan_2.png
+only_build_toc_files        : true
+
+
+# Execution settings
+execute:
+  execute_notebooks         : 'off'
+  allow_errors              : true
+
+# HTML-specific settings
+html:
+  favicon                   : Spartan_2.png
+  use_edit_page_button      : false
+  use_repository_button     : false
+  use_issues_button         : false
+  use_multitoc_numbering    : true
+  home_page_in_navbar       : true
+  baseurl                   : ""
+  use_download_button: true
+
+
+# LaTeX-specific settings
+latex:
+  latex_engine              : pdflatex
+  use_jupyterbook_latex     : true
+
+# Launch button settings
+launch_buttons:
+  notebook_interface        : classic
+  binderhub_url             : ""
+  jupyterhub_url            : "" #https://jupyterhub.egr.msu.edu/
+  thebe                     : false
+  colab_url                 : "" #https://colab.research.google.com
+
+repository:
+  url                       : https://github.com/huichiayu/nthu_mse.github.io
+  path_to_book              : .
+  branch                    : main
+
+sphinx:
+  config:
+    html_theme_options:
+      launch_buttons: {}
+    # suppress_warnings:
+    # - myst.header
+
+
+
+exclude:
+  - references.bib    
+

@@ -1,0 +1,194 @@
+# Table of contents
+
+format: jb-book
+root: index
+parts:
+  - caption: Course Materials
+    chapters:
+      - file: course_materials/MSE590400_Syllabus.md
+        title: Syllabus
+      - file: course_materials/MSE590400_Calendar.md
+        title: Schedule
+      - file: course_materials/SoftwareSetupGuide_NTHU.md
+        title: Software Setup Guide
+      - file: course_materials/MSE590400_AI_policy.md
+        title: Generative AI Policy
+#       - url: https://upload.wikimedia.org/wikipedia/commons/7/79/Unix_command_cheatsheet.pdf
+#         title: CLI (Unix/Mac/Linux) commands cheat sheet
+
+
+  - caption: Semester Project
+    chapters:
+      - file: course_materials/SemesterProjectDetails_NTHU.md
+        title: Semester Project Details
+
+
+  - caption: Quiz/Exam
+    chapters:
+      - file: course_materials/Quiz_NTHU.md
+#       - file: placeholder/placeholder.md
+        title: Quiz/Exam Details
+
+
+  - caption: Daily Content
+    chapters:
+      - file: section_files/day_1
+#        sections:
+#        - url: https://raw.githubusercontent.com/huichiayu/cmse_202_802/main/MSE590/CourseOverview_example_application_v_upload.pdf
+
+
+      - file: section_files/day_2
+        sections:        
+        - file: daily/Day-02/Demo_EnergyFunctional.ipynb
+      
+
+      - file: section_files/day_3
+        sections: 
+        - file: daily/Day-03/LJ_potent.ipynb  
+
+      - file: section_files/day_4
+        sections: 
+        - file: daily/Day-04/MolecularDynamics_singlePhase_Student_v3.ipynb 
+        - file: daily/Day-04/MolecularDynamics_twoPhase_Student_v2.ipynb         
+        
+        
+      - file: section_files/day_5
+        sections: 
+        - file: daily/Day-05/MonteCarlo_example.ipynb         
+#         - file: placeholder/placeholder.md
+
+      - file: section_files/day_6
+        sections: 
+        - file: daily/Day-06/RandomWalk_Student_v1.ipynb         
+#         - file: placeholder/placeholder.md
+
+      - file: section_files/day_7
+        sections: 
+        - file: daily/Day-07/Monte_Carlo_Ising_model_Student_v1.ipynb 
+
+      - file: section_files/day_8
+        sections: 
+        - file: daily/Day-08/Diffusion_Limited_Aggregation_Student_v1.ipynb 
+        
+      - file: section_files/day_9
+      
+      - file: section_files/day_10
+            
+      - file: section_files/day_11
+        sections: 
+        - file: daily/Day-11/Lab5_FEM_1D_diffusion_Student_v1.ipynb 
+        
+      - file: section_files/day_12
+        sections: 
+        - file: daily/Day-12/FreeEnergy.ipynb        
+
+      - file: section_files/day_13
+
+      - file: section_files/day_14
+        sections: 
+        - file: daily/Day-14/Gradient_descent.ipynb  
+        - file: daily/Day-14/AllenCahnEquation_Magnetism.ipynb 
+        - file: daily/Day-14/Lab_6_CahnHilliardEquation_SpinodalDecomposition_Student_v1.ipynb  
+        
+      - file: section_files/day_15     
+      
+      - file: section_files/day_16
+        sections:    
+        - file: daily/Day-16/Surface_orientation.ipynb                 
+
+      - file: section_files/day_17
+        sections:    
+        - file: daily/Day-17/Lab7_dendritic_growth_Student_v1.ipynb  
+
+      - file: section_files/day_18
+        sections:    
+        - file: daily/Day-18/Lab_8_Grain_growth_student_v1.ipynb  
+        
+      - file: section_files/day_19
+        sections:    
+        - file: daily/Day-19/FreeEnergy_PFM_Sintering.ipynb  
+        - file: daily/Day-19/PhaseFieldSinteringSimulation.ipynb  
+
+      - file: section_files/day_20
+        sections:    
+        - file: daily/Day-20/Lab9_EutecticGorwth_Student_v1.ipynb 
+
+      - file: section_files/day_21
+        sections:    
+        - file: daily/Day-21/ZenerRatio.ipynb  
+        - file: daily/Day-21/SolidTransformation.ipynb 
+        - file: daily/Day-21/FourierCoefficient.ipynb
+
+      - file: section_files/day_22
+        sections:    
+        - file: daily/Day-22/FourierTransform_Derviative.ipynb 
+        - file: daily/Day-22/Lab10_FourierSpectalMethod_Student_v1.ipynb  
+
+      - file: section_files/day_23
+        sections:    
+        - file: daily/Day-23/SVM_explained_2D_data.ipynb 
+        - file: daily/Day-23/SVM_Iris_data.ipynb 
+
+      - file: section_files/day_24
+        sections:    
+        - file: daily/Day-24/Lab11_SVM_elemental_data_Student_v1.ipynb 
+        - file: daily/Day-24/Image_classification_v1.ipynb 
+        
+      - file: section_files/day_25
+        sections:    
+        - file: daily/Day-25/Artificial_Neuron_Network_explained.ipynb 
+        - file: daily/Day-25/ImageRgression_NN.ipynb 
+        
+      - file: section_files/day_26
+        sections:    
+        - file: daily/Day-26/Lab12_PrincipalComponentAnalysis_Student_v1.ipynb
+        
+      - file: section_files/day_27
+        sections:    
+        - file: daily/Day-27/NN_curveFitting.ipynb     
+        - file: daily/Day-27/PINN_DampedSpringMass_v1.ipynb     
+        - file: daily/Day-27/PINN_1D_diffustion_v1.ipynb                        
+        
+      - file: section_files/day_28
+        sections:    
+        - file: daily/Day-28/mini_tokenizer_transformer_demo.ipynb     
+        - file: daily/Day-28/LLM_demo_v2.ipynb
+        
+        
+### DO NOT USE THE HOMEWORK ASSIGNMENTS FROM THE PREVIOUS SEMESTER
+### CREATE NEW ONES THAT ASSESS SIMILAR SKILLS/CONTENT
+  - caption: Homework
+    chapters:
+        - url: https://raw.githubusercontent.com/huichiayu/cmse_202_802/main/MSE590/MSE590400_HW1_v1.pdf 
+#        - url: https://raw.githubusercontent.com/huichiayu/cmse_202_802/main/MSE590/place_holder.pdf
+          external: true
+          title: Homework 1  
+          
+        - title: "Upload HW01 assignment"
+          url: https://www.dropbox.com/request/w4urBdsmgnrh09diBHlx
+          nav_order: 99   
+          
+          
+#         - file: homework/MSE590/HW2_Simple_MD_Student_v1.ipynb
+#         - url: https://raw.githubusercontent.com/huichiayu/cmse_202_802/main/MSE590/HW2_Simple_MD_Student_v1.ipynb 
+#         - url: https://raw.githubusercontent.com/huichiayu/cmse_202_802/main/MSE590/place_holder.pdf
+#           external: true
+
+        - file: section_files/HW02     
+          sections:  
+          - file: homework/MSE590/HW2_Simple_MD_Student_v1
+#           title: Homework 2      
+#         - title: Upload HW02 assignment
+
+        - file: section_files/HW03     
+          sections:  
+          - file: homework/MSE590/HW3_PottsModel_Student_v1
+                
+        - file: section_files/HW04     
+          sections:  
+          - file: homework/MSE590/HW4_FourierSpectralMethod_Student_v1
+          
+          
+        - title: "Upload final report"
+          url: https://www.dropbox.com/request/3jIFFpTufRDdK4tNKJzK
+          nav_order: 99      
