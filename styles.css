@@ -1,0 +1,41 @@
+/* General table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Header cells */
+th {
+  background: #f4f4f4;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+/* Table cells */
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+/* Striped rows */
+tr:nth-child(even) {
+  background: #fafafa;
+}
+
+/* Column widths */
+table th:nth-child(1), table td:nth-child(1) {
+  width: 30%;
+}
+table th:nth-child(2), table td:nth-child(2) {
+  width: 70%;
+}
+
+/* Optional hover highlight */
+tr:hover {
+  background: #f0f8ff;
+}

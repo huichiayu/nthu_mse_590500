@@ -1,0 +1,24 @@
+name: cmse202
+
+channels:
+  - conda-forge
+
+dependencies:
+  - python
+  - pip
+  - numpy
+  - matplotlib
+  - scipy
+  - pandas
+  - seaborn
+
+  - sphinx
+
+  # Analysis
+  - jupyter
+  - jupyterlab
+  - notebook
+
+  # Teaching
+  - jupyter-book
+  - ghp-import
