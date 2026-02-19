@@ -1,6 +1,6 @@
-# MSE 590400
+# MSE 590500
 
-## Computational Materials Science and Materials Data Science
+## Python Programming and Its Applications on Materials Science
 
 ### Course Description
 
@@ -8,6 +8,7 @@ This course is designed as a gateway course for graduate students. It will showc
 
 THIS COURSE WILL GIVE YOU...  
 
+<!--
 1. Some background mathematics and relevant science
 2. Some overview of modeling and simulation methods in materials science
 3. Introduction to methods such as Phase Field Model, Finite Difference Method, Fourier Spectrum Method, Molecular Dynamics, Monte Carlo Method, (Finite Element Method if possible)
@@ -47,11 +48,13 @@ In this course, the in-class programming assignments are a critical part of the 
 * In case we are forced to go virtual, you should ensure that you have the ability to run the Zoom video conferencing software, which you can download here: [https://zoom.us/zh-tw/download](https://zoom.us/zh-tw/download)
 * Should it become necessary for virtual classes, Here is the Zoom link [MeetingID: 947 2009 0066](https://msu.zoom.us/j/94720090066) and passcode (262506).
 
+-->
+
 <!--
 You are also expected to have a Slack account ([https://slack.com/](https://slack.com/)) and sign up for the CMSE Courses Slack workspace ([https://cmse-courses.slack.com/](https://cmse-courses.slack.com/)).
 -->
 
-
+<!--
 The details regarding the software needed for this course are provided in the “**[Software Setup Guide](./SoftwareSetupGuide.md)**,” which is linked to on the homepage of the course website.    
 
 ### Course activities
@@ -127,5 +130,5 @@ Instructor contact information can be found on the [home page](../index.md) of t
 
 Office hours will start during the second week of the semester. The information can be found on the [home page](../index.md) of this course website.
 
-
+-->
 
