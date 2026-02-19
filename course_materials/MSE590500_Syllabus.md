@@ -9,12 +9,15 @@ This course aims to train students with modern computer programming languages to
 
 THIS COURSE WILL GIVE YOU...  
 
-<!--
-1. Some background mathematics and relevant science
-2. Some overview of modeling and simulation methods in materials science
-3. Introduction to methods such as Phase Field Model, Finite Difference Method, Fourier Spectrum Method, Molecular Dynamics, Monte Carlo Method, (Finite Element Method if possible)
-4. Practice in using computational materials science tools and scientific computing through homework, projects, and lab sessions.
 
+1. Some background of Python programming
+2. Understandings to modern programming techniques and languages
+3. Ability to build customized functions for specific problems and to construct a well structured code
+4. Ability to solve, simulate, and analyze materials science problems/phemonena
+5. Quantitative thinking of materials science problems
+6. Respect copy right and follow all relevant rules
+
+<!--
 We will work toward the goals expressed above throughout this course using a range of activities – primarily by lectures and by writing software, but also through discussion, presentations, and other types of exercises.  
 
 ### Topics covered
