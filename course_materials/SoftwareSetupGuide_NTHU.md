@@ -66,7 +66,7 @@ If you don't already have Anaconda installed or if you already had Anaconda, but
     If all goes well you should be all updated. To close out of the terminal type `exit` and press enter.
 
 Now double-check that Python is [available in your commandline path](#check-path).
-<!--
+
 <a id="update-mac"></a>
 ##### Updating on a Mac [(jump to Windows directions](#update-windows))
 1. Make sure you are connected to the internet  
@@ -271,7 +271,7 @@ Instructions for downloading and installing Anaconda (Python 3):
     To close out of the terminal type `exit` and press enter.
 
 *If for any reason you still don't have Anaconda functioning on your computer and you'd like to get it working, contact you instructor!*
-
+<!--
 <a id="anaconda-mac"></a>
 ##### Installing Anaconda for Mac
 Instructions for downloading Anaconda (Python 3):
