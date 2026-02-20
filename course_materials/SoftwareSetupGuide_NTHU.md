@@ -155,20 +155,12 @@ Instructions for downloading and installing Anaconda (Python 3):
 
 4. After downloading, run the Anaconda Installer Executable. Say `yes` to any warnings.
 
-    ```{image} ./images/01.PNG
-    :alt: Setup
-    :width: 500
-    ```    
+	<img src="./images/01.PNG" width="500">
+  
+	<img src="./images/02.PNG" width="500">
+   
+	<img src="./images/03.PNG" width="500">
 
-    ```{image} ./images/02.PNG
-    :alt: License Agreement
-    :width: 500
-    ```    
-
-    ```{image} ./images/03.PNG
-    :alt: Permission
-    :width: 500
-    ```
     Any option here is ok, change to `All Users` if you want to install to all accounts on your PC.
 
     ```{image} ./images/04.PNG
