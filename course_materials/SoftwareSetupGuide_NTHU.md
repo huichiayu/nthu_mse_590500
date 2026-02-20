@@ -47,22 +47,14 @@ If you don't already have Anaconda installed or if you already had Anaconda, but
 
 	<img src="./images/update01.PNG" width="500">
 	
-    ```{image} ./images/update01.PNG
-    :alt: update
-    :width: 500
-    ```
     Type in the command `conda update --all` and press `Enter`. This command will update anaconda.  
 
-    ```{image} ./images/update02.PNG
-    :alt: confirm
-    :width: 500
-    ```
+	<img src="./images/update02.PNG" width="500">
+
     To continue type `y` and press enter.  
 
-    ```{image} ./images/update03.PNG
-    :alt: exit
-    :width: 500
-    ```
+	<img src="./images/update03.PNG" width="500">
+
     If all goes well you should be all updated. To close out of the terminal type `exit` and press enter.
 
 Now double-check that Python is [available in your commandline path](#check-path).
@@ -72,10 +64,8 @@ Now double-check that Python is [available in your commandline path](#check-path
 1. Make sure you are connected to the internet  
 2. Find your terminal and update Anaconda.
 
-    ```{image} ./images_mac/cmd_update.png
-    :alt: cmd_update
-    :width: 500
-    ```
+	<img src="./images/cmd_update.png" width="500">
+
     Using Spotlight by pressing <kbd> command </kbd> + <kbd> space-bar </kbd> or simply use the search bar in the top right corner search `terminal` and press `Enter`. Then type in the command `conda update --all` and press `Enter`. This command will update anaconda.  
 
     ```{image} ./images_mac/update_y.png
