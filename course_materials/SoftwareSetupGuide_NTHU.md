@@ -64,16 +64,16 @@ Now double-check that Python is [available in your commandline path](#check-path
 1. Make sure you are connected to the internet  
 2. Find your terminal and update Anaconda.
 
-	<img src="./images/cmd_update.png" width="500">
+	<img src="./images_mac/cmd_update.png" width="500">
 
     Using Spotlight by pressing <kbd> command </kbd> + <kbd> space-bar </kbd> or simply use the search bar in the top right corner search `terminal` and press `Enter`. Then type in the command `conda update --all` and press `Enter`. This command will update anaconda.  
 
-	<img src="./images/update_y.png" width="500">
+	<img src="./images_mac/update_y.png" width="500">
 
 
     To continue type `y` and press enter.  
 
-	<img src="./images/update_done.png" width="500">
+	<img src="./images_mac/update_done.png" width="500">
 
     If all goes well you should be all updated.
 
