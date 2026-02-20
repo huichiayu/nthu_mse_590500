@@ -17,9 +17,9 @@ THIS COURSE WILL GIVE YOU...
 5. Quantitative thinking of materials science problems
 6. Respect copy right and follow all relevant rules
 
-<!--
-We will work toward the goals expressed above throughout this course using a range of activities – primarily by lectures and by writing software, but also through discussion, presentations, and other types of exercises.  
 
+We will work toward the goals expressed above throughout this course using a range of activities – primarily by lectures and by writing software, but also through discussion, presentations, and other types of exercises.  
+<!--
 ### Topics covered
 
 The primary topics covered in this course include:    
