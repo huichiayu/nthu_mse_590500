@@ -264,31 +264,23 @@ Instructions for downloading Anaconda (Python 3):
 	<img src="./images_mac/cont.png" width="500">
 	
     Press the `Continue` button.
-<!--
-    ```{image} ./images_mac/install.png
-    :alt: install
-    :width: 500
-    ```
+
+	<img src="./images_mac/install.png" width="500">
+
     Press the `Install` button.
 
-    ```{image} ./images_mac/password.png
-    :alt: password
-    :width: 500
-    ```
+	<img src="./images_mac/password.png" width="500">
+
     Enter your password then click `Install Software`.  
 
-    ```{image} ./images_mac/during.png
-    :alt: during
-    :width: 500
-    ```
+	<img src="./images_mac/during.png" width="500">
+	
     This may take a moment to install.
-
-    ```{image} ./images_mac/allow.png
-    :alt: allow
-    :width: 500
-    ```
+	
+	<img src="./images_mac/allow.png" width="500">
+	
     Press `OK` button to allow.  
-
+<!--
     ```{image} ./images_mac/pycharm.png
     :alt: pycharm
     :width: 500
