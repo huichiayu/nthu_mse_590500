@@ -73,11 +73,11 @@ The details regarding the software needed for this course are provided in the �
 
 Homework assignments that are submitted late will be accepted **for up to two days beyond the due date **(i.e., 48 hours past the original deadline)**. If the assignment is submitted within 24 hours of the original deadline, there is a 10% penalty**. This applies even if the assignment is 1 minute late. Similarly, **if it is submitted in the 24-48 hour window, a 20% deduction is applied**. Again, **after the 48th hour, the assignment will no longer be accepted**. If you need additional extensions or withhold the late penalty for extenuating circumstances, you must contact the instructor **before** the assignment is due to discuss this.
 
-**Exam/Quiz**: Midterm and final exams. Additionally, short quizzes (ideally 2-3) may be used to assess students’ learning outcomes. Each will be worth a small fraction of the overall exam grade. Should we decide to make change of the quiz policy, you will be notified well in advance of such decision.
+**Exam/Quiz**: Midterm and final exams. These exams will have a written part to text your understandings to the course contents and a coding part to demonstrate your ability of coding. Additionally, short quizzes (ideally 2-3) may be used to assess students’ learning outcomes. Each will be worth a small fraction of the overall exam grade. Should we decide to make change of the quiz policy, you will be notified well in advance of such decision.
 
 **Long Homework**: A long homework is to implement the  programming, computational modeling, and data analysis techniques that you learned over the course of the term, such that students can demonstrate their efforts on building a well-structured software for materials science problems.
 
-<!--
+
 ### Grading information
 
 There are a variety of course activities, with the percentage of the total grade listed.  More detailed descriptions of each activity can be found elsewhere in the syllabus.
@@ -85,18 +85,17 @@ There are a variety of course activities, with the percentage of the total grade
 | Activity                                        | Grade (% of total)  |
 | ----------------------------------------------- | ------------------- |
 | Participation, attendance                       |  5                  |
-| Class programming assignments                   | 25                  |
-| Homework assignments                            | 20                  |
-| Quizz                                           | 15                  |
-| Semester project (written report)               | 25                  |
-| Semester project (oral presentation)            | 10                  |
+| Class programming assignments                   | 20                  |
+| Homework assignments                            | 25                  |
+| Midterm exam                                    | 15                  |
+| Long homework                                   | 15                  |
+| Final exam                                      | 20                  |
 
 **_Note_:** 
 
 * Grades are unlikely to be curved - your grade is based on your own effort and progress, not on competition with your classmates.
 
 * Submitting late work (without instructors' prior agreements based-on justifiable reasons) in order to make-up or improve your grade is not allowed.
-
 
 
 ### Course meeting times and locations
@@ -118,7 +117,7 @@ In addition, we welcomes a full spectrum of experiences, viewpoints, and intelle
 
 It is important to note that **plagiarism in the context of this course includes, but is not limited to, directly copying another student’s solutions to assignments that are expected to be completed individually (class programming assignments, homework problems, and quizzes); copying materials from online sources, textbooks, or other reference materials without citing those references in your source code or documentation, or having somebody else do your individual assignments (class programming assignments, homework problems, and quizzes) on your behalf**. Any work that is done in collaboration with other students should state this explicitly, and their names as well as yours should be listed clearly. When collaborating with other students, you should still be coding/writing your own solutions to the assignments and should limit your collaboration to conceptual discussions about how one might go about solving the problems, **not sharing exact solutions**.
 
-**Generative AI Policy**: [MSE 590400 Generative AI Policy](./MSE590400_AI_policy.md).  Please note that given the rapid evolution of generative AI technologies, this policy may evolve over time to adapt to new developments and challenges.
+**Generative AI Policy**: [MSE 590500 Generative AI Policy](./MSE590500_AI_policy.md).  Please note that given the rapid evolution of generative AI technologies, this policy may evolve over time to adapt to new developments and challenges.
 
 
 **Confidentiality and Mandatory Reporting**: College students often experience issues that may interfere with academic success such as academic stress, sleep problems, juggling responsibilities, life events, relationship concerns, or feelings of anxiety, hopelessness, or depression. Our goal is to help create a safe learning environment and to support you through these situations and experiences. We hope that you feel able to share information related to your life experiences in classroom discussions, in written work, and in one-on-one meetings. We will seek to keep the information you share private to the greatest extent possible. However, we will share information regarding sexual misconduct, relationship violence, or information about criminal activity on campus with the university administrations. Students may speak to someone confidentially by contacting NTHU Counseling and Psychiatric Service.
@@ -131,5 +130,6 @@ Instructor contact information can be found on the [home page](../index.md) of t
 
 Office hours will start during the second week of the semester. The information can be found on the [home page](../index.md) of this course website.
 
+<!--
 -->
 
