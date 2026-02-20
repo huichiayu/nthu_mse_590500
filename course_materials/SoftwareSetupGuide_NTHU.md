@@ -1,4 +1,4 @@
-# MSE 590400
+# MSE 590500
 
 ## Software Setup Guide
 
@@ -18,8 +18,7 @@ As this is a course in computational modeling and data science, you will be comp
     * [If you don't have a fully functioning, up-to-date version](#install-anaconda)
         * [Installing Anaconda for Windows](#anaconda-windows)
         * [Installing Anaconda for Mac](#anaconda-mac)
-
-<!-- * [Installing the Atom text editor](#atom) -->
+		* [Installing the Atom text editor](#atom)
 
 ---
 <a id="software"></a>
