@@ -88,16 +88,10 @@ Now double-check that Python is [available in your commandline path](#check-path
 
 	<img src="./images/run.PNG" width="500">
 
-    ```{image} ./images/run.PNG
-    :alt: run
-    :width: 500
-    ```
     On keyboard press <kbd> Windows-key </kbd> + <kbd> r </kbd> or simply use the search bar on the taskbar if it is visible. Enter `cmd` and press enter. This will open up the Windows Command terminal.  
 
-    ```{image} ./images/cmd_jupyter.PNG
-    :alt: jupyter
-    :width: 500
-    ```
+	<img src="./images/cmd_jupyter.PNG" width="500">
+
     Type in `jupyter notebook` and press `Enter`. This should launch a jupyter notebook tab on a web browser.
 
     ```{image} ./images/exit01.PNG
