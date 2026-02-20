@@ -232,25 +232,19 @@ Instructions for downloading Anaconda (Python 3):
 	<img src="./images_mac/read.png" width="500">
 
     Press the `Continue` button.   
-<!--
-    ```{image} ./images_mac/license.png
-    :alt: license
-    :width: 500
-    ```
+
+	<img src="./images_mac/license.png" width="500">
+	
     Press the `Continue` button.
 
-    ```{image} ./images_mac/license_agree.png
-    :alt: license_agree
-    :width: 500
-    ```
+	<img src="./images_mac/license_agree.png" width="500">
+	
     Press the `Agree` button.
 
-    ```{image} ./images_mac/destination.png
-    :alt: destination
-    :width: 500
-    ```
+	<img src="./images_mac/destination.png" width="500">
+	
     You may notice that there is an error if you are running macOS Catalina or higher. We will want to change the destination for both the sake of macOS Catalina users, and those that are running macOS Mojave or sooner in case if you ever do update to macOS Catalina. Click on `Install on a specific disk...`
-
+<!--
     ```{image} ./images_mac/drive.png
     :alt: drive
     :width: 500
