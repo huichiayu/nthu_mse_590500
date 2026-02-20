@@ -68,16 +68,13 @@ Now double-check that Python is [available in your commandline path](#check-path
 
     Using Spotlight by pressing <kbd> command </kbd> + <kbd> space-bar </kbd> or simply use the search bar in the top right corner search `terminal` and press `Enter`. Then type in the command `conda update --all` and press `Enter`. This command will update anaconda.  
 
-    ```{image} ./images_mac/update_y.png
-    :alt: update_y
-    :width: 500
-    ```
+	<img src="./images/update_y.png" width="500">
+
+
     To continue type `y` and press enter.  
 
-    ```{image} ./images_mac/update_done.png
-    :alt: update_done
-    :width: 500
-    ```
+	<img src="./images/update_done.png" width="500">
+
     If all goes well you should be all updated.
 
 <a id="check-path"></a>
