@@ -43,12 +43,10 @@ If you don't already have Anaconda installed or if you already had Anaconda, but
 
 	<img src="./images/prompt.PNG" width="500">
 
-    ```{image} ./images/prompt.PNG
-    :alt: prompt
-    :width: 500
-    ```
     On keyboard press <kbd> Windows-key </kbd> or simply use the search bar on the taskbar if it is visible. Search `Anaconda Prompt` and right-click on the search result and select "Run as administrator".  
 
+	<img src="./images/update01.PNG" width="500">
+	
     ```{image} ./images/update01.PNG
     :alt: update
     :width: 500
