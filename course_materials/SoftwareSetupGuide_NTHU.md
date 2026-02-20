@@ -163,22 +163,16 @@ Instructions for downloading and installing Anaconda (Python 3):
 
     Any option here is ok, change to `All Users` if you want to install to all accounts on your PC.
 
-    ```{image} ./images/04.PNG
-    :alt: location
-    :width: 500
-    ```
+	<img src="./images/04.PNG" width="500">
+
     *Change the Destination folder at your own risk* If troubles creep up later in class with using Anaconda, this might make the issues harder to fix. If you do change location, make sure it remains on the drive your windows installation is on.  
 
-    ```{image} ./images/05.PNG
-    :alt: install
-    :width: 500
-    ```
+	<img src="./images/05.PNG" width="500">
+
     **Make sure to enable this option** This is required for software this class uses.  
 
-    ```{image} ./images/06.PNG
-    :alt: during
-    :width: 500
-    ```
+	<img src="./images/06.PNG" width="500">
+
     Installation may take awhile, it may stay at this screen for awhile. Be patient.  
 
     ```{image} ./images/07.PNG
