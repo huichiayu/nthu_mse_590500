@@ -58,15 +58,14 @@ You are also expected to have a Slack account ([https://slack.com/](https://slac
 
 The details regarding the software needed for this course are provided in the “**[Software Setup Guide](./SoftwareSetupGuide_NTHU.md)**,” which is linked to on the homepage of the course website.    
 
-<!--
+
 ### Course activities
 
-**Class participation**: Active, in-person class participation (led by the instructor) is critical to the success of this course. As such, you are expected to attend class every week and to actively participate in the in-class discussions and programming activities. If you are unable to attend class, you should contact your instructor to determine how you can best participate in the course and successfully complete the required activities.
+**Class participation**: Lecture (led by the instructor), in-person class discussion and participation. This is critical to the success of this course. As such, you are expected to attend class every week and to actively participate in the in-class discussions and programming activities. If you are unable to attend class, you should contact your instructor to determine how you can best participate in the course and successfully complete the required activities.
 
 **In-class programming assignments**: Intermittently, class will be broken up into groups to work on in-class programming assignments. This will allow you to immediately implement (and get instant feedback on) what you have just learned. In-class programming activities will be turned in via online drop box links provided on the course webpage either at the end of the class session or in a designated period. 
 
 **Pre-class study assignments**: Occasionally, we will assign short study assignments prior to class. The purpose of these assignments is to introduce new material and give you some practice with it so that we can focus on implementation during class. These assignments will typically consist of one or more short videos or reading assignments and related questions or problems. **Completing these assignments will be critical for your success in this course**.
-
 
 * Programming assignments need to be submitted by the deadline for full credit. A 24 hrs grace period is permitted to turn in work at a penalty.
 
@@ -78,7 +77,7 @@ Homework assignments that are submitted late will be accepted **for up to two da
 
 **Semester Project**: This class will have an individual end-of-semester project. An ideal project is to implement the computational modeling and data analysis techniques that you learned over the course of the term to your existing research work, such that students get most out of the class efforts. You will present your project in writing and in an oral presentation. Along the course of the semester, project proposals and updates are required, and the instructor will discuss the progress and provide suggestions to you. 
 
-
+<!--
 ### Grading information
 
 There are a variety of course activities, with the percentage of the total grade listed.  More detailed descriptions of each activity can be found elsewhere in the syllabus.
