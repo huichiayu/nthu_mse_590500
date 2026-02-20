@@ -41,6 +41,8 @@ If you don't already have Anaconda installed or if you already had Anaconda, but
 
 2. Find your Anaconda prompt and update Anaconda.
 
+	![prompt](./images/prompt.png)
+
     ```{image} ./images/prompt.PNG
     :alt: prompt
     :width: 500
