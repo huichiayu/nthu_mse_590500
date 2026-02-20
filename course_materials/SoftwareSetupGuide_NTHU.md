@@ -143,10 +143,7 @@ Instructions for downloading and installing Anaconda (Python 3):
 
     b. Search `System Information` and click on the search result.  
 
-    ```{image} ./images/system.PNG
-    :alt: system
-    :width: 500
-    ```  
+	<img src="./images/system.PNG" width="500">
 
     c. Look for the line called `System Type`
 
@@ -154,10 +151,7 @@ Instructions for downloading and installing Anaconda (Python 3):
 
        * If it reads `x86-based PC` you have a 32-bit system and you should download 32-bit Anaconda.
 
-    ```{image} ./images/sys.PNG
-    :alt: x64
-    :width: 500
-    ```  
+	<img src="./images/sys.PNG" width="500"> 
 
 4. After downloading, run the Anaconda Installer Executable. Say `yes` to any warnings.
 
