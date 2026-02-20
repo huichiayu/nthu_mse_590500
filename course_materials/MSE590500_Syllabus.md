@@ -37,6 +37,8 @@ The primary topics covered in this course include:
 
 <!--
 Please note that **creating models to describe and understand systems** (whether they are in the physical, life, or social sciences, or in engineering) is the driving principle of this course – everything else we teach you is in service to this goal!    
+-->
+
 
 ### Required reading materials
 
@@ -49,6 +51,8 @@ In this course, the in-class programming assignments are a critical part of the 
 * A laptop computer, its power cord, and the ability to connect with the campus wifi. If possible, it would be useful to bring whatever adapter is necessary for you to connect with the classroom monitors so that you can share your computer screen with your fellow classmates.
 * In case we are forced to go virtual, you should ensure that you have the ability to run the Zoom video conferencing software, which you can download here: [https://zoom.us/zh-tw/download](https://zoom.us/zh-tw/download)
 * Should it become necessary for virtual classes, Here is the Zoom link [MeetingID: 947 2009 0066](https://msu.zoom.us/j/94720090066) and passcode (262506).
+
+<!--
 
 -->
 
