@@ -106,22 +106,16 @@ Now double-check that Python is [available in your commandline path](#check-path
 
 2. Open up the terminal and run Jupyter Notebook.
 
-    ```{image} ./images_mac/cmd_jupyter_mac.png
-    :alt: cmd_jupyter
-    :width: 500
-    ```
+	<img src="./images_mac/cmd_jupyter_mac.png" width="500">
+
     Using Spotlight by pressing <kbd> command </kbd> + <kbd> space-bar </kbd> or simply use the search bar in the top right corner search `terminal` and press `Enter`. Then type in `jupyter notebook` and press `Enter`.
 
-    ```{image} ./images_mac/jup.png
-    :alt: jup
-    :width: 750
-    ```
+	<img src="./images_mac/jup.png" width="500">
+
     This should launch a jupyter notebook tab on a web browser and the terminal should look like this.
 
-    ```{image} ./images_mac/jup_close.png
-    :alt: jup_close
-    :width: 500
-    ```
+	<img src="./images_mac/jup_close.png" width="500">
+
     To exit jupyter notebook close the tab on the web browser, and go to the terminal window and type <kbd> control </kbd> + <kbd> c </kbd> twice in a row.
 
 <a id="install-anaconda"></a>
