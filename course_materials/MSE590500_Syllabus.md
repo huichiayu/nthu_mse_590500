@@ -18,8 +18,8 @@ THIS COURSE WILL GIVE YOU...
 6. Respect copy right and follow all relevant rules
 
 
-We will work toward the goals expressed above throughout this course using a range of activities – primarily by lectures and by writing software, but also through discussion, presentations, and other types of exercises.  
-<!--
+We will work toward the goals expressed above throughout this course using a range of activities – primarily by lectures and by writing software Programs, but might also through discussion, presentations, and other types of exercises.  
+
 ### Topics covered
 
 The primary topics covered in this course include:    
@@ -37,7 +37,7 @@ The primary topics covered in this course include:
 * Crack propagation if time permits
 * Emerging machine learning methods on materials science applications.
 
-
+<!--
 Please note that **creating models to describe and understand systems** (whether they are in the physical, life, or social sciences, or in engineering) is the driving principle of this course – everything else we teach you is in service to this goal!    
 
 ### Required reading materials
