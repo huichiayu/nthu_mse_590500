@@ -24,18 +24,16 @@ We will work toward the goals expressed above throughout this course using a ran
 
 The primary topics covered in this course include:    
 
-* Intro to DFT and MD simulations with simple hands-on coding practices 
-* Intro to MC simulations with Random walk, Ising model, and Diffusion limited aggregation 
-* Basics of finite difference method
-* Time stepping methods (e.g., Euler and Runge-Kutta)
-* Thermodynamics free energy
-* Allen-Cahn (Ginzburg-Landau) phase field model for nucleation and growth
-* Cahn-Hilliard phase field model for spinodal decomposition
-* Solidifications, Eutectic transformation
-* Grain growth, Sintering, Solid-solid phase transformation
-* Crystal growth if time permits
-* Crack propagation if time permits
-* Emerging machine learning methods on materials science applications.
+* Python basics 
+* Commonly used libraries, e.g., Numpy, Scipy, Matplotlib, etc. for computing and visualization
+* Usefully libraries, e.g., Pandas, Scikit-learn, Plotly, etc.
+* Calculate thermodynamic quantities (e.g., enthalpy, entropy, free energy)
+* Draw energy curves, identify phase boundaries
+* Solve ODE, PDE
+* Image analysis
+* Data visualization
+* Regression and classification of materials science data
+
 
 <!--
 Please note that **creating models to describe and understand systems** (whether they are in the physical, life, or social sciences, or in engineering) is the driving principle of this course – everything else we teach you is in service to this goal!    
