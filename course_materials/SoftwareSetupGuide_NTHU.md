@@ -175,20 +175,12 @@ Instructions for downloading and installing Anaconda (Python 3):
 
     Installation may take awhile, it may stay at this screen for awhile. Be patient.  
 
-    ```{image} ./images/07.PNG
-    :alt: complete
-    :width: 500
-    ```   
-
-    ```{image} ./images/08.PNG
-    :alt: almost
-    :width: 500
-    ```  
-
-    ```{image} ./images/09a.PNG
-    :alt: finished
-    :width: 500
-    ```
+	<img src="./images/07.PNG" width="500">
+  
+	<img src="./images/08.PNG" width="500">
+ 
+	<img src="./images/09a.PNG" width="500">
+	
     Any option here is okay, if you want to get a feel for the things Anaconda can do, feel free to keep those checkboxes selected.  
 
 5. Open the command line program on your computer.
