@@ -280,42 +280,28 @@ Instructions for downloading Anaconda (Python 3):
 	<img src="./images_mac/allow.png" width="500">
 	
     Press `OK` button to allow.  
-<!--
-    ```{image} ./images_mac/pycharm.png
-    :alt: pycharm
-    :width: 500
-    ```
+
+	<img src="./images_mac/pycharm.png" width="500">
+
     Press the `Continue` button.
 
-    ```{image} ./images_mac/finished.png
-    :alt: finished
-    :width: 500
-    ```
+	<img src="./images_mac/finished.png" width="500">
+
     Then press the `Close` button. Then to finish, press `Move to Trash` to delete the installer.  
 
 5.  Open terminal on your computer by using Spotlight by pressing <kbd> command </kbd> + <kbd> space-bar </kbd> or simply use the search bar in the top right corner search `terminal` and press `Enter`. Then type `jupyter notebook` in the command line and hit enter.
 
-    ```{image} ./images_mac/cmd_jupyter_mac.png
-    :alt: cmd_jupyter_mac
-    :width: 500
-    ```   
+	<img src="./images_mac/cmd_jupyter_mac.png" width="500">
+ 
+	<img src="./images_mac/jup.png" width="500">
 
-    ```{image} ./images_mac/jup.png
-    :alt: jup
-    :width: 750
-    ```
     This should launch a jupyter notebook tab on a web browser and the terminal should look like this.  
 
-    ```{image} ./images_mac/jup_close.png
-    :alt: jup_close
-    :width: 500
-    ```
+	<img src="./images_mac/jup_close.png" width="500">
+
     To exit jupyter notebook close the tab on the web browser, and go to the terminal window and type <kbd> control </kbd> + <kbd> c </kbd> twice in a row. Now you can close the terminal.   
 
 *If for any reason you still don't have Anaconda functioning on your computer and you'd like to get it working, contact you instructor!*
 
-
-
 ---
 ## That's it! We look forward to seeing you in class!
--->
