@@ -135,10 +135,7 @@ Instructions for downloading and installing Anaconda (Python 3):
 
 2. Use the `download` button (or scroll until you see `Anaconda Installers`)
 
-    ```{image} ./images/anaconda_download.PNG
-    :alt: Anaconda_download_1
-    :width: 500
-    ```
+	<img src="./images/anaconda_download.PNG" width="500">
 
 3. Download the current version of Python 3, you'll notice there is a 32-bit and 64-bit version. If you are unsure which you should download, you'll most likely want the 64-bit version, but if you want to be sure, follow the instructions below.
 
