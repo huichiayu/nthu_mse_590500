@@ -206,7 +206,7 @@ Instructions for downloading and installing Anaconda (Python 3):
     To close out of the terminal type `exit` and press enter.
 
 *If for any reason you still don't have Anaconda functioning on your computer and you'd like to get it working, contact you instructor!*
-<!--
+
 <a id="anaconda-mac"></a>
 ##### Installing Anaconda for Mac
 Instructions for downloading Anaconda (Python 3):
@@ -215,11 +215,9 @@ Instructions for downloading Anaconda (Python 3):
 
 2. Use the `download` button  (or scroll until you see `Anaconda Installers`)
 
-    ```{image} ./images_mac/anaconda_download_mac.png
-    :alt: Anaconda_download_mac
-    :width: 500
-    ```
+	<img src="./images_mac/anaconda_download_mac.PNG" width="500">
 
+<!--
 3. Download the current version of Python 3, you'll notice there is a "Graphical" and "Command Line" installer. This guide covers the Graphical, but feel free to use the Command Line if you wish.
 
 4. After downloading, run the `Anaconda3` installer that popped into the dock (or you can open it from the `Downloads` folder as well).
