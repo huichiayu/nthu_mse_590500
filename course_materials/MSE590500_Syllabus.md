@@ -50,15 +50,15 @@ In this course, the in-class programming assignments are a critical part of the 
 
 * A laptop computer, its power cord, and the ability to connect with the campus wifi. If possible, it would be useful to bring whatever adapter is necessary for you to connect with the classroom monitors so that you can share your computer screen with your fellow classmates.
 * In case we are forced to go virtual, you should ensure that you have the ability to run the Zoom video conferencing software, which you can download here: [https://zoom.us/zh-tw/download](https://zoom.us/zh-tw/download)
-* Should it become necessary for virtual classes, Here is the Zoom link [MeetingID: 997 5627 9878](https://msu.zoom.us/j/99756279878) and passcode (262506).
+* Should it become necessary for virtual classes, Here is the Zoom link [MeetingID: 997 5627 9878](https://msu.zoom.us/j/99756279878) and passcode (590500).
 
 <!--
 You are also expected to have a Slack account ([https://slack.com/](https://slack.com/)) and sign up for the CMSE Courses Slack workspace ([https://cmse-courses.slack.com/](https://cmse-courses.slack.com/)).
 -->
 
-<!--
-The details regarding the software needed for this course are provided in the “**[Software Setup Guide](./SoftwareSetupGuide.md)**,” which is linked to on the homepage of the course website.    
 
+The details regarding the software needed for this course are provided in the “**[Software Setup Guide](./SoftwareSetupGuide.md)**,” which is linked to on the homepage of the course website.    
+<!--
 ### Course activities
 
 **Class participation**: Active, in-person class participation (led by the instructor) is critical to the success of this course. As such, you are expected to attend class every week and to actively participate in the in-class discussions and programming activities. If you are unable to attend class, you should contact your instructor to determine how you can best participate in the course and successfully complete the required activities.
