@@ -244,37 +244,23 @@ Instructions for downloading Anaconda (Python 3):
 	<img src="./images_mac/destination.png" width="500">
 	
     You may notice that there is an error if you are running macOS Catalina or higher. We will want to change the destination for both the sake of macOS Catalina users, and those that are running macOS Mojave or sooner in case if you ever do update to macOS Catalina. Click on `Install on a specific disk...`
-<!--
-    ```{image} ./images_mac/drive.png
-    :alt: drive
-    :width: 500
-    ```
+	
+	<img src="./images_mac/drive.png" width="500">
     Make sure to click and select your main harddrive (You may only have one if no other storage device is connected to the compiter). Then click the `Choose Folder...` button.
 
-    ```{image} ./images_mac/home.png
-    :alt: home
-    :width: 500
-    ```
+	<img src="./images_mac/home.png" width="500">
     Then click on the `Users` -> `[YOUR_USERNAME]`. The `[YOUR_USERNAME]` should be the username of the account you are logged into. In my case this is `brandonmcintyre`. Then click in the bottom left hand corner on the `New Folder` button.
 
-    ```{image} ./images_mac/new.png
-    :alt: new
-    :width: 500
-    ```
+	<img src="./images_mac/new.png" width="500">
     You can enter any name you want for the folder as long as it does not have a space in it. For this tutorial we will use `me`. Then click `Create`.
 
-    ```{image} ./images_mac/choose.png
-    :alt: choose
-    :width: 500
-    ```
+	<img src="./images_mac/choose.png" width="500">
     If all went well the folder should be created and should be automatically selected. Now click the `Choose` button.
 
-    ```{image} ./images_mac/cont.png
-    :alt: cont
-    :width: 500
-    ```
+	<img src="./images_mac/cont.png" width="500">
+	
     Press the `Continue` button.
-
+<!--
     ```{image} ./images_mac/install.png
     :alt: install
     :width: 500
