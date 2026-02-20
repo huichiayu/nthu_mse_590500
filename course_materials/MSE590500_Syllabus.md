@@ -29,7 +29,7 @@ The primary topics covered in this course include:
 * Usefully libraries, e.g., Pandas, Scikit-learn, Plotly, etc.
 * Calculate thermodynamic quantities (e.g., enthalpy, entropy, free energy)
 * Draw energy curves, identify phase boundaries
-* Solve ODE, PDE
+* Solve ODE and PDE using software
 * Image analysis
 * Data visualization
 * Regression and classification of materials science data
@@ -56,8 +56,8 @@ In this course, the in-class programming assignments are a critical part of the 
 You are also expected to have a Slack account ([https://slack.com/](https://slack.com/)) and sign up for the CMSE Courses Slack workspace ([https://cmse-courses.slack.com/](https://cmse-courses.slack.com/)).
 -->
 
+The details regarding the software needed for this course are provided in the “**[Software Setup Guide](./SoftwareSetupGuide_NTHU.md)**,” which is linked to on the homepage of the course website.    
 
-The details regarding the software needed for this course are provided in the “**[Software Setup Guide](./SoftwareSetupGuide.md)**,” which is linked to on the homepage of the course website.    
 <!--
 ### Course activities
 
