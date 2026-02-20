@@ -193,22 +193,16 @@ Instructions for downloading and installing Anaconda (Python 3):
 
 6. Type `jupyter notebook` in the command line and hit enter.
 
-    ```{image} ./images/cmd_jupyter.PNG
-    :alt: jupyter
-    :width: 500
-    ```
+	<img src="./images/cmd_jupyter.PNG" width="500">
+
     If everything goes correctly, a browser window should open up with the Jupyter interface running. If things don’t work, don’t worry, we will help you get started.
 
-    ```{image} ./images/exit01.PNG
-    :alt: exit01
-    :width: 500
-    ```
+	<img src="./images/exit01.PNG" width="500">
+
     To exit jupyter notebook close the tab on the web browser, and go to the cmd window and type <kbd> Ctrl </kbd> + <kbd> c </kbd> twice in a row.
 
-    ```{image} ./images/exit02.PNG
-    :alt: exit02
-    :width: 500
-    ```
+	<img src="./images/exit02.PNG" width="500">
+
     To close out of the terminal type `exit` and press enter.
 
 *If for any reason you still don't have Anaconda functioning on your computer and you'd like to get it working, contact you instructor!*
