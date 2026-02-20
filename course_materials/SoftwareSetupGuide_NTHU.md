@@ -217,29 +217,22 @@ Instructions for downloading Anaconda (Python 3):
 
 	<img src="./images_mac/anaconda_download_mac.png" width="500">
 
-<!--
 3. Download the current version of Python 3, you'll notice there is a "Graphical" and "Command Line" installer. This guide covers the Graphical, but feel free to use the Command Line if you wish.
 
 4. After downloading, run the `Anaconda3` installer that popped into the dock (or you can open it from the `Downloads` folder as well).
 
-    ```{image} ./images_mac/agree.png
-    :alt: agree
-    :width: 500
-    ```
+	<img src="./images_mac/agree.png" width="500">
+
     Press the `Continue` button  
 
-    ```{image} ./images_mac/welcome.png
-    :alt: welcome
-    :width: 500
-    ```
+	<img src="./images_mac/welcome.png" width="500">
+
     Press the `Continue` button.   
 
-    ```{image} ./images_mac/read.png
-    :alt: read
-    :width: 500
-    ```
-    Press the `Continue` button.   
+	<img src="./images_mac/read.png" width="500">
 
+    Press the `Continue` button.   
+<!--
     ```{image} ./images_mac/license.png
     :alt: license
     :width: 500
