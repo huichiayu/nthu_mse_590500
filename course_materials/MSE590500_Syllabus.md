@@ -73,9 +73,9 @@ The details regarding the software needed for this course are provided in the �
 
 Homework assignments that are submitted late will be accepted **for up to two days beyond the due date **(i.e., 48 hours past the original deadline)**. If the assignment is submitted within 24 hours of the original deadline, there is a 10% penalty**. This applies even if the assignment is 1 minute late. Similarly, **if it is submitted in the 24-48 hour window, a 20% deduction is applied**. Again, **after the 48th hour, the assignment will no longer be accepted**. If you need additional extensions or withhold the late penalty for extenuating circumstances, you must contact the instructor **before** the assignment is due to discuss this.
 
-**Quiz/Exam**: Short quizzes (ideally 2-3) will be used to assess students’ learning outcomes. Each will be worth a small fraction of the overall exam grade. Should we decide to make change of the quiz policy, you will be notified well in advance of such decision.
+**Exam/Quiz**: Midterm and final exams. Additionally, short quizzes (ideally 2-3) may be used to assess students’ learning outcomes. Each will be worth a small fraction of the overall exam grade. Should we decide to make change of the quiz policy, you will be notified well in advance of such decision.
 
-**Semester Project**: This class will have an individual end-of-semester project. An ideal project is to implement the computational modeling and data analysis techniques that you learned over the course of the term to your existing research work, such that students get most out of the class efforts. You will present your project in writing and in an oral presentation. Along the course of the semester, project proposals and updates are required, and the instructor will discuss the progress and provide suggestions to you. 
+**Long Homework**: A long homework is to implement the  programming, computational modeling, and data analysis techniques that you learned over the course of the term, such that students can demonstrate their efforts on building a well-structured software for materials science problems.
 
 <!--
 ### Grading information
