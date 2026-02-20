@@ -86,6 +86,8 @@ Now double-check that Python is [available in your commandline path](#check-path
 
 2. Open up any terminal besides anaconda prompt and run Jupyter Notebook.
 
+	<img src="./images/run.PNG" width="500">
+
     ```{image} ./images/run.PNG
     :alt: run
     :width: 500
