@@ -94,15 +94,10 @@ Now double-check that Python is [available in your commandline path](#check-path
 
     Type in `jupyter notebook` and press `Enter`. This should launch a jupyter notebook tab on a web browser.
 
-    ```{image} ./images/exit01.PNG
-    :alt: exit01
-    :width: 500
-    ```  
+	<img src="./images/exit01.PNG" width="500">
 
-    ```{image} ./images/exit02.PNG
-    :alt: exit02
-    :width: 500
-    ```
+	<img src="./images/exit02.PNG" width="500">
+
     To exit jupyter notebook close the tab on the web browser, and go to the terminal window and type <kbd> Ctrl </kbd> + <kbd> c </kbd> twice in a row.  
 
 <a id="check-path-mac"></a>
