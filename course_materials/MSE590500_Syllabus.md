@@ -107,7 +107,7 @@ You are expected to attend all scheduled class sessions. The time and locations 
 
 **Course Website**:  This course has a website where important information regarding the course will be posted (e.g. syllabus, schedule, office hours calendar, etc): [https://huichiayu.github.io/nthu_mse.github.io]( https://huichiayu.github.io/nthu_mse.github.io/index.html)
 
-**Email**: At times, we will send out important course information via email.  This email is sent to your MSU email address (the one that ends in “@msu.edu”).  You are responsible for all information sent out to your University email account, and for checking this account on a regular (daily) basis.
+**Email**: At times, we will send out important course information via email.  This email is sent to your email address provided by NTHU administration.  You are responsible for all information sent out to your registered email account, and for checking this account on a regular (daily) basis.
 
 **Inclusive classroom behavior**:  Respectful and responsible behavior is expected at all times, which includes not interrupting other students, refraining from non-course-related use of electronic devices or additional software during class sessions, and not using offensive or demeaning language in our discussions. Flagrant or repeated violations of this expectation may result in ejection from the classroom and/or grade-related penalties. In particular, behavior that could be considered discriminatory or harassing, or unwanted sexual attention, will not be tolerated and will be immediately reported to the appropriate NTHU office.
 
