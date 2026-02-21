@@ -50,7 +50,7 @@
   </tr>
   <tr> <!-- week 9 -->
     <td style="border: 1px solid #ddd; padding: 8px;">00 (Apr 27)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;"> TBA </td>
+    <td style="border: 1px solid #ddd; padding: 8px;"> TBA <strong>Homework 3 release</strong> </td>
   </tr>
   <tr style="background-color: #f9f9f9;"> <!-- week 10 -->
     <td style="border: 1px solid #ddd; padding: 8px;">09 (May 4)</td>
@@ -62,7 +62,7 @@
   </tr>
   <tr style="background-color: #f9f9f9;"> <!-- week 12 -->
     <td style="border: 1px solid #ddd; padding: 8px;">10 (May 18)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;"> TBA </td>
+    <td style="border: 1px solid #ddd; padding: 8px;"> TBA <strong>Homework 4 release</strong> </td>
   </tr>       
   <tr> <!-- week 13 -->
     <td style="border: 1px solid #ddd; padding: 8px;">11 (May 25)</td>
@@ -70,7 +70,7 @@
   </tr>
   <tr style="background-color: #f9f9f9;"> <!-- week 14 -->
     <td style="border: 1px solid #ddd; padding: 8px;">12 (Jun 1)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;"> TBA <strong>Homework 3 release</strong></td>
+    <td style="border: 1px solid #ddd; padding: 8px;"> TBA <strong>Homework 5 release</strong></td>
   </tr>     
   <tr> <!-- week 15 -->
     <td style="border: 1px solid #ddd; padding: 8px;">13 (Jun 8)</td>
