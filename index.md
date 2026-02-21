@@ -5,11 +5,11 @@
 
 Here are some quick links to important course content:  
 
-* [Course Syllabus](course_materials/MSE590500_Syllabus)
+* [Course Syllabus](course_materials/MSE590500_Syllabus.md)
 
-* [Course Calendar](course_materials/MSE590500_Calendar)
+* [Course Calendar](course_materials/MSE590500_Calendar.md)
 
-* [Software Setup Guide](course_materials/SoftwareSetupGuide_NTHU)
+* [Software Setup Guide](course_materials/SoftwareSetupGuide_NTHU.md)
 
 
 
