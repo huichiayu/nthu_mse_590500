@@ -18,7 +18,8 @@
   </tr>  
   <tr> <!-- week 1 -->
     <td style="border: 1px solid #ddd; padding: 8px;">01 (Feb 23)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;">Course syllabus, overview, instructor's self intro, software installation.</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">Course syllabus, overview, instructor's self intro, software installation. 
+    <br> Python basics.</td>
   </tr> 
   <tr style="background-color: #f9f9f9;"> <!-- week 2 -->
     <td style="border: 1px solid #ddd; padding: 8px;">02 (Mar 2)</td>
