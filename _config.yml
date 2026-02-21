@@ -11,9 +11,9 @@ aux_links:
 
 
 # Book settings
-title                       : MSE 590400 Course Website
+title                       : MSE 590500 Course Website
 author                      : Hui-Chia Yu
-copyright                   : "2025"
+copyright                   : "2026"
 logo                        : Spartan_2.png
 only_build_toc_files        : true
 
