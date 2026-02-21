@@ -17,7 +17,7 @@
     <td colspan="3" style="border-top: 2px solid #800080;"></td> <!-- HLINE -->
   </tr>  
   <tr> <!-- week 1 -->
-    <td style="border: 1px solid #ddd; padding: 8px;">01 (Feb 23)</td>
+    <td style="border: 1px solid #ddd; padding: 8px; font-size:12px;">01 (Feb 23)</td>
     <td style="border: 1px solid #ddd; padding: 8px;">Course syllabus, overview, instructor's self intro, Schrodinger equation for H atom, solution of angular equation.</td>
   </tr> 
   <tr style="background-color: #f9f9f9;"> <!-- week 2 -->
