@@ -5,10 +5,10 @@
 <!--
 <table style="border-collapse: collapse; width: 100%;">
 -->
-<table style="width:100%; table-layout: fixed;">
+<table style="width:100%; table-layout: fixed; border-collapse: collapse;">
   <colgroup>
-    <col style="width: 30%;">
-    <col style="width: 70%;">
+    <col style="width:30%;">
+    <col style="width:70%;">
   </colgroup>
   <tr style="background-color: #f2f2f2;">
     <th style="border: 1px solid #ddd; padding: 8px;">Day</th>
