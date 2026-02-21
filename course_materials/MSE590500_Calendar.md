@@ -18,5 +18,5 @@
     <th style="border: 1px solid #ddd; padding: 8px;">Day</th>
     <th style="border: 1px solid #ddd; padding: 8px;">Topic</th>
   </tr>
-
+</table>
 $^*$ This is a tentative schedule still under development. The overall content should be similar, but not guaranteed to be exactly the same. If deadlines change, substantial notice will be given!
