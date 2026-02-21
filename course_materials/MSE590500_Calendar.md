@@ -34,6 +34,10 @@
   </tr>
 
   <tr>
+    <td colspan="3" style="border-top: 2px solid #800080;"></td> <!-- HLINE -->
+  </tr>  
+
+  <tr>
     <td style="border:1px solid #ddd; padding:8px;">01 (Feb 23)</td>
     <td style="border:1px solid #ddd; padding:8px;">
       Course syllabus, overview, instructor's self intro.
