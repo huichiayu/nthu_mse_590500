@@ -38,7 +38,7 @@
   </tr>
   <tr style="background-color: #f9f9f9;"> <!-- week 6 -->
     <td style="border: 1px solid #ddd; padding: 8px;">06 (Apr 6)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;"><span style="color: red;">Holiday. No class</span><strong>Homework 2 release</strong></td>
+    <td style="border: 1px solid #ddd; padding: 8px;"><span style="color: red;">Holiday. No class. </span><strong>Homework 2 release</strong></td>
   </tr> 
    <tr> <!-- week 7 -->
     <td style="border: 1px solid #ddd; padding: 8px;">07 (Apr 13)</td>
@@ -49,15 +49,15 @@
     <td style="border: 1px solid #ddd; padding: 8px;"> TBA </td>
   </tr>
   <tr> <!-- week 9 -->
-    <td style="border: 1px solid #ddd; padding: 8px;">00 (Apr 27)</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">09 (Apr 27)</td>
     <td style="border: 1px solid #ddd; padding: 8px;"> TBA <strong>Homework 3 release</strong> </td>
   </tr>
   <tr style="background-color: #f9f9f9;"> <!-- week 10 -->
-    <td style="border: 1px solid #ddd; padding: 8px;">09 (May 4)</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">10 (May 4)</td>
     <td style="border: 1px solid #ddd; padding: 8px;"> TBA </td>
   </tr>       
   <tr> <!-- week 11 -->
-    <td style="border: 1px solid #ddd; padding: 8px;">00 (May 11)</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">11 (May 11)</td>
     <td style="border: 1px solid #ddd; padding: 8px;"> TBA </td>
   </tr>
   <tr style="background-color: #f9f9f9;"> <!-- week 12 -->
@@ -65,7 +65,7 @@
     <td style="border: 1px solid #ddd; padding: 8px;"> TBA <strong>Homework 4 release</strong> </td>
   </tr>       
   <tr> <!-- week 13 -->
-    <td style="border: 1px solid #ddd; padding: 8px;">11 (May 25)</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">13 (May 25)</td>
     <td style="border: 1px solid #ddd; padding: 8px;"> TBA </td>
   </tr>
   <tr style="background-color: #f9f9f9;"> <!-- week 14 -->
@@ -73,7 +73,7 @@
     <td style="border: 1px solid #ddd; padding: 8px;"> TBA <strong>Homework 5 release</strong></td>
   </tr>     
   <tr> <!-- week 15 -->
-    <td style="border: 1px solid #ddd; padding: 8px;">13 (Jun 8)</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">15 (Jun 8)</td>
     <td style="border: 1px solid #ddd; padding: 8px;">Final exam.</td>
   </tr>   
 </table>
