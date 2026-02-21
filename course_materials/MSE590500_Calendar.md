@@ -4,7 +4,8 @@
 
 <!--
 <table style="border-collapse: collapse; width: 100%;">
-  <tr style="background-color: #f2f2f2;">
+
+    <td style="width:30%; overflow-wrap: break-word;">
 -->
 <table style="width:100%; table-layout: fixed; border-collapse: collapse;">
   <colgroup>
@@ -12,12 +13,12 @@
     <col style="width:70%;">
   </colgroup>
 
-  <td style="width:30%; overflow-wrap: break-word;">
+  <tr style="background-color: #f2f2f2;">
     <th style="border: 1px solid #ddd; padding: 8px;">Day</th>
     <th style="border: 1px solid #ddd; padding: 8px;">Topic</th>
   </tr>
   <tr>
-    <td colspan="2" style="border-top: 2px solid #800080;"></td> <!-- HLINE -->
+    <td colspan="3" style="border-top: 2px solid #800080;"></td> <!-- HLINE -->
   </tr>  
   <tr> <!-- week 1 -->
     <td style="border: 1px solid #ddd; padding: 8px;">01 (Feb 23)</td>
