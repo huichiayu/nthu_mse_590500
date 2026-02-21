@@ -9,7 +9,7 @@ parts:
         title: Syllabus
       - file: course_materials/MSE590500_Calendar.md
         title: Schedule
-      - file: course_materials/SoftwareSetupGuide_NTHU.md
+      - file: course_materials/SoftwareSetupGuide_NTHU_2.md
         title: Software Setup Guide
       - file: course_materials/MSE590500_AI_policy.md
         title: Generative AI Policy
@@ -20,7 +20,7 @@ parts:
   - caption: Quiz/Exam
     chapters:
       - file: course_materials/ExamQuiz_NTHU.md
-        title: Exam/Quiz Details
+        title: Exam_Quiz_Details
 
 
   - caption: Daily Content
