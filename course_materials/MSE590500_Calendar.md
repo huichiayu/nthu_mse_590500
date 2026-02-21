@@ -22,9 +22,10 @@
 
 
 <table style="width:100%; table-layout: fixed; border-collapse: collapse;">
+
   <colgroup>
-    <col style="width:80%;">
-    <col style="width:20%;">
+    <col style="width:30%;">
+    <col style="width:70%;">
   </colgroup>
 
   <tr style="background-color:#f2f2f2;">
@@ -33,9 +34,9 @@
   </tr>
 
   <tr>
-    <td style="border:1px solid #ddd; padding:20px;">01 (Feb 23)</td>
+    <td style="border:1px solid #ddd; padding:8px;">01 (Feb 23)</td>
     <td style="border:1px solid #ddd; padding:8px;">
-      Course syllabus, overview, instructor's self intro, Schrödinger equation for H atom, solution of angular equation.
+      Course syllabus, overview, instructor's self intro.
     </td>
   </tr>
 
@@ -45,7 +46,9 @@
       Schrödinger equation (solution of radial equation), basics of DFT.
     </td>
   </tr>
+
 </table>
+
 
 
 
