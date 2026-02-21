@@ -46,7 +46,7 @@
   </tr>  
   <tr style="background-color: #f9f9f9;"> <!-- week 8 -->
     <td style="border: 1px solid #ddd; padding: 8px;">08 (Apr 20)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;"> TBA </td>
+    <td style="border: 1px solid #ddd; padding: 8px;"> <string>Midterm exam.</strong></td>
   </tr>
   <tr> <!-- week 9 -->
     <td style="border: 1px solid #ddd; padding: 8px;">09 (Apr 27)</td>
@@ -74,7 +74,7 @@
   </tr>     
   <tr> <!-- week 15 -->
     <td style="border: 1px solid #ddd; padding: 8px;">15 (Jun 8)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;">Final exam.</td>
+    <td style="border: 1px solid #ddd; padding: 8px;"><strong>Final exam.</strong></td>
   </tr>   
 </table>
 
