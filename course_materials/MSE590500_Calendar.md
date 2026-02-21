@@ -38,7 +38,7 @@
   </tr>
   <tr style="background-color: #f9f9f9;"> <!-- week 6 -->
     <td style="border: 1px solid #ddd; padding: 8px;">06 (Apr 6)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;"><span style="color: red;">Mid-Autumn Festival, Holiday. No class</span> <strong>Homework 2 release</strong></td>
+    <td style="border: 1px solid #ddd; padding: 8px;"><span style="color: red;">Holiday. No class</span><strong>Homework 2 release</strong></td>
   </tr> 
    <tr> <!-- week 7 -->
     <td style="border: 1px solid #ddd; padding: 8px;">07 (Apr 13)</td>
