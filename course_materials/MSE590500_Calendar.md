@@ -6,9 +6,7 @@
 <table style="border-collapse: collapse; width: 100%;">
 
     <td style="width:30%; overflow-wrap: break-word;">
--->
-
-
+    
 <table style="width:100%; table-layout: fixed;">
   <colgroup>
     <col style="width:25%;">
@@ -18,7 +16,11 @@
     <th style="border: 1px solid #ddd; padding: 8px;">Day</th>
     <th style="border: 1px solid #ddd; padding: 8px;">Topic</th>
   </tr>
-</table>
+</table>    
+-->
+
+
+
 
 
 <table style="width:100%; table-layout: fixed; border-collapse: collapse;">
