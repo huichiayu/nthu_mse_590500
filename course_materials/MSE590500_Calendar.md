@@ -31,7 +31,7 @@
   </tr>  
   <tr style="background-color: #f9f9f9;"> <!-- week 4 -->
     <td style="border: 1px solid #ddd; padding: 8px;">04 (Mar 16)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;"> TBA </td>
+    <td style="border: 1px solid #ddd; padding: 8px;"> TBA (remote class) </td>
   </tr>
   <tr> <!-- week 5 -->
     <td style="border: 1px solid #ddd; padding: 8px;">05 (Mar 23)</td>
@@ -63,7 +63,7 @@
   </tr>
   <tr style="background-color: #f9f9f9;"> <!-- week 12 -->
     <td style="border: 1px solid #ddd; padding: 8px;">10 (May 18)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;"> TBA <strong>Homework 4 release</strong> </td>
+    <td style="border: 1px solid #ddd; padding: 8px;"> TBA  (remote class) <strong>Homework 4 release</strong> </td>
   </tr>       
   <tr> <!-- week 13 -->
     <td style="border: 1px solid #ddd; padding: 8px;">13 (May 25)</td>
