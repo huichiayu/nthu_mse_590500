@@ -152,7 +152,7 @@ parts:
   - caption: Homework
     chapters:
     
-        - file: section_files/HW_tmp     
+        - file: section_files/HW_tmp.md     
           sections:  
           - file: placeholder/placeholder.md
             title: Homework tmp      
