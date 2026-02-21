@@ -51,6 +51,12 @@
     </td>
   </tr>
 
+  <tr> <!-- week 3 -->
+    <td style="border: 1px solid #ddd; padding: 8px;">03 (Mar 9)</td>
+    <td style="border: 1px solid #ddd; padding: 8px;"> DFT demonstration using Quantum Expresso, 
+    intro to molecular dynamics, force field, Lennard-Jones potential. <strong>Homework 1 release</strong> </td>
+  </tr> 
+
 </table>
 
 
