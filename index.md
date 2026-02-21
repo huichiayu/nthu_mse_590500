@@ -1,13 +1,13 @@
 
-# Computational Materials Science and Materials Data Science
+# Python Programming and Its Applications on Materials Science and Engineering
 
 ## Course Details
 
 Here are some quick links to important course content:  
 
-* [Course Syllabus](course_materials/MSE590400_Syllabus)
+* [Course Syllabus](course_materials/MSE590500_Syllabus)
 
-* [Course Calendar](course_materials/MSE590400_Calendar)
+* [Course Calendar](course_materials/MSE590500_Calendar)
 
 * [Software Setup Guide](course_materials/SoftwareSetupGuide_NTHU)
 
@@ -17,7 +17,7 @@ Course assignments will be distributed via this page and turned in to the provid
 
 ## Class meeting time and location
 
-Class meetings are at B09 Delta Building, Mon (13:20 - 15:10) and Thu (13:20 - 14:10).
+Class meetings are at B09 Delta Building, Monday 13:20 - 16:10.
 
 ---
 
@@ -34,12 +34,10 @@ Department of Materials Science and Engineering<br>
 National Tsing Hua University, Hsinchu, Taiwan
 
 
-
-
 ---  
 
 ## Office hours
-Office hours will be held at 407 Delta Building, 2--4 PM on Wednesday
+Office hours will be held at 407 Delta Building, 2--4 PM on Tuesday
 
 
 <!--
