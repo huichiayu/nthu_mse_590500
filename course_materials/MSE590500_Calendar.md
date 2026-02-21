@@ -28,18 +28,27 @@
     <col style="width:70%;">
   </colgroup>
 
+  <tr style="background-color:#f2f2f2;">
+    <th style="border:1px solid #ddd; padding:8px;">Day</th>
+    <th style="border:1px solid #ddd; padding:8px;">Topic</th>
+  </tr>
+
   <tr>
-    <td colspan="3" style="border-top: 2px solid #800080;"></td> <!-- HLINE -->
-  </tr>  
-  <tr> <!-- week 1 -->
-    <td style="border: 1px solid #ddd; padding: 8px;">01 (Feb 23)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;">Course syllabus, overview, instructor's self intro, Schrodinger equation for H atom, solution of angular equation.</td>
-  </tr> 
-  <tr style="background-color: #f9f9f9;"> <!-- week 2 -->
-    <td style="border: 1px solid #ddd; padding: 8px;">02 (Mar 2)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;">Schrodinger equation (solution of radial equation), basics of DFT.</td>
-  </tr>  
+    <td style="border:1px solid #ddd; padding:8px;">01 (Feb 23)</td>
+    <td style="border:1px solid #ddd; padding:8px;">
+      Course syllabus, overview, instructor's self intro.
+    </td>
+  </tr>
+
+  <tr>
+    <td style="border:1px solid #ddd; padding:8px;">02 (Mar 2)</td>
+    <td style="border:1px solid #ddd; padding:8px;">
+      Schrödinger equation (solution of radial equation), basics of DFT.
+    </td>
+  </tr>
+
 </table>
+
 
 
 
