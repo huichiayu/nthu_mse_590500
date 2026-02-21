@@ -1,6 +1,6 @@
 # MSE 590500
 
-## Python Programming and Its Applications on Materials Science
+## Python Programming and Its Applications on Materials Science and Engineering
 
 ### Course Description
 

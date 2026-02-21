@@ -1,8 +1,8 @@
-# Generative AI Use Policy Statement for MSE 590400
+# Generative AI Use Policy Statement for MSE 590500
 
 Following is adapted from text generated from<sup>[1](#footnote1)
 
-For MSE 590400, the use of generative artificial intelligence (AI) tools (such as ChatGPT, co-pilot, DALL-E, etc.) are both welcomed and encouraged. Generative AI represents a fascinating intersection of computing and creativity, offering students an opportunity to explore cutting-edge technologies while honing their programming skills.  That said, **do not rely solely on AI tools to complete assignments**;  This will not support the course learning objectives which include the critical appraisal of algorithms and the ability to break scientific problems into solvable components.  AI tools should be used only as a supplement, not a replacement, for your own work. 
+For MSE 590500, the use of generative artificial intelligence (AI) tools (such as ChatGPT, co-pilot, DALL-E, etc.) are both welcomed and encouraged. Generative AI represents a fascinating intersection of computing and creativity, offering students an opportunity to explore cutting-edge technologies while honing their programming skills.  That said, **do not rely solely on AI tools to complete assignments**;  This will not support the course learning objectives which include the critical appraisal of algorithms and the ability to break scientific problems into solvable components.  AI tools should be used only as a supplement, not a replacement, for your own work. 
 
 Likewise, it is imperative that the utilization of generative AI within this course adheres to ethical guidelines and respects the intellectual property rights of others. As you engage with generative AI technologies, please keep the following principles in mind:
 
