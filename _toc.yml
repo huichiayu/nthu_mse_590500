@@ -17,9 +17,9 @@ parts:
         title: CLI (Unix/Mac/Linux) commands cheat sheet
 
 
-  - caption: Daily Content
-    chapters:
-      - file: section_files/2026_0223
+#   - caption: Daily Content
+#     chapters:
+#       - file: section_files/2026_0223
 #        sections:
 #        - url: https://raw.githubusercontent.com/huichiayu/cmse_202_802/main/MSE590/CourseOverview_example_application_v_upload.pdf
 
@@ -149,13 +149,13 @@ parts:
         
 ### DO NOT USE THE HOMEWORK ASSIGNMENTS FROM THE PREVIOUS SEMESTER
 ### CREATE NEW ONES THAT ASSESS SIMILAR SKILLS/CONTENT
-  - caption: Homework
-    chapters:
-    
-        - file: section_files/HW_tmp.md     
-          sections:  
-          - file: placeholder/placeholder.md
-            title: Homework tmp      
+#   - caption: Homework
+#     chapters:
+#     
+#         - file: section_files/HW_tmp.md     
+#           sections:  
+#           - file: placeholder/placeholder.md
+#             title: Homework tmp      
 #         - title: Upload HW02 assignment    
     
 #         - url: https://raw.githubusercontent.com/huichiayu/cmse_202_802/main/MSE590/MSE590400_HW1_v1.pdf 
