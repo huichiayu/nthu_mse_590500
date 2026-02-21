@@ -15,9 +15,9 @@
   </tr>
   <tr>
     <td colspan="3" style="border-top: 2px solid #800080;"></td> <!-- HLINE -->
+    <td colspan="3" style="border-bottom: 2px solid #800080;"></td> <!-- HLINE -->    
   </tr>  
   <tr> <!-- week 1 -->
-    <td colspan="3" style="border-top: 2px solid #800080;"></td> <!-- HLINE -->
     <td style="border: 1px solid #ddd; padding: 8px;">01 (Feb 23)</td>
     <td style="border: 1px solid #ddd; padding: 8px;">Course syllabus, overview, instructor's self intro, software installation, Python basics, command line interface.</td>
   </tr> 
