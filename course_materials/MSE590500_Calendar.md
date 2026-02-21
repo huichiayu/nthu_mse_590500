@@ -2,11 +2,13 @@
 
 ## Spring 2026 $^*$
 
-
+<!--
 <table style="border-collapse: collapse; width: 100%;">
+-->
+<table style="border-collapse: collapse; width: 100%; table-layout: fixed;">
   <colgroup>
-    <col style="width:40%">
-    <col style="width:60%">
+    <col style="width:30%">
+    <col style="width:70%">
   </colgroup>
   <tr style="background-color: #f2f2f2;">
     <th style="border: 1px solid #ddd; padding: 8px;">Day</th>
