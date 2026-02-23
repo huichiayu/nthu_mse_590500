@@ -20,9 +20,13 @@ parts:
   - caption: Daily Content
     chapters:
       - file: section_files/day_1
-
-
-
+        sections:        
+        - file: daily/Day01_0223/Jupyter_Notebook_Basics.ipynb
+        - file: daily/Day01_0223/Python_Data_Types_Teaching.ipynb
+        - file: daily/Day01_0223/UNIX_Command_Line_Basics.ipynb 
+        - file: daily/Day01_0223/file.txt              
+        - file: daily/Day01_0223/demo.py
+        
   - caption: Exam/Quiz
     chapters:
       - file: course_materials/ExamQuiz_NTHU.md      
