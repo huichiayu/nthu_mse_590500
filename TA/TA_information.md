@@ -4,4 +4,6 @@
 
 張毓融 Yurong Chang
 
+Email:canjy890511@gmail.com
+
 Any concern about the course recording, please contact TA.
