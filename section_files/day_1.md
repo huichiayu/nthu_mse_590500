@@ -17,6 +17,6 @@ This section contains the course materials for day 1.
 [UNIX_Command_Line_Basics.ipynb](../daily/Day01_0223/UNIX_Command_Line_Basics.ipynb)
 {Download}`UNIX_Command_Line_Basics.ipynb<../daily/Day01_0223/UNIX_Command_Line_Basics.ipynb>`
 
-<a href="https://raw.githubusercontent.com/huichiayu/cmse_202_802/main/MSE590/file.txt" target="_blank">file.txt</a>
+{Download}`file.txt<../daily/Day01_0223/file.txt>`
 
-<a href="https://raw.githubusercontent.com/huichiayu/cmse_202_802/main/MSE590/demo.py" target="_blank">demo.py</a>
+{Download}`demo.py<../daily/Day01_0223/demo.py>`
