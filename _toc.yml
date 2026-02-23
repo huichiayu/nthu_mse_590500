@@ -34,5 +34,10 @@ parts:
     chapters:
       - file: homework/HW01/HW_tmp.md
         title: Homework temp 
+
+  - caption: Teaching assistant
+    chapters:
+      - file: TA/TA_information.md
+        title: TA information
 #         
     
