@@ -23,7 +23,7 @@
   </tr> 
   <tr style="background-color: #f9f9f9;"> <!-- week 2 -->
     <td style="border: 1px solid #ddd; padding: 8px;">02 (Mar 2)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;"> Using libraries, e.g., numpy, scipy, sympy, matplotlib. </td>
+    <td style="border: 1px solid #ddd; padding: 8px;"> Functions, Libraries, e.g., numpy, scipy, sympy, matplotlib. </td>
   </tr>
   <tr> <!-- week 3 -->
     <td style="border: 1px solid #ddd; padding: 8px;">03 (Mar 9)</td>
