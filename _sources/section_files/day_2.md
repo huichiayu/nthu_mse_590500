@@ -1,4 +1,4 @@
-Day 2
+Day 2 03/02
 =======================
 This section contains the course materials for day 2.
 
