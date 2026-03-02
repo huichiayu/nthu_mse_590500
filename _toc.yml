@@ -24,6 +24,12 @@ parts:
         - file: daily/Day01_0223/Jupyter_Notebook_Basics.ipynb
         - file: daily/Day01_0223/Python_Data_Types_Teaching.ipynb
         - file: daily/Day01_0223/UNIX_Command_Line_Basics.ipynb 
+
+      - file: section_files/day_2
+        sections:        
+        - file: daily/Day02_0302/numpy_teaching_module.ipynb
+        - file: daily/Day02_0302/matplotlib_teaching_module.ipynb
+        - file: daily/Day02_0302/sympy_teaching_module.ipynb 
         
   - caption: Exam/Quiz
     chapters:
