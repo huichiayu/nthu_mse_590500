@@ -1,4 +1,4 @@
-Day 1
+Day 1 02/23
 =======================
 This section contains the course materials for day 1.
 
