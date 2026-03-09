@@ -61,7 +61,7 @@
     <link rel="icon" href="../../_static/Spartan_2.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="MSE 590500 - Exam/Quiz Details" href="../../course_materials/ExamQuiz_NTHU.html" />
+    <link rel="next" title="Day 3 03/09" href="../../section_files/day_3.html" />
     <link rel="prev" title="Introduction to Matplotlib" href="matplotlib_teaching_module.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -192,6 +192,12 @@
 <li class="toctree-l2"><a class="reference internal" href="numpy_teaching_module.html">Introduction to NumPy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="matplotlib_teaching_module.html">Introduction to Matplotlib</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">SymPy Mini Teaching Module (Beginner)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_3.html">Day 3 03/09</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day03_0309/pandas_basics_teaching_notebook.html">Pandas Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day03_0309/pandas_demo_with_material_data.html">Pandas Demonstration Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day03_0309/Ideal_gas_calculation.html">Ideal gas behavior</a></li>
 </ul>
 </details></li>
 </ul>
@@ -407,6 +413,13 @@ document.write(`
 <h2>0. Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>Sympy
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
 <span class="n">sp</span><span class="o">.</span><span class="n">__version__</span>
 </pre></div>
@@ -480,6 +493,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expr3</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<span class="c1"># expr3</span>
 <span class="n">expr3</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">sp</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -626,8 +640,9 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<span class="c1"># g</span>
 <span class="n">g_numeric</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">lambdify</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="s1">&#39;numpy&#39;</span><span class="p">)</span>
-
+<span class="c1"># g_numeric</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="n">g_numeric</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
@@ -703,11 +718,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../../course_materials/ExamQuiz_NTHU.html"
+       href="../../section_files/day_3.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">MSE 590500 - Exam/Quiz Details</p>
+        <p class="prev-next-title">Day 3 03/09</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

@@ -182,10 +182,22 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Daily Content</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../section_files/day_1.html">Day 1</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../section_files/day_1.html">Day 1 02/23</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Jupyter_Notebook_Basics.html">Jupyter Notebook Basics (Hands-on)</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Python Data Types (Hands-on)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="UNIX_Command_Line_Basics.html">Introduction to UNIX Command Line Interface (CLI)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_2.html">Day 2 03/02</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day02_0302/numpy_teaching_module.html">Introduction to NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day02_0302/matplotlib_teaching_module.html">Introduction to Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day02_0302/sympy_teaching_module.html">SymPy Mini Teaching Module (Beginner)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_3.html">Day 3 03/09</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day03_0309/pandas_basics_teaching_notebook.html">Pandas Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day03_0309/pandas_demo_with_material_data.html">Pandas Demonstration Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day03_0309/Ideal_gas_calculation.html">Ideal gas behavior</a></li>
 </ul>
 </details></li>
 </ul>
@@ -405,11 +417,11 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mf">3.14</span>
-<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;HCY&quot;</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;HCY&quot;</span> <span class="c1"># string</span>
 <span class="n">flag</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">nothing</span> <span class="o">=</span> <span class="kc">None</span>
 
-<span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">flag</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">nothing</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">flag</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">nothing</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -564,9 +576,21 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">point</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Unpacking</span>
 <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">point</span>
 <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -577,7 +601,7 @@ document.write(`
 <p>Sets are useful for removing duplicates and performing set algebra (union/intersection/etc.).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Li&quot;</span><span class="p">,</span> <span class="s2">&quot;Na&quot;</span><span class="p">,</span> <span class="s2">&quot;K&quot;</span><span class="p">,</span> <span class="s2">&quot;Na&quot;</span><span class="p">}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Li&quot;</span><span class="p">,</span> <span class="s2">&quot;Na&quot;</span><span class="p">,</span> <span class="s2">&quot;K&quot;</span><span class="p">,</span> <span class="s2">&quot;Na&quot;</span><span class="p">,</span> <span class="s2">&quot;S&quot;</span><span class="p">,</span> <span class="s2">&quot;O&quot;</span><span class="p">,</span> <span class="s2">&quot;Li&quot;</span><span class="p">}</span>
 <span class="n">elements</span>  <span class="c1"># duplicates removed</span>
 </pre></div>
 </div>
@@ -587,7 +611,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Li&quot;</span><span class="p">,</span> <span class="s2">&quot;Na&quot;</span><span class="p">,</span> <span class="s2">&quot;K&quot;</span><span class="p">}</span>
 <span class="n">B</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Na&quot;</span><span class="p">,</span> <span class="s2">&quot;Mg&quot;</span><span class="p">,</span> <span class="s2">&quot;Al&quot;</span><span class="p">}</span>
-<span class="n">A</span> <span class="o">|</span> <span class="n">B</span><span class="p">,</span> <span class="n">A</span> <span class="o">&amp;</span> <span class="n">B</span><span class="p">,</span> <span class="n">A</span> <span class="o">-</span> <span class="n">B</span>  <span class="c1"># union, intersection, difference</span>
+<span class="n">A</span> <span class="o">|</span> <span class="n">B</span> <span class="p">,</span> <span class="n">A</span> <span class="o">&amp;</span> <span class="n">B</span><span class="p">,</span> <span class="n">A</span> <span class="o">-</span> <span class="n">B</span>  <span class="c1"># union, intersection, difference</span>
 </pre></div>
 </div>
 </div>
@@ -648,8 +672,8 @@ document.write(`
     <span class="k">if</span> <span class="n">v</span> <span class="o">==</span> <span class="n">target_value</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
 
-<span class="c1"># key = [k for k, v in course.items() if v == target]</span>
-<span class="c1"># print(key)        </span>
+<span class="n">key</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">course</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">v</span> <span class="o">==</span> <span class="n">target_value</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>        
 </pre></div>
 </div>
 </div>
@@ -666,7 +690,7 @@ document.write(`
     <span class="p">{</span><span class="s2">&quot;day&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;Mar 2&quot;</span><span class="p">,</span>  <span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;Data types + control flow&quot;</span><span class="p">},</span>
     <span class="p">{</span><span class="s2">&quot;day&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;Mar 9&quot;</span><span class="p">,</span>  <span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;NumPy intro&quot;</span><span class="p">},</span>
 <span class="p">]</span>
-<span class="n">schedule</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;topic&quot;</span><span class="p">]</span>
+<span class="n">schedule</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="s2">&quot;date&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
