@@ -78,7 +78,7 @@
     <td style="border: 1px solid #ddd; padding: 8px;"> TBA <strong>Homework 5 release</strong></td>
   </tr>     
   <tr> <!-- week 16 -->
-    <td style="border: 1px solid #ddd; padding: 8px;">16 (Jun 8)</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">15 (Jun 8)</td>
     <td style="border: 1px solid #ddd; padding: 8px;"><strong>Final exam.</strong></td>
   </tr>   
 </table>
