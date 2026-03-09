@@ -30,6 +30,14 @@ parts:
         - file: daily/Day02_0302/numpy_teaching_module.ipynb
         - file: daily/Day02_0302/matplotlib_teaching_module.ipynb
         - file: daily/Day02_0302/sympy_teaching_module.ipynb 
+
+      - file: section_files/day_3
+        sections:        
+        - file: daily/Day03_0309/pandas_basics_teaching_notebook.ipynb
+        - file: daily/Day03_0309/pandas_demo_with_material_data.ipynb
+        - file: daily/Day03_0309/Ideal_gas_calculation.ipynb
+        
+        
         
   - caption: Exam/Quiz
     chapters:
