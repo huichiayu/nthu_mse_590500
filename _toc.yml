@@ -48,7 +48,7 @@ parts:
     chapters:
         - file: section_files/HW01
           sections: 
-            -file: homework/HW01/MSE590500_HW1_student
+            - file: homework/HW01/MSE590500_HW1_student
 
 
 
