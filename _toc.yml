@@ -46,7 +46,9 @@ parts:
 
   - caption: Homework
     chapters:
-      - file: homework/HW01/HW01
+        - file: section_files/HW01
+        sections: 
+            -file: homework/HW01/MSE590500_HW1_student.ipynb
 
 #         
     
