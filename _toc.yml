@@ -46,7 +46,7 @@ parts:
 
   - caption: Homework
     chapters:
-      - file: homework/HW01/HW01.md
-        title: Homework assignment 1 
+      - file: homework/HW01/HW01
+
 #         
     
