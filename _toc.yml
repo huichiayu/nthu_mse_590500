@@ -41,12 +41,13 @@ parts:
         sections:        
         - url: https://youtu.be/W8pjXJr98Ck
           title: Classical thermo - enthalpy calculation 1
-          external: true
-          
+ 
         - url: https://youtu.be/-O7L3ZuQ_8E
           title: Classical thermo - enthalpy calculation 2
-          external: true          
-          
+         
+        - url: https://youtu.be/Y28fCO2Gtpc
+          title: Classical thermo - entropy calculation
+
         - file: daily/Day04_0316/Enthalpy_01.ipynb
         - file: daily/Day04_0316/Entropy_v01.ipynb
 
