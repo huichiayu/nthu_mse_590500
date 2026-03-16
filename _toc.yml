@@ -37,6 +37,14 @@ parts:
         - file: daily/Day03_0309/pandas_demo_with_material_data.ipynb
         - file: daily/Day03_0309/Ideal_gas_calculation.ipynb
         
+      - file: section_files/day_4
+        sections:        
+        - url: https://youtu.be/W8pjXJr98Ck 
+          external: true
+          title: Classical thermo - enthalpy calculation 
+        - file: daily/Day04_0316/Enthalpy_01.ipynb
+        - file: daily/Day04_0316/Entropy_v01.ipynb
+
         
         
   - caption: Exam/Quiz
