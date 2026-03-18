@@ -53,6 +53,11 @@ parts:
 #           external: true
 #           title: Classical thermo - entropy calculation  
      
+      - file: section_files/day_5
+        sections:        
+#         - file: daily/Day04_0316/Enthalpy_01
+#         - file: daily/Day04_0316/Entropy_v01
+
         
   - caption: Exam/Quiz
     chapters:
