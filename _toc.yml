@@ -53,7 +53,7 @@ parts:
 
       - file: section_files/day_5
         sections:        
-#         - file: placeholder/placeholder
+        - file: placeholder/placeholder
 #         - file: daily/Day04_0316/Enthalpy_01
 #         - file: daily/Day04_0316/Entropy_v01
 
