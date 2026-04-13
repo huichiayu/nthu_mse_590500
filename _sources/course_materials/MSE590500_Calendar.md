@@ -47,7 +47,7 @@
   </tr> 
    <tr> <!-- week 8 -->
     <td style="border: 1px solid #ddd; padding: 8px;">07 (Apr 13)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;"> Ternary phase diagrams, PyCalPhad </span><strong>Homework 2 release</strong></td>
+    <td style="border: 1px solid #ddd; padding: 8px;"> Ternary phase diagrams, PyCalPhad. </span><strong>Homework 2 release</strong></td>
   </tr>  
   <tr style="background-color: #f9f9f9;"> <!-- week 9 -->
     <td style="border: 1px solid #ddd; padding: 8px;">08 (Apr 20)</td>
@@ -55,7 +55,6 @@
   </tr>
   <tr> <!-- week 10 -->
     <td style="border: 1px solid #ddd; padding: 8px;">09 (Apr 27)</td>
-    
     <td style="border: 1px solid #ddd; padding: 8px;"> <strong>Midterm exam.</strong> <strong>Homework 3 release</strong> </td>
   </tr>
   <tr style="background-color: #f9f9f9;"> <!-- week 11 -->
