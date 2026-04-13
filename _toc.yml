@@ -65,6 +65,15 @@ parts:
         - file: daily/Day06_0330/BinaryPhaseDiagram_MiscibleAlloys_student  
         - file: daily/Day06_0330/EutecticPhaseDiagram_student                
 
+      - file: section_files/day_7
+        sections: 
+        - file: daily/Day07_0413/ConvexHull_CommonTangent_Construction
+        - file: daily/Day07_0413/ternary_phase_diagram_module_student
+        - file: daily/Day07_0413/TieTriangle_demo
+        - file: daily/Day07_0413/PyCalPhas_demo
+        
+
+
   - caption: Exam/Quiz
     chapters:
       - file: course_materials/ExamQuiz_NTHU.md      
