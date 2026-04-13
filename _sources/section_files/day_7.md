@@ -1,6 +1,6 @@
-Day 6 03/30
+Day 7 04/13
 =======================
-This section contains the course materials for day 6.
+This section contains the course materials for day 7.
 
 Phase diagrams
 
