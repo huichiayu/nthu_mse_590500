@@ -452,13 +452,13 @@ T_c = \frac{a_0}{2R},
 
 
 <span class="c1"># Return the enthalpy for a regular solution</span>
-<span class="k">def</span> <span class="nf">get_H_rs</span><span class="p">(</span><span class="err">??</span><span class="p">,</span> <span class="err">??</span><span class="p">):</span>
-    <span class="n">H_rs</span> <span class="o">=</span> <span class="o">??</span>
+<span class="k">def</span> <span class="nf">get_H_rs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+    <span class="n">H_rs</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">H_rs</span>
 
 <span class="c1"># Return the combinatorial entropy</span>
-<span class="k">def</span> <span class="nf">get_S_rs</span><span class="p">(</span><span class="err">??</span><span class="p">,</span> <span class="err">??</span><span class="p">):</span>
-    <span class="n">S_rs</span> <span class="o">=</span> 
+<span class="k">def</span> <span class="nf">get_S_rs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">R</span><span class="p">):</span>
+    <span class="n">S_rs</span> <span class="o">=</span> <span class="o">-</span><span class="n">R</span> <span class="o">*</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="p">)</span>
     <span class="k">return</span> <span class="n">S_rs</span>
 
 <span class="c1"># Return the Gibbs free energy of mixing for a regular solution</span>
@@ -478,11 +478,11 @@ T_c = \frac{a_0}{2R},
 <span class="n">xv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">,</span><span class="mf">0.9999</span><span class="p">,</span><span class="mi">401</span><span class="p">)</span>
 
 <span class="c1"># Enthalpies of mixing</span>
-<span class="n">H1</span> <span class="o">=</span> <span class="n">get_H_rs</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">xv</span><span class="p">)</span>
-<span class="n">H2</span> <span class="o">=</span> <span class="n">get_H_rs</span><span class="p">(</span><span class="n">a2</span><span class="p">,</span> <span class="n">xv</span><span class="p">)</span>
+<span class="n">H1</span> <span class="o">=</span> <span class="n">get_H_rs</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span> <span class="n">a1</span><span class="p">)</span>
+<span class="n">H2</span> <span class="o">=</span> <span class="n">get_H_rs</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span> <span class="n">a2</span> <span class="p">)</span>
 
 <span class="c1"># Ideal entropy of mixing</span>
-<span class="n">S</span> <span class="o">=</span> <span class="n">get_S_rs</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">xv</span><span class="p">)</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">get_S_rs</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
 
 <span class="c1"># Gibbs free energy of mixing</span>
 <span class="n">G1</span> <span class="o">=</span> <span class="n">get_G_rs</span><span class="p">(</span><span class="n">H1</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
@@ -520,6 +520,12 @@ T_c = \frac{a_0}{2R},
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.26, -8000, &#39;$\\Delta G_{mix} = \\Delta H_{mix} - T\\Delta S_{mix}$&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/5f2d548dd7beacfabaf58f2a5ec7fa4f19306373d7c76df4ffe74d040620d911.png" src="../../_images/5f2d548dd7beacfabaf58f2a5ec7fa4f19306373d7c76df4ffe74d040620d911.png" />
+</div>
 </div>
 <p><strong>✅ Do This:</strong>  What is the main difference between the features of <span class="math notranslate nohighlight">\(\Delta G_{mix}\)</span> in <span class="math notranslate nohighlight">\(a_1\)</span> and <span class="math notranslate nohighlight">\(a_2\)</span> cases?</p>
 </section>
@@ -539,7 +545,7 @@ Thus, we obtain the chemical activity as
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># chemical activities for a_1</span>
 <span class="n">a_A1</span> <span class="o">=</span> <span class="n">xv</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">a1</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">xv</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">R</span><span class="o">/</span><span class="n">T</span><span class="p">)</span>
-<span class="n">a_B1</span> <span class="o">=</span> <span class="o">??</span>
+<span class="n">a_B1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">xv</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">a1</span><span class="o">*</span><span class="n">xv</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">R</span><span class="o">/</span><span class="n">T</span><span class="p">)</span>
 
 <span class="c1"># make 2 subfigures</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
@@ -550,21 +556,24 @@ Thus, we obtain the chemical activity as
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span> <span class="n">xv</span><span class="p">,</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">xv</span><span class="p">,</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;chemical activity&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$X_A$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$X_B$&#39;</span><span class="p">)</span>
 
 <span class="c1"># chemical activities for a_2</span>
-<span class="n">a_A2</span> <span class="o">=</span> <span class="o">??</span>
-<span class="n">a_B2</span> <span class="o">=</span> <span class="o">??</span>
+<span class="n">a_A2</span> <span class="o">=</span> <span class="n">xv</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">a2</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">xv</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">R</span><span class="o">/</span><span class="n">T</span><span class="p">)</span>
+<span class="n">a_B2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">xv</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">a2</span><span class="o">*</span><span class="n">xv</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">R</span><span class="o">/</span><span class="n">T</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span> <span class="n">a_A2</span><span class="p">,</span> <span class="s1">&#39;m-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">3.0</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span> <span class="n">a_B2</span><span class="p">,</span> <span class="s1">&#39;c-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">3.0</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span> <span class="n">xv</span><span class="p">,</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">xv</span><span class="p">,</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$X_A$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$X_B$&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/53f5b36ec503bdb611e2bb7282119cf4152e7249bbfed4846ec1242c8c86c580.png" src="../../_images/53f5b36ec503bdb611e2bb7282119cf4152e7249bbfed4846ec1242c8c86c580.png" />
 </div>
 </div>
 <p><strong>✅ Do This:</strong> Explain chemical activities, Raoult’s law, and Henry’s law.</p>
@@ -587,8 +596,8 @@ $<span class="math notranslate nohighlight">\(T_c = \frac{a}{2R}.\)</span>$</p>
 <span class="n">Tmax</span> <span class="o">=</span> <span class="n">Tc</span> <span class="o">+</span> <span class="mi">200</span>
 <span class="n">tv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">Tmin</span><span class="p">,</span> <span class="n">Tmax</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
 
-<span class="n">H</span> <span class="o">=</span> <span class="n">get_H_rs</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">xv</span><span class="p">)</span>
-<span class="n">S</span> <span class="o">=</span> <span class="n">get_S_rs</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">xv</span><span class="p">)</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">get_H_rs</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span> <span class="n">a1</span><span class="p">)</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">get_S_rs</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
 
 
 <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tv</span><span class="p">:</span>
@@ -604,6 +613,9 @@ $<span class="math notranslate nohighlight">\(T_c = \frac{a}{2R}.\)</span>$</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>     
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/cb52e2d9de835917bf7f06a3e2a87acf3451821591c422fd73a763b6c8b023e9.png" src="../../_images/cb52e2d9de835917bf7f06a3e2a87acf3451821591c422fd73a763b6c8b023e9.png" />
 </div>
 </div>
 <p><strong>✅ Do This:</strong> Describe how Gibbs free energy function changes as temprature increases.</p>
@@ -622,10 +634,14 @@ Below provides the expression of \)</span>\mu=\partial G/\partial X$.</p>
 
 <span class="n">x</span><span class="p">,</span> <span class="n">a_ex</span><span class="p">,</span> <span class="n">R_ex</span><span class="p">,</span> <span class="n">T_ex</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x a_ex R_ex T_ex&#39;</span><span class="p">)</span>
 <span class="n">G_ex</span> <span class="o">=</span> <span class="n">a_ex</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">R_ex</span> <span class="o">*</span> <span class="n">T_ex</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
-<span class="n">mu_ex</span> <span class="o">=</span> <span class="o">??</span>
+<span class="n">mu_ex</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">G_ex</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> 
 <span class="n">mu_ex</span> 
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle R_{ex} T_{ex} \left(\log{\left(x \right)} - \log{\left(1 - x \right)}\right) - a_{ex} x + a_{ex} \left(1 - x\right)\]</div>
 </div>
 </div>
 <ul class="simple">
@@ -638,9 +654,11 @@ Below provides the expression of \)</span>\mu=\partial G/\partial X$.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">root_scalar</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
+<span class="c1"># root_scalar is scipy built-in function for finding roots</span>
+
 <span class="k">def</span> <span class="nf">mu</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">T</span><span class="p">):</span>
     <span class="c1"># calculate mu and return the value</span>
-    <span class="k">return</span> <span class="o">??</span>
+    <span class="k">return</span> <span class="n">R</span><span class="o">*</span><span class="n">T</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">))</span> <span class="o">-</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">a</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
     
 <span class="k">def</span> <span class="nf">root_finding</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">):</span>
     <span class="n">vals</span> <span class="o">=</span> <span class="n">mu</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
@@ -692,6 +710,12 @@ Below provides the expression of \)</span>\mu=\partial G/\partial X$.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.07007386 0.5        0.92992614]
+</pre></div>
+</div>
+<img alt="../../_images/b7ccc4b9495a61d3907fb7fce21e32ec7a1e7cabbf937aa1c0ed11654ed0edb9.png" src="../../_images/b7ccc4b9495a61d3907fb7fce21e32ec7a1e7cabbf937aa1c0ed11654ed0edb9.png" />
+</div>
 </div>
 <p><strong>✅ Do This:</strong> Are the roots close to those on the figure?</p>
 <ul class="simple">
@@ -708,7 +732,7 @@ Below provides the expression of \)</span>\mu=\partial G/\partial X$.</p>
     <span class="n">axis</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> 
     <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
         <span class="n">axis</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="n">Tc</span><span class="o">*</span><span class="mf">1.05</span><span class="p">)</span>
-        <span class="n">axis</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$x_</span><span class="si">{A}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+        <span class="n">axis</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$x_</span><span class="si">{B}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">axis</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 
@@ -718,8 +742,8 @@ Below provides the expression of \)</span>\mu=\partial G/\partial X$.</p>
 <span class="n">T_pd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">Tc</span><span class="o">-</span><span class="mi">400</span><span class="p">,</span> <span class="n">Tc</span><span class="o">-</span><span class="mi">200</span><span class="p">,</span> <span class="n">Tc</span><span class="o">-</span><span class="mf">0.01</span><span class="p">])</span>
 
 <span class="c1"># enthalpy and entropy</span>
-<span class="n">H</span> <span class="o">=</span> <span class="n">get_H_rs</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">xv</span><span class="p">)</span>
-<span class="n">S</span> <span class="o">=</span> <span class="n">get_S_rs</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">xv</span><span class="p">)</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">get_H_rs</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span> <span class="n">a1</span><span class="p">)</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">get_S_rs</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
 
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">T_pd</span><span class="p">)):</span>
@@ -739,12 +763,12 @@ Below provides the expression of \)</span>\mu=\partial G/\partial X$.</p>
     <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">ti</span> <span class="ow">in</span> <span class="n">tv</span><span class="p">:</span>
         <span class="n">vals</span> <span class="o">=</span> <span class="n">mu</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">ti</span><span class="p">)</span>
-        <span class="n">r1</span> <span class="o">=</span> <span class="n">root_finding</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">vals</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">ti</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">)</span>
-        <span class="n">xboundary</span><span class="p">[</span><span class="n">cnt</span><span class="p">]</span> <span class="o">=</span> <span class="n">r1</span><span class="p">[</span><span class="err">??</span><span class="p">]</span>
-        <span class="n">yboundary</span><span class="p">[</span><span class="n">cnt</span><span class="p">]</span> <span class="o">=</span> <span class="o">??</span>
+        <span class="n">r1</span> <span class="o">=</span> <span class="n">root_finding</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">ti</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">)</span>
+        <span class="n">xboundary</span><span class="p">[</span><span class="n">cnt</span><span class="p">]</span> <span class="o">=</span> <span class="n">r1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">yboundary</span><span class="p">[</span><span class="n">cnt</span><span class="p">]</span> <span class="o">=</span> <span class="n">ti</span>
     
-        <span class="n">xboundary</span><span class="p">[</span><span class="err">??</span><span class="p">]</span> <span class="o">=</span> <span class="n">r1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">yboundary</span><span class="p">[</span><span class="err">??</span><span class="p">]</span> <span class="o">=</span> <span class="n">ti</span>
+        <span class="n">xboundary</span><span class="p">[</span><span class="n">Num_T</span><span class="o">*</span><span class="mi">2</span> <span class="o">-</span> <span class="n">cnt</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">r1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">yboundary</span><span class="p">[</span><span class="n">Num_T</span><span class="o">*</span><span class="mi">2</span> <span class="o">-</span> <span class="n">cnt</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">ti</span>
     
         <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
 
@@ -758,6 +782,9 @@ Below provides the expression of \)</span>\mu=\partial G/\partial X$.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/9840b2184fc97cfca2f4f4fc70e60d431b939481765e3843a1ecb4bfe991210f.png" src="../../_images/9840b2184fc97cfca2f4f4fc70e60d431b939481765e3843a1ecb4bfe991210f.png" />
 </div>
 </div>
 </section>
@@ -773,6 +800,10 @@ $<span class="math notranslate nohighlight">\(\frac{\partial \mu}{\partial X} = 
 <span class="n">dmu_ex</span> 
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle R_{ex} T_{ex} \left(\frac{1}{1 - x} + \frac{1}{x}\right) - 2 a_{ex}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -814,7 +845,7 @@ $<span class="math notranslate nohighlight">\(\frac{\partial \mu}{\partial X} = 
     
     <span class="c1"># spinodal region</span>
     <span class="n">vals</span> <span class="o">=</span> <span class="n">dmu</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">ti</span><span class="p">)</span>
-    <span class="n">r2</span> <span class="o">=</span> <span class="n">root_finding</span><span class="p">(</span><span class="err">??</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">)</span>
+    <span class="n">r2</span> <span class="o">=</span> <span class="n">root_finding</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">dmu</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">ti</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">)</span>
     <span class="n">sboundary</span><span class="p">[</span><span class="n">cnt</span><span class="p">]</span> <span class="o">=</span> <span class="n">r2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">sboundary</span><span class="p">[</span><span class="n">Num_T</span><span class="o">*</span><span class="mi">2</span> <span class="o">-</span> <span class="n">cnt</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">r2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
@@ -840,6 +871,9 @@ $<span class="math notranslate nohighlight">\(\frac{\partial \mu}{\partial X} = 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/94b76263354a5907ce1d4a92b6a15f8ebc4a4793457a445a1c3d6dd76dc54996.png" src="../../_images/94b76263354a5907ce1d4a92b6a15f8ebc4a4793457a445a1c3d6dd76dc54996.png" />
 </div>
 </div>
 <p><strong>Please upload your completed file to</strong></p>

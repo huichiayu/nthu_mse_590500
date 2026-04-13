@@ -516,10 +516,36 @@ and
     <span class="k">return</span> <span class="n">get_Gref</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">aB</span><span class="p">,</span> <span class="n">bB</span><span class="p">)</span>
 
 <span class="c1"># calculate melting point</span>
+<span class="n">TmA</span> <span class="o">=</span> <span class="n">newton</span><span class="p">(</span><span class="n">GrefA_func</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="n">TmB</span> <span class="o">=</span> <span class="n">newton</span><span class="p">(</span><span class="n">GrefB_func</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Melting point</span><span class="se">\n</span><span class="s2">  of component A = &quot;</span><span class="p">,</span> <span class="n">TmA</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">  of component B = &quot;</span><span class="p">,</span> <span class="n">TmB</span><span class="p">)</span>
 
 <span class="c1"># visualization</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tv</span><span class="p">,</span> <span class="n">GrefA</span><span class="p">,</span> <span class="s1">&#39;g-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">3.0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tv</span><span class="p">,</span> <span class="n">GrefB</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">3.0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;Component A&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;Component B&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$T$ (K)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Gibbs free energy (kJ/mol)&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Melting point
+  of component A =  500.00000000000006 
+  of component B =  625.0
+</pre></div>
+</div>
+<img alt="../../_images/a48870a750ada815c11dbf3a238cde165e3b0c7bd04ca0b94cdf2b25f22ff5e4.png" src="../../_images/a48870a750ada815c11dbf3a238cde165e3b0c7bd04ca0b94cdf2b25f22ff5e4.png" />
 </div>
 </div>
 </section>
@@ -559,40 +585,7 @@ and
 <span class="n">G_L</span> <span class="o">=</span> <span class="n">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">xv</span><span class="p">)</span>
 
 <span class="c1"># Plot Gibbs free energy for both phases</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span> <span class="n">G_S</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$G^</span><span class="se">\\</span><span class="s1">mathrm</span><span class="si">{S}</span><span class="s1">$&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span> <span class="n">G_L</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$G^</span><span class="se">\\</span><span class="s1">mathrm</span><span class="si">{L}</span><span class="s1">$&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$x_</span><span class="se">\\</span><span class="s1">mathrm</span><span class="si">{B}</span><span class="s1">$&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Gibbs free energy (kJ/mol)&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">prop</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">})</span>
-
-<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The choice of reference state is arbitrary and does not change the thermodynamics. In the above example, we use the liquid phase as the reference state for pure component A and B. Hence, the Gibbs free energy of the liquid phase goes to zero for <span class="math notranslate nohighlight">\(x_B = 0\)</span> and <span class="math notranslate nohighlight">\(x_B =1\)</span>.</p>
-<p><strong>If we want to change the reference state for pure component A to be the solid phase, how would you modify the equations for the Gibbs free energy of the solid and liquid mixture?</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Return the Gibbs free energy accounting for the reference states for A and B</span>
-<span class="c1"># We select the liquid phase as the reference state for both pure components</span>
-<span class="k">def</span> <span class="nf">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">get_G_rs</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">a_S</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="o">??</span>
-
-<span class="k">def</span> <span class="nf">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">get_G_rs</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">a_L</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="o">??</span>
-
-<span class="n">G_S</span> <span class="o">=</span> <span class="n">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">xv</span><span class="p">)</span>
-<span class="n">G_L</span> <span class="o">=</span> <span class="n">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">xv</span><span class="p">)</span>
-
-<span class="c1"># Plot Gibbs free energy for both phases</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span> <span class="n">G_S</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$G^</span><span class="se">\\</span><span class="s1">mathrm</span><span class="si">{S}</span><span class="s1">$&#39;</span><span class="p">)</span>
@@ -607,6 +600,45 @@ and
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/da384b3dcab39bee179a5546f7452482b1e909905f8526bcd655bcd20feef134.png" src="../../_images/da384b3dcab39bee179a5546f7452482b1e909905f8526bcd655bcd20feef134.png" />
+</div>
+</div>
+<p>The choice of reference state is arbitrary and does not change the thermodynamics. In the above example, we use the liquid phase as the reference state for pure component A and B. Hence, the Gibbs free energy of the liquid phase goes to zero for <span class="math notranslate nohighlight">\(x_B = 0\)</span> and <span class="math notranslate nohighlight">\(x_B =1\)</span>.</p>
+<p><strong>If we want to change the reference state for pure component A to be the solid phase, how would you modify the equations for the Gibbs free energy of the solid and liquid mixture?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Return the Gibbs free energy accounting for the reference states for A and B</span>
+<span class="c1"># We select the liquid phase as the reference state for both pure components</span>
+<span class="k">def</span> <span class="nf">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">get_G_rs</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">a_S</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">get_Gref</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">aB</span><span class="p">,</span> <span class="n">bB</span><span class="p">)</span><span class="o">*</span><span class="n">x</span>
+
+<span class="k">def</span> <span class="nf">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">get_G_rs</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">a_L</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">get_Gref</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">aA</span><span class="p">,</span> <span class="n">bA</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span> 
+
+<span class="n">G_S</span> <span class="o">=</span> <span class="n">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">xv</span><span class="p">)</span>
+<span class="n">G_L</span> <span class="o">=</span> <span class="n">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">xv</span><span class="p">)</span>
+
+<span class="c1"># Plot Gibbs free energy for both phases</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span> <span class="n">G_S</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$G^</span><span class="se">\\</span><span class="s1">mathrm</span><span class="si">{S}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span> <span class="n">G_L</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$G^</span><span class="se">\\</span><span class="s1">mathrm</span><span class="si">{L}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$x_</span><span class="se">\\</span><span class="s1">mathrm</span><span class="si">{B}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Gibbs free energy (kJ/mol)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">prop</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">})</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/e06fe43bd4ff6c679ff778b134b3573a27ae2b66243018f9705bbe5ca284c70b.png" src="../../_images/e06fe43bd4ff6c679ff778b134b3573a27ae2b66243018f9705bbe5ca284c70b.png" />
 </div>
 </div>
 </section>
@@ -638,13 +670,13 @@ and
 
 <span class="c1"># Calculate the derivative of G_L with respect to x</span>
 <span class="n">dx</span> <span class="o">=</span> <span class="mf">0.0001</span>
-<span class="n">dG_Ldx</span> <span class="o">=</span> <span class="o">??</span>
-<span class="n">mu_A</span> <span class="o">=</span> <span class="o">??</span>
-<span class="n">mu_B</span> <span class="o">=</span> <span class="o">??</span>
+<span class="n">dG_Ldx</span> <span class="o">=</span> <span class="p">(</span><span class="n">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="n">dx</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="o">-</span><span class="n">dx</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span><span class="o">/</span><span class="n">dx</span>
+<span class="n">mu_A</span> <span class="o">=</span> <span class="n">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="n">dG_Ldx</span>
+<span class="n">mu_B</span> <span class="o">=</span> <span class="n">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">dG_Ldx</span>
 
 
 <span class="c1"># Plot Gibbs free energy for both phases</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span> <span class="n">G_S</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$G^</span><span class="se">\\</span><span class="s1">mathrm</span><span class="si">{S}</span><span class="s1">$&#39;</span><span class="p">)</span>
@@ -655,7 +687,11 @@ and
 <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">mu_A$&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.08</span><span class="p">,</span> <span class="n">mu_A</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">mu_B$&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">1.02</span><span class="p">,</span> <span class="n">mu_B</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
+<span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">],[</span><span class="n">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="n">ymin</span><span class="p">],</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$x_</span><span class="se">\\</span><span class="s1">mathrm</span><span class="si">{B}</span><span class="s1">$&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Gibbs free energy (kJ/mol)&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">prop</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">})</span>
@@ -664,17 +700,20 @@ and
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/c58834969c141419c4d1c770cc05a3f89cead36ccb5aee89b8cccfb3b9a3b185.png" src="../../_images/c58834969c141419c4d1c770cc05a3f89cead36ccb5aee89b8cccfb3b9a3b185.png" />
+</div>
 </div>
 </section>
 <section id="calculate-a-common-tangent">
 <h2>Calculate a common tangent<a class="headerlink" href="#calculate-a-common-tangent" title="Link to this heading">#</a></h2>
 <p>Finally, we will calculate the common tangent to determine the chemical equilibrium between the solid and liquid phase. We will use the Python function <code class="docutils literal notranslate"><span class="pre">fsolve</span></code> to determine the mole fraction <span class="math notranslate nohighlight">\(x_B\)</span> in the solid and liquid phase such that the chemical potentials in each phase are equal:
 $<span class="math notranslate nohighlight">\(
-\mu_A^S = \mu_A^L
+\mu_A^S(X_S) = \mu_A^L(X_L)
 \)</span><span class="math notranslate nohighlight">\(
 and
 \)</span><span class="math notranslate nohighlight">\(
-\mu_B^S = \mu_B^L.
+\mu_B^S(X_S) = \mu_B^L(X_L).
 \)</span>$</p>
 <p><strong>Calculate the equilibrium mole fractions in the solid and liquid phase for a range of temperatures and sketch out the phase diagram.</strong></p>
 <div class="cell docutils container">
@@ -688,13 +727,17 @@ and
 <span class="c1"># Return the chemical potentials of components A and B for the solid phase</span>
 <span class="k">def</span> <span class="nf">get_mu_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="n">dx</span> <span class="o">=</span> <span class="mf">0.0001</span>
-    <span class="o">??</span>
+    <span class="n">dG_Sdx</span> <span class="o">=</span> <span class="p">(</span><span class="n">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="n">dx</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="o">-</span><span class="n">dx</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span><span class="o">/</span><span class="n">dx</span>
+    <span class="n">mu_A</span> <span class="o">=</span> <span class="n">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="n">dG_Sdx</span>
+    <span class="n">mu_B</span> <span class="o">=</span> <span class="n">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">dG_Sdx</span>
     <span class="k">return</span> <span class="n">mu_A</span><span class="p">,</span> <span class="n">mu_B</span>
 
 <span class="c1"># Return the chemical potentials of components A and B for the liquid phase</span>
 <span class="k">def</span> <span class="nf">get_mu_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="n">dx</span> <span class="o">=</span> <span class="mf">0.0001</span>
-    <span class="o">??</span>
+    <span class="n">dG_Ldx</span> <span class="o">=</span> <span class="p">(</span><span class="n">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="n">dx</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="o">-</span><span class="n">dx</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span><span class="o">/</span><span class="n">dx</span>
+    <span class="n">mu_A</span> <span class="o">=</span> <span class="n">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="n">dG_Ldx</span>
+    <span class="n">mu_B</span> <span class="o">=</span> <span class="n">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">dG_Ldx</span>
     <span class="k">return</span> <span class="n">mu_A</span><span class="p">,</span> <span class="n">mu_B</span>
 
 <span class="c1"># Find the composition x such that mu_A^S = mu_A^L and mu_B^S = mu_B^L</span>
@@ -712,7 +755,7 @@ and
     <span class="k">return</span> <span class="n">mu_A_S</span><span class="o">-</span><span class="n">mu_A_L</span><span class="p">,</span> <span class="n">mu_B_S</span><span class="o">-</span><span class="n">mu_B_L</span>
 
 <span class="c1"># May need to ensure that we use a reasonable starting guess</span>
-<span class="n">x_S</span><span class="p">,</span> <span class="n">x_L</span> <span class="o">=</span>  <span class="n">fsolve</span><span class="p">(</span><span class="n">commontangent_solid_liquid</span><span class="p">,</span> <span class="err">??</span><span class="p">)</span>
+<span class="n">x_S</span><span class="p">,</span> <span class="n">x_L</span> <span class="o">=</span>  <span class="n">fsolve</span><span class="p">(</span><span class="n">commontangent_solid_liquid</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
 
 <span class="n">mu_A_S</span><span class="p">,</span> <span class="n">mu_B_S</span> <span class="o">=</span> <span class="n">get_mu_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x_S</span><span class="p">)</span>
 <span class="n">mu_A_L</span><span class="p">,</span> <span class="n">mu_B_L</span> <span class="o">=</span> <span class="n">get_mu_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x_L</span><span class="p">)</span>
@@ -721,7 +764,7 @@ and
 <span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39; x_S = </span><span class="si">{}</span><span class="s1"> </span><span class="se">\\</span><span class="s1"> x_L = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">x_S</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">x_L</span><span class="p">,</span><span class="mi">3</span><span class="p">))))</span>
 
 <span class="c1"># Plot Gibbs free energy for both phases</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span> <span class="n">G_S</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$G^</span><span class="se">\\</span><span class="s1">mathrm</span><span class="si">{S}</span><span class="s1">$&#39;</span><span class="p">)</span>
@@ -733,6 +776,9 @@ and
 <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">mu_B$&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">1.02</span><span class="p">,</span> <span class="n">mu_B_S</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x_L</span><span class="p">,</span> <span class="n">x_L</span><span class="p">],[</span><span class="n">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x_L</span><span class="p">),</span> <span class="n">ymin</span><span class="p">],</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x_S</span><span class="p">,</span> <span class="n">x_S</span><span class="p">],[</span><span class="n">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x_S</span><span class="p">),</span> <span class="n">ymin</span><span class="p">],</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$x_</span><span class="se">\\</span><span class="s1">mathrm</span><span class="si">{B}</span><span class="s1">$&#39;</span><span class="p">)</span>
@@ -743,16 +789,32 @@ and
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Common tangent construction:
+</pre></div>
+</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle  x_S = 0.929 \\ x_L = 0.472\end{split}\]</div>
+<img alt="../../_images/72e320c913ff7496ed1b1682c302efeb403931a17d23cbabdc804e23d1d706f3.png" src="../../_images/72e320c913ff7496ed1b1682c302efeb403931a17d23cbabdc804e23d1d706f3.png" />
+</div>
 </div>
 </section>
 <section id="stable-phases-as-a-function-of-temperature">
 <h2>Stable phases as a function of temperature<a class="headerlink" href="#stable-phases-as-a-function-of-temperature" title="Link to this heading">#</a></h2>
 <p>Next we will illustrate how we obtain the stable phases and their composition at three different temperatures.</p>
 <p>At low temperatures, the stable phases will be the A-rich and B-rich solid phases, given by the Gibbs free energy of the regular solution model.</p>
+<div class="math notranslate nohighlight">
+\[
+\mu_{A}^S(X_1) = \mu_{A}^S(X_2)
+\]</div>
+<p>and
+$<span class="math notranslate nohighlight">\(
+\mu_B^S(X_1)  = \mu_B^L(X_2) .
+\)</span>$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Low temperature equilibrium between the A-rich and B-rich phases at T = 400K</span>
-<span class="n">T</span> <span class="o">=</span> <span class="mi">400</span> 
+<span class="n">T</span> <span class="o">=</span> <span class="mi">400</span>
 
 <span class="n">G_S</span> <span class="o">=</span> <span class="n">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">xv</span><span class="p">)</span>
 <span class="n">G_L</span> <span class="o">=</span> <span class="n">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">xv</span><span class="p">)</span>
@@ -766,7 +828,7 @@ and
 <span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39; x_S^1 = </span><span class="si">{}</span><span class="s1"> </span><span class="se">\\</span><span class="s1"> x_S^2 = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">x_S1</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">x_S2</span><span class="p">,</span><span class="mi">3</span><span class="p">))))</span>
 
 <span class="c1"># Plot Gibbs free energy for both phases</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span> <span class="n">G_S</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$G^</span><span class="se">\\</span><span class="s1">mathrm</span><span class="si">{S}</span><span class="s1">$&#39;</span><span class="p">)</span>
@@ -774,7 +836,14 @@ and
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="n">mu_A_S1</span><span class="p">,</span> <span class="n">mu_B_S1</span><span class="p">],</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
 
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">mu_A$&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.08</span><span class="p">,</span> <span class="n">mu_A_S1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">mu_B$&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">1.02</span><span class="p">,</span> <span class="n">mu_B_S1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
 <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x_S1</span><span class="p">,</span> <span class="n">x_S1</span><span class="p">],[</span><span class="n">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x_S1</span><span class="p">),</span> <span class="n">ymin</span><span class="p">],</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x_S2</span><span class="p">,</span> <span class="n">x_S2</span><span class="p">],[</span><span class="n">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x_S2</span><span class="p">),</span> <span class="n">ymin</span><span class="p">],</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$x_</span><span class="se">\\</span><span class="s1">mathrm</span><span class="si">{B}</span><span class="s1">$&#39;</span><span class="p">)</span>
@@ -784,6 +853,14 @@ and
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Common tangent construction:
+</pre></div>
+</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle  x_S^1 = 0.07 \\ x_S^2 = 0.93\end{split}\]</div>
+<img alt="../../_images/0879b6c74d58789a4ba032f91e02d0830b819bdc84be778d27260928b2c8c404.png" src="../../_images/0879b6c74d58789a4ba032f91e02d0830b819bdc84be778d27260928b2c8c404.png" />
 </div>
 </div>
 <p>At increasing temperature, the solubilities in the two solid phases will increase until we reach the eutectic temperature, where the liquid phase is in equilibrium with the two solid phases.</p>
@@ -836,6 +913,14 @@ and
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">47</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
+    <span class="n">x_S1</span><span class="p">,</span> <span class="n">x_L1</span> <span class="o">=</span>  <span class="n">fsolve</span><span class="p">(</span><span class="n">commontangent_solid_liquid</span><span class="p">,</span> <span class="err">??</span><span class="p">)</span>
+                                                     <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="calculation-of-the-eutectic-point">
@@ -845,11 +930,14 @@ and
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">commontangent_solid_liquid_solid</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
     <span class="n">x_S1</span><span class="p">,</span> <span class="n">x_L</span><span class="p">,</span> <span class="n">x_S2</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="n">p</span>
-    <span class="o">??</span>
+    <span class="n">mu_A_S1</span><span class="p">,</span> <span class="n">mu_B_S1</span> <span class="o">=</span> <span class="n">get_mu_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">x_S1</span><span class="p">)</span>
+    <span class="n">mu_A_L</span><span class="p">,</span> <span class="n">mu_B_L</span> <span class="o">=</span> <span class="n">get_mu_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">x_L</span><span class="p">)</span>
+    <span class="n">mu_A_S2</span><span class="p">,</span> <span class="n">mu_B_S2</span> <span class="o">=</span> <span class="n">get_mu_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">x_S2</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">mu_A_S1</span><span class="o">-</span><span class="n">mu_A_L</span><span class="p">,</span> <span class="n">mu_B_S1</span><span class="o">-</span><span class="n">mu_B_L</span><span class="p">,</span> <span class="n">mu_A_S2</span><span class="o">-</span><span class="n">mu_A_L</span><span class="p">,</span> <span class="n">mu_B_S2</span><span class="o">-</span><span class="n">mu_B_L</span>
 
 <span class="c1"># May need to ensure that we use a reasonable starting guess</span>
 <span class="n">x_S1e</span><span class="p">,</span> <span class="n">x_Le</span><span class="p">,</span> <span class="n">x_S2e</span><span class="p">,</span> <span class="n">Te</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="n">commontangent_solid_liquid_solid</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mi">410</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Te</span><span class="p">)</span>
 
 <span class="n">T</span> <span class="o">=</span> <span class="n">Te</span>
 <span class="n">G_S</span> <span class="o">=</span> <span class="n">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">xv</span><span class="p">)</span>
@@ -864,7 +952,7 @@ and
         <span class="nb">round</span><span class="p">(</span><span class="n">x_Le</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">x_S2e</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">Te</span><span class="p">,</span><span class="mi">1</span><span class="p">))))</span>
 
 <span class="c1"># Plot Gibbs free energy for both phases</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span> <span class="n">G_S</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$G^</span><span class="se">\\</span><span class="s1">mathrm</span><span class="si">{S}</span><span class="s1">$&#39;</span><span class="p">)</span>
@@ -920,7 +1008,7 @@ and
 <span class="n">x2</span> <span class="o">=</span> <span class="n">x_S2e</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Npoints</span><span class="p">):</span>
     <span class="n">T</span> <span class="o">=</span> <span class="n">Tv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-    <span class="n">result</span> <span class="o">=</span>  <span class="n">fsolve</span><span class="p">(</span><span class="err">??</span><span class="p">,</span> <span class="err">??</span><span class="p">,</span> <span class="n">full_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span>  <span class="n">fsolve</span><span class="p">(</span><span class="n">commontangent_solid_solid</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.04</span><span class="p">,</span> <span class="mf">0.96</span><span class="p">),</span> <span class="n">full_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
         <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">SolvusA</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">SolvusB</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -934,7 +1022,7 @@ and
 <span class="n">xboundary</span><span class="p">,</span> <span class="n">yboundary</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">SolvusA</span><span class="p">,</span> <span class="n">SolvusB</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])),</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">Temp</span><span class="p">,</span> <span class="n">Temp</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
 
 <span class="c1"># Plot Phase Diagram</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;xkcd:light blue&#39;</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">SolvusA</span><span class="p">,</span> <span class="n">Temp</span><span class="p">,</span> <span class="s1">&#39;g-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Solvus&#39;</span><span class="p">)</span>
@@ -945,7 +1033,7 @@ and
 
 <span class="c1"># Set the temperature range ranging from the eutectic temperature to the melting point of pure A</span>
 <span class="n">Tmin</span> <span class="o">=</span> <span class="n">Te</span>
-<span class="n">Tmax</span> <span class="o">=</span> <span class="err">??</span> <span class="o">-</span> <span class="n">Tstep</span>
+<span class="n">Tmax</span> <span class="o">=</span> <span class="n">TmA</span> <span class="o">-</span> <span class="n">Tstep</span>
 <span class="n">Npoints</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">Tmax</span> <span class="o">-</span> <span class="n">Tmin</span><span class="p">)</span><span class="o">/</span><span class="n">Tstep</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">Tv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">Tmin</span><span class="p">,</span> <span class="n">Tmax</span><span class="p">,</span> <span class="n">Npoints</span><span class="p">)</span>
 <span class="n">Solidus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">Npoints</span><span class="p">)</span>
@@ -957,7 +1045,7 @@ and
 <span class="n">x2</span> <span class="o">=</span> <span class="n">x_Le</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Npoints</span><span class="p">):</span>
     <span class="n">T</span> <span class="o">=</span> <span class="n">Tv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-    <span class="n">result</span> <span class="o">=</span>  <span class="n">fsolve</span><span class="p">(</span><span class="err">??</span><span class="p">,</span> <span class="err">??</span><span class="p">,</span> <span class="n">full_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span>  <span class="n">fsolve</span><span class="p">(</span><span class="n">commontangent_solid_liquid</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">),</span> <span class="n">full_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
         <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">Solidus</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">Liquidus</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -977,9 +1065,9 @@ and
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Liquidus</span><span class="p">,</span> <span class="n">Temp</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Liquidus&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">xboundary</span><span class="p">,</span> <span class="n">yboundary</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="c1"># # 3) Consider the equilbrium between the B-rich solid and the liquid phase</span>
+<span class="c1"># # # 3) Consider the equilbrium between the B-rich solid and the liquid phase</span>
 
-<span class="c1"># # Set the temperature range ranging from the eutectic temperature to the melting point of pure B</span>
+<span class="c1"># # # Set the temperature range ranging from the eutectic temperature to the melting point of pure B</span>
 <span class="n">Tmin</span> <span class="o">=</span> <span class="n">Te</span>
 <span class="n">Tmax</span> <span class="o">=</span> <span class="n">TmB</span> <span class="o">-</span> <span class="n">Tstep</span>
 <span class="n">Npoints</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">Tmax</span> <span class="o">-</span> <span class="n">Tmin</span><span class="p">)</span><span class="o">/</span><span class="n">Tstep</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
@@ -993,7 +1081,7 @@ and
 <span class="n">x2</span> <span class="o">=</span> <span class="n">x_S2e</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Npoints</span><span class="p">):</span>
     <span class="n">T</span> <span class="o">=</span> <span class="n">Tv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-    <span class="n">result</span> <span class="o">=</span>  <span class="n">fsolve</span><span class="p">(</span><span class="err">??</span><span class="p">,</span> <span class="err">??</span><span class="p">,</span> <span class="n">full_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span>  <span class="n">fsolve</span><span class="p">(</span><span class="n">commontangent_solid_liquid</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">full_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
         <span class="n">x2</span><span class="p">,</span> <span class="n">x1</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">Solidus</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">Liquidus</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>

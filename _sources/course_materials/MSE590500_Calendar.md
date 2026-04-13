@@ -35,27 +35,28 @@
   </tr>
   <tr> <!-- week 5 -->
     <td style="border: 1px solid #ddd; padding: 8px;">05 (Mar 23)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;"> TBA </td>
+    <td style="border: 1px solid #ddd; padding: 8px;"> Class canceled </td>
   </tr>
   <tr> <!-- week 6 -->
     <td style="border: 1px solid #ddd; padding: 8px;">06 (Mar 30)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;"> TBA </td>
+    <td style="border: 1px solid #ddd; padding: 8px;"> Thermodynamic free energy, phase diagrams </td>
   </tr>  
   <tr style="background-color: #f9f9f9;"> <!-- week 7 -->
     <td style="border: 1px solid #ddd; padding: 8px;">00 (Apr 6)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;"><span style="color: red;">Holiday. No class. </span><strong>Homework 2 release</strong></td>
+    <td style="border: 1px solid #ddd; padding: 8px;"><span style="color: red;">Holiday. No class.</td>
   </tr> 
    <tr> <!-- week 8 -->
     <td style="border: 1px solid #ddd; padding: 8px;">07 (Apr 13)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;"> TBA </td>
+    <td style="border: 1px solid #ddd; padding: 8px;"> Ternary phase diagrams, PyCalPhad </span><strong>Homework 2 release</strong></td>
   </tr>  
   <tr style="background-color: #f9f9f9;"> <!-- week 9 -->
     <td style="border: 1px solid #ddd; padding: 8px;">08 (Apr 20)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;"><strong>Midterm exam.</strong></td>
+    <td style="border: 1px solid #ddd; padding: 8px;">Differential equation, quick course content review</td>
   </tr>
   <tr> <!-- week 10 -->
     <td style="border: 1px solid #ddd; padding: 8px;">09 (Apr 27)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;"> TBA <strong>Homework 3 release</strong> </td>
+    
+    <td style="border: 1px solid #ddd; padding: 8px;"> <strong>Midterm exam.</strong> <strong>Homework 3 release</strong> </td>
   </tr>
   <tr style="background-color: #f9f9f9;"> <!-- week 11 -->
     <td style="border: 1px solid #ddd; padding: 8px;">10 (May 4)</td>

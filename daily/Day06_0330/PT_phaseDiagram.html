@@ -436,7 +436,7 @@ Further assuming that the vapor behaves as an ideal gas (\)</span>PV=RT<span cla
 \)</span><span class="math notranslate nohighlight">\(\bigg(\frac{dP}{dT}\bigg)_{eq}  = \frac{P\Delta H}{RT^2}.\)</span><span class="math notranslate nohighlight">\(
 \)</span><span class="math notranslate nohighlight">\(\bigg(\frac{dP}{P}\bigg)_{eq}  = \frac{dT}{T^2}\frac{\Delta H}{R}.\)</span><span class="math notranslate nohighlight">\( 
 or the Clausius–Clapeyron equation:
-\)</span><span class="math notranslate nohighlight">\(d\ln P = \frac{\Delta H}{R} \frac{dT}{T^2}.\)</span><span class="math notranslate nohighlight">\( 
+\)</span><span class="math notranslate nohighlight">\(d\ln P = \frac{\Delta H}{R} \frac{dT}{T}.\)</span><span class="math notranslate nohighlight">\( 
 If \)</span>\Delta H<span class="math notranslate nohighlight">\( is independent of \)</span>T<span class="math notranslate nohighlight">\(, we obtain \)</span>\ln P = -\frac{\Delta H}{RT} + \text{constant}<span class="math notranslate nohighlight">\( or 
 \)</span><span class="math notranslate nohighlight">\(\ln\frac{P}{P_b} = \frac{\Delta H}{R}\bigg(\frac{1}{T_b}-\frac{1}{T}\bigg).\)</span>$</p>
 </section>
@@ -509,6 +509,12 @@ If \)</span>\Delta H<span class="math notranslate nohighlight">\( is independent
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x19ec4ce30&gt;
+</pre></div>
+</div>
+<img alt="../../_images/77c81378d06ef47cf54ce8e1037de076f619ade91d232b79ca6b3f6877310075.png" src="../../_images/77c81378d06ef47cf54ce8e1037de076f619ade91d232b79ca6b3f6877310075.png" />
+</div>
 </div>
 </section>
 <hr class="docutils" />
@@ -537,11 +543,14 @@ $<span class="math notranslate nohighlight">\(P= P_0 \exp\bigg[\frac{\Delta H}{R
 
 
 <span class="n">ax</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">T_boil</span><span class="p">,</span> <span class="n">P_boil</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;liquid-vapor&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T_c</span><span class="p">,</span><span class="n">P_c</span><span class="p">,</span><span class="s1">&#39;ko&#39;</span><span class="p">,</span><span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">T_c</span><span class="p">,</span> <span class="n">P_c</span><span class="p">,</span><span class="s1">&#39;ko&#39;</span><span class="p">,</span><span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/b85c37fea7ebbd540adb5a6413fe8249d48f200d6af9fef0e150b4ab77eec471.png" src="../../_images/b85c37fea7ebbd540adb5a6413fe8249d48f200d6af9fef0e150b4ab77eec471.png" />
 </div>
 </div>
 </section>
@@ -569,6 +578,9 @@ $<span class="math notranslate nohighlight">\(P= P_0 \exp\bigg[\frac{\Delta H}{R
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/c51df443d57e6726004779e655589dc3aedbf40c687e31f53cd41adada9966ac.png" src="../../_images/c51df443d57e6726004779e655589dc3aedbf40c687e31f53cd41adada9966ac.png" />
+</div>
 </div>
 </section>
 <hr class="docutils" />
@@ -582,16 +594,18 @@ $<span class="math notranslate nohighlight">\(P= P_0 \exp\bigg[\frac{\Delta H}{R
 <span class="n">P_b</span> <span class="o">=</span> <span class="mi">100</span><span class="o">*</span><span class="mf">1e3</span>
 
 <span class="c1"># temperature grid</span>
-<span class="n">T_boil_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">T_b</span><span class="p">,</span> <span class="n">T_c</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">T_boil_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">T_t</span><span class="p">,</span> <span class="n">T_c</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">P_boil_2</span> <span class="o">=</span> <span class="n">P_b</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="n">H_boil</span><span class="o">/</span><span class="n">R</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">T_b</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">T_boil_2</span><span class="p">))</span>
 
 
 <span class="n">ax</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">T_boil_2</span><span class="p">,</span> <span class="n">P_boil_2</span><span class="p">,</span> <span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;liquid-vapor&quot;</span><span class="p">)</span>
-<span class="c1"># ax.plot(T_c,P_c,&#39;ko&#39;,markerfacecolor=&#39;none&#39;)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/5b3dc993cc57452daee4c226b8de0816406f9cf0296733d385f24d2393e2b8b0.png" src="../../_images/5b3dc993cc57452daee4c226b8de0816406f9cf0296733d385f24d2393e2b8b0.png" />
 </div>
 </div>
 </section>
