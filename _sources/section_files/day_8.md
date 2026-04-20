@@ -18,3 +18,5 @@ Phase diagrams
 
 [simple_2D_diffusion_FDM_center_source.ipynb](../daily/Day08_0420/simple_2D_diffusion_FDM_center_source.ipynb)
 {Download}`simple_2D_diffusion_FDM_center_source.ipynb<../daily/Day08_0420/simple_2D_diffusion_FDM_center_source.ipynb>`
+
+[Upload damping-spring-mass file here](https://www.dropbox.com/request/zk79jzujogx0i43a8jqo)
