@@ -229,6 +229,9 @@
 <li class="toctree-l2"><a class="reference internal" href="PyCalPhas_demo.html">PyCalPhad</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_8.html">Day 8 04/20</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Exam/Quiz</span></p>
 <ul class="nav bd-sidenav">
@@ -456,7 +459,7 @@ and
 <span class="c1"># plotting package</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="c1"># import matplotlib</span>
 </pre></div>
 </div>
 </div>
@@ -524,6 +527,13 @@ Here, \)</span>R<span class="math notranslate nohighlight">\( is the gas constan
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Melting point
+  of component A =  416.6666666666666 
+  of component B =  750.0
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -569,6 +579,9 @@ Here, \)</span>R<span class="math notranslate nohighlight">\( is the gas constan
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/f569ed663dcb8b7972582b9a8d463da3770e4dc72b9cbc82f2b09e9a6c6f613a.png" src="../../_images/f569ed663dcb8b7972582b9a8d463da3770e4dc72b9cbc82f2b09e9a6c6f613a.png" />
+</div>
 </div>
 <p>The choice of reference state is arbitrary and does not change the thermodynamics. In the above example, we use the liquid phase as the reference state for pure component A and B. Hence, the Gibbs free energy of the liquid phase goes to zero for <span class="math notranslate nohighlight">\(x_B = 0\)</span> and <span class="math notranslate nohighlight">\(x_B = 1\)</span>.</p>
 <p>We can change the reference state for pure component A to be the solid phase, such that we subtract A’s reference energy for both solid and liquid phases.</p>
@@ -601,6 +614,9 @@ Here, \)</span>R<span class="math notranslate nohighlight">\( is the gas constan
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/a7f3393557234581f2698c37523ecb7808c2648399f312f3d1f269bb90b36f73.png" src="../../_images/a7f3393557234581f2698c37523ecb7808c2648399f312f3d1f269bb90b36f73.png" />
 </div>
 </div>
 </section>
@@ -657,6 +673,9 @@ and
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/df473d6342d10874b9efbec77c2b0dd2a3339d39245998c6eb4038045e76d2f7.png" src="../../_images/df473d6342d10874b9efbec77c2b0dd2a3339d39245998c6eb4038045e76d2f7.png" />
+</div>
 </div>
 </section>
 <section id="calculate-a-common-tangent">
@@ -695,6 +714,12 @@ and
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2.]
+[-2.]
+</pre></div>
+</div>
+</div>
 </div>
 <p>Solve
 $<span class="math notranslate nohighlight">\(
@@ -711,6 +736,11 @@ x - y = 1
 
 <span class="n">sol</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2. 1.]
 </pre></div>
 </div>
 </div>
@@ -783,6 +813,14 @@ x - y = 1
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Common tangent construction:
+</pre></div>
+</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle  x_S = 0.5, x_L = 0.191\]</div>
+<img alt="../../_images/7532b380c0ac981cdb10f341ed62d04e0a121982cdc9b1e338b3812f0b21d65d.png" src="../../_images/7532b380c0ac981cdb10f341ed62d04e0a121982cdc9b1e338b3812f0b21d65d.png" />
+</div>
 </div>
 </section>
 </section>
@@ -815,6 +853,12 @@ x - y = 1
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1a4ca7080&gt;
+</pre></div>
+</div>
+<img alt="../../_images/43a2f8d6c4a68b842076bd756ea6af6f5c5a485bce2e3af8a2212250588a54ff.png" src="../../_images/43a2f8d6c4a68b842076bd756ea6af6f5c5a485bce2e3af8a2212250588a54ff.png" />
+</div>
 </div>
 <p>These discrete points are collected to a set of data points.</p>
 <div class="cell docutils container">
@@ -828,6 +872,12 @@ x - y = 1
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">pts</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">pts</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;solid&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x1a4e57710&gt;
+</pre></div>
+</div>
+<img alt="../../_images/6c5f842e23bba61c89ad0069f75953c51fd6ae8fee22794699ce4d5cf8c6329f.png" src="../../_images/6c5f842e23bba61c89ad0069f75953c51fd6ae8fee22794699ce4d5cf8c6329f.png" />
 </div>
 </div>
 <section id="lower-convex-hull">
@@ -903,6 +953,9 @@ x - y = 1
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/c3d1fe63887026f0676ddd8a904a5cd5ccf88d921e9d11087cdc0f2dec7b6b77.png" src="../../_images/c3d1fe63887026f0676ddd8a904a5cd5ccf88d921e9d11087cdc0f2dec7b6b77.png" />
+</div>
 </div>
 <hr class="docutils" />
 <p>Let’s get back to common tangent construction.</p>
@@ -920,6 +973,9 @@ x - y = 1
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/e379ac0360805a67f24da618700a5c8bf31ed26a5519bc2e89fe4e4a47f0b936.png" src="../../_images/e379ac0360805a67f24da618700a5c8bf31ed26a5519bc2e89fe4e4a47f0b936.png" />
 </div>
 </div>
 </section>
@@ -953,12 +1009,21 @@ x - y = 1
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xt1</span><span class="p">,</span> <span class="n">yt1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;scatter&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lh</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">lh</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;lower hull&#39;</span><span class="p">)</span>
-<span class="c1"># ax.plot(xx, yy, &#39;k--&#39;, lw=3, label=&#39;common tangent&#39;)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;common tangent&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="n">p1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p2</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">p2</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Common tangent endpoints:
+x1, y1 = [ 1.83396667e-01 -3.61403845e+03]
+x2, y2 = [ 5.00000000e-01 -4.88141283e+03]
+Common tangent: y = -4003.035480 x + -2879.895089
+</pre></div>
+</div>
+<img alt="../../_images/3a01836d7eecc5e3477a097ed00623f4d8c3ba9269c19b832fcc5ef16afaf78c.png" src="../../_images/3a01836d7eecc5e3477a097ed00623f4d8c3ba9269c19b832fcc5ef16afaf78c.png" />
 </div>
 </div>
 <p>✅ Do This – Why the longest segment of the lower envelope is the common tangent line? Answer the question using the <a class="reference external" href="https://forms.office.com/r/skdxChf2jp">link</a> here.</p>
@@ -1001,6 +1066,9 @@ x - y = 1
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/29f7e06cdcf3f98197c0b0d15c7949d628d6c10259b7cc92b5202807dbf86976.png" src="../../_images/29f7e06cdcf3f98197c0b0d15c7949d628d6c10259b7cc92b5202807dbf86976.png" />
 </div>
 </div>
 <p>✅ Do This – How the outer convex hull is found? Answer using this <a class="reference external" href="https://forms.office.com/r/skdxChf2jp">link</a>.</p>
