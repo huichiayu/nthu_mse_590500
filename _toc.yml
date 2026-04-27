@@ -86,11 +86,11 @@ parts:
 
   - caption: Exam/Quiz
     chapters:
-#     - file: section_files/day_8/Midterm.md
-#       title: Midterm Exam
+    - file: section_files/Midterm_0427/Midterm.md
+      title: Midterm Exam
 #       - file: course_materials/ExamQuiz_NTHU.md 
-      - file: course_materials/Midterm.md     
-        title: Exam/Quiz Details        
+#       - file: course_materials/Midterm.md     
+#         title: Exam/Quiz Details        
 
   - caption: Homework
     chapters:
