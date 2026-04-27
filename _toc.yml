@@ -78,7 +78,7 @@ parts:
         - file: daily/Day07_0420/damped_oscillator_finite_difference_v1
         - file: daily/Day07_0420/elasticity_mechanics_analytical_and_finite_difference
         - file: daily/Day07_0420/1D_diffusion_equation_sympy_scipy
-        - file: daily/Day07_0420/simple_2D_diffusion_FDM_center_source.ipynb
+        - file: daily/Day07_0420/simple_2D_diffusion_FDM_center_source
         
         
 
