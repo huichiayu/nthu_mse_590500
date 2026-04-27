@@ -57,11 +57,13 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'section_files/day_8';</script>
     <link rel="icon" href="../_static/Spartan_2.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="MSE 590500 - Exam/Quiz Details" href="../course_materials/ExamQuiz_NTHU.html" />
+    <link rel="next" title="First-order ODEs: analytical solution and finite-difference method" href="../daily/Day08_0420/first_order_ode_analytical_and_finite_difference_v1.html" />
     <link rel="prev" title="PyCalPhad" href="../daily/Day07_0413/PyCalPhas_demo.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -227,7 +229,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../daily/Day07_0413/PyCalPhas_demo.html">PyCalPhad</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Day 8 04/20</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Day 8 04/20</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../daily/Day08_0420/first_order_ode_analytical_and_finite_difference_v1.html">First-order ODEs: analytical solution and finite-difference method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../daily/Day08_0420/damped_oscillator_finite_difference_v1.html">Damped oscillator using the finite-difference method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../daily/Day08_0420/elasticity_mechanics_analytical_and_finite_difference.html">Elasticity and mechanics: analytical and finite-difference solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../daily/Day08_0420/1D_diffusion_equation_sympy_scipy.html">Analytically solving the 1D diffusion equation with SymPy (and comparing with SciPy)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../daily/Day08_0420/simple_2D_diffusion_FDM_center_source.html">Simple 2D diffusion FDM example: source at the center</a></li>
 </ul>
 </details></li>
 </ul>
@@ -396,15 +403,15 @@ document.write(`
 <h1>Day 8 04/20<a class="headerlink" href="#day-8-04-20" title="Link to this heading">#</a></h1>
 <p>This section contains the course materials for day 8.</p>
 <p>Phase diagrams</p>
-<p><span class="xref myst">first_order_ode_analytical_and_finite_difference_v1.ipynb</span>
+<p><a class="reference internal" href="../daily/Day08_0420/first_order_ode_analytical_and_finite_difference_v1.html"><span class="std std-doc">first_order_ode_analytical_and_finite_difference_v1.ipynb</span></a>
 <a class="reference download internal" download="" href="../_downloads/237f1ba43699e624b540d5abc7bb643d/first_order_ode_analytical_and_finite_difference_v1.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">first_order_ode_analytical_and_finite_difference_v1.ipynb</span></code></a></p>
-<p><span class="xref myst">damped_oscillator_finite_difference_v1.ipynb</span>
+<p><a class="reference internal" href="../daily/Day08_0420/damped_oscillator_finite_difference_v1.html"><span class="std std-doc">damped_oscillator_finite_difference_v1.ipynb</span></a>
 <a class="reference download internal" download="" href="../_downloads/d2b3adea5fbec41bec0a5a7e686ddc1a/damped_oscillator_finite_difference_v1.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">damped_oscillator_finite_difference_v1.ipynb</span></code></a></p>
-<p><span class="xref myst">elasticity_mechanics_analytical_and_finite_difference.ipynb</span>
+<p><a class="reference internal" href="../daily/Day08_0420/elasticity_mechanics_analytical_and_finite_difference.html"><span class="std std-doc">elasticity_mechanics_analytical_and_finite_difference.ipynb</span></a>
 <a class="reference download internal" download="" href="../_downloads/3ebf2d976ab549029d61fb972a83d35e/elasticity_mechanics_analytical_and_finite_difference.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">elasticity_mechanics_analytical_and_finite_difference.ipynb</span></code></a></p>
-<p><span class="xref myst">1D_diffusion_equation_sympy_scipy.ipynb</span>
+<p><a class="reference internal" href="../daily/Day08_0420/1D_diffusion_equation_sympy_scipy.html"><span class="std std-doc">1D_diffusion_equation_sympy_scipy.ipynb</span></a>
 <a class="reference download internal" download="" href="../_downloads/0c18e1a46f8ea1c54c4ff8a3bb980956/1D_diffusion_equation_sympy_scipy.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">1D_diffusion_equation_sympy_scipy.ipynb</span></code></a></p>
-<p><span class="xref myst">simple_2D_diffusion_FDM_center_source.ipynb</span>
+<p><a class="reference internal" href="../daily/Day08_0420/simple_2D_diffusion_FDM_center_source.html"><span class="std std-doc">simple_2D_diffusion_FDM_center_source.ipynb</span></a>
 <a class="reference download internal" download="" href="../_downloads/d627ec8a4845961380d15f62a593b1e9/simple_2D_diffusion_FDM_center_source.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">simple_2D_diffusion_FDM_center_source.ipynb</span></code></a></p>
 <p><a class="reference external" href="https://www.dropbox.com/request/zk79jzujogx0i43a8jqo">Upload damping-spring-mass file here</a></p>
 <div class="toctree-wrapper compound">
@@ -451,11 +458,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../course_materials/ExamQuiz_NTHU.html"
+       href="../daily/Day08_0420/first_order_ode_analytical_and_finite_difference_v1.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">MSE 590500 - Exam/Quiz Details</p>
+        <p class="prev-next-title">First-order ODEs: analytical solution and finite-difference method</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
