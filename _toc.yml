@@ -80,7 +80,9 @@ parts:
         - file: daily/Day08_0420/1D_diffusion_equation_sympy_scipy
         - file: daily/Day08_0420/simple_2D_diffusion_FDM_center_source
         
-        
+      - file: section_files/Midterm
+        sections: 
+        - file: daily/Midterm_0427/MidtermExam_student_v1
 
   - caption: Exam/Quiz
     chapters:
