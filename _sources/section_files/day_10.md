@@ -14,5 +14,8 @@ Fourier transform.
 [NOAA_student.ipynb](../daily/Day10_0504/NOAA_student.ipynb)
 {Download}`NOAA_student.ipynb<../daily/Day10_0504/NOAA_student.ipynb>`
 
+[FFT2D.ipynb](../daily/Day10_0504/FFT2D.ipynb)
+{Download}`FFT2D.ipynb<../daily/Day10_0504/FFT2D.ipynb>`
+
 [Denoiser_student.ipynb](../daily/Day10_0504/Denoiser_student.ipynb)
 {Download}`Denoiser_student.ipynb<../daily/Day10_0504/Denoiser_student.ipynb>`
