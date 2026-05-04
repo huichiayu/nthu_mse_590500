@@ -89,6 +89,7 @@ parts:
         - file: daily/Day10_0504/beam_fdm_module_student
         - file: daily/Day10_0504/FourierCoefficients
         - file: daily/Day10_0504/NOAA_student
+        - file: daily/Day10_0504/FFT2D
         - file: daily/Day10_0504/Denoiser_student
 
   - caption: Exam/Quiz
