@@ -433,28 +433,33 @@ document.write(`
 <p><strong>Due by the end of today (3/30)</strong></p>
 <hr class="docutils" />
 <p>In this Notebook, we will put together tools to help us calculate the Gibbs free energy of materials and use the results to construct phase diagrams.</p>
-<p>We will use a simple model for the Gibbs free energy of the solid (S) and liquid (L) phases and describe both by the regular solution model:
-$<span class="math notranslate nohighlight">\(
-\Delta G_\mathrm{mix}(x_B) = a_0 x_A x_B + RT \left [ x_B \ln x_B +(1−x_B) \ln(1−x_B) \right ].
-\)</span><span class="math notranslate nohighlight">\(
-Here, \)</span>R<span class="math notranslate nohighlight">\( is the gas constant (8.314 J/mol/K), \)</span>T<span class="math notranslate nohighlight">\( the absolute temperature, \)</span>x_B$ is the mole fraction of component B.</p>
+<p>We will use a simple model for the Gibbs free energy of the solid (S) and liquid (L) phases and describe both by the regular solution model:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta G_\mathrm{mix}(x_B) = a_0 x_A x_B + RT \left [ x_B \ln x_B +(1−x_B) \ln(1−x_B) \right].
+\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(R\)</span> is the gas constant (8.314 J/mol/K), <span class="math notranslate nohighlight">\(T\)</span> the absolute temperature, <span class="math notranslate nohighlight">\(x_B\)</span> is the mole fraction of component B.</p>
 <p>For constructing the phase diagram, we need to account for the difference in the Gibbs free energy between the solid and liquid phases for the pure components A and B. We will use a simplified thermodynamics model for the pure components that assumes a that the difference in entropy and enthalpy between the solid and liquid does not depend on temperature.</p>
-<p>We will then use the tangent intercept construction to determine the chemical potentials for the components A and B in each phase:
-$<span class="math notranslate nohighlight">\(
+<p>We will then use the tangent intercept construction to determine the chemical potentials for the components A and B in each phase:</p>
+<div class="math notranslate nohighlight">
+\[
 \mu_A = G(x_B) - x_B \frac{dG(x_B)}{d x_B}
-\)</span><span class="math notranslate nohighlight">\(
-and
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
 \mu_B = G(x_B) + (1-x_B) \frac{dG(x_B)}{d x_B}.
-\)</span>$</p>
-<p>In equilibrium, the chemical potentials of a every component are the same in each phase:
-$<span class="math notranslate nohighlight">\(
+\]</div>
+<p>In equilibrium, the chemical potentials of a every component are the same in each phase:</p>
+<div class="math notranslate nohighlight">
+\[
 \mu_A^S = \mu_A^L
-\)</span><span class="math notranslate nohighlight">\(
-and
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
 \mu_B^S = \mu_B^L.
-\)</span>$</p>
+\]</div>
 <p>The mathematical solution to the chemical equilibrium condition is the common tangent construction.</p>
 </section>
 <section id="preliminaries">
@@ -562,14 +567,6 @@ and
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Melting point
-  of component A =  500.00000000000006 
-  of component B =  625.0
-</pre></div>
-</div>
-<img alt="../../_images/a48870a750ada815c11dbf3a238cde165e3b0c7bd04ca0b94cdf2b25f22ff5e4.png" src="../../_images/a48870a750ada815c11dbf3a238cde165e3b0c7bd04ca0b94cdf2b25f22ff5e4.png" />
-</div>
 </div>
 </section>
 <section id="reference-for-the-gibbs-free-energies-of-the-solid-and-liquid-phase">
@@ -624,9 +621,6 @@ and
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/da384b3dcab39bee179a5546f7452482b1e909905f8526bcd655bcd20feef134.png" src="../../_images/da384b3dcab39bee179a5546f7452482b1e909905f8526bcd655bcd20feef134.png" />
-</div>
 </div>
 <p>The choice of reference state is arbitrary and does not change the thermodynamics. In the above example, we use the liquid phase as the reference state for pure component A and B. Hence, the Gibbs free energy of the liquid phase goes to zero for <span class="math notranslate nohighlight">\(x_B = 0\)</span> and <span class="math notranslate nohighlight">\(x_B =1\)</span>.</p>
 <p><strong>If we want to change the reference state for pure component A to be the solid phase, how would you modify the equations for the Gibbs free energy of the solid and liquid mixture?</strong></p>
@@ -659,9 +653,6 @@ and
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/e06fe43bd4ff6c679ff778b134b3573a27ae2b66243018f9705bbe5ca284c70b.png" src="../../_images/e06fe43bd4ff6c679ff778b134b3573a27ae2b66243018f9705bbe5ca284c70b.png" />
 </div>
 </div>
 </section>
@@ -723,21 +714,20 @@ and
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/c58834969c141419c4d1c770cc05a3f89cead36ccb5aee89b8cccfb3b9a3b185.png" src="../../_images/c58834969c141419c4d1c770cc05a3f89cead36ccb5aee89b8cccfb3b9a3b185.png" />
-</div>
 </div>
 </section>
 <section id="calculate-a-common-tangent">
 <h2>Calculate a common tangent<a class="headerlink" href="#calculate-a-common-tangent" title="Link to this heading">#</a></h2>
-<p>Finally, we will calculate the common tangent to determine the chemical equilibrium between the solid and liquid phase. We will use the Python function <code class="docutils literal notranslate"><span class="pre">fsolve</span></code> to determine the mole fraction <span class="math notranslate nohighlight">\(x_B\)</span> in the solid and liquid phase such that the chemical potentials in each phase are equal:
-$<span class="math notranslate nohighlight">\(
+<p>Finally, we will calculate the common tangent to determine the chemical equilibrium between the solid and liquid phase. We will use the Python function <code class="docutils literal notranslate"><span class="pre">fsolve</span></code> to determine the mole fraction <span class="math notranslate nohighlight">\(x_B\)</span> in the solid and liquid phase such that the chemical potentials in each phase are equal:</p>
+<div class="math notranslate nohighlight">
+\[
 \mu_A^S(X_S) = \mu_A^L(X_L)
-\)</span><span class="math notranslate nohighlight">\(
-and
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
 \mu_B^S(X_S) = \mu_B^L(X_L).
-\)</span>$</p>
+\]</div>
 <p><strong>Calculate the equilibrium mole fractions in the solid and liquid phase for a range of temperatures and sketch out the phase diagram.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -812,14 +802,6 @@ and
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Common tangent construction:
-</pre></div>
-</div>
-<div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle  x_S = 0.929 \\ x_L = 0.472\end{split}\]</div>
-<img alt="../../_images/72e320c913ff7496ed1b1682c302efeb403931a17d23cbabdc804e23d1d706f3.png" src="../../_images/72e320c913ff7496ed1b1682c302efeb403931a17d23cbabdc804e23d1d706f3.png" />
-</div>
 </div>
 </section>
 <section id="stable-phases-as-a-function-of-temperature">
@@ -830,10 +812,11 @@ and
 \[
 \mu_{A}^S(X_1) = \mu_{A}^S(X_2)
 \]</div>
-<p>and
-$<span class="math notranslate nohighlight">\(
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
 \mu_B^S(X_1)  = \mu_B^L(X_2) .
-\)</span>$</p>
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Low temperature equilibrium between the A-rich and B-rich phases at T = 400K</span>
@@ -876,14 +859,6 @@ $<span class="math notranslate nohighlight">\(
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Common tangent construction:
-</pre></div>
-</div>
-<div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle  x_S^1 = 0.07 \\ x_S^2 = 0.93\end{split}\]</div>
-<img alt="../../_images/0879b6c74d58789a4ba032f91e02d0830b819bdc84be778d27260928b2c8c404.png" src="../../_images/0879b6c74d58789a4ba032f91e02d0830b819bdc84be778d27260928b2c8c404.png" />
 </div>
 </div>
 <p>At increasing temperature, the solubilities in the two solid phases will increase until we reach the eutectic temperature, where the liquid phase is in equilibrium with the two solid phases.</p>
@@ -933,14 +908,6 @@ $<span class="math notranslate nohighlight">\(
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">prop</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">})</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">47</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
-    <span class="n">x_S1</span><span class="p">,</span> <span class="n">x_L1</span> <span class="o">=</span>  <span class="n">fsolve</span><span class="p">(</span><span class="n">commontangent_solid_liquid</span><span class="p">,</span> <span class="err">??</span><span class="p">)</span>
-                                                     <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
 </pre></div>
 </div>
 </div>
