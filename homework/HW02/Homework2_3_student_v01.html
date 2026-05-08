@@ -1,0 +1,1635 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>MSE590500 Homework assignment 2 &#8212; MSE 590500 Course Website</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'homework/HW02/Homework2_3_student_v01';</script>
+    <link rel="icon" href="../../_static/Spartan_2.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Homework 2-3" href="../../section_files/HW02_3.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/Spartan_2.png" class="logo__image only-light" alt="MSE 590500 Course Website - Home"/>
+    <script>document.write(`<img src="../../_static/Spartan_2.png" class="logo__image only-dark" alt="MSE 590500 Course Website - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Materials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/MSE590500_Syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/MSE590500_Calendar.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/SoftwareSetupGuide_NTHU_2.html">Software Setup Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/MSE590500_AI_policy.html">Generative AI Policy</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://upload.wikimedia.org/wikipedia/commons/7/79/Unix_command_cheatsheet.pdf">CLI (Unix/Mac/Linux) commands cheat sheet</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Daily Content</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_1.html">Day 1 02/23</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day01_0223/Jupyter_Notebook_Basics.html">Jupyter Notebook Basics (Hands-on)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day01_0223/Python_Data_Types_Teaching.html">Python Data Types (Hands-on)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day01_0223/UNIX_Command_Line_Basics.html">Introduction to UNIX Command Line Interface (CLI)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_2.html">Day 2 03/02</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day02_0302/numpy_teaching_module.html">Introduction to NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day02_0302/matplotlib_teaching_module.html">Introduction to Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day02_0302/sympy_teaching_module.html">SymPy Mini Teaching Module (Beginner)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_3.html">Day 3 03/09</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day03_0309/pandas_basics_teaching_notebook.html">Pandas Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day03_0309/pandas_demo_with_material_data.html">Pandas Demonstration Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day03_0309/Ideal_gas_calculation.html">Ideal gas behavior</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_4.html">Day 4 03/16</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://youtu.be/W8pjXJr98Ck">Classical thermo - enthalpy calculation 1</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://youtu.be/-O7L3ZuQ_8E">Classical thermo - enthalpy calculation 2</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://youtu.be/Y28fCO2Gtpc">Classical thermo - entropy calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day04_0316/Enthalpy_01.html">Calculating enthalpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day04_0316/Entropy_v01.html">Calculating entropy</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_5.html">Day 5 03/23</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_6.html">Day 6 03/30</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day06_0330/PT_phaseDiagram.html">Phase diagram of a pure substance (single component system)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day06_0330/water_pvt_with_solid_boundaries.html">Water PVT Phase Diagram with Solid–Liquid–Vapor Boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day06_0330/RegularSolution_student.html">Regular solution model and phase diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day06_0330/BinaryPhaseDiagram_MiscibleAlloys_student.html">Phase Diagrams for Completely Miscible Alloys</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day06_0330/EutecticPhaseDiagram_student.html">Construction of a Eutectic Phase Diagram</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_7.html">Day 7 04/13</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day07_0413/ConvexHull_CommonTangent_Construction.html">Bindary phase diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day07_0413/ternary_phase_diagram_module_student.html">Ternary Phase Diagram Teaching Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day07_0413/TieTriangle_demo.html">Demonstration of finding tie-triangle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day07_0413/PyCalPhas_demo.html">PyCalPhad</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_8.html">Day 8 04/20</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day08_0420/first_order_ode_analytical_and_finite_difference_v1.html">First-order ODEs: analytical solution and finite-difference method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day08_0420/damped_oscillator_finite_difference_v1.html">Damped oscillator using the finite-difference method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day08_0420/elasticity_mechanics_analytical_and_finite_difference.html">Elasticity and mechanics: analytical and finite-difference solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day08_0420/1D_diffusion_equation_sympy_scipy.html">Analytically solving the 1D diffusion equation with SymPy (and comparing with SciPy)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day08_0420/simple_2D_diffusion_FDM_center_source.html">Simple 2D diffusion FDM example: source at the center</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/Midterm.html">Midterm exam</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Midterm_0427/MidtermExam_student_v1.html">MSE 590500 Mid-term exam.</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_10.html">Day 10 05/04</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day10_0504/beam_fdm_module_student.html">Euler–Bernoulli Beam Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day10_0504/FourierCoefficients.html">Fourier coefficients</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day10_0504/NOAA_student.html">Fast Fourier Transform (FFT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day10_0504/FFT2D.html">Fast Fourier Transform (FFT) 2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day10_0504/Denoiser_student.html">Image denoise</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/HW01.html">Homework 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../HW01/MSE590500_HW1_student.html">MSE 590500 Homework assginment 1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../section_files/HW02_3.html">Homework 2-3</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">MSE590500 Homework assignment 2</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/homework/HW02/Homework2_3_student_v01.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>MSE590500 Homework assignment 2</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#due-on-may-25-monday-2026">Due on May 25 (Monday), 2026</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#put-your-name-here"><p style="text-align: right;"> ✅ <strong>put your name here</strong> </p></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ai-usage-5-pt">AI usage (5 pt)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-bindary-phase-diagram">Problem 1. Bindary phase diagram</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-plot-these-two-free-energy-curves-15-pt">Task 1. Plot these two free energy curves (15 pt)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-calculate-the-chemical-potentials-of-the-solid-and-liquid-phases-10-pt">Task 2. Calculate the chemical potentials of the solid and liquid phases. (10 pt)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-find-the-phase-boundaries-10-pt">Task 3. FInd the phase boundaries. (10 pt)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-further-explore-bindary-phase-diagram">Problem 2. Further explore bindary phase diagram</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-free-energy-functions-5-pt">Task 1. Free energy functions. (5 pt)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-find-the-triple-common-tangent-point-monotectic-l-1-l-2-and-alpha-1-coexist-near-t-approx-1090-k-5-pt">Task 2. Find the triple common tangent point (monotectic: L<span class="math notranslate nohighlight">\(_1\)</span>, L<span class="math notranslate nohighlight">\(_2\)</span>, and <span class="math notranslate nohighlight">\(\alpha^1\)</span> coexist) near <span class="math notranslate nohighlight">\(T\approx 1090\)</span> K. (5 pt)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-construct-the-phase-diagram-5-pt">Task 3. Construct the phase diagram. (5 pt)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-ternary-system">Problem 3. Ternary system.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-create-an-arbitrary-gibbs-free-energy-of-a-ternary-system-10-pt">Task 1. Create an  arbitrary Gibbs free energy of a ternary system. (10 pt)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-find-the-tie-triangle-10-pt">Task 2. Find the tie triangle. (10 pt)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-visualization-5-pt">Task 3. Visualization. (5 pt)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4-visualize-the-free-energy-surface-in-3d-5-pt">Task 4. Visualize the free energy surface in 3D. (5 pt)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5-plot-the-entire-common-tangent-plane-5-pt">Task 5. Plot the entire common tangent plane. (5 pt)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6-increase-the-accuracy-of-finding-common-tangent-points-tie-triangle-10-pt">Task 6. Increase the accuracy of finding common tangent points (tie triangle). (10 pt)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-7-5-pt">Task 7 (5 pt)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#congrats-you-re-done-please-upload-your-complete-homework-2-assignments-to-the-link">Congrats, you’re done. Please upload your complete homework 2 assignments to the <strong>link</strong>.</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="mse590500-homework-assignment-2">
+<h1>MSE590500 Homework assignment 2<a class="headerlink" href="#mse590500-homework-assignment-2" title="Link to this heading">#</a></h1>
+<section id="due-on-may-25-monday-2026">
+<h2>Due on May 25 (Monday), 2026<a class="headerlink" href="#due-on-may-25-monday-2026" title="Link to this heading">#</a></h2>
+<section id="put-your-name-here">
+<h3><p style="text-align: right;"> ✅ <strong>put your name here</strong> </p><a class="headerlink" href="#put-your-name-here" title="Link to this heading">#</a></h3>
+</section>
+<hr class="docutils" />
+<section id="ai-usage-5-pt">
+<h3>AI usage (5 pt)<a class="headerlink" href="#ai-usage-5-pt" title="Link to this heading">#</a></h3>
+<p><strong>You can use AI to help finish this assignment.</strong> However, if you use AI, you are required to reference which AI you used. Also, copy and paste at least one set of your prompt and AI’s response, and put it in the answer below.</p>
+<p>✅ Do This – Your answer:</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>This assignment intends to enhance your ability to understand existing code snippets, and then modify the code to fit your needs. The contents include <strong>1) drawing binary phase diagrams based on the thermodynamic free energies, 2) further exploring binary phase diagram, and 3) ternary phase diagram.</strong></p>
+</section>
+<section id="problem-1-bindary-phase-diagram">
+<h2>Problem 1. Bindary phase diagram<a class="headerlink" href="#problem-1-bindary-phase-diagram" title="Link to this heading">#</a></h2>
+<p>This set of Gibbs free energies are obtained from the texbook (<em><strong>Introduction to the Thermodynamics of Materials 6th edition, 2018</strong></em>, by David R. Gaskell David E. Laughlin), page 358. For a bindary system, we will simply use <span class="math notranslate nohighlight">\(X\)</span> for the species B rather than keep using <span class="math notranslate nohighlight">\(X_A\)</span> and <span class="math notranslate nohighlight">\(X_B\)</span>, such that <span class="math notranslate nohighlight">\(X_A =1-X \)</span>. After taking pure species A as the reference, we obtain</p>
+<div class="math notranslate nohighlight">
+\[\Delta G_s^m = 8.3144T \big[X \ln \big(X\big) + \big(1-X \big)\ln \big(1-X \big) \big]+10000\big(1-X\big)X,\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{split}\Delta G_l^m = &amp;\big(12000-10T \big)\big(1-X\big) + 8.3144 T \big[ \big(1-X\big)\ln \big(1-X\big) + X \ln X \big] \\ &amp;- 2000 \big(1-X\big) X + (8000-10T)\big(1-X \big) \end{split}.\end{split}\]</div>
+<section id="task-1-plot-these-two-free-energy-curves-15-pt">
+<h3>Task 1. Plot these two free energy curves (15 pt)<a class="headerlink" href="#task-1-plot-these-two-free-energy-curves-15-pt" title="Link to this heading">#</a></h3>
+<p>Here, for the convenience, the code in the in-class notebook files is provide. You just need to modify the code or fill up the blanks to make the code functioning.</p>
+<ul class="simple">
+<li><p>Load required libraries.</p></li>
+<li><p>Define the energy functions.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load libraries</span>
+<span class="c1"># Import NumPy numerical package</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Import SciPy</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">scipy</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span><span class="p">,</span> <span class="n">newton</span>
+
+<span class="c1"># Enable displaying of math output such as display(Math(r&#39;Area: {}m^2 \\ Volume: {}m^3&#39;. </span>
+<span class="c1"># format(a, round(b,2), A, V)))</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
+
+<span class="c1"># plotting package</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the free energy functions</span>
+<span class="k">def</span> <span class="nf">safe_x</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-6</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">eps</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">eps</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">safe_x</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="o">??</span>
+
+<span class="k">def</span> <span class="nf">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">safe_x</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="o">??</span>   
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Plot the two energy functions at five different temperatures: 800, 700, 661, 601, and 500 K in five subplots. The results should look like Figure 10.25 (a) through (e) below as in the textbook.</p></li>
+</ul>
+<img src="https://i.ibb.co/dJ0thTnc/Fig1025.png" width="700">
+<ul class="simple">
+<li><p><strong>You should get something like the one below.</strong></p></li>
+<li><p><strong>If you cannot make them into subplots in  one figure, just plot each of the plots individually. However, you will not get full points of this task.</strong></p></li>
+</ul>
+<img src="https://i.ibb.co/20RGsyQ7/free-energy-1.png" width="600">
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ==============================</span>
+<span class="c1"># plot the energy curves</span>
+<span class="c1"># ==============================</span>
+
+<span class="c1"># Complete the code </span>
+
+<span class="c1"># Array of compositions from 0 to 1</span>
+<span class="n">xv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">,</span><span class="mf">0.9999</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="c1"># Low temperature equilibrium between the A-rich and B-rich phases at T = 400K</span>
+
+<span class="n">Tv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">800</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span> <span class="mi">661</span><span class="p">,</span> <span class="mi">601</span><span class="p">,</span> <span class="mi">500</span><span class="p">])</span>
+
+<span class="c1"># Plot Gibbs free energy for both phases</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="n">cnt</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+            <span class="k">break</span>
+            
+        <span class="n">T</span> <span class="o">=</span> <span class="n">Tv</span><span class="p">[</span><span class="n">cnt</span><span class="p">]</span>
+        <span class="n">G_S</span> <span class="o">=</span> <span class="n">get_G_S</span><span class="p">(</span><span class="err">??</span><span class="p">)</span>
+        <span class="n">G_L</span> <span class="o">=</span> <span class="n">get_G_L</span><span class="p">(</span><span class="err">??</span><span class="p">)</span>
+    
+        <span class="n">axes</span><span class="p">[</span><span class="err">??</span><span class="p">,</span><span class="err">??</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span> <span class="n">G_S</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$G^</span><span class="se">\\</span><span class="s1">mathrm</span><span class="si">{S}</span><span class="s1">$&#39;</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="err">??</span><span class="p">,</span><span class="err">??</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span> <span class="n">G_L</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$G^</span><span class="se">\\</span><span class="s1">mathrm</span><span class="si">{L}</span><span class="s1">$&#39;</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="err">??</span><span class="p">,</span><span class="err">??</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="n">axes</span><span class="p">[</span><span class="err">??</span><span class="p">,</span><span class="err">??</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="err">??</span><span class="p">,</span><span class="err">??</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;J&quot;</span><span class="p">)</span>        
+        <span class="n">axes</span><span class="p">[</span><span class="err">??</span><span class="p">,</span><span class="err">??</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="err">??</span><span class="p">,</span><span class="err">??</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        <span class="n">axes</span><span class="p">[</span><span class="err">??</span><span class="p">,</span><span class="err">??</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;T=</span><span class="si">{</span><span class="n">T</span><span class="si">}</span><span class="s2"> K&quot;</span><span class="p">)</span>
+        <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-2-calculate-the-chemical-potentials-of-the-solid-and-liquid-phases-10-pt">
+<h3>Task 2. Calculate the chemical potentials of the solid and liquid phases. (10 pt)<a class="headerlink" href="#task-2-calculate-the-chemical-potentials-of-the-solid-and-liquid-phases-10-pt" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Write the functions for calculating chemical potentials as in the in-class demonstrations.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># put your code here</span>
+
+<span class="k">def</span> <span class="nf">get_mu_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="mf">0.000001</span>
+    <span class="n">dGdx</span> <span class="o">=</span> <span class="o">??</span>
+    <span class="n">mu_A</span> <span class="o">=</span> <span class="n">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="n">dGdx</span>
+    <span class="n">mu_B</span> <span class="o">=</span> <span class="n">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">dGdx</span>
+    <span class="k">return</span> <span class="n">mu_A</span><span class="p">,</span> <span class="n">mu_B</span>
+
+<span class="k">def</span> <span class="nf">get_mu_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="mf">0.000001</span>
+    <span class="o">??</span>
+    <span class="k">return</span> <span class="n">mu_A</span><span class="p">,</span> <span class="n">mu_B</span>  
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that when <span class="math notranslate nohighlight">\(T &gt; 661\)</span> K, solid and liquid can coexist. When <span class="math notranslate nohighlight">\(T&lt;600\)</span> K, soild and solid phases coexist.</p>
+<ul class="simple">
+<li><p>Write the code to find the common tangent between solid and liquid phases.</p></li>
+<li><p>Write the code to find common tangent between solid and solid phases.</p></li>
+<li><p>Test the solid-liquid code to find the common tangent composition at <span class="math notranslate nohighlight">\(T = 800\)</span> K. The composition should be close to <span class="math notranslate nohighlight">\(X_S \approx 0.85\)</span> and <span class="math notranslate nohighlight">\(X_L \approx 0.517\)</span>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># put your code here</span>
+<span class="k">def</span> <span class="nf">commontangent_solid_liquid</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="o">??</span>
+    <span class="k">return</span> <span class="n">mu_A_S1</span><span class="o">-</span><span class="n">mu_A_L1</span><span class="p">,</span> <span class="n">mu_B_S1</span><span class="o">-</span><span class="n">mu_B_L1</span>
+
+    
+<span class="k">def</span> <span class="nf">commontangent_solid_solid</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="o">??</span>
+    <span class="k">return</span> <span class="n">mu_A_S1</span><span class="o">-</span><span class="n">mu_A_S2</span><span class="p">,</span> <span class="n">mu_B_S1</span><span class="o">-</span><span class="n">mu_B_S2</span>    
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test your code here</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="mi">800</span>
+
+
+<span class="n">x_S1</span><span class="p">,</span> <span class="n">x_L1</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="n">commontangent_solid_liquid</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Common tangent construction:&#39;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39; x_S = </span><span class="si">{}</span><span class="s1"> ;</span><span class="se">\\</span><span class="s1">~~ x_L = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">x_S1</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">x_L1</span><span class="p">,</span><span class="mi">3</span><span class="p">))))</span>
+
+
+<span class="c1"># chemical potential values</span>
+<span class="n">mu_A_S1</span><span class="p">,</span> <span class="n">mu_B_S1</span> <span class="o">=</span>  <span class="n">get_mu_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">x_S1</span><span class="p">)</span>
+
+<span class="c1"># Plot Gibbs free energy for both phases</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span> <span class="n">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">xv</span><span class="p">),</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$G^</span><span class="se">\\</span><span class="s1">mathrm</span><span class="si">{S}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span> <span class="n">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">xv</span><span class="p">),</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$G^</span><span class="se">\\</span><span class="s1">mathrm</span><span class="si">{L}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="n">mu_A_S1</span><span class="p">,</span> <span class="n">mu_B_S1</span><span class="p">],</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+
+<span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$x_</span><span class="se">\\</span><span class="s1">mathrm</span><span class="si">{B}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Gibbs free energy (J/mol)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">prop</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">})</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-3-find-the-phase-boundaries-10-pt">
+<h3>Task 3. FInd the phase boundaries. (10 pt)<a class="headerlink" href="#task-3-find-the-phase-boundaries-10-pt" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>As in the in-class demonstration, the entire boundary search process will include 3 steps.</p></li>
+<li><p>Note that when <span class="math notranslate nohighlight">\(T &gt; 661\)</span> K, solid and liquid can coexist. Thus, we will search the phase boundaries in the range of <span class="math notranslate nohighlight">\(661 &lt;T &lt; 1220\)</span> K.</p>
+<ul>
+<li><p>Search on the left side first (<span class="math notranslate nohighlight">\(0&lt; X_S, X_L &lt; 0.31\)</span>).</p></li>
+<li><p>Then search the right side (<span class="math notranslate nohighlight">\(0.33 &lt; X_S, X_L &lt; 1\)</span>).</p></li>
+</ul>
+</li>
+<li><p>When <span class="math notranslate nohighlight">\(T &lt; 600\)</span> K, two solid phases coexist. Search the solid-solid phase boundaries for <span class="math notranslate nohighlight">\(X_S^1\)</span> and <span class="math notranslate nohighlight">\(X_S^2\)</span>.</p></li>
+<li><p>The expected phase diagram should be like this.
+<img src="https://i.ibb.co/ks2FsmM3/Phase-Diagram1.png" width="600"></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># put your code here</span>
+
+
+<span class="n">Tstep</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1"># 1) find the boundaries on the left side above 661 K</span>
+<span class="n">Tmin</span> <span class="o">=</span> <span class="o">??</span>
+<span class="n">Tmax</span> <span class="o">=</span> <span class="o">??</span>
+<span class="n">Npoints</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">Tmax</span> <span class="o">-</span> <span class="n">Tmin</span><span class="p">)</span><span class="o">/</span><span class="n">Tstep</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Tv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">Tmin</span><span class="p">,</span> <span class="n">Tmax</span><span class="p">,</span> <span class="n">Npoints</span><span class="p">)</span>
+<span class="n">Solidus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">Npoints</span><span class="p">)</span>
+<span class="n">Liquidus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">Npoints</span><span class="p">)</span>
+<span class="n">Temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">Npoints</span><span class="p">)</span>
+
+<span class="n">j</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="mf">0.25</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="mf">0.25</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Npoints</span><span class="p">):</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">Tv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="o">??</span>
+    <span class="k">if</span> <span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">Solidus</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">Liquidus</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">Temp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">T</span> 
+        <span class="n">j</span> <span class="o">=</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span>
+
+<span class="n">Solidus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">Solidus</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+<span class="n">Liquidus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">Liquidus</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+<span class="n">Temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">Temp</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+
+<span class="n">xboundary</span><span class="p">,</span> <span class="n">yboundary</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">Liquidus</span><span class="p">,</span> <span class="n">Solidus</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])),</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">Temp</span><span class="p">,</span> <span class="n">Temp</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+
+<span class="c1"># Plot Phase Diagram</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;xkcd:light blue&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Liquidus</span><span class="p">,</span> <span class="n">Temp</span><span class="p">,</span> <span class="s1">&#39;g-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Solidus&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Solidus</span><span class="p">,</span> <span class="n">Temp</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Liquidus&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">xboundary</span><span class="p">,</span> <span class="n">yboundary</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">400</span><span class="p">,</span> <span class="mi">1250</span><span class="p">])</span>
+
+
+<span class="c1"># 2) find the boundaries on the right side above 661 K</span>
+<span class="o">??</span>
+
+<span class="n">xboundary</span><span class="p">,</span> <span class="n">yboundary</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">Liquidus</span><span class="p">,</span> <span class="n">Solidus</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])),</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">Temp</span><span class="p">,</span> <span class="n">Temp</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+<span class="c1"># Plot Phase Diagram</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Liquidus</span><span class="p">,</span> <span class="n">Temp</span><span class="p">,</span> <span class="s1">&#39;g-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Solidus</span><span class="p">,</span> <span class="n">Temp</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">xboundary</span><span class="p">,</span> <span class="n">yboundary</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="c1"># 3) find the boundaries below 600 K </span>
+<span class="n">Tmin</span> <span class="o">=</span> <span class="mi">400</span>
+<span class="n">Tmax</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="n">Npoints</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">Tmax</span> <span class="o">-</span> <span class="n">Tmin</span><span class="p">)</span><span class="o">/</span><span class="n">Tstep</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Tv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">Tmin</span><span class="p">,</span> <span class="n">Tmax</span><span class="p">,</span> <span class="n">Npoints</span><span class="p">)</span>
+<span class="n">SolidusA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">Npoints</span><span class="p">)</span>
+<span class="n">SolidusB</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">Npoints</span><span class="p">)</span>
+<span class="n">Temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">Npoints</span><span class="p">)</span>
+
+<span class="n">j</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="o">??</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="o">??</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Npoints</span><span class="p">):</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">Tv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">result</span> <span class="o">=</span>  <span class="n">fsolve</span><span class="p">(</span><span class="err">??</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">SolidusA</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">SolidusB</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">Temp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">T</span> 
+        <span class="n">j</span> <span class="o">=</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span>
+
+<span class="n">SolidusA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">SolidusA</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+<span class="n">SolidusB</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">SolidusB</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+<span class="n">Temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">Temp</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+
+<span class="n">xboundary</span><span class="p">,</span> <span class="n">yboundary</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">SolidusA</span><span class="p">,</span> <span class="n">SolidusB</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])),</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">Temp</span><span class="p">,</span> <span class="n">Temp</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+<span class="c1"># Plot Phase Diagram</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">SolidusA</span><span class="p">,</span> <span class="n">Temp</span><span class="p">,</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Solvus&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">SolidusB</span><span class="p">,</span> <span class="n">Temp</span><span class="p">,</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">xboundary</span><span class="p">,</span> <span class="n">yboundary</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">alpha_1$&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">600</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">alpha_2$&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span><span class="mi">600</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;liquid&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span><span class="mi">900</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">400</span><span class="p">,</span> <span class="mi">1220</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$x_</span><span class="se">\\</span><span class="s1">mathrm</span><span class="si">{B}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$T$ (K)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="problem-2-further-explore-bindary-phase-diagram">
+<h2>Problem 2. Further explore bindary phase diagram<a class="headerlink" href="#problem-2-further-explore-bindary-phase-diagram" title="Link to this heading">#</a></h2>
+<p>Use the parameters given on page 358. We will change the free energy functions to</p>
+<div class="math notranslate nohighlight">
+\[\Delta G_s^m = -(8000-10T)\big(1-X \big) + 8.3144T \big[X \ln \big(X\big) + \big(1-X \big)\ln \big(1-X \big) \big]+20000\big(1-X\big)X,\]</div>
+<div class="math notranslate nohighlight">
+\[\Delta G_l^m = \big(12000-10T \big)\big(1-X\big) + 8.3144 T \big[ \big(1-X\big)\ln \big(1-X\big) + X \ln X \big] + 20000 \big(1-X\big) X.\]</div>
+<p>In this system, two liquid phase coexist at high temperature. Now, we are expecting free energies and phase diagram to be like this as Figure 10.26 in the textbook.</p>
+<img src="https://i.ibb.co/xK8nmQD0/Fig1026.png" width="700">
+<section id="task-1-free-energy-functions-5-pt">
+<h3>Task 1. Free energy functions. (5 pt)<a class="headerlink" href="#task-1-free-energy-functions-5-pt" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Define the new free energy functions given above.</p></li>
+<li><p>Repeat the processes as in <strong>Problem 1</strong> to plot the free energy curves at 1203, 1150, 1090, and 960 K. For example, see below.</p></li>
+</ul>
+<img src="https://i.ibb.co/pjbysZTw/free-energy-2.png" width="600">
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">safe_x</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-6</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">eps</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">eps</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">safe_x</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="o">??</span>
+    
+<span class="k">def</span> <span class="nf">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">safe_x</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="o">??</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the energy curves</span>
+
+<span class="c1"># Array of compositions from 0 to 1</span>
+<span class="n">xv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">,</span><span class="mf">0.9999</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="c1"># Low temperature equilibrium between the A-rich and B-rich phases at T = 400K</span>
+
+<span class="n">Tv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="err">??</span><span class="p">)</span>
+
+<span class="c1"># Plot Gibbs free energy for both phases</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="c1"># put your plotting code here</span>
+<span class="o">??</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-2-find-the-triple-common-tangent-point-monotectic-l-1-l-2-and-alpha-1-coexist-near-t-approx-1090-k-5-pt">
+<h3>Task 2. Find the triple common tangent point (monotectic: L<span class="math notranslate nohighlight">\(_1\)</span>, L<span class="math notranslate nohighlight">\(_2\)</span>, and <span class="math notranslate nohighlight">\(\alpha^1\)</span> coexist) near <span class="math notranslate nohighlight">\(T\approx 1090\)</span> K. (5 pt)<a class="headerlink" href="#task-2-find-the-triple-common-tangent-point-monotectic-l-1-l-2-and-alpha-1-coexist-near-t-approx-1090-k-5-pt" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>When <span class="math notranslate nohighlight">\(T &gt; 1090\)</span> K, two liquid phases coexist. Thus, write a code to find liquid-liquid common tangent.</p></li>
+<li><p>At the monotectic temperature, liquid 1, liquid 2 and solid coexist. You need to write a code for finding liquid-liquid-solid common tangent line. Similar to the example in Day 06 demnonstration, write the code.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># put your code here</span>
+<span class="k">def</span> <span class="nf">commontangent_liquid_liquid</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="n">x_L1</span><span class="p">,</span> <span class="n">x_L2</span> <span class="o">=</span> <span class="n">p</span>
+    <span class="n">mu_A_L1</span><span class="p">,</span> <span class="n">mu_B_L1</span> <span class="o">=</span> <span class="o">??</span>
+    <span class="n">mu_A_L2</span><span class="p">,</span> <span class="n">mu_B_L2</span> <span class="o">=</span> <span class="o">??</span>
+    <span class="k">return</span> <span class="n">mu_A_L1</span><span class="o">-</span><span class="n">mu_A_L2</span><span class="p">,</span> <span class="n">mu_B_L1</span><span class="o">-</span><span class="n">mu_B_L2</span>
+
+<span class="k">def</span> <span class="nf">commontangent_liquid_liquid_solid</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="n">x_S1</span><span class="p">,</span> <span class="n">x_L1</span><span class="p">,</span> <span class="n">x_L2</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="n">p</span>
+    <span class="o">??</span>
+    <span class="k">return</span> <span class="n">mu_A_S1</span><span class="o">-</span><span class="n">mu_A_L1</span><span class="p">,</span> <span class="n">mu_B_S1</span><span class="o">-</span><span class="n">mu_B_L1</span><span class="p">,</span> <span class="n">mu_A_S1</span><span class="o">-</span><span class="n">mu_A_L2</span><span class="p">,</span> <span class="n">mu_B_S1</span><span class="o">-</span><span class="n">mu_B_L2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Find the composition at triple common tangent (monotectic) point (<span class="math notranslate nohighlight">\(T_t\)</span>).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># put your code here.</span>
+<span class="n">x_S1e</span><span class="p">,</span> <span class="n">x_L1e</span><span class="p">,</span> <span class="n">x_L2e</span><span class="p">,</span> <span class="n">Te</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="err">??</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x_S1e</span><span class="p">,</span> <span class="n">x_L1e</span><span class="p">,</span> <span class="n">x_L2e</span><span class="p">,</span> <span class="n">Te</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>✅ Do This – What are the compositions and temperature of the montectic point?</p>
+<ul class="simple">
+<li><p>Plot the Gibbs free energy curves and the common tangent line.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot Gibbs free energy for both phases</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="n">mu_A_L1</span><span class="p">,</span> <span class="n">mu_B_L1</span> <span class="o">=</span>  <span class="n">get_mu_L</span><span class="p">(</span><span class="n">Te</span><span class="p">,</span><span class="n">x_L1e</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span> <span class="n">get_G_S</span><span class="p">(</span><span class="n">Te</span><span class="p">,</span><span class="n">xv</span><span class="p">),</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$G^</span><span class="se">\\</span><span class="s1">mathrm</span><span class="si">{S}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span> <span class="n">get_G_L</span><span class="p">(</span><span class="n">Te</span><span class="p">,</span><span class="n">xv</span><span class="p">),</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$G^</span><span class="se">\\</span><span class="s1">mathrm</span><span class="si">{L}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="n">mu_A_L1</span><span class="p">,</span> <span class="n">mu_B_L1</span><span class="p">],</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+
+<span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$x_</span><span class="se">\\</span><span class="s1">mathrm</span><span class="si">{B}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Gibbs free energy (J/mol)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">prop</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">})</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-3-construct-the-phase-diagram-5-pt">
+<h3>Task 3. Construct the phase diagram. (5 pt)<a class="headerlink" href="#task-3-construct-the-phase-diagram-5-pt" title="Link to this heading">#</a></h3>
+<p>When <span class="math notranslate nohighlight">\(T_t&lt;T&lt;1205\)</span> K, liquid-liquid coexist and liquid-<span class="math notranslate nohighlight">\(\alpha'\)</span> coexist. As a result, we need to search the liquid-liquid phase bondaries in <span class="math notranslate nohighlight">\(0.2 &lt; X_L^1, X_L^2 &lt; 0.8\)</span> and the liquid-solid boundaries in <span class="math notranslate nohighlight">\(0.8 &lt; X_L^2, X_S &lt; 1\)</span>. Below <span class="math notranslate nohighlight">\(T\approx 1090\)</span> K, liquid-<span class="math notranslate nohighlight">\(\alpha'\)</span> coexist. We will search liquid-soild phase boundaries. Thus, we divide the whole search process to 3 steps.</p>
+<ul class="simple">
+<li><p>Search the liquid-liquid (L<span class="math notranslate nohighlight">\(_1\)</span> and L<span class="math notranslate nohighlight">\(_2\)</span>) phase boundaries in <span class="math notranslate nohighlight">\(1090&lt;T&lt;1205\)</span> K.</p></li>
+<li><p>Search the liquid-solid (L<span class="math notranslate nohighlight">\(_2\)</span> and <span class="math notranslate nohighlight">\(\alpha^1\)</span>) phase boundaries in <span class="math notranslate nohighlight">\(1090&lt;T&lt;1205\)</span> K.</p></li>
+<li><p>Search the liquid-solid (L<span class="math notranslate nohighlight">\(_1\)</span> and <span class="math notranslate nohighlight">\(\alpha^1\)</span>) phase boundaries in <span class="math notranslate nohighlight">\(700&lt;T&lt;1090\)</span> K.</p></li>
+</ul>
+<p>Copy your previous code to the cell below and modify it. The phase diagram should look like this.
+<img src="https://i.ibb.co/sv8X8wcT/Phase-Diagram2.png" width="600"></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># put your code here and make the code work</span>
+<span class="o">??</span>
+
+
+
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">alpha^1$&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.97</span><span class="p">,</span><span class="mi">1000</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;L$_1$&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1100</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;L$_2$&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span><span class="mi">1150</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;L$_1$+$</span><span class="se">\\</span><span class="s1">alpha^1$&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">900</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;L$_1$+L$_2$&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.45</span><span class="p">,</span><span class="mi">1150</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;L$_2$+$</span><span class="se">\\</span><span class="s1">alpha^1$&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.87</span><span class="p">,</span><span class="mi">1100</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">700</span><span class="p">,</span> <span class="mi">1300</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$x_</span><span class="se">\\</span><span class="s1">mathrm</span><span class="si">{B}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$T$ (K)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="problem-3-ternary-system">
+<h2>Problem 3. Ternary system.<a class="headerlink" href="#problem-3-ternary-system" title="Link to this heading">#</a></h2>
+<p>Here, you will practice visualizing thermodynamic free energy surfaces and finding the common tangent plane of an arbitrary ternary system. Again, you should start with the code demonstration in Day 07 (4/13):<code class="docutils literal notranslate"><span class="pre">ternary_phase_diagram_module_student.ipynb</span></code> and <code class="docutils literal notranslate"><span class="pre">TieTriangle_demo.ipynb</span></code>.</p>
+<section id="task-1-create-an-arbitrary-gibbs-free-energy-of-a-ternary-system-10-pt">
+<h3>Task 1. Create an  arbitrary Gibbs free energy of a ternary system. (10 pt)<a class="headerlink" href="#task-1-create-an-arbitrary-gibbs-free-energy-of-a-ternary-system-10-pt" title="Link to this heading">#</a></h3>
+<p>Here, we use a CalPhad-like formula for consctructing Gibbs free energy.</p>
+<div class="math notranslate nohighlight">
+\[G  = G_{mix} + G_{excess} + G_{well},\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[G_{mix} = RT \big( X_A \ln X_A + X_B \ln X_B + X_C \ln X_C \big),\]</div>
+<div class="math notranslate nohighlight">
+\[G_{excess} = \Omega_{AB} X_A X_B + \Omega_{BC}  X_B X_C + \Omega_{AC}  X_A X_C,\]</div>
+<div class="math notranslate nohighlight">
+\[G_{well} = G_{well}^1 + G_{well}^2 + G_{well}^3,\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[G_{well}^i =  -d_i \cdot \exp \bigg( -  \frac{r_i^2}{w_i} \bigg)= -d_i \cdot \exp \bigg( -  \frac{(X_A-X_{A_{0}}^i)^2 +(X_B-X_{B_{0}}^i)^2}{w_i} \bigg).\]</div>
+<p>Here, we use Guassian functions for energy wells, where <span class="math notranslate nohighlight">\(r_i =  \sqrt{(X_A -X_{A_{0}}^i)^2 + (X_B -X_{B_{0}}^i)^2  }\)</span> is the distance to the <span class="math notranslate nohighlight">\(i\)</span>-th well button. For example, <span class="math notranslate nohighlight">\(X_{A_{0}}^1\)</span> and <span class="math notranslate nohighlight">\(X_{B_{0}}^1\)</span> are the composition (coordinates) of the button of well 1.</p>
+<p>For this system, we choose</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(T=800\)</span> K.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Omega_{AB} = 15000\)</span>, <span class="math notranslate nohighlight">\(\Omega_{BC} = 18000\)</span>, and <span class="math notranslate nohighlight">\(\Omega_{AC} = 12000\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(X_{A_0}^1 = 0.15\)</span>, <span class="math notranslate nohighlight">\(X_{B_0}^1 = 0.15\)</span>, <span class="math notranslate nohighlight">\(d_1 = 1200\)</span>, and <span class="math notranslate nohighlight">\(w_1 = 0.02\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(X_{A_0}^2 = 0.70\)</span>, <span class="math notranslate nohighlight">\(X_{B_0}^2 = 0.15\)</span>, <span class="math notranslate nohighlight">\(d_1 = 800\)</span>, and <span class="math notranslate nohighlight">\(w_1 = 0.05\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(X_{A_0}^3 = 0.25\)</span>, <span class="math notranslate nohighlight">\(X_{B_0}^3 = 0.60\)</span>, <span class="math notranslate nohighlight">\(d_1 = 1600\)</span>, and <span class="math notranslate nohighlight">\(w_1 = 0.04\)</span>.</p></li>
+</ul>
+<p><strong>Complete the code below to construct the Gibbs free energy function.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">R</span> <span class="o">=</span> <span class="mf">8.314</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">800</span>
+
+<span class="k">def</span> <span class="nf">gaussian_well</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">,</span> <span class="n">xA0</span><span class="p">,</span> <span class="n">xB0</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">??</span>
+
+
+<span class="c1"># -----------------------------</span>
+<span class="c1">#   Gibbs free energy</span>
+<span class="c1"># -----------------------------</span>
+<span class="k">def</span> <span class="nf">G_ternary</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">):</span>
+    <span class="n">xC</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">xA</span> <span class="o">-</span> <span class="n">xB</span>
+
+    <span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-12</span>
+    <span class="n">xA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">eps</span><span class="p">)</span>
+    <span class="n">xB</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">xB</span><span class="p">,</span> <span class="n">eps</span><span class="p">)</span>
+    <span class="n">xC</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">xC</span><span class="p">,</span> <span class="n">eps</span><span class="p">)</span>
+
+    <span class="c1"># ideal mixing contribution</span>
+    <span class="n">Gmix</span> <span class="o">=</span> <span class="o">??</span>
+
+    <span class="c1"># binary interaction-like excess terms</span>
+    <span class="n">LAB</span> <span class="o">=</span> <span class="mi">15000</span>
+    <span class="n">LAC</span> <span class="o">=</span> <span class="mi">12000</span>
+    <span class="n">LBC</span> <span class="o">=</span> <span class="mi">18000</span>
+
+    <span class="n">Gexcess</span> <span class="o">=</span> <span class="o">??</span>
+
+    <span class="c1"># three artificial energy wells</span>
+    <span class="n">Gwell</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">gaussian_well</span><span class="p">(</span><span class="err">??</span><span class="p">)</span> <span class="o">+</span>
+        <span class="n">gaussian_well</span><span class="p">(</span><span class="err">??</span><span class="p">)</span> <span class="o">+</span>
+        <span class="n">gaussian_well</span><span class="p">(</span><span class="err">??</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">Gmix</span> <span class="o">+</span> <span class="n">Gexcess</span> <span class="o">+</span> <span class="n">Gwell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Create the grid system using <span class="math notranslate nohighlight">\(X_A\)</span>, <span class="math notranslate nohighlight">\(X_B\)</span>, and <span class="math notranslate nohighlight">\(X_C\)</span> as in <code class="docutils literal notranslate"><span class="pre">ternary_phase_diagram_module_student.ipynb</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -----------------------------</span>
+<span class="c1">#   Ternary grid</span>
+<span class="c1"># -----------------------------</span>
+<span class="k">def</span> <span class="nf">ternary_grid</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">60</span><span class="p">):</span>
+    <span class="n">pts</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">i</span><span class="p">):</span>
+            <span class="n">xA</span> <span class="o">=</span> <span class="n">i</span> <span class="o">/</span> <span class="n">n</span>
+            <span class="n">xB</span> <span class="o">=</span> <span class="n">j</span> <span class="o">/</span> <span class="n">n</span>
+            <span class="n">xC</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">xA</span> <span class="o">-</span> <span class="n">xB</span>
+            <span class="n">pts</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">,</span> <span class="n">xC</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span>
+
+<span class="n">pts</span> <span class="o">=</span> <span class="n">ternary_grid</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+<span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">,</span> <span class="n">xC</span> <span class="o">=</span> <span class="n">pts</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">pts</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">pts</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Visualize the Gibbs free energy in contour plot in a triangle composition space as in <code class="docutils literal notranslate"><span class="pre">ternary_phase_diagram_module_student.ipynb</span></code>. You should expect a result like below.</p></li>
+</ul>
+<img src="https://i.ibb.co/s9Gfr7m3/ternary1.png" width="600"><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mpltern</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s2">&quot;ternary&quot;</span><span class="p">)</span>
+
+<span class="n">G</span> <span class="o">=</span> <span class="n">G_ternary</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">)</span>
+
+<span class="n">tcf</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">tricontourf</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">,</span> <span class="n">xC</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tricontour</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">,</span> <span class="n">xC</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_tlabel</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_llabel</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_rlabel</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Toy Free-Energy Surface Projected onto a Ternary Diagram&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">tcf</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.85</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;Free-energy-like value&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-2-find-the-tie-triangle-10-pt">
+<h3>Task 2. Find the tie triangle. (10 pt)<a class="headerlink" href="#task-2-find-the-tie-triangle-10-pt" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>As in the in-class demonstration, you will need to write a code to calculate chemical potentials:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\mu_A = \frac{\partial G}{\partial X_A}~~~~\text{and}~~~~\mu_B = \frac{\partial G}{\partial X_B}.\]</div>
+<p>Complete the code below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ============================================================</span>
+<span class="c1">#   Numerical chemical potentials: mu_A = dG/dxA, mu_B = dG/dxB</span>
+<span class="c1"># ============================================================</span>
+
+<span class="k">def</span> <span class="nf">chemical_potentials</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">):</span>
+    <span class="c1"># central differences</span>
+    <span class="n">muA</span> <span class="o">=</span> <span class="o">??</span>
+    <span class="n">muB</span> <span class="o">=</span> <span class="o">??</span>
+    <span class="k">return</span> <span class="n">muA</span><span class="p">,</span> <span class="n">muB</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Below is the code in the in-class demonstration for finding the common tangent points of a ternary system.</p></li>
+<li><p>What will be a good values set for the <code class="docutils literal notranslate"><span class="pre">targets</span></code>? Fill up the blank.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ============================================================</span>
+<span class="c1">#    Residuals for 3-phase equilibrium</span>
+<span class="c1">#    Unknowns:</span>
+<span class="c1">#      alpha: (xA1, xB1)</span>
+<span class="c1">#      beta : (xA2, xB2)</span>
+<span class="c1">#      gamma: (xA3, xB3)</span>
+<span class="c1">#</span>
+<span class="c1">#    Conditions:</span>
+<span class="c1">#      mu_A^alpha = mu_A^beta = mu_A^gamma</span>
+<span class="c1">#      mu_B^alpha = mu_B^beta = mu_B^gamma</span>
+<span class="c1">#</span>
+<span class="c1">#    We also add small penalties to keep points near the wells.</span>
+<span class="c1"># ============================================================</span>
+
+<span class="n">targets</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="err">??</span><span class="p">,</span> <span class="err">??</span><span class="p">],</span>
+    <span class="p">[</span><span class="err">??</span><span class="p">,</span> <span class="err">??</span><span class="p">],</span>
+    <span class="p">[</span><span class="err">??</span><span class="p">,</span> <span class="err">??</span><span class="p">]])</span>
+
+<span class="k">def</span> <span class="nf">residuals</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="n">xA1</span><span class="p">,</span> <span class="n">xB1</span><span class="p">,</span> <span class="n">xA2</span><span class="p">,</span> <span class="n">xB2</span><span class="p">,</span> <span class="n">xA3</span><span class="p">,</span> <span class="n">xB3</span> <span class="o">=</span> <span class="n">p</span>
+
+    <span class="n">comps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="n">xA1</span><span class="p">,</span> <span class="n">xB1</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xA2</span><span class="p">,</span> <span class="n">xB2</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">xA3</span><span class="p">,</span> <span class="n">xB3</span><span class="p">]])</span>
+
+    <span class="c1"># composition validity penalties</span>
+    <span class="n">penalty</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">xA</span><span class="p">,</span> <span class="n">xB</span> <span class="ow">in</span> <span class="n">comps</span><span class="p">:</span>
+        <span class="n">xC</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">xA</span> <span class="o">-</span> <span class="n">xB</span>
+        <span class="c1"># keep inside ternary domain</span>
+        <span class="n">penalty</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="n">xA</span><span class="p">))</span>
+        <span class="n">penalty</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="n">xB</span><span class="p">))</span>
+        <span class="n">penalty</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="n">xC</span><span class="p">))</span>
+
+    <span class="n">muA1</span><span class="p">,</span> <span class="n">muB1</span> <span class="o">=</span> <span class="n">chemical_potentials</span><span class="p">(</span><span class="n">xA1</span><span class="p">,</span> <span class="n">xB1</span><span class="p">)</span>
+    <span class="n">muA2</span><span class="p">,</span> <span class="n">muB2</span> <span class="o">=</span> <span class="n">chemical_potentials</span><span class="p">(</span><span class="n">xA2</span><span class="p">,</span> <span class="n">xB2</span><span class="p">)</span>
+    <span class="n">muA3</span><span class="p">,</span> <span class="n">muB3</span> <span class="o">=</span> <span class="n">chemical_potentials</span><span class="p">(</span><span class="n">xA3</span><span class="p">,</span> <span class="n">xB3</span><span class="p">)</span>
+
+    <span class="n">res</span> <span class="o">=</span> <span class="p">[</span><span class="n">muA1</span> <span class="o">-</span> <span class="n">muA2</span><span class="p">,</span> <span class="n">muA1</span> <span class="o">-</span> <span class="n">muA3</span><span class="p">,</span> <span class="n">muB1</span> <span class="o">-</span> <span class="n">muB2</span><span class="p">,</span> <span class="n">muB1</span> <span class="o">-</span> <span class="n">muB3</span> <span class="p">]</span>
+
+    <span class="c1"># weak anchoring to keep each phase near one basin</span>
+    <span class="c1"># purely for this toy example, to select the intended solution branch</span>
+    <span class="n">anchor_weight</span> <span class="o">=</span> <span class="mf">0.2</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">),</span> <span class="p">(</span><span class="n">tA</span><span class="p">,</span> <span class="n">tB</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">comps</span><span class="p">,</span> <span class="n">targets</span><span class="p">):</span>
+        <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">anchor_weight</span> <span class="o">*</span> <span class="p">(</span><span class="n">xA</span> <span class="o">-</span> <span class="n">tA</span><span class="p">))</span>
+        <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">anchor_weight</span> <span class="o">*</span> <span class="p">(</span><span class="n">xB</span> <span class="o">-</span> <span class="n">tB</span><span class="p">))</span>
+
+    <span class="c1"># strong penalty if outside domain</span>
+    <span class="n">penalty_weight</span> <span class="o">=</span> <span class="mf">100.0</span>
+    <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">penalty</span><span class="p">:</span>
+        <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">penalty_weight</span> <span class="o">*</span> <span class="n">q</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>✅ Do This – Answer this question.
+How many variables the <code class="docutils literal notranslate"><span class="pre">residuals</span></code> function outputs? What are they?</p>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Study the code below. Choose your intial guess of the common tangent points. Hint: the closer to the solution, the faster the solutions converge.</p></li>
+<li><p>Complete the code below to find the common tangent points.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ============================================================</span>
+<span class="c1">#   Solve for tie-triangle vertices</span>
+<span class="c1"># ============================================================</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">least_squares</span>
+
+<span class="c1"># initial guess near the three wells</span>
+<span class="n">p0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span>   <span class="c1"># alpha</span>
+    <span class="mf">0.70</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span>   <span class="c1"># beta</span>
+    <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.60</span><span class="p">,</span>   <span class="c1"># gamma</span>
+<span class="p">])</span>
+
+<span class="n">sol</span> <span class="o">=</span> <span class="n">least_squares</span><span class="p">(</span><span class="n">residuals</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">xtol</span><span class="o">=</span><span class="mf">1e-14</span><span class="p">,</span> <span class="n">ftol</span><span class="o">=</span><span class="mf">1e-14</span><span class="p">,</span> <span class="n">gtol</span><span class="o">=</span><span class="mf">1e-14</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">x</span>
+
+<span class="n">xA1</span><span class="p">,</span> <span class="n">xB1</span><span class="p">,</span> <span class="n">xA2</span><span class="p">,</span> <span class="n">xB2</span><span class="p">,</span> <span class="n">xA3</span><span class="p">,</span> <span class="n">xB3</span> <span class="o">=</span> <span class="n">p</span>
+<span class="n">tie_triangle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="n">xA1</span><span class="p">,</span> <span class="n">xB1</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">xA1</span> <span class="o">-</span> <span class="n">xB1</span><span class="p">],</span>
+    <span class="p">[</span><span class="n">xA2</span><span class="p">,</span> <span class="n">xB2</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">xA2</span> <span class="o">-</span> <span class="n">xB2</span><span class="p">],</span>
+    <span class="p">[</span><span class="n">xA3</span><span class="p">,</span> <span class="n">xB3</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">xA3</span> <span class="o">-</span> <span class="n">xB3</span><span class="p">]])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Tie-triangle vertices [xA, xB, xC]:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tie_triangle</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Chemical potentials at the three vertices:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">xAv</span><span class="p">,</span> <span class="n">xBv</span><span class="p">,</span> <span class="n">xCv</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tie_triangle</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">muA</span><span class="p">,</span> <span class="n">muB</span> <span class="o">=</span> <span class="n">chemical_potentials</span><span class="p">(</span><span class="n">xAv</span><span class="p">,</span> <span class="n">xBv</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Phase </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: muA = </span><span class="si">{</span><span class="n">muA</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">, muB = </span><span class="si">{</span><span class="n">muB</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>✅ Do This – Explain what thess parts of code below are doing.</p>
+<ul class="simple">
+<li><p>Your answer:
+<img src="https://i.ibb.co/ZzNtGLrz/Snipet1.png" width="600"></p></li>
+<li><p>Your answer:
+<img src="https://i.ibb.co/Jjjybz9Y/snipet2.png" width="700"></p></li>
+</ul>
+<p>✅ Do This – What the compositions of the three common tangent points? Are these points at the button of the energy wells?</p>
+<ul class="simple">
+<li><p>Your answer:</p></li>
+</ul>
+</section>
+<section id="task-3-visualization-5-pt">
+<h3>Task 3. Visualization. (5 pt)<a class="headerlink" href="#task-3-visualization-5-pt" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>As in the in-class demonstration, plot the tie-triangle. You are expecting a result like this.</p></li>
+</ul>
+<img src="https://i.ibb.co/mVVwCJVR/tie-triangle1.png" width="600"><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ============================================================</span>
+<span class="c1">#   Plot the triangle</span>
+<span class="c1"># ============================================================</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s2">&quot;ternary&quot;</span><span class="p">)</span>
+
+<span class="n">tcf</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">tricontourf</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">,</span> <span class="n">xC</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tricontour</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">,</span> <span class="n">xC</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">tri_closed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="err">??</span><span class="p">,</span> <span class="err">??</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tri_closed</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">tri_closed</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">tri_closed</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="err">??</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_tlabel</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_llabel</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_rlabel</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Toy Free-Energy Surface Projected onto a Ternary Diagram&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">tcf</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.85</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;Free-energy-like value&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-4-visualize-the-free-energy-surface-in-3d-5-pt">
+<h3>Task 4. Visualize the free energy surface in 3D. (5 pt)<a class="headerlink" href="#task-4-visualize-the-free-energy-surface-in-3d-5-pt" title="Link to this heading">#</a></h3>
+<p>Visualizing free energy surface and common tangent plane can help understand the relevant thermodynamics concepts. Here, you will plot Gibbs free energy as a surface in 3D. You’re expecting a surface like the one on the left in the firgure below. The plot is rotatable, so you can examine the shape of the surface from different angles.
+<img src="https://i.ibb.co/v617hnGH/Gibbs-3-D-3.jpg" width="800"></p>
+<p>The code below will do the following.</p>
+<ul class="simple">
+<li><p>Convert ternary cooridnates to the Cartesian coordinates, in which we need only the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> coordinates. We will use <span class="math notranslate nohighlight">\(G\)</span> as the height (<span class="math notranslate nohighlight">\(z\)</span>) coordinate.</p></li>
+<li><p>Create triangular patches using <code class="docutils literal notranslate"><span class="pre">ax.plot_trisurf</span></code>.</p></li>
+<li><p>This figure can be rotated to examine the shape of the surface.</p></li>
+</ul>
+<p><strong>Your task: draw the tie triangle you obtained on the 3D plot as in the right panel of figure above.</strong> You are expecting a result like the right one in the figure above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">mpltern</span>
+<span class="o">%</span><span class="k">matplotlib</span> widget
+
+<span class="c1"># --------------------------------------------</span>
+<span class="c1"># Convert compositions</span>
+<span class="c1"># --------------------------------------------</span>
+<span class="c1"># ternary grid points</span>
+<span class="n">xC</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">xA</span> <span class="o">-</span> <span class="n">xB</span>
+
+<span class="c1"># --------------------------------------------</span>
+<span class="c1"># Create figure</span>
+<span class="c1"># --------------------------------------------</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s2">&quot;3d&quot;</span><span class="p">)</span>
+
+<span class="c1"># --------------------------------------------</span>
+<span class="c1"># Convert ternary -&gt; Cartesian</span>
+<span class="c1"># --------------------------------------------</span>
+
+<span class="c1"># vertices:</span>
+<span class="c1"># A = (0,0)</span>
+<span class="c1"># B = (1,0)</span>
+<span class="c1"># C = (0.5, sqrt(3)/2)</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">xB</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">xC</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="o">*</span> <span class="n">xC</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">G</span>
+
+<span class="c1"># --------------------------------------------</span>
+<span class="c1"># Surface</span>
+<span class="c1"># --------------------------------------------</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot_trisurf</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span>
+    <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+
+<span class="c1"># --------------------------------------------</span>
+<span class="c1"># Tie triangle</span>
+<span class="c1"># --------------------------------------------</span>
+
+<span class="n">tri</span> <span class="o">=</span> <span class="n">tie_triangle</span>
+
+<span class="n">tA</span> <span class="o">=</span> <span class="n">tri</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">tB</span> <span class="o">=</span> <span class="n">tri</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">tC</span> <span class="o">=</span> <span class="n">tri</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="n">Xt</span> <span class="o">=</span> <span class="o">??</span>
+<span class="n">Yt</span> <span class="o">=</span> <span class="o">??</span>
+<span class="n">Zt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">G_ternary</span><span class="p">(</span><span class="n">tA</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">tB</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)])</span>
+
+<span class="c1"># close triangle</span>
+<span class="n">Xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="err">??</span><span class="p">)</span>
+<span class="n">Yt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Yt</span><span class="p">,</span> <span class="err">??</span><span class="p">)</span>
+<span class="n">Zt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Zt</span><span class="p">,</span> <span class="n">Zt</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="n">Yt</span><span class="p">,</span> <span class="n">Zt</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="n">Yt</span><span class="p">,</span> <span class="n">Zt</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="c1"># --------------------------------------------</span>
+<span class="c1"># Labels</span>
+<span class="c1"># --------------------------------------------</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s2">&quot;G&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Ternary Gibbs Free Energy Surface&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-5-plot-the-entire-common-tangent-plane-5-pt">
+<h3>Task 5. Plot the entire common tangent plane. (5 pt)<a class="headerlink" href="#task-5-plot-the-entire-common-tangent-plane-5-pt" title="Link to this heading">#</a></h3>
+<p>A plane is mathematically defined as</p>
+<div class="math notranslate nohighlight">
+\[m_1 x + m_2 y +b = 0,\]</div>
+<p>where <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are coordinates and <span class="math notranslate nohighlight">\(b\)</span> is the intercept on the <span class="math notranslate nohighlight">\(z\)</span> axis. Thus, the common plane will satisfy</p>
+<div class="math notranslate nohighlight">
+\[\mu_A(X_{At}) \cdot  X_{At} + \mu_B(X_{Bt}) \cdot X_{Bt} + b = G(X_{At}, X_{Bt}),\]</div>
+<p>where <span class="math notranslate nohighlight">\(X_{At}\)</span> and <span class="math notranslate nohighlight">\(X_{Bt}\)</span> are the composition (coordinates) of the common tangent points.</p>
+<ul class="simple">
+<li><p>Study the code below and use it to plot the common tangne plane. Fill the blank (<code class="docutils literal notranslate"><span class="pre">??</span></code>).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pick one common tangent point</span>
+<span class="n">tri_xA</span> <span class="o">=</span> <span class="n">tie_triangle</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">tri_xB</span> <span class="o">=</span> <span class="n">tie_triangle</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># calculate the derivatives (slopes) and intercept at the common tangent point.</span>
+<span class="n">muA</span><span class="p">,</span> <span class="n">muB</span> <span class="o">=</span> <span class="n">chemical_potentials</span><span class="p">(</span><span class="n">tri_xA</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">tri_xB</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">G0</span> <span class="o">=</span> <span class="n">G_ternary</span><span class="p">(</span><span class="n">tri_xA</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">tri_xB</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">G0</span> <span class="o">-</span> <span class="o">??</span>
+
+<span class="c1"># create grid of the plane </span>
+<span class="n">Nplane</span> <span class="o">=</span> <span class="mi">60</span>
+
+<span class="n">Xp</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">Yp</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">Zp</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nplane</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nplane</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="n">i</span><span class="p">):</span>
+
+        <span class="n">xA_plane</span> <span class="o">=</span> <span class="n">i</span> <span class="o">/</span> <span class="n">Nplane</span>
+        <span class="n">xB_plane</span> <span class="o">=</span> <span class="n">j</span> <span class="o">/</span> <span class="n">Nplane</span>
+        <span class="n">xC_plane</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">xA_plane</span> <span class="o">-</span> <span class="n">xB_plane</span>
+
+        <span class="c1"># tangent plane</span>
+        <span class="n">Gplane</span> <span class="o">=</span> <span class="n">muA</span><span class="o">*</span><span class="n">xA_plane</span><span class="o">+</span> <span class="n">muB</span><span class="o">*</span><span class="n">xB_plane</span><span class="o">+</span> <span class="n">b</span>
+
+        <span class="c1"># ternary -&gt; Cartesian</span>
+        <span class="n">Xcart</span> <span class="o">=</span> <span class="n">xB_plane</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span> <span class="o">??</span>
+        <span class="n">Ycart</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="o">*</span> <span class="o">??</span>
+
+        <span class="n">Xp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Xcart</span><span class="p">)</span>
+        <span class="n">Yp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Ycart</span><span class="p">)</span>
+        <span class="n">Zp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Gplane</span><span class="p">)</span>
+
+
+<span class="c1"># grid points on the common plane in Cartesian coordinates</span>
+<span class="n">Xp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Xp</span><span class="p">)</span>
+<span class="n">Yp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Yp</span><span class="p">)</span>
+<span class="n">Zp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Zp</span><span class="p">)</span>
+
+<span class="c1"># plot</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot_trisurf</span><span class="p">(</span><span class="n">Xp</span><span class="p">,</span> <span class="n">Yp</span><span class="p">,</span> <span class="n">Zp</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.35</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>✅ Do This – Check the plot. Does your common tangent plane overlap the tie-triangle?</p>
+</section>
+<section id="task-6-increase-the-accuracy-of-finding-common-tangent-points-tie-triangle-10-pt">
+<h3>Task 6. Increase the accuracy of finding common tangent points (tie triangle). (10 pt)<a class="headerlink" href="#task-6-increase-the-accuracy-of-finding-common-tangent-points-tie-triangle-10-pt" title="Link to this heading">#</a></h3>
+<p>Now, for more accurate identification of the positions of the common tangent points, we need to tight the converging criteria. Recall, in <code class="docutils literal notranslate"><span class="pre">least_squares</span></code> the <code class="docutils literal notranslate"><span class="pre">residuals</span></code> uses a couple of idicators to find the roots that make residuals approaching zero. So, to increase accuracy, we will choose different indicators.</p>
+<p>We want the intercept <span class="math notranslate nohighlight">\(b\)</span> of the common tangent plane found from all the three common tangent points to be the same.</p>
+<ul class="simple">
+<li><p>Complete the code below to include the conditions that <code class="docutils literal notranslate"><span class="pre">b1</span></code>, <code class="docutils literal notranslate"><span class="pre">b2</span></code>, and <code class="docutils literal notranslate"><span class="pre">b3</span></code> approach to each other.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tangent_intercept</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">):</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">G_ternary</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">)</span>
+    <span class="n">muA</span><span class="p">,</span> <span class="n">muB</span> <span class="o">=</span> <span class="n">chemical_potentials</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">G</span> <span class="o">-</span> <span class="n">muA</span><span class="o">*</span><span class="n">xA</span> <span class="o">-</span> <span class="n">muB</span><span class="o">*</span><span class="n">xB</span>
+    <span class="k">return</span> <span class="n">b</span>
+
+
+<span class="k">def</span> <span class="nf">residuals_ls</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="n">xA1</span><span class="p">,</span> <span class="n">xB1</span><span class="p">,</span> <span class="n">xA2</span><span class="p">,</span> <span class="n">xB2</span><span class="p">,</span> <span class="n">xA3</span><span class="p">,</span> <span class="n">xB3</span> <span class="o">=</span> <span class="n">p</span>
+
+    <span class="n">muA1</span><span class="p">,</span> <span class="n">muB1</span> <span class="o">=</span> <span class="o">??</span>
+    <span class="n">muA2</span><span class="p">,</span> <span class="n">muB2</span> <span class="o">=</span> <span class="o">??</span>
+    <span class="n">muA3</span><span class="p">,</span> <span class="n">muB3</span> <span class="o">=</span> <span class="o">??</span>
+
+    <span class="n">b1</span> <span class="o">=</span> <span class="o">??</span>
+    <span class="n">b2</span> <span class="o">=</span> <span class="o">??</span>
+    <span class="n">b3</span> <span class="o">=</span> <span class="o">??</span>
+
+    <span class="n">scale_mu</span> <span class="o">=</span> <span class="mf">0.1</span>
+    <span class="n">scale_G</span>  <span class="o">=</span> <span class="mf">0.1</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">(</span><span class="n">muA1</span> <span class="o">-</span> <span class="n">muA2</span><span class="p">)</span> <span class="o">/</span> <span class="n">scale_mu</span><span class="p">,</span>
+        <span class="p">(</span><span class="n">muA1</span> <span class="o">-</span> <span class="n">muA3</span><span class="p">)</span> <span class="o">/</span> <span class="n">scale_mu</span><span class="p">,</span>
+        <span class="p">(</span><span class="n">muB1</span> <span class="o">-</span> <span class="n">muB2</span><span class="p">)</span> <span class="o">/</span> <span class="n">scale_mu</span><span class="p">,</span>
+        <span class="p">(</span><span class="n">muB1</span> <span class="o">-</span> <span class="n">muB3</span><span class="p">)</span> <span class="o">/</span> <span class="n">scale_mu</span><span class="p">,</span>
+        <span class="p">(</span><span class="n">b1</span> <span class="o">-</span> <span class="err">??</span><span class="p">)</span> <span class="o">/</span> <span class="n">scale_G</span><span class="p">,</span>
+        <span class="p">(</span><span class="n">b1</span> <span class="o">-</span> <span class="err">??</span><span class="p">)</span> <span class="o">/</span> <span class="n">scale_G</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Copy the <code class="docutils literal notranslate"><span class="pre">least_squares</span></code> solver to the cell below. Use the new <code class="docutils literal notranslate"><span class="pre">residuals_ls</span></code> function to find the roots (common tangnet points).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ============================================================</span>
+<span class="c1">#   Solve for tie-triangle vertices</span>
+<span class="c1"># ============================================================</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Copy the previous code for plotting tie triangle and the common tangent plane to the cell below.</p></li>
+<li><p>Use the new common tangent points to make the plot.</p></li>
+</ul>
+<p>You are expecting a result like this, where the common tangent points (tie triangle) overlap well with the common tangent plane.</p>
+<img src="https://i.ibb.co/DDQ5t10V/Common-Tangent1.png" width="600">
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ============================================================</span>
+<span class="c1">#   plot the free energy surface</span>
+<span class="c1"># ============================================================</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ============================================================</span>
+<span class="c1">#   plot the common tangent plane</span>
+<span class="c1"># ============================================================</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>If the common tangent pointa are found accurately, the tie triangle will overlap on the common tangent plane.</p></li>
+</ul>
+</section>
+<section id="task-7-5-pt">
+<h3>Task 7 (5 pt)<a class="headerlink" href="#task-7-5-pt" title="Link to this heading">#</a></h3>
+<p>✅ Do This – Based on your thermodyanamics knowledge, at <span class="math notranslate nohighlight">\(T=1250\)</span> K, will the tie triangle expand or shrink? Why</p>
+<ul class="simple">
+<li><p>Your answer:</p></li>
+</ul>
+<p>✅ Do This – Use your code above to verify your answer. Screenshot your figure of the tie triangle at <span class="math notranslate nohighlight">\(T = 1250\)</span> K. You should be able to use some code snippets like below to embed the obtained image in this notebook file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;Figs/my_image.png&quot;</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="congrats-you-re-done-please-upload-your-complete-homework-2-assignments-to-the-link">
+<h2>Congrats, you’re done. Please upload your complete homework 2 assignments to the <strong><a class="reference external" href="https://www.dropbox.com/request/ttfolyz7cgyf6x3bl64e">link</a></strong>.<a class="headerlink" href="#congrats-you-re-done-please-upload-your-complete-homework-2-assignments-to-the-link" title="Link to this heading">#</a></h2>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-base-py"
+        },
+        kernelOptions: {
+            name: "conda-base-py",
+            path: "./homework/HW02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-base-py'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../section_files/HW02_3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Homework 2-3</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#due-on-may-25-monday-2026">Due on May 25 (Monday), 2026</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#put-your-name-here"><p style="text-align: right;"> ✅ <strong>put your name here</strong> </p></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ai-usage-5-pt">AI usage (5 pt)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-bindary-phase-diagram">Problem 1. Bindary phase diagram</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-plot-these-two-free-energy-curves-15-pt">Task 1. Plot these two free energy curves (15 pt)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-calculate-the-chemical-potentials-of-the-solid-and-liquid-phases-10-pt">Task 2. Calculate the chemical potentials of the solid and liquid phases. (10 pt)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-find-the-phase-boundaries-10-pt">Task 3. FInd the phase boundaries. (10 pt)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-further-explore-bindary-phase-diagram">Problem 2. Further explore bindary phase diagram</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-free-energy-functions-5-pt">Task 1. Free energy functions. (5 pt)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-find-the-triple-common-tangent-point-monotectic-l-1-l-2-and-alpha-1-coexist-near-t-approx-1090-k-5-pt">Task 2. Find the triple common tangent point (monotectic: L<span class="math notranslate nohighlight">\(_1\)</span>, L<span class="math notranslate nohighlight">\(_2\)</span>, and <span class="math notranslate nohighlight">\(\alpha^1\)</span> coexist) near <span class="math notranslate nohighlight">\(T\approx 1090\)</span> K. (5 pt)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-construct-the-phase-diagram-5-pt">Task 3. Construct the phase diagram. (5 pt)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-ternary-system">Problem 3. Ternary system.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-create-an-arbitrary-gibbs-free-energy-of-a-ternary-system-10-pt">Task 1. Create an  arbitrary Gibbs free energy of a ternary system. (10 pt)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-find-the-tie-triangle-10-pt">Task 2. Find the tie triangle. (10 pt)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-visualization-5-pt">Task 3. Visualization. (5 pt)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4-visualize-the-free-energy-surface-in-3d-5-pt">Task 4. Visualize the free energy surface in 3D. (5 pt)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5-plot-the-entire-common-tangent-plane-5-pt">Task 5. Plot the entire common tangent plane. (5 pt)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6-increase-the-accuracy-of-finding-common-tangent-points-tie-triangle-10-pt">Task 6. Increase the accuracy of finding common tangent points (tie triangle). (10 pt)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-7-5-pt">Task 7 (5 pt)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#congrats-you-re-done-please-upload-your-complete-homework-2-assignments-to-the-link">Congrats, you’re done. Please upload your complete homework 2 assignments to the <strong>link</strong>.</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hui-Chia Yu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
