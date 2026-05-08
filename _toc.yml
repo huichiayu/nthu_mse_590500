@@ -106,7 +106,9 @@ parts:
           sections: 
             - file: homework/HW01/MSE590500_HW1_student
 
-
+        - file: section_files/HW02_3
+          sections: 
+            - file: homework/HW02/Homework2_3_student_v01
 
         
     
