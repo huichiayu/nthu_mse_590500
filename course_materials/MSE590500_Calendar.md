@@ -55,11 +55,12 @@
   </tr>
   <tr> <!-- week 10 -->
     <td style="border: 1px solid #ddd; padding: 8px;">09 (Apr 27)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;"> <strong>Midterm exam.</strong> <strong>Homework 3 release</strong> </td>
+    <td style="border: 1px solid #ddd; padding: 8px;"> <strong>Midterm exam.</strong> </td>
   </tr>
   <tr style="background-color: #f9f9f9;"> <!-- week 11 -->
     <td style="border: 1px solid #ddd; padding: 8px;">10 (May 4)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;"> TBA </td>
+    <td style="border: 1px solid #ddd; padding: 8px;"> Beam problem, Fourier series, FFT. </td>
+    <td style="border: 1px solid #ddd; padding: 8px;"> May 8: <strong>Homework 3 release</strong></td>
   </tr>       
   <tr> <!-- week 12 -->
     <td style="border: 1px solid #ddd; padding: 8px;">11 (May 11)</td>
