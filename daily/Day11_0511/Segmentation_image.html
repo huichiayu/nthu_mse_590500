@@ -1,0 +1,1109 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Image segmentation. &#8212; MSE 590500 Course Website</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'daily/Day11_0511/Segmentation_image';</script>
+    <link rel="icon" href="../../_static/Spartan_2.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Homework 1" href="../../section_files/HW01.html" />
+    <link rel="prev" title="FFT filter" href="FFT2_Image.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/Spartan_2.png" class="logo__image only-light" alt="MSE 590500 Course Website - Home"/>
+    <script>document.write(`<img src="../../_static/Spartan_2.png" class="logo__image only-dark" alt="MSE 590500 Course Website - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Materials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/MSE590500_Syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/MSE590500_Calendar.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/SoftwareSetupGuide_NTHU_2.html">Software Setup Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/MSE590500_AI_policy.html">Generative AI Policy</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://upload.wikimedia.org/wikipedia/commons/7/79/Unix_command_cheatsheet.pdf">CLI (Unix/Mac/Linux) commands cheat sheet</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Daily Content</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_1.html">Day 1 02/23</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day01_0223/Jupyter_Notebook_Basics.html">Jupyter Notebook Basics (Hands-on)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day01_0223/Python_Data_Types_Teaching.html">Python Data Types (Hands-on)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day01_0223/UNIX_Command_Line_Basics.html">Introduction to UNIX Command Line Interface (CLI)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_2.html">Day 2 03/02</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day02_0302/numpy_teaching_module.html">Introduction to NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day02_0302/matplotlib_teaching_module.html">Introduction to Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day02_0302/sympy_teaching_module.html">SymPy Mini Teaching Module (Beginner)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_3.html">Day 3 03/09</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day03_0309/pandas_basics_teaching_notebook.html">Pandas Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day03_0309/pandas_demo_with_material_data.html">Pandas Demonstration Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day03_0309/Ideal_gas_calculation.html">Ideal gas behavior</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_4.html">Day 4 03/16</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://youtu.be/W8pjXJr98Ck">Classical thermo - enthalpy calculation 1</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://youtu.be/-O7L3ZuQ_8E">Classical thermo - enthalpy calculation 2</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://youtu.be/Y28fCO2Gtpc">Classical thermo - entropy calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day04_0316/Enthalpy_01.html">Calculating enthalpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day04_0316/Entropy_v01.html">Calculating entropy</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_5.html">Day 5 03/23</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_6.html">Day 6 03/30</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/PT_phaseDiagram.html">Phase diagram of a pure substance (single component system)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/water_pvt_with_solid_boundaries.html">Water PVT Phase Diagram with Solid–Liquid–Vapor Boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/RegularSolution_student.html">Regular solution model and phase diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/BinaryPhaseDiagram_MiscibleAlloys_student.html">Phase Diagrams for Completely Miscible Alloys</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/EutecticPhaseDiagram_student.html">Construction of a Eutectic Phase Diagram</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_7.html">Day 7 04/13</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day07_0413/ConvexHull_CommonTangent_Construction.html">Bindary phase diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day07_0413/ternary_phase_diagram_module_student.html">Ternary Phase Diagram Teaching Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day07_0413/TieTriangle_demo.html">Demonstration of finding tie-triangle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day07_0413/PyCalPhas_demo.html">PyCalPhad</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_8.html">Day 8 04/20</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/first_order_ode_analytical_and_finite_difference_v1.html">First-order ODEs: analytical solution and finite-difference method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/damped_oscillator_finite_difference_v1.html">Damped oscillator using the finite-difference method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/elasticity_mechanics_analytical_and_finite_difference.html">Elasticity and mechanics: analytical and finite-difference solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/1D_diffusion_equation_sympy_scipy.html">Analytically solving the 1D diffusion equation with SymPy (and comparing with SciPy)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/simple_2D_diffusion_FDM_center_source.html">Simple 2D diffusion FDM example: source at the center</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/Midterm.html">Midterm exam</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Midterm_0427/MidtermExam_student_v1.html">MSE 590500 Mid-term exam.</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_10.html">Day 10 05/04</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/beam_fdm_module_student.html">Euler–Bernoulli Beam Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/FourierCoefficients.html">Fourier coefficients</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/NOAA_student.html">Fast Fourier Transform (FFT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/FFT2D.html">Fast Fourier Transform (FFT) 2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/Denoiser_student.html">Image denoise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../section_files/day_11.html">Day 11 05/01</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ImageProcess.html">Image filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FFT2_Image.html">FFT filter</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Image segmentation.</a></li>
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/HW01.html">Homework 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../homework/HW01/MSE590500_HW1_student.html">MSE 590500 Homework assginment 1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/HW02_3.html">Homework 2-3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../homework/HW02/Homework2_3_student_v01.html">MSE590500 Homework assignment 2 &amp; 3</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/daily/Day11_0511/Segmentation_image.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Image segmentation.</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Image segmentation.</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-threshold-to-mask-the-intensity">Set up threshold to <code class="docutils literal notranslate"><span class="pre">mask</span></code> the intensity.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#erosion-and-dilation">Erosion and dilation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edge">Edge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#canny-edge-detector">Canny edge detector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skeletonize">skeletonize</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-useful-properties">Calculate useful properties</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#particle-counting">Particle counting.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-based-simulation">Image-based simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-data">3D data</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="image-segmentation">
+<h1>Image segmentation.<a class="headerlink" href="#image-segmentation" title="Link to this heading">#</a></h1>
+<p>We will practice more image processing. In many cases, images with continuous pixel intensity are binarized to contain only bindary values. For example, from grayscale to black-and-white.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">imageio</span> <span class="kn">import</span> <span class="n">imread</span>
+
+<span class="n">img</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="s2">&quot;II_1_raw-117.tiff&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># I_norm = img/255</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>First, we will denoise the image. Use the filter you think work best to denoise the input image. Here, we try several filters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage.restoration</span> <span class="kn">import</span> <span class="n">denoise_nl_means</span><span class="p">,</span> <span class="n">estimate_sigma</span>
+
+<span class="c1"># img_f = I_norm.astype(float)</span>
+
+<span class="n">img_f</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">img_f</span> <span class="o">=</span> <span class="p">(</span><span class="n">img_f</span> <span class="o">-</span> <span class="n">img_f</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="o">/</span> <span class="p">(</span><span class="n">img_f</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">img_f</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+
+<span class="n">sigma_est</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">estimate_sigma</span><span class="p">(</span><span class="n">img_f</span><span class="p">,</span> <span class="n">channel_axis</span><span class="o">=</span><span class="kc">None</span><span class="p">))</span>
+
+<span class="n">img_nlm</span> <span class="o">=</span> <span class="n">denoise_nl_means</span><span class="p">(</span>
+    <span class="n">img_f</span><span class="p">,</span>
+    <span class="n">h</span><span class="o">=</span><span class="mf">0.8</span><span class="o">*</span><span class="n">sigma_est</span><span class="p">,</span>
+    <span class="n">patch_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">patch_distance</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+    <span class="n">fast_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">channel_axis</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_nlm</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage.restoration</span> <span class="kn">import</span> <span class="n">denoise_bilateral</span>
+
+<span class="n">img_bilat</span> <span class="o">=</span> <span class="n">denoise_bilateral</span><span class="p">(</span>
+    <span class="n">img_f</span><span class="p">,</span>
+    <span class="n">sigma_color</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>
+    <span class="n">sigma_spatial</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">channel_axis</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_bilat</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage.restoration</span> <span class="kn">import</span> <span class="n">denoise_tv_chambolle</span>
+
+<span class="n">img_tv</span> <span class="o">=</span> <span class="n">denoise_tv_chambolle</span><span class="p">(</span>
+    <span class="n">img_f</span><span class="p">,</span>
+    <span class="n">weight</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_tv</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="set-up-threshold-to-mask-the-intensity">
+<h2>Set up threshold to <code class="docutils literal notranslate"><span class="pre">mask</span></code> the intensity.<a class="headerlink" href="#set-up-threshold-to-mask-the-intensity" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">fixed</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">gray_threshold</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+
+    <span class="n">b_img</span> <span class="o">=</span> <span class="p">(</span><span class="n">im</span> <span class="o">&gt;</span> <span class="n">vmin</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">im</span> <span class="o">&lt;</span> <span class="n">vmax</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;vmin =&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;vmax =&quot;</span><span class="p">,</span> <span class="n">vmax</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">s</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+    
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Original&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+    
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">b_img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Binary segmentation&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+    
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">b_img</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span> <span class="o">=</span> <span class="n">interact</span><span class="p">(</span>
+    <span class="n">gray_threshold</span><span class="p">,</span>
+    <span class="n">im</span><span class="o">=</span><span class="n">fixed</span><span class="p">(</span><span class="n">img_nlm</span><span class="p">),</span>
+    <span class="n">vmin</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span>
+    <span class="n">vmax</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span>
+    <span class="n">__manual</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="erosion-and-dilation">
+<h2>Erosion and dilation<a class="headerlink" href="#erosion-and-dilation" title="Link to this heading">#</a></h2>
+<p>✅ Do This – Search what image dilation and erosion are. Give a brief description.</p>
+<p><strong>Try different values of iterations to see the difference.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">misc</span><span class="p">,</span> <span class="n">ndimage</span>
+
+<span class="n">img_clean</span> <span class="o">=</span> <span class="n">img_nlm</span>
+<span class="n">b_img</span> <span class="o">=</span> <span class="n">gray_threshold</span><span class="p">(</span><span class="n">img_clean</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mf">0.47</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">0.96</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">after_dialation</span> <span class="o">=</span> <span class="n">ndimage</span><span class="o">.</span><span class="n">binary_erosion</span><span class="p">(</span><span class="n">b_img</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">after_dialation</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">misc</span><span class="p">,</span> <span class="n">ndimage</span>
+
+<span class="n">b_img</span> <span class="o">=</span> <span class="n">gray_threshold</span><span class="p">(</span><span class="n">img_clean</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mf">0.47</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">0.96</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">after_dialation</span> <span class="o">=</span> <span class="n">ndimage</span><span class="o">.</span><span class="n">binary_dilation</span><span class="p">(</span><span class="n">b_img</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">after_dialation</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="edge">
+<h2>Edge<a class="headerlink" href="#edge" title="Link to this heading">#</a></h2>
+<p>This gives a 1-pixel-wide boundary. Erosion shrinks the object slightly. Subtracting: <code class="docutils literal notranslate"><span class="pre">original</span> <span class="pre">-</span> <span class="pre">eroded</span></code> leaves only the boundary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.ndimage</span> <span class="kn">import</span> <span class="n">binary_erosion</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">b_img</span> <span class="o">=</span> <span class="n">gray_threshold</span><span class="p">(</span><span class="n">img_clean</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mf">0.47</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">0.96</span><span class="p">)</span>
+<span class="n">edge</span> <span class="o">=</span> <span class="n">b_img</span> <span class="o">^</span> <span class="n">binary_erosion</span><span class="p">(</span><span class="n">b_img</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">edge</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.ndimage</span> <span class="kn">import</span> <span class="n">binary_dilation</span><span class="p">,</span> <span class="n">binary_erosion</span>
+
+<span class="n">edge</span> <span class="o">=</span> <span class="n">binary_dilation</span><span class="p">(</span><span class="n">b_img</span><span class="p">)</span> <span class="o">^</span> <span class="n">binary_erosion</span><span class="p">(</span><span class="n">b_img</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">edge</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sobel edge detector</p>
+<p>Works on grayscale OR binary images. Produces gradient magnitude.</p>
+<div class="math notranslate nohighlight">
+\[\nabla I = \bigg( \frac{\partial I}{\partial x}, \frac{\partial I}{\partial y}\bigg).\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}G_x = \begin{bmatrix}
+-1 &amp; 0 &amp; 1 \\
+-2 &amp; 0 &amp; 2 \\
+-1 &amp; 0 &amp; 1
+\end{bmatrix} ~~~~\text{and}~~~~G_y = \begin{bmatrix}
+-1 &amp; -2 &amp; 1 \\
+0 &amp; 0 &amp; 0 \\
+1 &amp; 2 &amp; 1
+\end{bmatrix}.\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[S_x = G_x * I ~~~\text{and}~~~~ S_y = G_y * I,\]</div>
+<p>where ‘<span class="math notranslate nohighlight">\(*\)</span>’ is convolution operation.</p>
+<ul class="simple">
+<li><p>Continuous form:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[(I* K) (x,y) = \int\int I(x-u,y-v)K(u,v) du dy,\]</div>
+<ul class="simple">
+<li><p>Discrete image form:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}(I* K) [m,n] = \sum_i \sum_j I[m-i,n-j] K[i,j]$$.\\$$\nabla I = \sqrt{S_x^2 + S_y^2}.\end{aligned}\end{align} \]</div>
+<p><strong>Relation to finite differences</strong></p>
+<p>Simple derivative:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial I}{\partial x} \approx I(x+1) - I(x-1).\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.ndimage</span> <span class="kn">import</span> <span class="n">sobel</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">sx</span> <span class="o">=</span> <span class="n">sobel</span><span class="p">(</span><span class="n">b_img</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">sy</span> <span class="o">=</span> <span class="n">sobel</span><span class="p">(</span><span class="n">b_img</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">edge</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hypot</span><span class="p">(</span><span class="n">sx</span><span class="p">,</span> <span class="n">sy</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">edge</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="canny-edge-detector">
+<h2>Canny edge detector<a class="headerlink" href="#canny-edge-detector" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Smooth image (e.g., Gaussian)</p></li>
+<li><p>Compute gradients (e.g., Sobel)</p></li>
+<li><p>Thin edges</p></li>
+<li><p>Keep only strong/connected edges (thresholding)</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage.feature</span> <span class="kn">import</span> <span class="n">canny</span>
+
+<span class="n">edge</span> <span class="o">=</span> <span class="n">canny</span><span class="p">(</span><span class="n">b_img</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">edge</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Over plotting edges on the original image.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">b_img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">edge</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>✅ Do This –  Which edge detecting you think works the best?</p>
+</section>
+<section id="skeletonize">
+<h2>skeletonize<a class="headerlink" href="#skeletonize" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">skeletonize</span></code> reduces a binary object to a thin 1-pixel-wide centerline while preserving its topology. Skeletonization repeatedly removes boundary pixels while:</p>
+<ul class="simple">
+<li><p>not breaking connectivity</p></li>
+<li><p>not deleting endpoints</p></li>
+</ul>
+<p>until only the center structure remains.
+It is often called:</p>
+<ul class="simple">
+<li><p>medial axis</p></li>
+<li><p>topological skeleton</p></li>
+<li><p>centerline extraction</p></li>
+</ul>
+<p>Very useful for:</p>
+<ul class="simple">
+<li><p>crack networks</p></li>
+<li><p>pore networks</p></li>
+<li><p>fibers</p></li>
+<li><p>grain boundaries</p></li>
+<li><p>vascular structures</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage.morphology</span> <span class="kn">import</span> <span class="n">skeletonize</span>
+
+<span class="n">skel</span> <span class="o">=</span> <span class="n">skeletonize</span><span class="p">(</span><span class="n">b_img</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># edge = canny(b_img.astype(float))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">skel</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+</section>
+</section>
+<section id="calculate-useful-properties">
+<h1>Calculate useful properties<a class="headerlink" href="#calculate-useful-properties" title="Link to this heading">#</a></h1>
+<p>Images represent the geometries of materials microstructures. You can calculate microstructural properties from the image data.</p>
+<ul class="simple">
+<li><p>Volume fraction.</p></li>
+<li><p>edge density.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b_img</span> <span class="o">=</span> <span class="n">gray_threshold</span><span class="p">(</span><span class="n">img_nlm</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mf">0.47</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">0.96</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">b_img</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">solid_fraction</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">b_img</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">h</span><span class="o">*</span><span class="n">w</span><span class="p">)</span>
+
+<span class="n">edge</span> <span class="o">=</span> <span class="n">b_img</span> <span class="o">^</span> <span class="n">binary_erosion</span><span class="p">(</span><span class="n">b_img</span><span class="p">)</span>
+<span class="n">edge_density</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">h</span><span class="o">*</span><span class="n">w</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;solid_fraction:&quot;</span><span class="p">,</span> <span class="n">solid_fraction</span><span class="p">,</span> <span class="s2">&quot;;   &quot;</span><span class="p">,</span> <span class="s2">&quot;edge_density:&quot;</span><span class="p">,</span>  <span class="n">edge_density</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="particle-counting">
+<h2>Particle counting.<a class="headerlink" href="#particle-counting" title="Link to this heading">#</a></h2>
+<p>We will use <code class="docutils literal notranslate"><span class="pre">ndimage.measurements.label</span></code> to count the numnber of connected pixel groups.</p>
+<ul class="simple">
+<li><p>First, let’s use erosion and dilation to break connections between adjacent particles.</p></li>
+<li><p>Then, use <code class="docutils literal notranslate"><span class="pre">ndimage.measurements.label</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">misc</span><span class="p">,</span> <span class="n">ndimage</span>
+
+<span class="n">b_img</span> <span class="o">=</span> <span class="n">gray_threshold</span><span class="p">(</span><span class="n">img_clean</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mf">0.47</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">0.96</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">after_erosion</span> <span class="o">=</span> <span class="n">ndimage</span><span class="o">.</span><span class="n">binary_erosion</span><span class="p">(</span><span class="n">b_img</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">after_erosion</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b_img</span> <span class="o">=</span> <span class="n">gray_threshold</span><span class="p">(</span><span class="n">img_clean</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mf">0.47</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">0.96</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">after_dialation</span> <span class="o">=</span> <span class="n">ndimage</span><span class="o">.</span><span class="n">binary_dilation</span><span class="p">(</span><span class="n">after_erosion</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">after_dialation</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %matplotlib inline</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">lab</span><span class="p">,</span> <span class="n">num_features</span> <span class="o">=</span> <span class="n">ndimage</span><span class="o">.</span><span class="n">measurements</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">after_dialation</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">lab</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">num_features</span><span class="p">)</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">lab</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="image-based-simulation">
+<h2>Image-based simulation<a class="headerlink" href="#image-based-simulation" title="Link to this heading">#</a></h2>
+<p>Below we use a technique, “Smoothed Boundary Method” with finite difference method to simulate the diffusion in the pore channels.</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial C}{\partial t} = \frac{1}{\phi} \bigg(\nabla \phi \cdot D \nabla C \bigg).\]</div>
+<p>Such that diffusion occurs only in the region <span class="math notranslate nohighlight">\(\phi &gt; \epsilon.\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.ndimage</span> <span class="kn">import</span> <span class="n">gaussian_filter</span>
+
+<span class="n">b_int</span> <span class="o">=</span> <span class="n">after_dialation</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="n">b_small</span> <span class="o">=</span> <span class="n">b_int</span><span class="p">[:</span><span class="mi">100</span><span class="p">,:</span><span class="mi">100</span><span class="p">]</span>
+<span class="kn">from</span> <span class="nn">skimage.transform</span> <span class="kn">import</span> <span class="n">resize</span>
+
+<span class="n">img2</span> <span class="o">=</span> <span class="n">resize</span><span class="p">(</span>
+    <span class="n">b_small</span><span class="p">,</span>
+    <span class="p">(</span><span class="mi">201</span><span class="p">,</span> <span class="mi">201</span><span class="p">),</span>
+    <span class="n">anti_aliasing</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">img2</span> <span class="o">=</span> <span class="n">gaussian_filter</span><span class="p">(</span><span class="n">img2</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+
+<span class="n">sbm</span> <span class="o">=</span> <span class="p">(</span><span class="n">img2</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">img2</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">img2</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">img2</span><span class="p">))</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">sbm</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">sbm</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">phi</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">sbm</span><span class="p">)</span>
+
+<span class="n">dx</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.08</span>
+<span class="n">Dff</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">Con</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">201</span><span class="p">,</span><span class="mi">201</span><span class="p">))</span>
+<span class="n">Lap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">Con</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10001</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+
+    <span class="c1"># ∇ · (phi ∇Con)</span>
+    <span class="n">Lap</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">/</span> <span class="n">dx</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span>
+        <span class="p">(</span><span class="n">phi</span><span class="p">[</span><span class="mi">2</span><span class="p">:,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">phi</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span> <span class="p">(</span><span class="n">Con</span><span class="p">[</span><span class="mi">2</span><span class="p">:,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">Con</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">-</span>
+        <span class="p">(</span><span class="n">phi</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">phi</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span> <span class="p">(</span><span class="n">Con</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">Con</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">+</span>
+        <span class="p">(</span><span class="n">phi</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:]</span> <span class="o">+</span> <span class="n">phi</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span> <span class="p">(</span><span class="n">Con</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:]</span> <span class="o">-</span> <span class="n">Con</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">-</span>
+        <span class="p">(</span><span class="n">phi</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">phi</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span><span class="o">*</span> <span class="p">(</span><span class="n">Con</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">Con</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]))</span>
+
+    <span class="c1"># update only where phi &gt; 1e-4</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">phi</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">1.0e-4</span>
+
+    <span class="n">Con_inner</span> <span class="o">=</span> <span class="n">Con</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">Con_inner</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">Con_inner</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+        <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">Dff</span> <span class="o">*</span> <span class="n">Lap</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">mask</span><span class="p">]</span> <span class="o">/</span> <span class="n">phi</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">mask</span><span class="p">])</span>
+
+    <span class="n">Con</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Con_inner</span>
+
+    <span class="c1"># Neumann boundary conditions</span>
+    <span class="n">Con</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>  <span class="o">=</span> <span class="n">Con</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="n">Con</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">Con</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="n">Con</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>  <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">Con</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Con</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="d-data">
+<h2>3D data<a class="headerlink" href="#d-data" title="Link to this heading">#</a></h2>
+<p>Following a similar concept, in 3D the microstructure is represented as a 3D voxel array. We will import a stacked-tiff file, which contains many images in one file.</p>
+<p>There are open to public battery graphite anode 3D data in
+<code class="docutils literal notranslate"><span class="pre">https://www.research-collection.ethz.ch/entities/researchdata/2f6d999d-9b22-40ab-ab8f-da0c43b34c82</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">tifffile</span>
+
+<span class="c1"># Load stacked TIFF</span>
+<span class="n">vol</span> <span class="o">=</span> <span class="n">tifffile</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;II_1_bin.tif&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">vol</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">binary_vol</span> <span class="o">=</span> <span class="n">vol</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">binary_small</span> <span class="o">=</span> <span class="n">binary_vol</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">]</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> widget
+
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;3d&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">voxels</span><span class="p">(</span>
+    <span class="n">binary_small</span><span class="p">,</span>
+    <span class="n">edgecolor</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Y&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s2">&quot;Z&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-base-py"
+        },
+        kernelOptions: {
+            name: "conda-base-py",
+            path: "./daily/Day11_0511"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-base-py'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="FFT2_Image.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">FFT filter</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../section_files/HW01.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Homework 1</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Image segmentation.</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-threshold-to-mask-the-intensity">Set up threshold to <code class="docutils literal notranslate"><span class="pre">mask</span></code> the intensity.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#erosion-and-dilation">Erosion and dilation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edge">Edge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#canny-edge-detector">Canny edge detector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skeletonize">skeletonize</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-useful-properties">Calculate useful properties</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#particle-counting">Particle counting.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-based-simulation">Image-based simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-data">3D data</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hui-Chia Yu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,816 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Image filters &#8212; MSE 590500 Course Website</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'daily/Day11_0511/ImageProcess';</script>
+    <link rel="icon" href="../../_static/Spartan_2.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="FFT filter" href="FFT2_Image.html" />
+    <link rel="prev" title="Day 11 05/01" href="../../section_files/day_11.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/Spartan_2.png" class="logo__image only-light" alt="MSE 590500 Course Website - Home"/>
+    <script>document.write(`<img src="../../_static/Spartan_2.png" class="logo__image only-dark" alt="MSE 590500 Course Website - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Materials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/MSE590500_Syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/MSE590500_Calendar.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/SoftwareSetupGuide_NTHU_2.html">Software Setup Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/MSE590500_AI_policy.html">Generative AI Policy</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://upload.wikimedia.org/wikipedia/commons/7/79/Unix_command_cheatsheet.pdf">CLI (Unix/Mac/Linux) commands cheat sheet</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Daily Content</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_1.html">Day 1 02/23</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day01_0223/Jupyter_Notebook_Basics.html">Jupyter Notebook Basics (Hands-on)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day01_0223/Python_Data_Types_Teaching.html">Python Data Types (Hands-on)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day01_0223/UNIX_Command_Line_Basics.html">Introduction to UNIX Command Line Interface (CLI)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_2.html">Day 2 03/02</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day02_0302/numpy_teaching_module.html">Introduction to NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day02_0302/matplotlib_teaching_module.html">Introduction to Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day02_0302/sympy_teaching_module.html">SymPy Mini Teaching Module (Beginner)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_3.html">Day 3 03/09</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day03_0309/pandas_basics_teaching_notebook.html">Pandas Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day03_0309/pandas_demo_with_material_data.html">Pandas Demonstration Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day03_0309/Ideal_gas_calculation.html">Ideal gas behavior</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_4.html">Day 4 03/16</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://youtu.be/W8pjXJr98Ck">Classical thermo - enthalpy calculation 1</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://youtu.be/-O7L3ZuQ_8E">Classical thermo - enthalpy calculation 2</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://youtu.be/Y28fCO2Gtpc">Classical thermo - entropy calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day04_0316/Enthalpy_01.html">Calculating enthalpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day04_0316/Entropy_v01.html">Calculating entropy</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_5.html">Day 5 03/23</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_6.html">Day 6 03/30</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/PT_phaseDiagram.html">Phase diagram of a pure substance (single component system)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/water_pvt_with_solid_boundaries.html">Water PVT Phase Diagram with Solid–Liquid–Vapor Boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/RegularSolution_student.html">Regular solution model and phase diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/BinaryPhaseDiagram_MiscibleAlloys_student.html">Phase Diagrams for Completely Miscible Alloys</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/EutecticPhaseDiagram_student.html">Construction of a Eutectic Phase Diagram</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_7.html">Day 7 04/13</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day07_0413/ConvexHull_CommonTangent_Construction.html">Bindary phase diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day07_0413/ternary_phase_diagram_module_student.html">Ternary Phase Diagram Teaching Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day07_0413/TieTriangle_demo.html">Demonstration of finding tie-triangle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day07_0413/PyCalPhas_demo.html">PyCalPhad</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_8.html">Day 8 04/20</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/first_order_ode_analytical_and_finite_difference_v1.html">First-order ODEs: analytical solution and finite-difference method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/damped_oscillator_finite_difference_v1.html">Damped oscillator using the finite-difference method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/elasticity_mechanics_analytical_and_finite_difference.html">Elasticity and mechanics: analytical and finite-difference solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/1D_diffusion_equation_sympy_scipy.html">Analytically solving the 1D diffusion equation with SymPy (and comparing with SciPy)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/simple_2D_diffusion_FDM_center_source.html">Simple 2D diffusion FDM example: source at the center</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/Midterm.html">Midterm exam</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Midterm_0427/MidtermExam_student_v1.html">MSE 590500 Mid-term exam.</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_10.html">Day 10 05/04</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/beam_fdm_module_student.html">Euler–Bernoulli Beam Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/FourierCoefficients.html">Fourier coefficients</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/NOAA_student.html">Fast Fourier Transform (FFT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/FFT2D.html">Fast Fourier Transform (FFT) 2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/Denoiser_student.html">Image denoise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../section_files/day_11.html">Day 11 05/01</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Image filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FFT2_Image.html">FFT filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Segmentation_image.html">Image segmentation.</a></li>
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/HW01.html">Homework 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../homework/HW01/MSE590500_HW1_student.html">MSE 590500 Homework assginment 1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/HW02_3.html">Homework 2-3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../homework/HW02/Homework2_3_student_v01.html">MSE590500 Homework assignment 2 &amp; 3</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/daily/Day11_0511/ImageProcess.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Image filters</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#put-your-name-here"><p style="text-align: right;"> ✅ <strong>put your name here</strong> </p></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-filter">1. Gaussian filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#median-filter">2. Median filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bilateral-filter">3. Bilateral filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-local-means-filter">4. Non-local means filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#total-variation-filter">5. Total variation filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wavelet-filter">6. Wavelet filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#block-matching-and-3d-filtering">Block-Matching and 3D filtering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rolling-ball">Rolling ball</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="image-filters">
+<h1>Image filters<a class="headerlink" href="#image-filters" title="Link to this heading">#</a></h1>
+<p>We will load in a focus ion beam-scanning electronic microscopy (FIB-SEM) image of a solid-oxide full cell electrode.
+we will try several common image filters to denoise this SEM image (“AIST_LSCF_300h_055.tif”).</p>
+<p><code class="docutils literal notranslate"><span class="pre">https://raw.githubusercontent.com/huichiayu/cmse_202_802/main/MSE590/AIST_LSCF_300h_055.tif</span></code></p>
+<section id="put-your-name-here">
+<h2><p style="text-align: right;"> ✅ <strong>put your name here</strong> </p><a class="headerlink" href="#put-your-name-here" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">imageio</span> <span class="kn">import</span> <span class="n">imread</span>
+
+<span class="n">img</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="s2">&quot;AIST_LSCF_300h_055.tif&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">I_norm</span> <span class="o">=</span> <span class="n">img</span><span class="o">/</span><span class="mi">255</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>✅ Do This – What is the resolution of this image? How do you verify whether this image is grayscale?</p>
+<p><strong>Below we go over several different commonly used image filters to clean the SEM image.</strong></p>
+</section>
+<section id="gaussian-filter">
+<h2>1. Gaussian filter<a class="headerlink" href="#gaussian-filter" title="Link to this heading">#</a></h2>
+<p>A Gaussian filter smooths an image by replacing each pixel with a weighted average of nearby pixels, where closer pixels receive larger weights according to a Gaussian distribution. The 1D Gaussian function is:</p>
+<div class="math notranslate nohighlight">
+\[ G(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-x^2/(2\sigma^2)}.\]</div>
+<p>In image processing, we use a 2D Gaussian kernel:</p>
+<div class="math notranslate nohighlight">
+\[G(x,y) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-(x^2+y^2)/(2\sigma^2)}.\]</div>
+<p>The parameter:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\sigma\)</span> controls the blur amount.</p></li>
+<li><p>larger <span class="math notranslate nohighlight">\(\sigma \rightarrow\)</span> stronger smoothing.</p></li>
+</ul>
+<p>A Gaussian filter computes a weighted local average:</p>
+<div class="math notranslate nohighlight">
+\[I_{filtered}(x,y) = \int \int G(x-x',y-y')I(x',y') dx' dy'.\]</div>
+<p>Gaussian filtering resembles:</p>
+<ul class="simple">
+<li><p>diffusion</p></li>
+<li><p>heat spreading
+In fact, applying Gaussian filtering is mathematically equivalent to solving the diffusion equation for short time:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\frac{\partial u}{\partial t} = D\nabla^2 u.\]</div>
+<p><strong>Try different value of <span class="math notranslate nohighlight">\(\sigma\)</span>.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.ndimage</span> <span class="kn">import</span> <span class="n">gaussian_filter</span>
+
+
+<span class="n">img2</span> <span class="o">=</span> <span class="n">gaussian_filter</span><span class="p">(</span><span class="n">I_norm</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img2</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="median-filter">
+<h2>2. Median filter<a class="headerlink" href="#median-filter" title="Link to this heading">#</a></h2>
+<p>A median filter replaces each pixel with the median value of nearby pixels instead of the average.
+For a neighborhood:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+2 &amp; 3 &amp; 4 \\
+5 &amp; 100 &amp; 6 \\
+7 &amp; 8 &amp; 9
+\end{bmatrix}
+\end{split}\]</div>
+<p>Sort the values:</p>
+<div class="math notranslate nohighlight">
+\[2~ 3~ 4~ 5~ 6~ 7~ 8~ 9~ 100\]</div>
+<p>Median: <span class="math notranslate nohighlight">\(6\)</span>. So the center pixel becomes: <span class="math notranslate nohighlight">\(100\rightarrow 6\)</span>. <strong>How it works?</strong> <span class="math notranslate nohighlight">\(\rightarrow\)</span> Averages are strongly affected by outliers.</p>
+<p><strong>Try different size.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.ndimage</span> <span class="kn">import</span> <span class="n">median_filter</span>
+
+<span class="n">img2</span> <span class="o">=</span> <span class="n">median_filter</span><span class="p">(</span><span class="n">I_norm</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img2</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="bilateral-filter">
+<h2>3. Bilateral filter<a class="headerlink" href="#bilateral-filter" title="Link to this heading">#</a></h2>
+<p>A bilateral filter is an edge-preserving denoiser. Unlike Gaussian filtering, it does NOT average all nearby pixels equally.
+Instead, it gives large weights only to pixels that are:</p>
+<ul class="simple">
+<li><p>spatially nearby</p></li>
+<li><p>AND have similar intensity</p></li>
+</ul>
+<p><strong>Intuitive idea</strong></p>
+<ul class="simple">
+<li><p>Gaussian filter says: Average nearby pixels</p></li>
+<li><p>Bilateral filter says: Average nearby pixels ONLY if they look similar</p></li>
+</ul>
+<p>The spatial Gaussian is:
+$<span class="math notranslate nohighlight">\(G_s(d) = e^{-d^2/(2\sigma_s^2))}\)</span><span class="math notranslate nohighlight">\(
+The intensity Gaussian is:
+\)</span><span class="math notranslate nohighlight">\(G_s(\Delta I) = e^{-\Delta I^2/(2\sigma_r^2))}\)</span>$</p>
+<p><strong>Try different values of <code class="docutils literal notranslate"><span class="pre">sigma_color</span></code> and <code class="docutils literal notranslate"><span class="pre">sigma_spatial</span></code>.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage.restoration</span> <span class="kn">import</span> <span class="n">denoise_bilateral</span>
+
+<span class="n">img2</span> <span class="o">=</span> <span class="n">denoise_bilateral</span><span class="p">(</span>
+    <span class="n">I_norm</span><span class="p">,</span>
+    <span class="n">sigma_color</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>
+    <span class="n">sigma_spatial</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img2</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="non-local-means-filter">
+<h2>4. Non-local means filter<a class="headerlink" href="#non-local-means-filter" title="Link to this heading">#</a></h2>
+<p>Non-local means (NLM) works by finding similar image patches instead of simply averaging nearby pixels. The key idea is: Pixels with similar surrounding patterns should have similar true values even if they are far apart. Good for images often contain repeated structures.</p>
+<ul class="simple">
+<li><p>Non-local means filter says: Average pixels whose surrounding patches look similar.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}w(p,q) = \exp \bigg( - \frac{||P(p)-P(q)||^2}{h^2} \bigg)$$.\\where $P(p)$: patch around pixel $p$, $P(q)$: patch around pixel $q$, and $h$: filtering strength. Then filtered value:\\$$I_{new}(p) = \frac{\sum_q w(p,q) I(q)}{\sum_q w(p,q)}.\end{aligned}\end{align} \]</div>
+<p><strong>Try different <span class="math notranslate nohighlight">\(h\)</span>.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage.restoration</span> <span class="kn">import</span> <span class="n">denoise_nl_means</span>
+
+<span class="n">img2</span> <span class="o">=</span> <span class="n">denoise_nl_means</span><span class="p">(</span>
+    <span class="n">I_norm</span><span class="p">,</span>
+    <span class="n">h</span><span class="o">=</span><span class="mf">0.8</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">I_norm</span><span class="p">),</span>
+    <span class="n">fast_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img2</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="total-variation-filter">
+<h2>5. Total variation filter<a class="headerlink" href="#total-variation-filter" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">denoise_tv_chambolle</span></code> performs total variation (TV) denoising, which smooths noise while preserving sharp edges.
+The key philosophy is: “Natural images are mostly smooth regions separated by sharp edges.” Instead of minimizing pixel intensity directly, TV denoising minimizes the total variation of the image.</p>
+<p>Mathematically, it solves:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\min_u \bigg[ \frac{1}{2} || u - f||^2 + \lambda TV(u) \bigg]$$.\\where $f$: noisy image, $u$ denoised image, $\lambda$ corresponds to weight, first term: stay close to original image, second term: enforce smoothness. The total variation is \\$$TV(u) = \int |\nabla u |dx.\end{aligned}\end{align} \]</div>
+<p>TV denoising tries to reduce unnecessary gradients while preserving major edges. So:</p>
+<ul class="simple">
+<li><p>smooth regions become flatter</p></li>
+<li><p>sharp interfaces remain sharp</p></li>
+</ul>
+<p>TV filter: flatten smooth regions but keep boundaries.</p>
+<p><strong>Try different values of weight.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage.restoration</span> <span class="kn">import</span> <span class="n">denoise_tv_chambolle</span>
+
+<span class="n">img2</span> <span class="o">=</span> <span class="n">denoise_tv_chambolle</span><span class="p">(</span><span class="n">I_norm</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img2</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="wavelet-filter">
+<h2>6. Wavelet filter<a class="headerlink" href="#wavelet-filter" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">denoise_wavelet</span></code> removes noise by transforming the image into wavelet coefficients, shrinking the small coefficients that are likely noise, then transforming back.</p>
+<p>Main idea: image <span class="math notranslate nohighlight">\(\rightarrow\)</span> wavelet transform <span class="math notranslate nohighlight">\(\rightarrow\)</span> threshold small coefficients <span class="math notranslate nohighlight">\(\rightarrow\)</span> inverse transform <span class="math notranslate nohighlight">\(\rightarrow\)</span> denoised image.</p>
+<p>Wavelets separate the image into:</p>
+<ul class="simple">
+<li><p>large-scale smooth features</p></li>
+<li><p>small-scale edges/textures/noise</p></li>
+</ul>
+<p><strong>Try different filter parameters.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage.restoration</span> <span class="kn">import</span> <span class="n">denoise_wavelet</span>
+
+<span class="n">img2</span> <span class="o">=</span> <span class="n">denoise_wavelet</span><span class="p">(</span><span class="n">I_norm</span><span class="p">)</span>
+
+<span class="c1"># img2 = denoise_wavelet(</span>
+<span class="c1">#     I_norm,</span>
+<span class="c1">#     method=&#39;BayesShrink&#39;,</span>
+<span class="c1">#     mode=&#39;soft&#39;,</span>
+<span class="c1">#     wavelet=&#39;db2&#39;,</span>
+<span class="c1">#     rescale_sigma=True,</span>
+<span class="c1">#     channel_axis=None)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img2</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="block-matching-and-3d-filtering">
+<h2>Block-Matching and 3D filtering<a class="headerlink" href="#block-matching-and-3d-filtering" title="Link to this heading">#</a></h2>
+<p>It is one of the most influential classical image denoising algorithms ever developed.</p>
+<p>The key idea is: Find similar image patches, group them together, and denoise them collaboratively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install bm3d</span>
+<span class="kn">from</span> <span class="nn">bm3d</span> <span class="kn">import</span> <span class="n">bm3d</span>
+
+<span class="n">img2</span> <span class="o">=</span> <span class="n">bm3d</span><span class="p">(</span><span class="n">I_norm</span><span class="p">,</span> <span class="n">sigma_psd</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img2</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="rolling-ball">
+<h2>Rolling ball<a class="headerlink" href="#rolling-ball" title="Link to this heading">#</a></h2>
+<p>The rolling ball algorithm is a classic image-processing method for background subtraction.</p>
+<p>✅ Do This – Search what <code class="docutils literal notranslate"><span class="pre">rolling_ball</span></code> is and give a brief description of how it works.</p>
+<p>✅ Do This – Test <code class="docutils literal notranslate"><span class="pre">rolling_bal</span></code> and test different parameters to see whether this method performs better than those used earlier.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># put your code here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Great, please upload your completed assigment to this <a class="reference external" href="https://www.dropbox.com/request/zkl424dlvo7s47exn7hv">Link</a></strong>.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-base-py"
+        },
+        kernelOptions: {
+            name: "conda-base-py",
+            path: "./daily/Day11_0511"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-base-py'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../section_files/day_11.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Day 11 05/01</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="FFT2_Image.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">FFT filter</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#put-your-name-here"><p style="text-align: right;"> ✅ <strong>put your name here</strong> </p></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-filter">1. Gaussian filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#median-filter">2. Median filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bilateral-filter">3. Bilateral filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-local-means-filter">4. Non-local means filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#total-variation-filter">5. Total variation filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wavelet-filter">6. Wavelet filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#block-matching-and-3d-filtering">Block-Matching and 3D filtering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rolling-ball">Rolling ball</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hui-Chia Yu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
