@@ -92,6 +92,14 @@ parts:
         - file: daily/Day10_0504/FFT2D
         - file: daily/Day10_0504/Denoiser_student
 
+      - file: section_files/day_11
+        sections: 
+        - file: daily/Day11_0511/ImageProcess
+        - file: daily/Day11_0511/FFT2_Image
+        - file: daily/Day11_0511/Segmentation_image
+
+
+
   - caption: Exam/Quiz
     chapters:
     - file: section_files/Midterm_0427/Midterm.md
