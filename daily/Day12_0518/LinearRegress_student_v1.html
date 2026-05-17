@@ -1,0 +1,1030 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Regression I: single variable regression &#8212; MSE 590500 Course Website</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'daily/Day12_0518/LinearRegress_student_v1';</script>
+    <link rel="icon" href="../../_static/Spartan_2.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Regression II: multiple variables linear regression" href="MultiRegression_demo.html" />
+    <link rel="prev" title="Digital evolution" href="OOP_II_student_v1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/Spartan_2.png" class="logo__image only-light" alt="MSE 590500 Course Website - Home"/>
+    <script>document.write(`<img src="../../_static/Spartan_2.png" class="logo__image only-dark" alt="MSE 590500 Course Website - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Materials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/MSE590500_Syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/MSE590500_Calendar.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/SoftwareSetupGuide_NTHU_2.html">Software Setup Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/MSE590500_AI_policy.html">Generative AI Policy</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://upload.wikimedia.org/wikipedia/commons/7/79/Unix_command_cheatsheet.pdf">CLI (Unix/Mac/Linux) commands cheat sheet</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Daily Content</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_1.html">Day 1 02/23</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day01_0223/Jupyter_Notebook_Basics.html">Jupyter Notebook Basics (Hands-on)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day01_0223/Python_Data_Types_Teaching.html">Python Data Types (Hands-on)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day01_0223/UNIX_Command_Line_Basics.html">Introduction to UNIX Command Line Interface (CLI)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_2.html">Day 2 03/02</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day02_0302/numpy_teaching_module.html">Introduction to NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day02_0302/matplotlib_teaching_module.html">Introduction to Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day02_0302/sympy_teaching_module.html">SymPy Mini Teaching Module (Beginner)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_3.html">Day 3 03/09</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day03_0309/pandas_basics_teaching_notebook.html">Pandas Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day03_0309/pandas_demo_with_material_data.html">Pandas Demonstration Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day03_0309/Ideal_gas_calculation.html">Ideal gas behavior</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_4.html">Day 4 03/16</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://youtu.be/W8pjXJr98Ck">Classical thermo - enthalpy calculation 1</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://youtu.be/-O7L3ZuQ_8E">Classical thermo - enthalpy calculation 2</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://youtu.be/Y28fCO2Gtpc">Classical thermo - entropy calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day04_0316/Enthalpy_01.html">Calculating enthalpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day04_0316/Entropy_v01.html">Calculating entropy</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_5.html">Day 5 03/23</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_6.html">Day 6 03/30</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/PT_phaseDiagram.html">Phase diagram of a pure substance (single component system)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/water_pvt_with_solid_boundaries.html">Water PVT Phase Diagram with Solid–Liquid–Vapor Boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/RegularSolution_student.html">Regular solution model and phase diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/BinaryPhaseDiagram_MiscibleAlloys_student.html">Phase Diagrams for Completely Miscible Alloys</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/EutecticPhaseDiagram_student.html">Construction of a Eutectic Phase Diagram</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_7.html">Day 7 04/13</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day07_0413/ConvexHull_CommonTangent_Construction.html">Bindary phase diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day07_0413/ternary_phase_diagram_module_student.html">Ternary Phase Diagram Teaching Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day07_0413/TieTriangle_demo.html">Demonstration of finding tie-triangle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day07_0413/PyCalPhas_demo.html">PyCalPhad</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_8.html">Day 8 04/20</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/first_order_ode_analytical_and_finite_difference_v1.html">First-order ODEs: analytical solution and finite-difference method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/damped_oscillator_finite_difference_v1.html">Damped oscillator using the finite-difference method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/elasticity_mechanics_analytical_and_finite_difference.html">Elasticity and mechanics: analytical and finite-difference solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/1D_diffusion_equation_sympy_scipy.html">Analytically solving the 1D diffusion equation with SymPy (and comparing with SciPy)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/simple_2D_diffusion_FDM_center_source.html">Simple 2D diffusion FDM example: source at the center</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/Midterm.html">Midterm exam</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Midterm_0427/MidtermExam_student_v1.html">MSE 590500 Mid-term exam.</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_10.html">Day 10 05/04</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/beam_fdm_module_student.html">Euler–Bernoulli Beam Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/FourierCoefficients.html">Fourier coefficients</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/NOAA_student.html">Fast Fourier Transform (FFT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/FFT2D.html">Fast Fourier Transform (FFT) 2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/Denoiser_student.html">Image denoise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_11.html">Day 11 05/11</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day11_0511/ImageProcess.html">Image filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day11_0511/FFT2_Image.html">FFT filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day11_0511/Segmentation_image.html">Image segmentation.</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../section_files/day_12.html">Day 12 05/18</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="OOP_I_student_v1.html">Object orient programming (OOP)</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="OOP_II_student_v1.html">Digital evolution</a></li>
+
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Regression I: single variable regression</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="MultiRegression_demo.html">Regression II: multiple variables linear regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Regression_student_v1.html">Regression.</a></li>
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/HW01.html">Homework 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../homework/HW01/MSE590500_HW1_student.html">MSE 590500 Homework assginment 1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/HW02_3.html">Homework 2-3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../homework/HW02/Homework2_3_student_v01.html">MSE590500 Homework assignment 2 &amp; 3</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/daily/Day12_0518/LinearRegress_student_v1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Regression I: single variable regression</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Regression I: single variable regression</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#put-your-name-here"><p style="text-align: right;"> ✅ <strong>put your name here</strong> </p></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-function">1. Linear function.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polyfit-in-numpy-library">1.1 <code class="docutils literal notranslate"><span class="pre">polyfit</span></code> in <code class="docutils literal notranslate"><span class="pre">numpy</span></code> library.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ols-ordinary-least-square-fitting">1.2 <code class="docutils literal notranslate"><span class="pre">OLS</span></code> ordinary least square fitting.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#curve-fit-method-in-scipy-optimiza-library">1.3 <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> method in <code class="docutils literal notranslate"><span class="pre">scipy.optimiza</span></code> library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-least-squares-in-scipy-optimize-library">1.4 Use <code class="docutils literal notranslate"><span class="pre">least_squares</span></code> in <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> library.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-practices-on-regression">More practices on regression.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">Visualization</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#you-re-done-with-this-file-please-upload-the-complete-notebook-file-to-the-link">You’re done with this file. Please upload the complete notebook file to the <strong>Link</strong></a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="regression-i-single-variable-regression">
+<h1>Regression I: single variable regression<a class="headerlink" href="#regression-i-single-variable-regression" title="Link to this heading">#</a></h1>
+<section id="put-your-name-here">
+<h2><p style="text-align: right;"> ✅ <strong>put your name here</strong> </p><a class="headerlink" href="#put-your-name-here" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<img src="https://imgs.xkcd.com/comics/extrapolating.png" width=400px>
+<p>In this module, we will practices several Python curve-fitting tools, including</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">polyfit</span></code> in <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OLS</span></code> in <code class="docutils literal notranslate"><span class="pre">statsmodel</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> in <code class="docutils literal notranslate"><span class="pre">scipy</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">least_squares</span></code> in <code class="docutils literal notranslate"><span class="pre">scipy</span></code>.</p></li>
+</ol>
+<img src="https://community.cloudera.com/t5/image/serverpage/image-id/25068iFF075A5AEC3B8528/image-size/medium?v=1.0&px=300"> 
+</section>
+<section id="linear-function">
+<h2>1. Linear function.<a class="headerlink" href="#linear-function" title="Link to this heading">#</a></h2>
+<p>Create a dataset of a linear function with noise.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># reproducibility</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># x values</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+
+<span class="c1"># true line</span>
+<span class="n">y_true</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">5</span>
+
+<span class="c1"># add random noise</span>
+<span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">y_true</span> <span class="o">+</span> <span class="n">noise</span>
+
+<span class="c1"># visualization</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="polyfit-in-numpy-library">
+<h3>1.1 <code class="docutils literal notranslate"><span class="pre">polyfit</span></code> in <code class="docutils literal notranslate"><span class="pre">numpy</span></code> library.<a class="headerlink" href="#polyfit-in-numpy-library" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">np.polyfit</span></code> performs a least-squares polynomial fit. Suppose you want to fit data:</p>
+<div class="math notranslate nohighlight">
+\[(x_i, y_i)\]</div>
+<p>with a polynomial.</p>
+<p><strong>Main idea</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">polyfit</span></code> finds coefficients that minimize squared error:</p>
+<div class="math notranslate nohighlight">
+\[\min \sum_i \big(y_i-p(x_i)\big)^2,\]</div>
+<p>where: <span class="math notranslate nohighlight">\(p(x)\)</span> = polynomial. Using <span class="math notranslate nohighlight">\(y = ax + b\)</span> as an example, we shall minimize the L-2 norm of residual (<span class="math notranslate nohighlight">\(r_i = y_i - (ax_i + b)\)</span>),</p>
+<div class="math notranslate nohighlight">
+\[\min \big(y_i- (ax_i+b) \big)^2\]</div>
+<p>In matrix form,</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{y} = \mathbf{X} \beta,\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\beta = \begin{bmatrix} a \\ b \end{bmatrix}\end{split}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{X} =  \begin{bmatrix} x_1 &amp; 1 \\ x_2 &amp; 1  \\ . \\ . \\ x_n &amp; 1 \end{bmatrix}.\end{split}\]</div>
+<p><strong>Least-squares solution</strong></p>
+<p>We minimize:</p>
+<div class="math notranslate nohighlight">
+\[\min_\beta || \mathbf{X} \beta - \mathbf{y} ||^2 \]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[ \mathcal{F} = || \mathbf{X} \beta - \mathbf{y} ||^2 = \big(\mathbf{X} \beta - \mathbf{y}\big)^T \big(\mathbf{X} \beta - \mathbf{y}\big) = \beta^T \mathbf{X}^T \mathbf{X} \beta - 2 \mathbf{y}^T \mathbf{X} \beta + \mathbf{y}^T \mathbf{y}.\]</div>
+<p>By solving <span class="math notranslate nohighlight">\(\partial \mathcal{F}/\partial \beta = 0\)</span>. The solution is</p>
+<div class="math notranslate nohighlight">
+\[\beta = \big( \mathbf{X}^T \mathbf{X} \big)^{-1} \mathbf{X}^T  \mathbf{y}.\]</div>
+<ul class="simple">
+<li><p>The cell below directly calculate the values of <span class="math notranslate nohighlight">\(\beta\)</span>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># direct calculation</span>
+<span class="n">X1</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">X1</span><span class="p">,</span> <span class="n">X0</span><span class="p">))</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">beta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">X</span><span class="p">)</span> <span class="o">@</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Y</span>
+
+<span class="n">slope_cal</span> <span class="o">=</span> <span class="n">beta</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">intercept_cal</span> <span class="o">=</span> <span class="n">beta</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;slope =&quot;</span><span class="p">,</span> <span class="n">slope_cal</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;intercept =&quot;</span><span class="p">,</span> <span class="n">intercept_cal</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>The cell below uses the built-in function <code class="docutils literal notranslate"><span class="pre">polyfit</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># np.polyfit</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">slope_poly</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">intercept_poly</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;polyfit slope =&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;polyfit intercept =&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="ols-ordinary-least-square-fitting">
+<h2>1.2 <code class="docutils literal notranslate"><span class="pre">OLS</span></code> ordinary least square fitting.<a class="headerlink" href="#ols-ordinary-least-square-fitting" title="Link to this heading">#</a></h2>
+<p>Below, we use <code class="docutils literal notranslate"><span class="pre">OLS</span></code> function in <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> library to fit the data.</p>
+<ul class="simple">
+<li><p>import the library</p></li>
+<li><p>add constant. This makes the design matrix:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{X} = \begin{bmatrix} 1 &amp; x_1 \\ 1 &amp; x_2 \\ . \\ . \\ 1 &amp; x_n \end{bmatrix}\end{split}\]</div>
+<ul class="simple">
+<li><p>extract slope and intercept.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># statsmodel</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+
+<span class="c1"># x and y from your example</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>   <span class="c1"># adds intercept column</span>
+
+<span class="c1"># initialize a model_OLS object</span>
+<span class="n">model_OLS</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+<span class="n">results_OLS</span> <span class="o">=</span> <span class="n">model_OLS</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">results_OLS</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>✅ Do this: What are R<span class="math notranslate nohighlight">\(^2\)</span> value and <span class="math notranslate nohighlight">\(p\)</span> value in statistics?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">intercept_OLS</span> <span class="o">=</span> <span class="n">results_OLS</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">slope_OLS</span> <span class="o">=</span> <span class="n">results_OLS</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;slope =&quot;</span><span class="p">,</span> <span class="n">slope_OLS</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;intercept =&quot;</span><span class="p">,</span> <span class="n">intercept_OLS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="curve-fit-method-in-scipy-optimiza-library">
+<h3>1.3 <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> method in <code class="docutils literal notranslate"><span class="pre">scipy.optimiza</span></code> library<a class="headerlink" href="#curve-fit-method-in-scipy-optimiza-library" title="Link to this heading">#</a></h3>
+<p>Mathematically, <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> minimizes:</p>
+<div class="math notranslate nohighlight">
+\[\min_i \big(y-f(x_i, p)\big)^2\]</div>
+<p>where: <span class="math notranslate nohighlight">\(p\)</span> = fitting parameters. For the linear model:</p>
+<div class="math notranslate nohighlight">
+\[f(x,a,b)=ax+b.\]</div>
+<p>Below we</p>
+<ul class="simple">
+<li><p>define the function to be fitted.</p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">linear_model</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+
+<span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">linear_model</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">slope_cf</span> <span class="o">=</span> <span class="n">popt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">intercept_cf</span> <span class="o">=</span> <span class="n">popt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;slope =&quot;</span><span class="p">,</span> <span class="n">slope</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;intercept =&quot;</span><span class="p">,</span> <span class="n">intercept</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pcov</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>✅ Do this: What is <code class="docutils literal notranslate"><span class="pre">pcov</span></code>? What do values mean?</p>
+</section>
+<section id="use-least-squares-in-scipy-optimize-library">
+<h3>1.4 Use <code class="docutils literal notranslate"><span class="pre">least_squares</span></code> in <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> library.<a class="headerlink" href="#use-least-squares-in-scipy-optimize-library" title="Link to this heading">#</a></h3>
+<p>This should be familiar to you because we have use it in finding common tangent lines before.</p>
+<p>Mathematically, <code class="docutils literal notranslate"><span class="pre">least_squares</span></code> minimizes:</p>
+<div class="math notranslate nohighlight">
+\[\min_i \big(r_i \big)^2,\]</div>
+<p>where:</p>
+<div class="math notranslate nohighlight">
+\[r_i = ax_i+b - y_i.\]</div>
+<p>Below, the code</p>
+<ul class="simple">
+<li><p>define the residual.</p></li>
+<li><p>find the solution that minimizes the residual.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">residual</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">p</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span> <span class="o">-</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">least_squares</span>
+
+<span class="n">res_ls</span> <span class="o">=</span> <span class="n">least_squares</span><span class="p">(</span><span class="n">residual</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+
+<span class="n">slope_ls</span> <span class="o">=</span> <span class="n">res_ls</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">intercept_ls</span> <span class="o">=</span> <span class="n">res_ls</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;slope =&quot;</span><span class="p">,</span> <span class="n">slope_ls</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;intercept =&quot;</span><span class="p">,</span> <span class="n">intercept_ls</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Now, let’s plot the results from all these methods.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># visualization</span>
+<span class="c1"># evaluate fitted polynomial</span>
+<span class="n">y_polyfit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># evaluate fitted OLS model</span>
+<span class="n">y_OLS</span> <span class="o">=</span> <span class="n">results_OLS</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># evaluate fitted curve_fit model</span>
+<span class="n">y_cf</span> <span class="o">=</span> <span class="n">linear_model</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">popt</span><span class="p">)</span>
+
+<span class="c1"># evaluate fitted curve_fit model</span>
+<span class="n">y_ls</span> <span class="o">=</span> <span class="n">linear_model</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">slope_ls</span><span class="p">,</span> <span class="n">intercept_ls</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;noisy data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_polyfit</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;polyfit&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_OLS</span><span class="p">,</span> <span class="s1">&#39;g:&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;OLS&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_cf</span><span class="p">,</span> <span class="s1">&#39;kx&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;curve_fit&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_ls</span><span class="p">,</span> <span class="s1">&#39;yd&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;least_squares&#39;</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that, in <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code>, we define the function, but in <code class="docutils literal notranslate"><span class="pre">least_squares</span></code>, we define the residual. Note that <code class="docutils literal notranslate"><span class="pre">least_squares</span></code> is more flexible. Recall the common tangent problem, <code class="docutils literal notranslate"><span class="pre">least_squares</span></code> finds the roots for multiple equations.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="more-practices-on-regression">
+<h2>More practices on regression.<a class="headerlink" href="#more-practices-on-regression" title="Link to this heading">#</a></h2>
+<p>Here, let’s practice these methods for fitting a 4th order function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># reproducibility</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># x values</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+
+<span class="c1"># true line</span>
+<span class="n">y_true</span> <span class="o">=</span> <span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="mf">0.2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mf">0.9</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="mf">0.03</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">)</span><span class="o">*</span><span class="mi">1</span>
+
+<span class="c1"># add random noise</span>
+<span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.003</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">y_true</span> <span class="o">+</span> <span class="n">noise</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For a 4th-order polynomial, you will get coefficients for <code class="docutils literal notranslate"><span class="pre">np.polyfit</span></code>:</p>
+<div class="math notranslate nohighlight">
+\[ax^4+bx^3+cx^2+dx+e.\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># polynomial fit</span>
+<span class="n">degree</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">degree</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+
+<span class="c1"># evaluate fitted polynomial</span>
+<span class="n">y_polyfit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>use <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">poly4</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">4</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="n">c</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">d</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">e</span>
+
+<span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">poly4</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">popt</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a =&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b =&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;c =&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;d =&quot;</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;e =&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+
+<span class="n">y_curvefit</span> <span class="o">=</span> <span class="n">poly4</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">popt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">least_squares</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">least_squares</span>
+
+<span class="c1"># residual function</span>
+<span class="k">def</span> <span class="nf">residual</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">p</span>
+    <span class="n">y_model</span> <span class="o">=</span> <span class="n">poly4</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">y_model</span> <span class="o">-</span> <span class="n">y</span>
+
+<span class="c1"># initial guess</span>
+<span class="n">p0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># optimization</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">least_squares</span><span class="p">(</span><span class="n">residual</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+
+<span class="c1"># fitted coefficients</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">x</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a =&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b =&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;c =&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;d =&quot;</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;e =&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+
+<span class="c1"># fitted curve</span>
+<span class="n">y_ls</span> <span class="o">=</span> <span class="n">poly4</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<section id="visualization">
+<h3>Visualization<a class="headerlink" href="#visualization" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;noisy data&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_true</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;true function&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_polyfit</span><span class="p">,</span> <span class="s1">&#39;g:&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;polyfit function&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_curvefit</span><span class="p">,</span> <span class="s1">&#39;kx&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;polyfit function&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_ls</span><span class="p">,</span> <span class="s1">&#39;yd&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;least_squares fit&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>✅ Do this: Why do the fitted results deviate from the true function?</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="you-re-done-with-this-file-please-upload-the-complete-notebook-file-to-the-link">
+<h1>You’re done with this file. Please upload the complete notebook file to the <a class="reference external" href="https://www.dropbox.com/request/pdgeetejng1pnkp8jr70"><strong>Link</strong></a><a class="headerlink" href="#you-re-done-with-this-file-please-upload-the-complete-notebook-file-to-the-link" title="Link to this heading">#</a></h1>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-base-py"
+        },
+        kernelOptions: {
+            name: "conda-base-py",
+            path: "./daily/Day12_0518"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-base-py'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="OOP_II_student_v1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Digital evolution</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="MultiRegression_demo.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Regression II: multiple variables linear regression</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Regression I: single variable regression</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#put-your-name-here"><p style="text-align: right;"> ✅ <strong>put your name here</strong> </p></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-function">1. Linear function.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polyfit-in-numpy-library">1.1 <code class="docutils literal notranslate"><span class="pre">polyfit</span></code> in <code class="docutils literal notranslate"><span class="pre">numpy</span></code> library.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ols-ordinary-least-square-fitting">1.2 <code class="docutils literal notranslate"><span class="pre">OLS</span></code> ordinary least square fitting.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#curve-fit-method-in-scipy-optimiza-library">1.3 <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> method in <code class="docutils literal notranslate"><span class="pre">scipy.optimiza</span></code> library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-least-squares-in-scipy-optimize-library">1.4 Use <code class="docutils literal notranslate"><span class="pre">least_squares</span></code> in <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> library.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-practices-on-regression">More practices on regression.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">Visualization</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#you-re-done-with-this-file-please-upload-the-complete-notebook-file-to-the-link">You’re done with this file. Please upload the complete notebook file to the <strong>Link</strong></a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hui-Chia Yu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,904 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Object orient programming (OOP) &#8212; MSE 590500 Course Website</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'daily/Day12_0518/OOP_I_student_v1';</script>
+    <link rel="icon" href="../../_static/Spartan_2.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Digital evolution" href="OOP_II_student_v1.html" />
+    <link rel="prev" title="Day 12 05/18" href="../../section_files/day_12.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/Spartan_2.png" class="logo__image only-light" alt="MSE 590500 Course Website - Home"/>
+    <script>document.write(`<img src="../../_static/Spartan_2.png" class="logo__image only-dark" alt="MSE 590500 Course Website - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Materials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/MSE590500_Syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/MSE590500_Calendar.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/SoftwareSetupGuide_NTHU_2.html">Software Setup Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/MSE590500_AI_policy.html">Generative AI Policy</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://upload.wikimedia.org/wikipedia/commons/7/79/Unix_command_cheatsheet.pdf">CLI (Unix/Mac/Linux) commands cheat sheet</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Daily Content</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_1.html">Day 1 02/23</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day01_0223/Jupyter_Notebook_Basics.html">Jupyter Notebook Basics (Hands-on)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day01_0223/Python_Data_Types_Teaching.html">Python Data Types (Hands-on)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day01_0223/UNIX_Command_Line_Basics.html">Introduction to UNIX Command Line Interface (CLI)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_2.html">Day 2 03/02</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day02_0302/numpy_teaching_module.html">Introduction to NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day02_0302/matplotlib_teaching_module.html">Introduction to Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day02_0302/sympy_teaching_module.html">SymPy Mini Teaching Module (Beginner)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_3.html">Day 3 03/09</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day03_0309/pandas_basics_teaching_notebook.html">Pandas Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day03_0309/pandas_demo_with_material_data.html">Pandas Demonstration Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day03_0309/Ideal_gas_calculation.html">Ideal gas behavior</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_4.html">Day 4 03/16</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://youtu.be/W8pjXJr98Ck">Classical thermo - enthalpy calculation 1</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://youtu.be/-O7L3ZuQ_8E">Classical thermo - enthalpy calculation 2</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://youtu.be/Y28fCO2Gtpc">Classical thermo - entropy calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day04_0316/Enthalpy_01.html">Calculating enthalpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day04_0316/Entropy_v01.html">Calculating entropy</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_5.html">Day 5 03/23</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_6.html">Day 6 03/30</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/PT_phaseDiagram.html">Phase diagram of a pure substance (single component system)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/water_pvt_with_solid_boundaries.html">Water PVT Phase Diagram with Solid–Liquid–Vapor Boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/RegularSolution_student.html">Regular solution model and phase diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/BinaryPhaseDiagram_MiscibleAlloys_student.html">Phase Diagrams for Completely Miscible Alloys</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/EutecticPhaseDiagram_student.html">Construction of a Eutectic Phase Diagram</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_7.html">Day 7 04/13</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day07_0413/ConvexHull_CommonTangent_Construction.html">Bindary phase diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day07_0413/ternary_phase_diagram_module_student.html">Ternary Phase Diagram Teaching Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day07_0413/TieTriangle_demo.html">Demonstration of finding tie-triangle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day07_0413/PyCalPhas_demo.html">PyCalPhad</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_8.html">Day 8 04/20</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/first_order_ode_analytical_and_finite_difference_v1.html">First-order ODEs: analytical solution and finite-difference method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/damped_oscillator_finite_difference_v1.html">Damped oscillator using the finite-difference method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/elasticity_mechanics_analytical_and_finite_difference.html">Elasticity and mechanics: analytical and finite-difference solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/1D_diffusion_equation_sympy_scipy.html">Analytically solving the 1D diffusion equation with SymPy (and comparing with SciPy)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/simple_2D_diffusion_FDM_center_source.html">Simple 2D diffusion FDM example: source at the center</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/Midterm.html">Midterm exam</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Midterm_0427/MidtermExam_student_v1.html">MSE 590500 Mid-term exam.</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_10.html">Day 10 05/04</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/beam_fdm_module_student.html">Euler–Bernoulli Beam Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/FourierCoefficients.html">Fourier coefficients</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/NOAA_student.html">Fast Fourier Transform (FFT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/FFT2D.html">Fast Fourier Transform (FFT) 2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/Denoiser_student.html">Image denoise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_11.html">Day 11 05/11</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day11_0511/ImageProcess.html">Image filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day11_0511/FFT2_Image.html">FFT filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day11_0511/Segmentation_image.html">Image segmentation.</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../section_files/day_12.html">Day 12 05/18</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Object orient programming (OOP)</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="OOP_II_student_v1.html">Digital evolution</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="LinearRegress_student_v1.html">Regression I: single variable regression</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="MultiRegression_demo.html">Regression II: multiple variables linear regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Regression_student_v1.html">Regression.</a></li>
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/HW01.html">Homework 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../homework/HW01/MSE590500_HW1_student.html">MSE 590500 Homework assginment 1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/HW02_3.html">Homework 2-3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../homework/HW02/Homework2_3_student_v01.html">MSE590500 Homework assignment 2 &amp; 3</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/daily/Day12_0518/OOP_I_student_v1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Object orient programming (OOP)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Object orient programming (OOP)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#put-your-name-here"><p style="text-align: right;"> ✅ <strong>put your name here</strong> </p></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-objects">1. What are objects?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-objects">2. Using objects</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-built-in-objects">2.1 Using built-in objects</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#further-exploration-string-and-list-manipulation">2.2 Further exploration: String and list manipulation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-your-own-objects">3. Creating your own objects</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#few-important-things-before-creating-an-object">3.1 Few important things before creating an object</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#object-inheritance">4. Object inheritance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-inheritance">4.1 Using inheritance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-object-for-lions">Creating object for lions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#you-re-done-with-this-file-please-upload-the-complete-notebook-file-to-the-link">You’re done with this file. Please upload the complete notebook file to the <strong>Link</strong></a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="object-orient-programming-oop">
+<h1>Object orient programming (OOP)<a class="headerlink" href="#object-orient-programming-oop" title="Link to this heading">#</a></h1>
+<section id="put-your-name-here">
+<h2><p style="text-align: right;"> ✅ <strong>put your name here</strong> </p><a class="headerlink" href="#put-your-name-here" title="Link to this heading">#</a></h2>
+</section>
+<section id="what-are-objects">
+<h2>1. What are objects?<a class="headerlink" href="#what-are-objects" title="Link to this heading">#</a></h2>
+<p>Functions are very powerful tools for writing programs in Python. But every function needs data to work on: a function for multiplication requires at least 2 numbers to multiply, the <code class="docutils literal notranslate"><span class="pre">len</span></code> function requires a string, a list, or an array to return its length, etc. If we <strong>combine the data and functions</strong> into one data structure, we get <strong>objects</strong>. The object, like in a real world, combine both the <code class="docutils literal notranslate"><span class="pre">data</span></code> (i.e. the <em>attributes</em> of the object) and the methods (or functions) that can perform manipulations with the object’s attributes.</p>
+<p>To make things even more interesting, everything in Python is an object: integer, string, list, and dictionary. Every object has data associated with (for the integer, this is the value, an integer number) and there is a list of functions we can perform on a given object. Examples of objects that you already encountered before are <code class="docutils literal notranslate"><span class="pre">numpy</span></code> arrays, lists, dictionaries, and Pandas DataFrames.</p>
+</section>
+<hr class="docutils" />
+<section id="using-objects">
+<h2>2. Using objects<a class="headerlink" href="#using-objects" title="Link to this heading">#</a></h2>
+<p>Objects are building blocks of Python - everything in Python is an object. Even basic variable types, such as integers, floats, strings, lists and dictionaries, are objects.</p>
+<p>How do we use objects, if they are already in Python? How do we “call” their methods? The method name needs to be specified after the object name and separated by a full stop (”<code class="docutils literal notranslate"><span class="pre">.</span></code>”) from the object name. Everything else is the same as calling a function.</p>
+<section id="using-built-in-objects">
+<h3>2.1 Using built-in objects<a class="headerlink" href="#using-built-in-objects" title="Link to this heading">#</a></h3>
+<p>Objects are everywhere in Python and there is no way to avoid objects in Python. Even basic string manipulation can be done in Object-Oriented Programming (OOP) way. You have been using objects in Python without even knowing that.</p>
+<p>Below are examples of calling methods from built-in objects and you have been using many of them on daily basis in this class already. The <code class="docutils literal notranslate"><span class="pre">numpy</span></code> example also shows the similarity between using functions to get the shape of 2D array and then perform the same task using the built-in method (the OOP way).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># define an 2D array</span>
+<span class="n">board</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">board</span><span class="p">)</span>
+
+<span class="c1"># get dimensions of the board</span>
+<span class="c1"># using len function</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;len():</span><span class="se">\n</span><span class="s2"> Number of rows:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">board</span><span class="p">),</span> <span class="s2">&quot;number of columns:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">board</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="c1"># using numpy shape method</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;numpy.shape():</span><span class="se">\n</span><span class="s2"> Number of rows:&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">board</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;number of columns:&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">board</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+<span class="c1"># using object attributes</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;board.shape:</span><span class="se">\n</span><span class="s2"> Number of rows:&quot;</span><span class="p">,</span> <span class="n">board</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;number of columns:&quot;</span><span class="p">,</span> <span class="n">board</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To call methods defined in an object, you write the variable name (remember, everything in Python is an object), followed by dot (<code class="docutils literal notranslate"><span class="pre">.</span></code>) and the method name. You can also notice that the statement</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.shape(board)</span></code></p>
+<p>is doing exactly the same: calling there method <code class="docutils literal notranslate"><span class="pre">shape</span></code> from object <code class="docutils literal notranslate"><span class="pre">np</span></code> (which is <strong>numpy</strong>) and then return the shape of given 2D array.</p>
+<p>As mentioned before, every object has methods associated with it and Jupyter notebook can help you find which methods are available for a given object. To get available methods for given object, do the following:</p>
+<ul class="simple">
+<li><p>write the variable (object name) name</p></li>
+<li><p>write a dot (<code class="docutils literal notranslate"><span class="pre">.</span></code>) after the variable</p></li>
+<li><p>press TAB to get the list of possible methods for a given object; the methods will be listed in a pop-up window next the cursor.</p></li>
+</ul>
+<p>To print <strong>ALL</strong> the available attributes and methods of a given object, you can use <code class="docutils literal notranslate"><span class="pre">dir</span></code> function. You may notice that names of some attributes and methods begin with an underscore (<code class="docutils literal notranslate"><span class="pre">_</span></code>) - these attributes and methods are intended for internal use inside the object rather than being user-facing attributes and methods (they are mostly called from other methods in the object).</p>
+<p>When you find the method that you think could be the right one, you are interested which parameters you need to defined to selected method. Jupyter notebook can help here too. To get parameters and usage of given method in the object, use question mark after the method name - the same way as for functions.</p>
+<p>✅  For example, to get parameters for <code class="docutils literal notranslate"><span class="pre">shape</span></code> method from <strong><code class="docutils literal notranslate"><span class="pre">numpy</span></code></strong>, <strong>write the following into cell and execute the cell</strong> (press <code class="docutils literal notranslate"><span class="pre">SHIFT+ENTER</span></code>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>np.shape?
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.shape<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>✅ Do this:</p>
+<ol class="arabic simple">
+<li><p>Test the below code that first <strong>defines a new list</strong> and then <strong>prints</strong> possible methods you can call for that list.</p></li>
+<li><p>Find what the method can do in one of the methods of a list object.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="nb">dir</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>
+<span class="c1"># alist.append?</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="further-exploration-string-and-list-manipulation">
+<h3>2.2 Further exploration: String and list manipulation<a class="headerlink" href="#further-exploration-string-and-list-manipulation" title="Link to this heading">#</a></h3>
+<p>Let’s practice working with objects by doing a bit of string and list manipulation. In the cell below, you’re provided a long string to work with.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a long string</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;In this assignment, you are learning about Object Oriented Programming (OOP), which is a bit different from functional programming style that we have been using up to this point. While much of the content in this assignment will likely be new to you and a might be little confusing at first, you&#39;ll have more time to explore these concepts during the in-class assignment as well.&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Check what methods are in a string object.</p></li>
+<li><p>Check what <code class="docutils literal notranslate"><span class="pre">split</span></code> and <code class="docutils literal notranslate"><span class="pre">replace</span></code> methods can do.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># put your code here.</span>
+<span class="nb">dir</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+text.split<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Print the 10-th word in the text string.</p></li>
+<li><p>Replace “assignment” with “task”.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># put your code here</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;assignment&#39;</span><span class="p">,</span><span class="s1">&#39;task&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Study the code below and figure out what this code will do.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#using loops</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s1">&#39;assignment&#39;</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# assignments:&quot;</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+
+<span class="c1"># use methods</span>
+<span class="n">count</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;assignment&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# assignments:&quot;</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="s2">&quot;, using count method&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="creating-your-own-objects">
+<h2>3. Creating your own objects<a class="headerlink" href="#creating-your-own-objects" title="Link to this heading">#</a></h2>
+<p>Now that we know how to use built-in objects, it’s time to create our own objects. Defining the object in Python is similar to defining a function, with few extra things we have to be careful about. The main difference is in fact, that the object is storing both attributes and methods.</p>
+<section id="few-important-things-before-creating-an-object">
+<h3>3.1 Few important things before creating an object<a class="headerlink" href="#few-important-things-before-creating-an-object" title="Link to this heading">#</a></h3>
+<p>Now it’s time to create our own objects. First one needs to <em>define</em> a class to be able to <em>use</em> is later - the same as with functions.</p>
+<ol class="arabic simple">
+<li><p>The most important thing you have to do to define a class:</p></li>
+</ol>
+<ul class="simple">
+<li><p>the class is defined by using a keyword <code class="docutils literal notranslate"><span class="pre">class</span></code>, followed by name of the class</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>There are some important information to keep in mind when creating classes:</p></li>
+</ol>
+<ul class="simple">
+<li><p>the first argument to every method inside class is <code class="docutils literal notranslate"><span class="pre">self</span></code> (this is defined by Python naming convention and allows the object to reference “itself”)</p></li>
+<li><p><strong>attributes</strong> inside the class are addressed by adding <code class="docutils literal notranslate"><span class="pre">self.</span></code> before the variable name: <code class="docutils literal notranslate"><span class="pre">self.name</span> <span class="pre">=</span> <span class="pre">'Milka'</span></code> to set the value to variable <code class="docutils literal notranslate"><span class="pre">name</span></code>; note the dot (<code class="docutils literal notranslate"><span class="pre">.</span></code>) after the <code class="docutils literal notranslate"><span class="pre">self</span></code></p></li>
+<li><p><strong>calling methods</strong> inside class follows the same idea as attributes: if you want to call the method from inside the class, the method name needs to have <code class="docutils literal notranslate"><span class="pre">self.</span></code> before the method name: <code class="docutils literal notranslate"><span class="pre">self.get_name()</span></code></p></li>
+<li><p>methods and attributes behave the same way as they would outside of the class (types, conversion between types, assignment, etc.)</p></li>
+</ul>
+<p>✅ DO this – Study the code below and <strong>Anwser</strong> these questions.</p>
+<ol class="arabic simple">
+<li><p>What will <code class="docutils literal notranslate"><span class="pre">set_arrive_to_zoo</span></code> method do?</p></li>
+<li><p>What will <code class="docutils literal notranslate"><span class="pre">set_kind</span></code> method do?</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Animal</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">to_zoo</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39; Initialize the Animal object.</span>
+<span class="sd">        Inputs are</span>
+<span class="sd">        kind : the type of animal (string)</span>
+<span class="sd">        name : the nickname for the animal (string)</span>
+<span class="sd">        to_zoo : the date the animal came to the zoo (in &#39;yyyy-mm-dd&#39; format)</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="o">=</span> <span class="n">kind</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">brought_to_zoo</span> <span class="o">=</span> <span class="n">to_zoo</span>
+
+    <span class="k">def</span> <span class="nf">set_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39; Set animal&#39;s name. &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="k">return</span>
+
+    <span class="k">def</span> <span class="nf">set_kind</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39; Set animal&#39;s kind. &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="o">=</span> <span class="n">kind</span>
+        <span class="k">return</span>
+
+    <span class="k">def</span> <span class="nf">set_arrive_to_zoo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">to_zoo</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39; Set animal&#39;s date delivered to the Zoo. &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">brought_to_zoo</span> <span class="o">=</span> <span class="n">to_zoo</span>
+
+    <span class="k">def</span> <span class="nf">get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39; Return animal&#39;s name. &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+    
+    <span class="k">def</span> <span class="nf">get_kind</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39; Return animal&#39;s kind. &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span>
+    
+    <span class="k">def</span> <span class="nf">get_arrive_to_zoo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39; Return animal&#39;s date delivered to the Zoo. &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">brought_to_zoo</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The code below initialize some <code class="docutils literal notranslate"><span class="pre">Animal</span></code> classes. Use methods in the <code class="docutils literal notranslate"><span class="pre">Animal</span></code> class to</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create object for defining few characters from The Madagascar</span>
+<span class="n">alex</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s1">&#39;zebra&#39;</span><span class="p">,</span> <span class="s1">&#39;Alex&#39;</span><span class="p">)</span>
+<span class="n">marty</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s1">&#39;zebra&#39;</span><span class="p">,</span> <span class="s1">&#39;Marty&#39;</span><span class="p">,</span> <span class="s1">&#39;2006-01-23&#39;</span><span class="p">)</span>
+<span class="n">skipper</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s1">&#39;penguin&#39;</span><span class="p">,</span> <span class="s1">&#39;Skipper&#39;</span><span class="p">)</span>
+<span class="n">kowalski</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s1">&#39;tiger&#39;</span><span class="p">,</span> <span class="s1">&#39;Kowalski&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Find the kind of alex and skipper.</p></li>
+<li><p>Set the date (2005/05/27) the of kowalski arrive the zoo.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">alex</span><span class="o">.</span><span class="n">get_kind</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="object-inheritance">
+<h2>4. Object inheritance<a class="headerlink" href="#object-inheritance" title="Link to this heading">#</a></h2>
+<p>Objects present a powerful programing paradigm (called Object Oriented Programming - OOP) by combining the attributes and methods for easy access and use. As mentioned before, objects are everywhere in Python.</p>
+<p>Object <strong>inheritance</strong> is a programming technique that allow us to combine the objects in a way such that one object <strong>inherits</strong> properties from another object. This enables us to create a hierarchy of objects. But no worries, we will practice that in this assignment!</p>
+<section id="using-inheritance">
+<h3>4.1 Using inheritance<a class="headerlink" href="#using-inheritance" title="Link to this heading">#</a></h3>
+<p>The main information we have to remember about inheritance is that objects have an “<strong>is a(n)</strong>” relationship: the <code class="docutils literal notranslate"><span class="pre">Lion</span></code> object <strong>is an</strong> <code class="docutils literal notranslate"><span class="pre">Animal</span></code> object, with a few attributes and methods tailored for a lion. When defining new object for lions, all <code class="docutils literal notranslate"><span class="pre">Animal</span></code>-specific attributes for lions are pre-defined in one place and there is no need to specify them explicitly when we want to use the <code class="docutils literal notranslate"><span class="pre">Lion</span></code> object.</p>
+</section>
+<section id="creating-object-for-lions">
+<h3>Creating object for lions<a class="headerlink" href="#creating-object-for-lions" title="Link to this heading">#</a></h3>
+<p>Study the code below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># here is the class for lions; read all comments and add missing components </span>
+<span class="k">class</span> <span class="nc">Lion</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This is a Lion class, used to store information about lions.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Initialize Lion class. All we need now is the animal nickname. &quot;&quot;&quot;</span>
+        
+        <span class="c1"># this class is only for lions, so we can define animal &#39;kind&#39; as lion</span>
+        <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;lion&quot;</span>
+        
+        <span class="c1"># this calls initialization of Animal class and setting the animal to given &#39;name&#39;      </span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">kind</span><span class="p">,</span><span class="n">name</span><span class="p">)</span>     
+        
+        <span class="c1">#--- in lines below we define attribute values for lions--#  </span>
+        
+        <span class="c1"># default required area: </span>
+        <span class="c1"># ENTER VALUE (arbitrary one or one you used in the previous </span>
+        <span class="c1"># in-class assignment)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">required_area</span> <span class="o">=</span> <span class="mi">600</span>
+        
+        <span class="c1"># set default number of ZOO keepers for lions: </span>
+        <span class="c1"># ENTER VALUE (arbitrary one or one you used in the previous</span>
+        <span class="c1"># in-class assignment)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">required_staff</span> <span class="o">=</span> <span class="mi">2</span>
+
+    <span class="k">def</span> <span class="nf">get_required_area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39; Return required area of the Animal class. &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">required_area</span>
+
+    <span class="k">def</span> <span class="nf">get_number_keepers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39; Return the number of required staff of the Animal class. &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">required_staff</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use this cell to test the &#39;Lion&#39; class</span>
+<span class="n">jorden</span> <span class="o">=</span> <span class="n">Lion</span><span class="p">(</span><span class="s2">&quot;Jorden&quot;</span><span class="p">)</span>
+<span class="n">jorden</span><span class="o">.</span><span class="n">set_arrive_to_zoo</span><span class="p">(</span><span class="s2">&quot;2019-01-01&quot;</span><span class="p">)</span>
+
+<span class="c1"># printing animal&#39;s names</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0}</span><span class="s2"> is a </span><span class="si">{1}</span><span class="s2">, arrived to Zoo on </span><span class="si">{4}</span><span class="s2"> and requires </span><span class="si">{2}</span><span class="s2"> m^2 of space and </span><span class="si">{3}</span><span class="s2"> keepers to be happy.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+    <span class="n">jorden</span><span class="o">.</span><span class="n">get_name</span><span class="p">(),</span> <span class="n">jorden</span><span class="o">.</span><span class="n">get_kind</span><span class="p">(),</span> <span class="n">jorden</span><span class="o">.</span><span class="n">get_required_area</span><span class="p">(),</span> <span class="n">jorden</span><span class="o">.</span><span class="n">get_number_keepers</span><span class="p">(),</span> <span class="n">alex</span><span class="o">.</span><span class="n">get_arrive_to_zoo</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="you-re-done-with-this-file-please-upload-the-complete-notebook-file-to-the-link">
+<h1>You’re done with this file. Please upload the complete notebook file to the <a class="reference external" href="https://www.dropbox.com/request/j6atwqjz6o5nxs940x9c"><strong>Link</strong></a><a class="headerlink" href="#you-re-done-with-this-file-please-upload-the-complete-notebook-file-to-the-link" title="Link to this heading">#</a></h1>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-base-py"
+        },
+        kernelOptions: {
+            name: "conda-base-py",
+            path: "./daily/Day12_0518"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-base-py'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../section_files/day_12.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Day 12 05/18</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="OOP_II_student_v1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Digital evolution</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Object orient programming (OOP)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#put-your-name-here"><p style="text-align: right;"> ✅ <strong>put your name here</strong> </p></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-objects">1. What are objects?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-objects">2. Using objects</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-built-in-objects">2.1 Using built-in objects</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#further-exploration-string-and-list-manipulation">2.2 Further exploration: String and list manipulation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-your-own-objects">3. Creating your own objects</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#few-important-things-before-creating-an-object">3.1 Few important things before creating an object</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#object-inheritance">4. Object inheritance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-inheritance">4.1 Using inheritance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-object-for-lions">Creating object for lions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#you-re-done-with-this-file-please-upload-the-complete-notebook-file-to-the-link">You’re done with this file. Please upload the complete notebook file to the <strong>Link</strong></a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hui-Chia Yu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
