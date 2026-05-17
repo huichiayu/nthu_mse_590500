@@ -98,7 +98,13 @@ parts:
         - file: daily/Day11_0511/FFT2_Image
         - file: daily/Day11_0511/Segmentation_image
 
-
+      - file: section_files/day_12
+        sections: 
+        - file: daily/Day12_0518/OOP_I_student_v1
+        - file: daily/Day12_0518/OOP_II_student_v1
+        - file: daily/Day12_0518/LinearRegress_student_v1
+        - file: daily/Day12_0518/MultiRegression_demo
+        - file: daily/Day12_0518/Regression_student_v1
 
   - caption: Exam/Quiz
     chapters:
