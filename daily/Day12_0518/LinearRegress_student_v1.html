@@ -883,6 +883,153 @@ document.write(`
 </div>
 </div>
 <p>✅ Do this: Why do the fitted results deviate from the true function?</p>
+<hr class="docutils" />
+<p><strong>This table summarizes these regression methods.</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">np.polyfit</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">statsmodels.OLS</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">scipy.optimize.curve_fit</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">scipy.optimize.least_squares</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Main purpose</p></td>
+<td><p>Polynomial fitting</p></td>
+<td><p>Statistical linear regression</p></td>
+<td><p>Nonlinear curve fitting</p></td>
+<td><p>General residual minimization</p></td>
+</tr>
+<tr class="row-odd"><td><p>Typical use</p></td>
+<td><p>Quick polynomial regression</p></td>
+<td><p>Statistical analysis</p></td>
+<td><p>Scientific model fitting</p></td>
+<td><p>Inverse problems / optimization</p></td>
+</tr>
+<tr class="row-even"><td><p>Model type</p></td>
+<td><p>Polynomial only</p></td>
+<td><p>Linear in coefficients</p></td>
+<td><p>Arbitrary nonlinear function</p></td>
+<td><p>Arbitrary residual equations</p></td>
+</tr>
+<tr class="row-odd"><td><p>User defines model?</p></td>
+<td><p>No</p></td>
+<td><p>Indirectly via design matrix</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>User defines residuals?</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Handles nonlinear models</p></td>
+<td><p>Limited</p></td>
+<td><p>Mostly linear</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>Statistical analysis</p></td>
+<td><p>Minimal</p></td>
+<td><p>Excellent</p></td>
+<td><p>Moderate</p></td>
+<td><p>Minimal</p></td>
+</tr>
+<tr class="row-odd"><td><p>Confidence intervals</p></td>
+<td><p>Limited</p></td>
+<td><p>Yes</p></td>
+<td><p>Approximate via covariance</p></td>
+<td><p>Not automatic</p></td>
+</tr>
+<tr class="row-even"><td><p>p-values</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>R² reporting</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p>Covariance matrix</p></td>
+<td><p>Optional</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes (<code class="docutils literal notranslate"><span class="pre">pcov</span></code>)</p></td>
+<td><p>Not automatic</p></td>
+</tr>
+<tr class="row-odd"><td><p>Optimization method</p></td>
+<td><p>Linear least squares</p></td>
+<td><p>Linear least squares</p></td>
+<td><p>Nonlinear least squares</p></td>
+<td><p>General nonlinear least squares</p></td>
+</tr>
+<tr class="row-even"><td><p>Requires initial guess</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>Sometimes</p></td>
+<td><p>Usually yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Supports constraints/bounds</p></td>
+<td><p>No</p></td>
+<td><p>Limited</p></td>
+<td><p>Limited</p></td>
+<td><p>Excellent</p></td>
+</tr>
+<tr class="row-even"><td><p>Ease of use</p></td>
+<td><p>Very easy</p></td>
+<td><p>Easy</p></td>
+<td><p>Moderate</p></td>
+<td><p>More advanced</p></td>
+</tr>
+<tr class="row-odd"><td><p>Flexibility</p></td>
+<td><p>Low</p></td>
+<td><p>Moderate</p></td>
+<td><p>High</p></td>
+<td><p>Very high</p></td>
+</tr>
+<tr class="row-even"><td><p>Numerical stability</p></td>
+<td><p>Good for low degree</p></td>
+<td><p>Good</p></td>
+<td><p>Good</p></td>
+<td><p>Excellent control</p></td>
+</tr>
+<tr class="row-odd"><td><p>Good for teaching?</p></td>
+<td><p>Excellent intro</p></td>
+<td><p>Excellent statistics</p></td>
+<td><p>Excellent nonlinear fitting</p></td>
+<td><p>Excellent optimization/inverse problems</p></td>
+</tr>
+<tr class="row-even"><td><p>Common scientific uses</p></td>
+<td><p>Polynomial trends</p></td>
+<td><p>Regression analysis</p></td>
+<td><p>Exponential/Gaussian fitting</p></td>
+<td><p>Constitutive laws, PDE inverse problems</p></td>
+</tr>
+<tr class="row-odd"><td><p>Typical syntax</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.polyfit(x,y,n)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sm.OLS(y,X)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">curve_fit(f,x,y)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">least_squares(residual)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Strength</p></td>
+<td><p>Simplicity</p></td>
+<td><p>Statistical interpretation</p></td>
+<td><p>Easy nonlinear fitting</p></td>
+<td><p>Maximum flexibility</p></td>
+</tr>
+<tr class="row-odd"><td><p>Weakness</p></td>
+<td><p>Polynomial only</p></td>
+<td><p>Mostly linear models</p></td>
+<td><p>Less flexible than LSQ</p></td>
+<td><p>More complicated</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 </section>
 </section>
