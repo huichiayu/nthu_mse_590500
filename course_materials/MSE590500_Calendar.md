@@ -23,23 +23,23 @@
   </tr> 
   <tr style="background-color: #f9f9f9;"> <!-- week 2 -->
     <td style="border: 1px solid #ddd; padding: 8px;">02 (Mar 2)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;"> Functions, Libraries, e.g., numpy, scipy, sympy, matplotlib. </td>
+    <td style="border: 1px solid #ddd; padding: 8px;">Functions, Libraries, e.g., numpy, scipy, sympy, matplotlib. </td>
   </tr>
   <tr> <!-- week 3 -->
     <td style="border: 1px solid #ddd; padding: 8px;">03 (Mar 9)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;"> Command line interface, Pandas library. <strong>Homework 1 release</strong> </td>
+    <td style="border: 1px solid #ddd; padding: 8px;">Command line interface, Pandas library. <strong>Homework 1 release</strong> </td>
   </tr>  
   <tr style="background-color: #f9f9f9;"> <!-- week 4 -->
     <td style="border: 1px solid #ddd; padding: 8px;">04 (Mar 16)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;"> (Remote class), Calculating and plot thermodynamics quantities.</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">Remote class), Calculating and plot thermodynamics quantities.</td>
   </tr>
   <tr> <!-- week 5 -->
     <td style="border: 1px solid #ddd; padding: 8px;">05 (Mar 23)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;"> Class canceled </td>
+    <td style="border: 1px solid #ddd; padding: 8px;">Class canceled </td>
   </tr>
   <tr> <!-- week 6 -->
     <td style="border: 1px solid #ddd; padding: 8px;">06 (Mar 30)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;"> Thermodynamic free energy, phase diagrams </td>
+    <td style="border: 1px solid #ddd; padding: 8px;">Thermodynamic free energy, phase diagrams </td>
   </tr>  
   <tr style="background-color: #f9f9f9;"> <!-- week 7 -->
     <td style="border: 1px solid #ddd; padding: 8px;">00 (Apr 6)</td>
@@ -47,7 +47,7 @@
   </tr> 
    <tr> <!-- week 8 -->
     <td style="border: 1px solid #ddd; padding: 8px;">07 (Apr 13)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;"> Ternary phase diagrams, PyCalPhad.</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">Ternary phase diagrams, PyCalPhad.</td>
   </tr>  
   <tr style="background-color: #f9f9f9;"> <!-- week 9 -->
     <td style="border: 1px solid #ddd; padding: 8px;">08 (Apr 20)</td>
@@ -55,11 +55,11 @@
   </tr>
   <tr> <!-- week 10 -->
     <td style="border: 1px solid #ddd; padding: 8px;">09 (Apr 27)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;"> <strong>Midterm exam.</strong> </td>
+    <td style="border: 1px solid #ddd; padding: 8px;"><strong>Midterm exam.</strong> </td>
   </tr>
   <tr style="background-color: #f9f9f9;"> <!-- week 11 -->
     <td style="border: 1px solid #ddd; padding: 8px;">10 (May 4)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;"> Beam problem, Fourier series, FFT. </span>(<strong>May 8: Homework 2-3 release</strong>) </td>
+    <td style="border: 1px solid #ddd; padding: 8px;">Beam problem, Fourier series, FFT. </span>(<strong>May 8: Homework 2-3 release</strong>) </td>
   </tr>       
   <tr> <!-- week 12 -->
     <td style="border: 1px solid #ddd; padding: 8px;">11 (May 11)</td>
@@ -71,11 +71,11 @@
   </tr>       
   <tr> <!-- week 14 -->
     <td style="border: 1px solid #ddd; padding: 8px;">13 (May 25)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;"> TBA <strong>Homework 4 release</strong>  </td>
+    <td style="border: 1px solid #ddd; padding: 8px;">TBA </span>(<strong>May ?: Homework 4-5 release</strong>)</td>
   </tr>
   <tr style="background-color: #f9f9f9;"> <!-- week 15 -->
     <td style="border: 1px solid #ddd; padding: 8px;">14 (Jun 1)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;"> TBA <strong>Homework 5 release</strong></td>
+    <td style="border: 1px solid #ddd; padding: 8px;">TBA</td>
   </tr>     
   <tr> <!-- week 16 -->
     <td style="border: 1px solid #ddd; padding: 8px;">15 (Jun 8)</td>
