@@ -106,6 +106,18 @@ parts:
         - file: daily/Day12_0518/MultiRegression_demo
         - file: daily/Day12_0518/Regression_student_v1
 
+      - file: section_files/day_13
+        sections: 
+        - file: daily/Day13_0525/General_ML
+        - file: daily/Day13_0525/knn_students_v1
+        - file: daily/Day13_0525/Perceptron_demo_v2
+        - file: daily/Day13_0525/logisticRegression_student
+        - file: daily/Day13_0525/SVM_explained_2D_data
+        - file: daily/Day13_0525/SVM_elemental_data_Student_v1
+        - file: daily/Day13_0525/Image_classify        
+        - file: daily/Day13_0525/unsupervised_learning_teaching_module_v2    
+        
+
   - caption: Exam/Quiz
     chapters:
     - file: section_files/Midterm_0427/Midterm.md
