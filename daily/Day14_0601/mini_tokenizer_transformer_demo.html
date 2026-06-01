@@ -1,0 +1,1159 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Mini Demo: Tokenizer and Transformer in a Tiny Language Model &#8212; MSE 590500 Course Website</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'daily/Day14_0601/mini_tokenizer_transformer_demo';</script>
+    <link rel="icon" href="../../_static/Spartan_2.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Large Language Model (LLM)" href="LLM_demo.html" />
+    <link rel="prev" title="PINN for solving PDEs" href="PINN_1D_diffustion_v1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/Spartan_2.png" class="logo__image only-light" alt="MSE 590500 Course Website - Home"/>
+    <script>document.write(`<img src="../../_static/Spartan_2.png" class="logo__image only-dark" alt="MSE 590500 Course Website - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Materials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/MSE590500_Syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/MSE590500_Calendar.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/SoftwareSetupGuide_NTHU_2.html">Software Setup Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/MSE590500_AI_policy.html">Generative AI Policy</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://upload.wikimedia.org/wikipedia/commons/7/79/Unix_command_cheatsheet.pdf">CLI (Unix/Mac/Linux) commands cheat sheet</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Daily Content</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_1.html">Day 1 02/23</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day01_0223/Jupyter_Notebook_Basics.html">Jupyter Notebook Basics (Hands-on)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day01_0223/Python_Data_Types_Teaching.html">Python Data Types (Hands-on)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day01_0223/UNIX_Command_Line_Basics.html">Introduction to UNIX Command Line Interface (CLI)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_2.html">Day 2 03/02</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day02_0302/numpy_teaching_module.html">Introduction to NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day02_0302/matplotlib_teaching_module.html">Introduction to Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day02_0302/sympy_teaching_module.html">SymPy Mini Teaching Module (Beginner)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_3.html">Day 3 03/09</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day03_0309/pandas_basics_teaching_notebook.html">Pandas Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day03_0309/pandas_demo_with_material_data.html">Pandas Demonstration Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day03_0309/Ideal_gas_calculation.html">Ideal gas behavior</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_4.html">Day 4 03/16</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://youtu.be/W8pjXJr98Ck">Classical thermo - enthalpy calculation 1</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://youtu.be/-O7L3ZuQ_8E">Classical thermo - enthalpy calculation 2</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://youtu.be/Y28fCO2Gtpc">Classical thermo - entropy calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day04_0316/Enthalpy_01.html">Calculating enthalpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day04_0316/Entropy_v01.html">Calculating entropy</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_5.html">Day 5 03/23</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_6.html">Day 6 03/30</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/PT_phaseDiagram.html">Phase diagram of a pure substance (single component system)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/water_pvt_with_solid_boundaries.html">Water PVT Phase Diagram with Solid–Liquid–Vapor Boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/RegularSolution_student.html">Regular solution model and phase diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/BinaryPhaseDiagram_MiscibleAlloys_student.html">Phase Diagrams for Completely Miscible Alloys</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/EutecticPhaseDiagram_student.html">Construction of a Eutectic Phase Diagram</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_7.html">Day 7 04/13</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day07_0413/ConvexHull_CommonTangent_Construction.html">Bindary phase diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day07_0413/ternary_phase_diagram_module_student.html">Ternary Phase Diagram Teaching Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day07_0413/TieTriangle_demo.html">Demonstration of finding tie-triangle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day07_0413/PyCalPhas_demo.html">PyCalPhad</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_8.html">Day 8 04/20</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/first_order_ode_analytical_and_finite_difference_v1.html">First-order ODEs: analytical solution and finite-difference method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/damped_oscillator_finite_difference_v1.html">Damped oscillator using the finite-difference method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/elasticity_mechanics_analytical_and_finite_difference.html">Elasticity and mechanics: analytical and finite-difference solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/1D_diffusion_equation_sympy_scipy.html">Analytically solving the 1D diffusion equation with SymPy (and comparing with SciPy)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/simple_2D_diffusion_FDM_center_source.html">Simple 2D diffusion FDM example: source at the center</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/Midterm.html">Midterm exam</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Midterm_0427/MidtermExam_student_v1.html">MSE 590500 Mid-term exam.</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_10.html">Day 10 05/04</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/beam_fdm_module_student.html">Euler–Bernoulli Beam Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/FourierCoefficients.html">Fourier coefficients</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/NOAA_student.html">Fast Fourier Transform (FFT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/FFT2D.html">Fast Fourier Transform (FFT) 2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/Denoiser_student.html">Image denoise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_11.html">Day 11 05/11</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day11_0511/ImageProcess.html">Image filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day11_0511/FFT2_Image.html">FFT filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day11_0511/Segmentation_image.html">Image segmentation.</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_12.html">Day 12 05/18</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day12_0518/OOP_I_student_v1.html">Object orient programming (OOP)</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day12_0518/OOP_II_student_v1.html">Digital evolution</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../Day12_0518/LinearRegress_student_v1.html">Regression I: single variable regression</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day12_0518/MultiRegression_demo.html">Regression II: multiple variables linear regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day12_0518/Regression_student_v1.html">Regression.</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_13.html">Day 13 05/25</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/General_ML.html">Machine leanring algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/knn_students_v1.html">K-Nearest Neighbors (KNN) Teaching Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/Perceptron_demo_v2.html">Perceptron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/logisticRegression_student.html">Classification: Logistic Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/SVM_explained_2D_data.html">SVM example using a 2D dataset.</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/SVM_elemental_data_Student_v1.html">SVM Classification of chemical element data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/Image_classify.html">Image classification using SVM</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/unsupervised_learning_teaching_module_v2.html">Introduction to Unsupervised Learning</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../section_files/day_14.html">Day 14 06/01</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Artificial_Neuron_Network_explained.html">Artificial Neural Network</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="NN_Tensile_data.html">Tensile test data</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="ImageRgression_NN.html">Image Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CahnHilliardEquation_SpinodalDecomposition.html">Finite difference method to simulate Spinodal decomposition.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PINN_DampedSpringMass_student_v1.html">Physics informed neural network (PINN) for ODE</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="PINN_1D_diffustion_v1.html">PINN for solving PDEs</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Mini Demo: Tokenizer and Transformer in a Tiny Language Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LLM_demo.html">Large Language Model (LLM)</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/HW01.html">Homework 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../homework/HW01/MSE590500_HW1_student.html">MSE 590500 Homework assginment 1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/HW02_3.html">Homework 2-3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../homework/HW02/Homework2_3_student_v01.html">MSE590500 Homework assignment 2 &amp; 3</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/daily/Day14_0601/mini_tokenizer_transformer_demo.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Mini Demo: Tokenizer and Transformer in a Tiny Language Model</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">0. Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-very-simple-tokenizer">1. A Very Simple Tokenizer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encode-decode">Encode / Decode</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-tokens-to-embeddings">2. From Tokens to Embeddings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-tiny-transformer-block">3. A Tiny Transformer Block</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-transformer-block">Run the Transformer Block</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-selfattention">4. Visualizing Self‑Attention</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">5. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-a-tiny-langauge-model">6. Test a tiny langauge model.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-webpage-of-illustrating-the-working-process-of-transformers">A webpage of illustrating the working process of transformers.</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#https-poloclub-github-io-transformer-explainer">https://poloclub.github.io/transformer-explainer/</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="mini-demo-tokenizer-and-transformer-in-a-tiny-language-model">
+<h1>Mini Demo: Tokenizer and Transformer in a Tiny Language Model<a class="headerlink" href="#mini-demo-tokenizer-and-transformer-in-a-tiny-language-model" title="Link to this heading">#</a></h1>
+<p>This notebook file is mainly generated by <strong>ChatGPT 5.1</strong>. It demonstrates two core ideas behind large language models (LLMs):</p>
+<ol class="arabic simple">
+<li><p><strong>Tokenizer</strong>: how we convert text → tokens → integer IDs → back to text.</p></li>
+<li><p><strong>Transformer block</strong>: how self‑attention and a small feed‑forward network
+turn token embeddings into contextualized representations.</p></li>
+</ol>
+<p>We’ll keep everything tiny and simple so you can see all the pieces.</p>
+<section id="imports">
+<h2>0. Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn.functional</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">F</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="a-very-simple-tokenizer">
+<h2>1. A Very Simple Tokenizer<a class="headerlink" href="#a-very-simple-tokenizer" title="Link to this heading">#</a></h2>
+<p>Real LLMs use subword tokenizers like <strong>BPE</strong> or <strong>SentencePiece</strong>.
+Here, we will use a <strong>toy word‑level tokenizer</strong> so the logic is easy to see:</p>
+<ol class="arabic simple">
+<li><p>Lowercase the text</p></li>
+<li><p>Split on spaces → tokens</p></li>
+<li><p>Build a vocabulary (token → integer ID)</p></li>
+<li><p>Implement <code class="docutils literal notranslate"><span class="pre">encode</span></code> (text → IDs) and <code class="docutils literal notranslate"><span class="pre">decode</span></code> (IDs → text)</p></li>
+</ol>
+<p>This is for <strong>illustration</strong>, not for production use.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>  <span class="c1"># count how many times an item shows up</span>
+
+<span class="c1"># A tiny text corpus to build a vocabulary</span>
+<span class="n">text_corpus</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;the quick brown fox jumps over the lazy dog&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;the quick blue fox jumps high&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;a lazy dog sleeps&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">basic_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Toy tokenizer: lowercase + split on spaces.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+<span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1"># Build vocabulary</span>
+<span class="n">counter</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">sent</span> <span class="ow">in</span> <span class="n">text_corpus</span><span class="p">:</span>
+    <span class="n">counter</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">basic_tokenize</span><span class="p">(</span><span class="n">sent</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sentence&quot;</span><span class="p">,</span> <span class="n">cnt</span><span class="p">,</span> <span class="s1">&#39;--&gt;&#39;</span><span class="p">,</span> <span class="n">sent</span><span class="p">)</span>
+    <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+
+
+<span class="c1"># Special tokens</span>
+<span class="n">PAD</span> <span class="o">=</span> <span class="s2">&quot;&lt;pad&gt;&quot;</span>
+<span class="n">UNK</span> <span class="o">=</span> <span class="s2">&quot;&lt;unk&gt;&quot;</span>
+
+<span class="n">vocab</span> <span class="o">=</span> <span class="p">[</span><span class="n">PAD</span><span class="p">,</span> <span class="n">UNK</span><span class="p">]</span> <span class="o">+</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">counter</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">stoi</span> <span class="o">=</span> <span class="p">{</span><span class="n">tok</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">tok</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">vocab</span><span class="p">)}</span>  <span class="c1"># string → index (Python dictionary)</span>
+<span class="n">itos</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">tok</span> <span class="k">for</span> <span class="n">tok</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">stoi</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>      <span class="c1"># index → string</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vocabulary:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vocab</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Token → ID mapping (stoi):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stoi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="encode-decode">
+<h3>Encode / Decode<a class="headerlink" href="#encode-decode" title="Link to this heading">#</a></h3>
+<p>We now create <code class="docutils literal notranslate"><span class="pre">encode</span></code> and <code class="docutils literal notranslate"><span class="pre">decode</span></code> functions:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">encode(text)</span></code>: text → tokens → integer IDs</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">decode(ids)</span></code>: integer IDs → tokens → text</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">encode</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="n">basic_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">stoi</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">tok</span><span class="p">,</span> <span class="n">stoi</span><span class="p">[</span><span class="n">UNK</span><span class="p">])</span> <span class="k">for</span> <span class="n">tok</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">ids</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">decode</span><span class="p">(</span><span class="n">ids</span><span class="p">):</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">itos</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">UNK</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">]</span>
+    <span class="k">return</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+
+<span class="n">example</span> <span class="o">=</span> <span class="s2">&quot;the quick fox jumps&quot;</span>
+<span class="n">ids</span> <span class="o">=</span> <span class="n">encode</span><span class="p">(</span><span class="n">example</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Text:   &quot;</span><span class="p">,</span> <span class="n">example</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tokens: &quot;</span><span class="p">,</span> <span class="n">basic_tokenize</span><span class="p">(</span><span class="n">example</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;IDs:    &quot;</span><span class="p">,</span> <span class="n">ids</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Back:   &quot;</span><span class="p">,</span> <span class="n">decode</span><span class="p">(</span><span class="n">ids</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="from-tokens-to-embeddings">
+<h2>2. From Tokens to Embeddings<a class="headerlink" href="#from-tokens-to-embeddings" title="Link to this heading">#</a></h2>
+<p>LLMs do not work directly on integer IDs. Instead, each token ID is mapped
+to a dense vector in ℝ^d (an <strong>embedding</strong>).</p>
+<p>Here we create a tiny embedding layer and apply it to one sentence.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hyperparameters for toy model</span>
+<span class="n">vocab_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vocab</span><span class="p">)</span>
+<span class="n">d_model</span> <span class="o">=</span> <span class="mi">32</span>  <span class="c1"># embedding dimension</span>
+
+<span class="n">embedding</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">d_model</span><span class="p">)</span>
+
+<span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;the quick brown fox jumps over the lazy dog&quot;</span>
+<span class="n">ids</span> <span class="o">=</span> <span class="n">encode</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># [batch, seq_len] = [1, L]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Token IDs tensor shape:&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">emb</span> <span class="o">=</span> <span class="n">embedding</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>                  <span class="c1"># [1, L, d_model]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Embedding shape:&quot;</span><span class="p">,</span> <span class="n">emb</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="a-tiny-transformer-block">
+<h2>3. A Tiny Transformer Block<a class="headerlink" href="#a-tiny-transformer-block" title="Link to this heading">#</a></h2>
+<p>Next, we build a <strong>single Transformer block</strong> with:</p>
+<ol class="arabic simple">
+<li><p>LayerNorm → Multi‑head self‑attention → residual connection</p></li>
+<li><p>LayerNorm → Feed‑forward network (FFN) → residual connection</p></li>
+</ol>
+<p>This mirrors the structure used in real LLMs, just withmuch smaller dimensions and only one layer.</p>
+<hr class="docutils" />
+<p><strong>Some explanations of the code.</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">d_model</span></code> is the size of the embedding vector for each token.</p>
+<ul class="simple">
+<li><p>every token is represented as a 32-dimensional vector</p></li>
+<li><p>Q, K, V vectors will also have size 32 (unless projected smaller)</p></li>
+<li><p>attention heads will each receive a portion of this dimension</p></li>
+</ul>
+<p>In a full LLM like GPT-3, d_model = 12288. In your tiny transformer, 32 is small and good for demonstration.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_heads</span></code>: This specifies how many parallel attention mechanisms you want.</p>
+<ul>
+<li><p>the model splits the 32-dim vector into 4 heads</p></li>
+<li><p>each head gets: <span class="math notranslate nohighlight">\(d_k = d_{model}/n_{heads} = 32/4 = 8\)</span> values</p></li>
+<li><p>each head learns different relationships (syntax, long-range connection, numbers, etc.)</p></li>
+<li><p>So the attention actually computes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">head_1</span><span class="p">:</span> <span class="mi">8</span><span class="o">-</span><span class="n">d</span> <span class="n">attention</span>
+<span class="n">head_2</span><span class="p">:</span> <span class="mi">8</span><span class="o">-</span><span class="n">d</span> <span class="n">attention</span>
+<span class="n">head_3</span><span class="p">:</span> <span class="mi">8</span><span class="o">-</span><span class="n">d</span> <span class="n">attention</span>
+<span class="n">head_4</span><span class="p">:</span> <span class="mi">8</span><span class="o">-</span><span class="n">d</span> <span class="n">attention</span>
+</pre></div>
+</div>
+  <br>
+</li>
+</ul>
+<p>Then the heads are concatenated back to a 32-dim output.<br></p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">d_ff</span></code> — Feed-Forward Network (FFN) hidden size</p>
+<ul>
+<li><p>This is the size of the inner layer of the MLP (Multilayer Perceptron) inside the transformer block.</p></li>
+<li><p>Typical transformer block structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Self-Attention → LayerNorm → Feed Forward Network (FFN) → LayerNorm
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+<br>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">LayerNorm</span></code>: Layer Normalization is a normalization technique used inside transformers (and LLMs) to stabilize training and improve performance. Normalizing the feature components to have 1) Stable training, 2) Smoother gradients, 3) Faster convergence, and 4) Better precision</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Q,</span> <span class="pre">K,</span> <span class="pre">V</span></code>:</p>
+<ul>
+<li><p>Q — Query Vector: For each token, Query represents what this token wants to find in other tokens.</p></li>
+<li><p>K — Key Vector: Key represents what information this token offers to others.</p></li>
+<li><p>V — Value Vector: Value is the actual information content passed on when a token is attended to.</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<hr class="docutils" />
+<blockquote>
+<div><p>Imagine you’re reading: “The battery electrode cracked because it was brittle.” <br>
+To understand “it”, your brain looks for something relevant in the earlier sentence.
+Attention does the same thing:</p>
+<blockquote>
+<div><p>Query asks:
+What am I looking for? <br>
+Key answers:
+Do I contain what you’re looking for? <br>
+Value provides:
+Here’s the information you get from me.
+How Q, K, V work together</p>
+</div></blockquote>
+<p>Given a sequence of tokens, we compute Q, K, and V for each one using learned weight matrices:
+$<span class="math notranslate nohighlight">\(\mathbf{Q}=\mathbf{X}\mathbf{W}_Q ,\mathbf{K}=\mathbf{X}\mathbf{W}_K, \mathbf{V}=\mathbf{X}\mathbf{W}_V\)</span><span class="math notranslate nohighlight">\(
+\)</span>\mathbf{X}<span class="math notranslate nohighlight">\( = embedding of tokens (shape [seq_len, d_model]), &lt;br&gt;
+\)</span>\mathbf{W}_Q, \mathbf{W}_K, \mathbf{W}_V$ = learned projection matrices.</p>
+</div></blockquote>
+<ul>
+<li><p>Attention Score Calculation:</p>
+<ul>
+<li><p>To see how much token i should attend to token j:</p>
+<div class="math notranslate nohighlight">
+\[\text{score}(i,j) = Q_i \cdot K_j\]</div>
+</li>
+<li><p>Then, scale and softmax:</p>
+<div class="math notranslate nohighlight">
+\[a_{ij} = \text{softmax}\bigg(\frac{Q_i K_j}{\sqrt{d_k}}\bigg).\]</div>
+<p>where <span class="math notranslate nohighlight">\(d_k = d_{model}/n_{heads} = 32/4 = 8\)</span>.</p>
+</li>
+<li><p>Output for each token:</p>
+<div class="math notranslate nohighlight">
+\[\text{output}_i = \sum_{j} a_{ij} V_{j}.\]</div>
+<p>The output is a weighted sum of Values, where weights depend on how well Queries match Keys.</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">TinyTransformerBlock</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d_model</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">n_heads</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">d_ff</span><span class="o">=</span><span class="mi">64</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="k">assert</span> <span class="n">d_model</span> <span class="o">%</span> <span class="n">n_heads</span> <span class="o">==</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">d_model</span> <span class="o">=</span> <span class="n">d_model</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_heads</span> <span class="o">=</span> <span class="n">n_heads</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">d_head</span> <span class="o">=</span> <span class="n">d_model</span> <span class="o">//</span> <span class="n">n_heads</span>
+
+        <span class="c1"># Projections for Q, K, V</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">W_q</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">d_model</span><span class="p">)</span> <span class="c1"># d_model to d_model linear layer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">W_k</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">d_model</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">W_v</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">d_model</span><span class="p">)</span>
+
+        <span class="c1"># Output projection</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">W_o</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">d_model</span><span class="p">)</span>
+
+        <span class="c1"># Feed‑forward network</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ff</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">d_ff</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_ff</span><span class="p">,</span> <span class="n">d_model</span><span class="p">),</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Layer norms</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ln1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LayerNorm</span><span class="p">(</span><span class="n">d_model</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ln2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LayerNorm</span><span class="p">(</span><span class="n">d_model</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Forward pass through one Transformer block.</span>
+
+<span class="sd">        x: [batch, seq_len, d_model]</span>
+<span class="sd">        Returns: (x_out, attention_weights)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">b</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
+
+        <span class="c1"># ---- Multi‑head self‑attention ----</span>
+        <span class="c1"># Pre‑norm</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ln1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+        <span class="n">Q</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_q</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>  <span class="c1"># [b, L, d_model]</span>
+        <span class="n">K</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_k</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+        <span class="n">V</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_v</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+
+        <span class="c1"># Reshape to [b, n_heads, L, d_head], view is reshape</span>
+        <span class="n">Q</span> <span class="o">=</span> <span class="n">Q</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_heads</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">d_head</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">K</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_heads</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">d_head</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">V</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_heads</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">d_head</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+        <span class="c1"># Scaled dot‑product attention</span>
+        <span class="c1"># scores: [b, n_heads, L, L]</span>
+        <span class="n">scores</span> <span class="o">=</span> <span class="n">Q</span> <span class="o">@</span> <span class="n">K</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">d_head</span><span class="p">)</span>
+        <span class="n">attn</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># Context: [b, n_heads, L, d_head]</span>
+        <span class="n">context</span> <span class="o">=</span> <span class="n">attn</span> <span class="o">@</span> <span class="n">V</span>
+
+        <span class="c1"># Back to [b, L, d_model]</span>
+        <span class="n">context</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">contiguous</span><span class="p">()</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+
+        <span class="c1"># Output projection + residual</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_o</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+
+        <span class="c1"># ---- Feed‑forward ----</span>
+        <span class="n">h2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ln2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">ff_out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ff</span><span class="p">(</span><span class="n">h2</span><span class="p">)</span>
+
+        <span class="c1"># Residual again</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">ff_out</span>
+
+        <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">attn</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="run-the-transformer-block">
+<h3>Run the Transformer Block<a class="headerlink" href="#run-the-transformer-block" title="Link to this heading">#</a></h3>
+<p>We apply our <code class="docutils literal notranslate"><span class="pre">TinyTransformerBlock</span></code> to the embeddings.
+The output has the same shape, but each position has now “seen” the
+other tokens through self‑attention.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">block</span> <span class="o">=</span> <span class="n">TinyTransformerBlock</span><span class="p">(</span><span class="n">d_model</span><span class="o">=</span><span class="n">d_model</span><span class="p">,</span> <span class="n">n_heads</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">d_ff</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
+
+<span class="n">x_in</span> <span class="o">=</span> <span class="n">emb</span>              <span class="c1"># [1, seq_len, d_model]</span>
+<span class="n">x_out</span><span class="p">,</span> <span class="n">attn</span> <span class="o">=</span> <span class="n">block</span><span class="p">(</span><span class="n">x_in</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Input shape: &quot;</span><span class="p">,</span> <span class="n">x_in</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Output shape:&quot;</span><span class="p">,</span> <span class="n">x_out</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Attention shape:&quot;</span><span class="p">,</span> <span class="n">attn</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># [b, n_heads, L, L]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="visualizing-selfattention">
+<h2>4. Visualizing Self‑Attention<a class="headerlink" href="#visualizing-selfattention" title="Link to this heading">#</a></h2>
+<p>Each attention matrix has shape <code class="docutils literal notranslate"><span class="pre">[seq_len,</span> <span class="pre">seq_len]</span></code> for each head.</p>
+<ul class="simple">
+<li><p>Rows = <strong>query</strong> positions (“which token is looking”)</p></li>
+<li><p>Columns = <strong>key</strong> positions (“which token is being looked at”)</p></li>
+<li><p>Color = how strongly the query attends to the key</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Take head 0 for visualization</span>
+<span class="n">tokens</span> <span class="o">=</span> <span class="n">basic_tokenize</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+<span class="n">L</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+<span class="n">attn_head0</span> <span class="o">=</span> <span class="n">attn</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>  <span class="c1"># [L, L]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">attn_head0</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">L</span><span class="p">),</span> <span class="n">tokens</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">L</span><span class="p">),</span> <span class="n">tokens</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Self‑attention weights (head 0)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="summary">
+<h2>5. Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>In this notebook, we built a <strong>tiny LLM core</strong> from scratch:</p>
+<ol class="arabic simple">
+<li><p>A <strong>tokenizer</strong> to map text ↔ tokens ↔ integer IDs.</p></li>
+<li><p>An <strong>embedding layer</strong> to turn token IDs into dense vectors.</p></li>
+<li><p>A <strong>single Transformer block</strong> with multi‑head self‑attention and a
+feed‑forward network.</p></li>
+<li><p>A simple visualization of the <strong>attention matrix</strong>.</p></li>
+</ol>
+<p>To turn this into a real language model, you would:</p>
+<ul class="simple">
+<li><p>Stack many Transformer blocks.</p></li>
+<li><p>Add positional encodings.</p></li>
+<li><p>Add an output layer that predicts the next token.</p></li>
+<li><p>Train on a very large text corpus.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="test-a-tiny-langauge-model">
+<h2>6. Test a tiny langauge model.<a class="headerlink" href="#test-a-tiny-langauge-model" title="Link to this heading">#</a></h2>
+<p>Below, we build a tiny language model using the <code class="docutils literal notranslate"><span class="pre">TinyTransformerBlock</span></code> earlier.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn.functional</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">F</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">TinyTransformerLM</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">d_model</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">n_heads</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">d_ff</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">max_len</span><span class="o">=</span><span class="mi">128</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vocab_size</span> <span class="o">=</span> <span class="n">vocab_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">d_model</span> <span class="o">=</span> <span class="n">d_model</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_len</span> <span class="o">=</span> <span class="n">max_len</span>
+
+        <span class="c1"># token &amp; position embeddings</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tok_emb</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">d_model</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pos_emb</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="n">max_len</span><span class="p">,</span> <span class="n">d_model</span><span class="p">)</span>
+
+        <span class="c1"># a single transformer block (the one you already built)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">block</span> <span class="o">=</span> <span class="n">TinyTransformerBlock</span><span class="p">(</span><span class="n">d_model</span><span class="o">=</span><span class="n">d_model</span><span class="p">,</span>
+                                          <span class="n">n_heads</span><span class="o">=</span><span class="n">n_heads</span><span class="p">,</span>
+                                          <span class="n">d_ff</span><span class="o">=</span><span class="n">d_ff</span><span class="p">)</span>
+
+        <span class="c1"># final layernorm + linear head to logits</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ln_f</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LayerNorm</span><span class="p">(</span><span class="n">d_model</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        idx: [b, L] integer token ids</span>
+<span class="sd">        returns: logits [b, L, vocab_size]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">b</span><span class="p">,</span> <span class="n">L</span> <span class="o">=</span> <span class="n">idx</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">device</span> <span class="o">=</span> <span class="n">idx</span><span class="o">.</span><span class="n">device</span>
+
+        <span class="c1"># 1) embeddings</span>
+        <span class="n">tok</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tok_emb</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>  <span class="c1"># [b, L, d_model]</span>
+
+        <span class="c1"># 2) positional encodings</span>
+        <span class="n">positions</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># [1, L]</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pos_emb</span><span class="p">(</span><span class="n">positions</span><span class="p">)</span>                            <span class="c1"># [1, L, d_model]</span>
+
+        <span class="c1"># 3) add them</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">tok</span> <span class="o">+</span> <span class="n">pos</span>                                            <span class="c1"># [b, L, d_model]</span>
+
+        <span class="c1"># 4) transformer block (ln → attn → residual, ln → MLP → residual)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">block</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    
+        <span class="c1"># if the block returns (x, attn_scores) or similar, unpack it:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+            <span class="n">x</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">out</span>   <span class="c1"># ignore attention scores</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">out</span>                                        <span class="c1"># [b, L, d_model]</span>
+
+        <span class="c1"># 5) final norm + logits over vocab</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ln_f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>                                         <span class="c1"># [b, L, d_model]</span>
+        <span class="n">logits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>                                    <span class="c1"># [b, L, vocab_size]</span>
+        <span class="k">return</span> <span class="n">logits</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Read in the text_corpus to the LM.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vocab_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">stoi</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">TinyTransformerLM</span><span class="p">(</span><span class="n">vocab_size</span><span class="o">=</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">d_model</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">n_heads</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">d_ff</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Finally, we build a <code class="docutils literal notranslate"><span class="pre">generate</span></code> function to predict the words appearing after the prompt.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span>
+    <span class="n">model</span><span class="p">,</span>
+    <span class="n">prompt</span><span class="p">,</span>
+    <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">temperature</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">top_k</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">device</span><span class="o">=</span><span class="s2">&quot;cpu&quot;</span>
+<span class="p">):</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+    <span class="c1"># 1) encode prompt to token ids using your encode()</span>
+    <span class="n">input_ids</span> <span class="o">=</span> <span class="n">encode</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+    <span class="n">input_ids</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">input_ids</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># [1, L]</span>
+
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_new_tokens</span><span class="p">):</span>
+        <span class="c1"># 2) forward pass</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="n">logits</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">input_ids</span><span class="p">)</span>          <span class="c1"># [1, L, vocab_size]</span>
+
+        <span class="c1"># 3) take logits for the last position</span>
+        <span class="n">next_logits</span> <span class="o">=</span> <span class="n">logits</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>         <span class="c1"># [1, vocab_size]</span>
+
+        <span class="c1"># 4) temperature scaling</span>
+        <span class="n">next_logits</span> <span class="o">=</span> <span class="n">next_logits</span> <span class="o">/</span> <span class="n">temperature</span>
+
+        <span class="c1"># 5) (optional) top-k filtering</span>
+        <span class="k">if</span> <span class="n">top_k</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">values</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">topk</span><span class="p">(</span><span class="n">next_logits</span><span class="p">,</span> <span class="n">top_k</span><span class="p">)</span>
+            <span class="n">min_values</span> <span class="o">=</span> <span class="n">values</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">next_logits</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+                <span class="n">next_logits</span> <span class="o">&lt;</span> <span class="n">min_values</span><span class="p">,</span>
+                <span class="n">torch</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">next_logits</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;-inf&quot;</span><span class="p">)),</span>
+                <span class="n">next_logits</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="c1"># 6) probabilities</span>
+        <span class="n">probs</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">next_logits</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># [1, vocab_size]</span>
+
+        <span class="c1"># 7) sample next token (or use argmax for greedy)</span>
+        <span class="n">next_id</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">multinomial</span><span class="p">(</span><span class="n">probs</span><span class="p">,</span> <span class="n">num_samples</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># [1, 1]</span>
+        <span class="c1"># next_id = torch.argmax(probs, dim=-1, keepdim=True)  # &lt;- greedy alternative</span>
+
+        <span class="c1"># 8) append to sequence</span>
+        <span class="n">input_ids</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">input_ids</span><span class="p">,</span> <span class="n">next_id</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># [1, L+1]</span>
+
+    <span class="c1"># 9) decode back to text using your decode()</span>
+    <span class="n">out_tokens</span> <span class="o">=</span> <span class="n">input_ids</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">decode</span><span class="p">(</span><span class="n">out_tokens</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Give it a try!!</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Your are&quot;</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">generate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">prompt</span><span class="p">,</span> <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<section id="a-webpage-of-illustrating-the-working-process-of-transformers">
+<h3>A webpage of illustrating the working process of transformers.<a class="headerlink" href="#a-webpage-of-illustrating-the-working-process-of-transformers" title="Link to this heading">#</a></h3>
+<section id="https-poloclub-github-io-transformer-explainer">
+<h4><a class="reference external" href="https://poloclub.github.io/transformer-explainer/">https://poloclub.github.io/transformer-explainer/</a><a class="headerlink" href="#https-poloclub-github-io-transformer-explainer" title="Link to this heading">#</a></h4>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-base-py"
+        },
+        kernelOptions: {
+            name: "conda-base-py",
+            path: "./daily/Day14_0601"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-base-py'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="PINN_1D_diffustion_v1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">PINN for solving PDEs</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="LLM_demo.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Large Language Model (LLM)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">0. Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-very-simple-tokenizer">1. A Very Simple Tokenizer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encode-decode">Encode / Decode</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-tokens-to-embeddings">2. From Tokens to Embeddings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-tiny-transformer-block">3. A Tiny Transformer Block</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-transformer-block">Run the Transformer Block</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-selfattention">4. Visualizing Self‑Attention</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">5. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-a-tiny-langauge-model">6. Test a tiny langauge model.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-webpage-of-illustrating-the-working-process-of-transformers">A webpage of illustrating the working process of transformers.</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#https-poloclub-github-io-transformer-explainer">https://poloclub.github.io/transformer-explainer/</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hui-Chia Yu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

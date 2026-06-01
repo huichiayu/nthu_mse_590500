@@ -1,0 +1,1255 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>PINN for solving PDEs &#8212; MSE 590500 Course Website</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'daily/Day14_0601/PINN_1D_diffustion_v1';</script>
+    <link rel="icon" href="../../_static/Spartan_2.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Mini Demo: Tokenizer and Transformer in a Tiny Language Model" href="mini_tokenizer_transformer_demo.html" />
+    <link rel="prev" title="Physics informed neural network (PINN) for ODE" href="PINN_DampedSpringMass_student_v1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/Spartan_2.png" class="logo__image only-light" alt="MSE 590500 Course Website - Home"/>
+    <script>document.write(`<img src="../../_static/Spartan_2.png" class="logo__image only-dark" alt="MSE 590500 Course Website - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Materials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/MSE590500_Syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/MSE590500_Calendar.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/SoftwareSetupGuide_NTHU_2.html">Software Setup Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/MSE590500_AI_policy.html">Generative AI Policy</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://upload.wikimedia.org/wikipedia/commons/7/79/Unix_command_cheatsheet.pdf">CLI (Unix/Mac/Linux) commands cheat sheet</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Daily Content</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_1.html">Day 1 02/23</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day01_0223/Jupyter_Notebook_Basics.html">Jupyter Notebook Basics (Hands-on)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day01_0223/Python_Data_Types_Teaching.html">Python Data Types (Hands-on)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day01_0223/UNIX_Command_Line_Basics.html">Introduction to UNIX Command Line Interface (CLI)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_2.html">Day 2 03/02</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day02_0302/numpy_teaching_module.html">Introduction to NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day02_0302/matplotlib_teaching_module.html">Introduction to Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day02_0302/sympy_teaching_module.html">SymPy Mini Teaching Module (Beginner)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_3.html">Day 3 03/09</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day03_0309/pandas_basics_teaching_notebook.html">Pandas Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day03_0309/pandas_demo_with_material_data.html">Pandas Demonstration Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day03_0309/Ideal_gas_calculation.html">Ideal gas behavior</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_4.html">Day 4 03/16</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://youtu.be/W8pjXJr98Ck">Classical thermo - enthalpy calculation 1</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://youtu.be/-O7L3ZuQ_8E">Classical thermo - enthalpy calculation 2</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://youtu.be/Y28fCO2Gtpc">Classical thermo - entropy calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day04_0316/Enthalpy_01.html">Calculating enthalpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day04_0316/Entropy_v01.html">Calculating entropy</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_5.html">Day 5 03/23</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_6.html">Day 6 03/30</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/PT_phaseDiagram.html">Phase diagram of a pure substance (single component system)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/water_pvt_with_solid_boundaries.html">Water PVT Phase Diagram with Solid–Liquid–Vapor Boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/RegularSolution_student.html">Regular solution model and phase diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/BinaryPhaseDiagram_MiscibleAlloys_student.html">Phase Diagrams for Completely Miscible Alloys</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/EutecticPhaseDiagram_student.html">Construction of a Eutectic Phase Diagram</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_7.html">Day 7 04/13</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day07_0413/ConvexHull_CommonTangent_Construction.html">Bindary phase diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day07_0413/ternary_phase_diagram_module_student.html">Ternary Phase Diagram Teaching Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day07_0413/TieTriangle_demo.html">Demonstration of finding tie-triangle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day07_0413/PyCalPhas_demo.html">PyCalPhad</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_8.html">Day 8 04/20</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/first_order_ode_analytical_and_finite_difference_v1.html">First-order ODEs: analytical solution and finite-difference method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/damped_oscillator_finite_difference_v1.html">Damped oscillator using the finite-difference method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/elasticity_mechanics_analytical_and_finite_difference.html">Elasticity and mechanics: analytical and finite-difference solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/1D_diffusion_equation_sympy_scipy.html">Analytically solving the 1D diffusion equation with SymPy (and comparing with SciPy)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/simple_2D_diffusion_FDM_center_source.html">Simple 2D diffusion FDM example: source at the center</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/Midterm.html">Midterm exam</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Midterm_0427/MidtermExam_student_v1.html">MSE 590500 Mid-term exam.</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_10.html">Day 10 05/04</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/beam_fdm_module_student.html">Euler–Bernoulli Beam Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/FourierCoefficients.html">Fourier coefficients</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/NOAA_student.html">Fast Fourier Transform (FFT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/FFT2D.html">Fast Fourier Transform (FFT) 2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/Denoiser_student.html">Image denoise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_11.html">Day 11 05/11</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day11_0511/ImageProcess.html">Image filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day11_0511/FFT2_Image.html">FFT filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day11_0511/Segmentation_image.html">Image segmentation.</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_12.html">Day 12 05/18</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day12_0518/OOP_I_student_v1.html">Object orient programming (OOP)</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day12_0518/OOP_II_student_v1.html">Digital evolution</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../Day12_0518/LinearRegress_student_v1.html">Regression I: single variable regression</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day12_0518/MultiRegression_demo.html">Regression II: multiple variables linear regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day12_0518/Regression_student_v1.html">Regression.</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_13.html">Day 13 05/25</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/General_ML.html">Machine leanring algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/knn_students_v1.html">K-Nearest Neighbors (KNN) Teaching Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/Perceptron_demo_v2.html">Perceptron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/logisticRegression_student.html">Classification: Logistic Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/SVM_explained_2D_data.html">SVM example using a 2D dataset.</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/SVM_elemental_data_Student_v1.html">SVM Classification of chemical element data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/Image_classify.html">Image classification using SVM</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/unsupervised_learning_teaching_module_v2.html">Introduction to Unsupervised Learning</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../section_files/day_14.html">Day 14 06/01</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Artificial_Neuron_Network_explained.html">Artificial Neural Network</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="NN_Tensile_data.html">Tensile test data</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="ImageRgression_NN.html">Image Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CahnHilliardEquation_SpinodalDecomposition.html">Finite difference method to simulate Spinodal decomposition.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PINN_DampedSpringMass_student_v1.html">Physics informed neural network (PINN) for ODE</a></li>
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">PINN for solving PDEs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mini_tokenizer_transformer_demo.html">Mini Demo: Tokenizer and Transformer in a Tiny Language Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LLM_demo.html">Large Language Model (LLM)</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/HW01.html">Homework 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../homework/HW01/MSE590500_HW1_student.html">MSE 590500 Homework assginment 1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/HW02_3.html">Homework 2-3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../homework/HW02/Homework2_3_student_v01.html">MSE590500 Homework assignment 2 &amp; 3</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/daily/Day14_0601/PINN_1D_diffustion_v1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>PINN for solving PDEs</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-1d-diffusion-equation">Part 1. 1D diffusion equation.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-1-plot-the-initial-condition-analytical-solution">Part 1.1. Plot the initial condition (analytical solution).</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-pinn-for-1d-diffusion-equation">Part 2. PINN for 1D diffusion equation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-1-problem-set-up">Part 2.1. Problem set-up</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-2-model-training">Part 2.2. Model training</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-compare-to-numerical-solution">Part 3. Compare to numerical solution.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compared-to-finite-difference-method-fdm">Compared to finite difference method (FDM)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-the-relationship-between-analytical-numerical-and-machine-learning-results">Discussion: the relationship between analytical, numerical and machine learning results.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#this-link-goes-to-a-cool-website-that-uses-graphs-to-demonstrate-the-work-flow-of-neural-network">This link goes to a cool website that uses graphs to demonstrate the work flow of neural network.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#https-playground-tensorflow-org">https://playground.tensorflow.org</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mlip-machine-learning-interatomic-potentials">MLIP: machine learning interatomic potentials.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="pinn-for-solving-pdes">
+<h1>PINN for solving PDEs<a class="headerlink" href="#pinn-for-solving-pdes" title="Link to this heading">#</a></h1>
+<p>In this coding assignment, we will use PINN to simulate diffusion in 1D.</p>
+<p><strong>This code is mainly generated by ChatGPT 5.1.</strong></p>
+<section id="part-1-1d-diffusion-equation">
+<h2>Part 1. 1D diffusion equation.<a class="headerlink" href="#part-1-1d-diffusion-equation" title="Link to this heading">#</a></h2>
+<p>The diffusion equation is</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial u}{\partial t} = D \frac{\partial^2 u}{\partial x^2}.\]</div>
+<p>Its analytical solution is</p>
+<div class="math notranslate nohighlight">
+\[u(x,t) = \sqrt{\frac{t_0}{t}} \exp\bigg( - \frac{x^2}{4Dt}\bigg).\]</div>
+<hr class="docutils" />
+<section id="part-1-1-plot-the-initial-condition-analytical-solution">
+<h3>Part 1.1. Plot the initial condition (analytical solution).<a class="headerlink" href="#part-1-1-plot-the-initial-condition-analytical-solution" title="Link to this heading">#</a></h3>
+<p>Plot the initial condition <span class="math notranslate nohighlight">\(u(x,t)\)</span> at <span class="math notranslate nohighlight">\(t=t_0\)</span>. Here, we set <span class="math notranslate nohighlight">\(t_0=500\)</span> and <span class="math notranslate nohighlight">\(D=10^{-5}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># parameters</span>
+<span class="n">t0</span> <span class="o">=</span> <span class="mf">500.0</span>
+<span class="n">D</span>  <span class="o">=</span> <span class="mf">1.0e-5</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">2001</span><span class="p">)</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">t0</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">t0</span><span class="o">/</span><span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mf">4.0</span> <span class="o">*</span> <span class="n">D</span> <span class="o">*</span> <span class="n">t</span><span class="p">))</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;t0=</span><span class="si">{</span><span class="n">t0</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;u(x,t)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;initial condition&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-2-pinn-for-1d-diffusion-equation">
+<h2>Part 2. PINN for 1D diffusion equation<a class="headerlink" href="#part-2-pinn-for-1d-diffusion-equation" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Load relevant libraries: math and PyTorch</p></li>
+<li><p>PyTorch uses different data structure from numpy, such that the values can be moved between CPU and GPU. In some code cells below, you will see <code class="docutils literal notranslate"><span class="pre">to(device)</span></code>, which is for moving data to specific device for further calculations.</p></li>
+<li><p>When using plotting functions, we will need to convert PuTorch data back to numpy data.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.autograd</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">autograd</span>
+
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using device:&quot;</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="part-2-1-problem-set-up">
+<h3>Part 2.1. Problem set-up<a class="headerlink" href="#part-2-1-problem-set-up" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The analytical solution, which is not used in training, but for generating syntheic training data.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ============================================================</span>
+<span class="c1"># 1. exact solution</span>
+<span class="c1"># ============================================================</span>
+<span class="c1"># &quot;Hidden&quot; exact solution used ONLY to generate synthetic data,</span>
+<span class="c1"># not used in the PINN loss.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">exact_solution</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">t0</span><span class="p">,</span> <span class="n">D</span><span class="p">):</span>
+    <span class="c1"># A slightly richer combination than a single mode</span>
+    <span class="c1"># u(x,t) = sqrt(t0/t) * exp (-x^2/(4*D*t))</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">t0</span><span class="o">/</span><span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">D</span><span class="o">*</span><span class="n">t</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Build ANN model. This is similar to those in the previous classes.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ============================================================</span>
+<span class="c1"># 2. PINN model</span>
+<span class="c1"># ============================================================</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PINN</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layers</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="n">modules</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">layers</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">modules</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">layers</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">layers</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]))</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">layers</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">modules</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Tanh</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">net</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="o">*</span><span class="n">modules</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+        <span class="c1"># x, t: (N, 1)</span>
+        <span class="n">inp</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">net</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Prepare training data.</p></li>
+<li><p><strong>The time variables are scaled to be in <span class="math notranslate nohighlight">\([0, 1]\)</span> for trainig efficiency.</strong></p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>There are four sets of training data, each for calculating the loss of the predicted values against</p></li>
+</ul>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>PDE</p></li>
+<li><p>initial condition</p></li>
+<li><p>boundary condition</p></li>
+<li><p>training data</p></li>
+</ol>
+</div></blockquote>
+<ul class="simple">
+<li><p>Note that the synthetic training data are the exact solution, i.e., the NN model is trained using values of exact solution (as the true label in supervised learning).</p></li>
+<li><p>Defining various sources of loss function is the critical part to PINN.</p></li>
+</ul>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ============================================================</span>
+<span class="c1"># 3. Training data</span>
+<span class="c1"># ============================================================</span>
+
+<span class="n">t_min</span><span class="p">,</span> <span class="n">t_max</span> <span class="o">=</span> <span class="mf">500.0</span><span class="p">,</span> <span class="mf">18000.0</span>
+
+<span class="c1"># (A) PDE collocation points in interior</span>
+<span class="n">N_f</span> <span class="o">=</span> <span class="mi">6000</span>
+<span class="n">x_f</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.5</span> <span class="o">+</span> <span class="mf">5.0</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N_f</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>   <span class="c1"># 5.0 = 2.5 - (-2.5)</span>
+<span class="n">t_f</span> <span class="o">=</span> <span class="mf">500.0</span> <span class="o">+</span> <span class="p">(</span><span class="mf">18000.0</span> <span class="o">-</span> <span class="mf">500.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N_f</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># scaled time s in [0,1]</span>
+<span class="n">s_f</span>    <span class="o">=</span> <span class="p">(</span><span class="n">t_f</span> <span class="o">-</span> <span class="n">t_min</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">t_max</span> <span class="o">-</span> <span class="n">t_min</span><span class="p">)</span>
+
+<span class="c1"># (B) Initial condition: u(x,0) = exp(-x^2/4/D/t)</span>
+<span class="n">N_ic</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">x_ic</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.5</span> <span class="o">+</span> <span class="mf">5.0</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N_ic</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">t_ic</span> <span class="o">=</span> <span class="mi">500</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">x_ic</span><span class="p">)</span>
+<span class="n">s_ic</span>   <span class="o">=</span> <span class="p">(</span><span class="n">t_ic</span> <span class="o">-</span> <span class="n">t_min</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">t_max</span> <span class="o">-</span> <span class="n">t_min</span><span class="p">)</span> <span class="c1"># scaled time</span>
+<span class="n">u_ic</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x_ic</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">D</span><span class="o">*</span><span class="n">t0</span><span class="p">))</span>
+
+<span class="c1"># (C) Boundary points (Dirichlet u=0 at x=0,1)</span>
+<span class="n">N_bc</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">t_bc</span> <span class="o">=</span> <span class="mf">500.0</span> <span class="o">+</span> <span class="p">(</span><span class="mf">18000.0</span> <span class="o">-</span> <span class="mf">500.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N_bc</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">s_bc</span>   <span class="o">=</span> <span class="p">(</span><span class="n">t_bc</span> <span class="o">-</span> <span class="n">t_min</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">t_max</span> <span class="o">-</span> <span class="n">t_min</span><span class="p">)</span> <span class="c1"># scaled time</span>
+<span class="n">x_bc0</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">t_bc</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">)</span>   <span class="c1"># at west boundary</span>
+<span class="n">x_bc1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">t_bc</span><span class="p">)</span><span class="o">*</span><span class="p">(</span> <span class="mf">2.5</span><span class="p">)</span>   <span class="c1"># at east boundary</span>
+
+<span class="c1"># (D) Interior data points (simulate measurements at some times)</span>
+<span class="c1"># For example, sample data at 5 time slices between 0 and 1 (excluding t=0)</span>
+<span class="n">x_data_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">t_data_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">u_data_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># grid points in space and time for generating training data.</span>
+<span class="n">time_slices</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">18000</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">Nx_per_slice</span> <span class="o">=</span> <span class="mi">80</span>
+<span class="k">for</span> <span class="n">tt</span> <span class="ow">in</span> <span class="n">time_slices</span><span class="p">:</span>
+    <span class="n">x_tmp</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="n">Nx_per_slice</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">t_tmp</span> <span class="o">=</span> <span class="n">tt</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">x_tmp</span><span class="p">)</span>
+    <span class="n">u_tmp</span> <span class="o">=</span> <span class="n">exact_solution</span><span class="p">(</span><span class="n">x_tmp</span><span class="p">,</span> <span class="n">t_tmp</span><span class="p">,</span> <span class="n">t0</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
+    <span class="n">x_data_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x_tmp</span><span class="p">)</span>
+    <span class="n">t_data_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t_tmp</span><span class="p">)</span>
+    <span class="n">u_data_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">u_tmp</span><span class="p">)</span>
+
+<span class="n">x_data</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">x_data_list</span><span class="p">)</span>
+<span class="n">t_data</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">t_data_list</span><span class="p">)</span>
+<span class="n">s_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">t_data</span> <span class="o">-</span> <span class="n">t_min</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">t_max</span> <span class="o">-</span> <span class="n">t_min</span><span class="p">)</span> <span class="c1"># scaled time</span>
+<span class="n">u_data</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">u_data_list</span><span class="p">)</span>
+
+<span class="c1"># Move everything to device</span>
+<span class="n">x_f</span>   <span class="o">=</span> <span class="n">x_f</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">t_f</span>   <span class="o">=</span> <span class="n">t_f</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">s_f</span>   <span class="o">=</span> <span class="n">s_f</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span> <span class="c1"># scaled time</span>
+
+<span class="n">x_ic</span>  <span class="o">=</span> <span class="n">x_ic</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">t_ic</span>  <span class="o">=</span> <span class="n">t_ic</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">s_ic</span>  <span class="o">=</span> <span class="n">s_ic</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span> <span class="c1"># scaled time</span>
+<span class="n">u_ic</span>  <span class="o">=</span> <span class="n">u_ic</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+<span class="n">x_bc0</span> <span class="o">=</span> <span class="n">x_bc0</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">x_bc1</span> <span class="o">=</span> <span class="n">x_bc1</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">t_bc</span>  <span class="o">=</span> <span class="n">t_bc</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">s_bc</span>  <span class="o">=</span> <span class="n">s_bc</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span> <span class="c1"># scaled time</span>
+
+<span class="n">x_data</span> <span class="o">=</span> <span class="n">x_data</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">t_data</span> <span class="o">=</span> <span class="n">t_data</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">s_data</span> <span class="o">=</span> <span class="n">s_data</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span> <span class="c1"># scaled time</span>
+<span class="n">u_data</span> <span class="o">=</span> <span class="n">u_data</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Before going to model training, let’s examine the synthetic initial condition for training.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_ic</span><span class="p">,</span> <span class="n">u_ic</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Examine the synthetic training data of interior points.</p></li>
+<li><p>Note that the data points are plotted on a space-time grid system. The <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(t\)</span> axes are for space and time, respectively.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mpl_toolkits.mplot3d</span><span class="w"> </span><span class="kn">import</span> <span class="n">Axes3D</span>  <span class="c1"># needed for 3D plotting</span>
+<span class="c1"># %matplotlib ipympl</span>
+
+<span class="c1"># Example sample data (replace with your real x, y, f)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x_data_list</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">t_data_list</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">u_data_list</span><span class="p">)</span>
+
+<span class="c1"># 3D scatter plot</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+
+<span class="n">sc</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s2">&quot;u(x,t)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;3D Scatter Plot&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">sc</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;f value&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># examine the range of data spread</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x_f</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x_f</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">t_f</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">t_f</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">s_f</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">s_f</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Initialize the PINN model.</strong></p></li>
+<li><p>Two input fearures <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
+<li><p>Three hidden layer, each of which contains 64 neurons.</p></li>
+<li><p>One output value, <span class="math notranslate nohighlight">\(u\)</span>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">layers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">PINN</span><span class="p">(</span><span class="n">layers</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Loss function of the prediction againt the PDE. <strong>If the residual equals zero, the PDE is satisfied.</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[R_{es} = \frac{\partial u}{\partial t} - D \frac{\partial^2 u}{\partial x^2}.\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ============================================================</span>
+<span class="c1"># 4. PDE residual (u_t - D u_xx)</span>
+<span class="c1"># ============================================================</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">pde_residual</span><span class="p">(</span><span class="n">x_in</span><span class="p">,</span> <span class="n">s_in</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">t_min</span><span class="p">,</span> <span class="n">t_max</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x_in</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">s_in</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># model prediction</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+    <span class="c1"># du/ds: time derivative</span>
+    <span class="n">u_s</span> <span class="o">=</span> <span class="n">autograd</span><span class="o">.</span><span class="n">grad</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">grad_outputs</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">u</span><span class="p">),</span>
+                        <span class="n">create_graph</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    
+    <span class="c1"># du/dx: 1st order spatial derivative</span>
+    <span class="n">u_x</span> <span class="o">=</span> <span class="n">autograd</span><span class="o">.</span><span class="n">grad</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">grad_outputs</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">u</span><span class="p">),</span>
+                        <span class="n">create_graph</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="c1"># d2u/dx2: 2nd order spatial derivative</span>
+    <span class="n">u_xx</span> <span class="o">=</span> <span class="n">autograd</span><span class="o">.</span><span class="n">grad</span><span class="p">(</span><span class="n">u_x</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">grad_outputs</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">u_x</span><span class="p">),</span>
+                         <span class="n">create_graph</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="c1"># scaling between real time (t) and scaled time (s).</span>
+    <span class="n">dt_ds</span> <span class="o">=</span> <span class="p">(</span><span class="n">t_max</span> <span class="o">-</span> <span class="n">t_min</span><span class="p">)</span>
+    <span class="n">u_t</span> <span class="o">=</span> <span class="n">u_s</span> <span class="o">/</span> <span class="n">dt_ds</span>
+
+    <span class="k">return</span> <span class="n">u_t</span> <span class="o">-</span> <span class="n">D</span> <span class="o">*</span> <span class="n">u_xx</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="part-2-2-model-training">
+<h3>Part 2.2. Model training<a class="headerlink" href="#part-2-2-model-training" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Train the PINN model. Note that the total loss function consists of 4 sources: PDE, IC, BC, and data.</p></li>
+<li><p>We use values of <span class="math notranslate nohighlight">\(\lambda_i\)</span> to weigh the contributions from different sources to the loss function. Using the weighing factors, we can train the model to focus on specific losses. For instance, if we set <code class="docutils literal notranslate"><span class="pre">lambda_pde</span> <span class="pre">=</span> <span class="pre">lambda_ic</span> <span class="pre">=</span> <span class="pre">lambda_bc</span> <span class="pre">=</span> <span class="pre">0</span></code>, the model will be trained to correct it weights based only the loss between training data, without any contribution from other sources.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ============================================================</span>
+<span class="c1"># 5. Training</span>
+<span class="c1"># ============================================================</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>
+<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">3000</span>
+
+<span class="c1"># weighing factors of different sources of loss</span>
+<span class="n">lambda_pde</span> <span class="o">=</span> <span class="mf">1.0e-3</span>
+<span class="n">lambda_ic</span> <span class="o">=</span> <span class="mf">1.0e-3</span>
+<span class="n">lambda_bc</span> <span class="o">=</span> <span class="mf">1.0e-3</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="c1"># iteration</span>
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+
+    <span class="c1"># PDE loss (interior)</span>
+    <span class="n">f_res</span> <span class="o">=</span> <span class="n">pde_residual</span><span class="p">(</span><span class="n">x_f</span><span class="p">,</span> <span class="n">s_f</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">t_min</span><span class="p">,</span> <span class="n">t_max</span><span class="p">)</span>    
+    <span class="n">loss_pde</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">f_res</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># Initial condition loss</span>
+    <span class="n">u_pred_ic</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x_ic</span><span class="p">,</span> <span class="n">s_ic</span><span class="p">)</span>    
+    <span class="n">loss_ic</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">u_pred_ic</span> <span class="o">-</span> <span class="n">u_ic</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    
+    <span class="c1"># Boundary loss (Dirichlet: u=0)</span>
+    <span class="n">u_bc0</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x_bc0</span><span class="p">,</span> <span class="n">s_bc</span><span class="p">)</span>
+    <span class="n">u_bc1</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x_bc1</span><span class="p">,</span> <span class="n">s_bc</span><span class="p">)</span>    
+    <span class="n">loss_bc</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">u_bc0</span><span class="o">-</span><span class="mi">0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">u_bc1</span><span class="o">-</span><span class="mi">0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># Data loss (fitting interior measurements)</span>
+    <span class="n">u_pred_data</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">s_data</span><span class="p">)</span>
+    <span class="n">loss_data</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">u_pred_data</span> <span class="o">-</span> <span class="n">u_data</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># Total loss</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="p">(</span><span class="n">lambda_pde</span> <span class="o">*</span> <span class="n">loss_pde</span> <span class="o">+</span> <span class="n">lambda_ic</span> <span class="o">*</span> <span class="n">loss_ic</span> <span class="o">+</span> 
+        <span class="n">lambda_bc</span> <span class="o">*</span> <span class="n">loss_bc</span> <span class="o">+</span> <span class="n">loss_data</span><span class="p">)</span> 
+    
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">200</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Epoch </span><span class="si">{</span><span class="n">epoch</span><span class="o">+</span><span class="mi">1</span><span class="si">:</span><span class="s2">4d</span><span class="si">}</span><span class="s2"> | &quot;</span>
+              <span class="sa">f</span><span class="s2">&quot;loss=</span><span class="si">{</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2">, &quot;</span>
+              <span class="sa">f</span><span class="s2">&quot;pde=</span><span class="si">{</span><span class="n">loss_pde</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2">, &quot;</span>
+              <span class="sa">f</span><span class="s2">&quot;ic=</span><span class="si">{</span><span class="n">loss_ic</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2">, &quot;</span>      
+              <span class="sa">f</span><span class="s2">&quot;bc=</span><span class="si">{</span><span class="n">loss_bc</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2">, &quot;</span>
+              <span class="sa">f</span><span class="s2">&quot;data=</span><span class="si">{</span><span class="n">loss_data</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">stop</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">elapse</span> <span class="o">=</span> <span class="n">stop</span> <span class="o">-</span> <span class="n">start</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Training finished!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;elapse time: </span><span class="si">{</span><span class="n">elapse</span><span class="si">:</span><span class="s2">3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Test the model with synthetic test data. We create a space-time grid system as the test data and subtitute them into the model for prediction.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ---------------------------</span>
+<span class="c1"># 6. Evaluate on a grid (optional)</span>
+<span class="c1"># ---------------------------</span>
+<span class="n">Nx</span><span class="p">,</span> <span class="n">Nt</span> <span class="o">=</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">101</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="n">Nx</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Nt</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">S</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">s</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">indexing</span><span class="o">=</span><span class="s1">&#39;ij&#39;</span><span class="p">)</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">s_test</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># --------------------------</span>
+<span class="c1"># 7. Prediction</span>
+<span class="c1"># --------------------------</span>
+<span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+
+<span class="c1"># predict</span>
+<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="n">u_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span><span class="n">s_test</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="c1"># shape (Nx*Nt, 1) or (Nx*Nt,)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;u_pred shape on grid:&quot;</span><span class="p">,</span> <span class="n">u_pred</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>visualize the prediction from ANN model on the space-time grid system.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mpl_toolkits.mplot3d</span><span class="w"> </span><span class="kn">import</span> <span class="n">Axes3D</span>  <span class="c1"># needed for 3D surface</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="n">U</span> <span class="o">=</span> <span class="n">u_pred</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">Nx</span><span class="p">,</span> <span class="n">Nt</span><span class="p">)</span>    <span class="c1"># U[i, j] ≈ u(x_i, t_j)</span>
+
+<span class="n">X_np</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<span class="n">T_np</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="o">*</span><span class="p">(</span><span class="n">t_max</span> <span class="o">-</span> <span class="n">t_min</span><span class="p">)</span> <span class="o">+</span> <span class="n">t_min</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span>
+    <span class="n">X_np</span><span class="p">,</span> <span class="n">T_np</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span>
+    <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">antialiased</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;u(x,t)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;u(x,t) – PINN prediction (3D surface)&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Plot u at different time frames to show the concentration evolution in time.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">clear_output</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+
+<span class="c1"># Initialization before the loop</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+
+<span class="c1"># loop over each time frame</span>
+<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T_np</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>  
+    
+    <span class="c1"># visualization     </span>
+    <span class="c1"># --- clear axes, not the whole figure</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+    <span class="c1"># get time and data</span>
+    <span class="n">tm</span> <span class="o">=</span> <span class="n">T_np</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">it</span><span class="p">]</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_np</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">U</span><span class="p">[:,</span> <span class="n">it</span><span class="p">],</span> <span class="s1">&#39;bs&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> 
+            <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;t=</span><span class="si">{</span><span class="n">tm</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;PINN results&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+    <span class="c1"># animation part</span>
+    <span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>   <span class="c1"># clear previous output</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>              <span class="c1"># show updated figure</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>           <span class="c1"># pause a bit    </span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-3-compare-to-numerical-solution">
+<h2>Part 3. Compare to numerical solution.<a class="headerlink" href="#part-3-compare-to-numerical-solution" title="Link to this heading">#</a></h2>
+<section id="compared-to-finite-difference-method-fdm">
+<h3>Compared to finite difference method (FDM)<a class="headerlink" href="#compared-to-finite-difference-method-fdm" title="Link to this heading">#</a></h3>
+<p>In the previous classes, we used finite difference method (FDM) to simulate 1D diffusion. Here, let’s make a comparsion between NN-learned solution and FDM solution. The FDM stencil for 1D diffusion equation is</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial u}{\partial t} = D \frac{\partial^2 u}{\partial x^2} ~~~\Longrightarrow~~~\frac{C_j^{(n+1)}-C_j^{(n)}}{\Delta t} = D \frac{C_{j-1}^{(n)}-2C_{j}^{(n)}+C_{j+1}^{(n)}}{\Delta x^2},\]</div>
+<p>i.e.,</p>
+<div class="math notranslate nohighlight">
+\[C_j^{(n+1)} = C_j^{(n)} + \Delta t D \frac{C_{j-1}^{(n)}-2C_{j}^{(n)}+C_{j+1}^{(n)}}{\Delta x^2}.\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1D grid, grid spacing, and time step size.</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">101</span>
+<span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">xi</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">xi</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">dt</span>  <span class="o">=</span> <span class="mf">10.0</span>
+
+<span class="c1"># initial concentraion</span>
+<span class="n">tm</span> <span class="o">=</span> <span class="n">t0</span><span class="p">;</span>
+<span class="n">Ci</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">t0</span><span class="o">/</span><span class="n">tm</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">xi</span><span class="o">*</span><span class="n">xi</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">D</span><span class="o">*</span><span class="n">tm</span><span class="p">))</span>
+
+<span class="c1"># Initialization before the loop</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span>
+
+<span class="c1"># time iteration</span>
+<span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span> 
+<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">18001</span><span class="p">):</span>
+    
+    <span class="c1"># explicit update using Euler method </span>
+    <span class="c1"># vectorized computing</span>
+    <span class="n">Ci</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">D</span> <span class="o">*</span> <span class="p">(</span><span class="n">Ci</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">Ci</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">Ci</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span><span class="o">/</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span>
+        
+    <span class="c1"># Bboundary conditions</span>
+    <span class="n">Ci</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">Ci</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>   
+
+    <span class="c1"># visualization every 175 time unit to match the time frames NN results</span>
+    <span class="k">if</span> <span class="n">tm</span> <span class="o">&gt;=</span> <span class="mi">175</span><span class="o">*</span><span class="n">cnt</span> <span class="o">+</span> <span class="mi">500</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+        <span class="c1"># FDM results</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">Ci</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> 
+                <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;FDM&quot;</span><span class="p">)</span>
+
+        <span class="c1"># NN results</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_np</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">U</span><span class="p">[:,</span> <span class="n">cnt</span><span class="p">],</span> <span class="s1">&#39;bs&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> 
+                <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;PINN&quot;</span><span class="p">)</span>
+
+        <span class="c1"># analytical results</span>
+        <span class="n">C_an</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">t0</span><span class="o">/</span><span class="n">tm</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">xi</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mf">4.0</span> <span class="o">*</span> <span class="n">D</span> <span class="o">*</span> <span class="n">tm</span><span class="p">))</span>        
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">C_an</span><span class="p">,</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;ana&quot;</span><span class="p">)</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;t=</span><span class="si">{</span><span class="n">tm</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;u(x,t)&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    
+        <span class="c1"># animation part</span>
+        <span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>   <span class="c1"># clear previous output</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>              <span class="c1"># show updated figure</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>           <span class="c1"># pause a bit       </span>
+
+        <span class="k">if</span> <span class="n">tm</span> <span class="o">&gt;=</span> <span class="mi">18000</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="n">tm</span> <span class="o">+=</span> <span class="n">dt</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="discussion-the-relationship-between-analytical-numerical-and-machine-learning-results">
+<h2>Discussion: the relationship between analytical, numerical and machine learning results.<a class="headerlink" href="#discussion-the-relationship-between-analytical-numerical-and-machine-learning-results" title="Link to this heading">#</a></h2>
+<section id="this-link-goes-to-a-cool-website-that-uses-graphs-to-demonstrate-the-work-flow-of-neural-network">
+<h3>This link goes to a cool website that uses graphs to demonstrate the work flow of neural network.<a class="headerlink" href="#this-link-goes-to-a-cool-website-that-uses-graphs-to-demonstrate-the-work-flow-of-neural-network" title="Link to this heading">#</a></h3>
+</section>
+<section id="https-playground-tensorflow-org">
+<h3><a class="reference external" href="https://playground.tensorflow.org">https://playground.tensorflow.org</a><a class="headerlink" href="#https-playground-tensorflow-org" title="Link to this heading">#</a></h3>
+<hr class="docutils" />
+<section id="mlip-machine-learning-interatomic-potentials">
+<h4>MLIP: machine learning interatomic potentials.<a class="headerlink" href="#mlip-machine-learning-interatomic-potentials" title="Link to this heading">#</a></h4>
+<p>Machine Learning Interatomic Potential (ML-IAP)</p>
+<p>A machine learning interatomic potential is a data-driven model that predicts the energy and forces of atoms in a material with accuracy close to quantum-mechanical calculations (like DFT) but at a computational cost similar to or lower than classical molecular dynamics.</p>
+<p>Instead of using fixed analytic formulas (LJ, EAM, Tersoff), an ML potential learns the relationship between atomic environments → energy/forces from a large training dataset of quantum-calculated structures.</p>
+<p>Common ML potential types include:</p>
+<ul class="simple">
+<li><p>Neural network potentials (e.g., Behler–Parrinello, DeepMD)</p></li>
+<li><p>Gaussian approximation potentials (GAP)</p></li>
+<li><p>Nequip / MACE (equivariant graph neural networks)</p></li>
+<li><p>SNAP / ACE (polynomial expansions + ML fitting)</p></li>
+</ul>
+<p>Advantages:</p>
+<ul class="simple">
+<li><p>Much higher accuracy than classical potentials</p></li>
+<li><p>Can capture complex chemical bonding and many-body interactions</p></li>
+<li><p>Scales to large systems (10⁴–10⁶ atoms) once trained</p></li>
+</ul>
+<p>Limitations:</p>
+<ul class="simple">
+<li><p>Requires large, high-quality training datasets</p></li>
+<li><p>Not guaranteed to work outside the training domain (extrapolation risk)</p></li>
+<li><p>Training can be computationally expensive</p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-base-py"
+        },
+        kernelOptions: {
+            name: "conda-base-py",
+            path: "./daily/Day14_0601"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-base-py'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="PINN_DampedSpringMass_student_v1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Physics informed neural network (PINN) for ODE</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="mini_tokenizer_transformer_demo.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Mini Demo: Tokenizer and Transformer in a Tiny Language Model</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-1d-diffusion-equation">Part 1. 1D diffusion equation.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-1-plot-the-initial-condition-analytical-solution">Part 1.1. Plot the initial condition (analytical solution).</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-pinn-for-1d-diffusion-equation">Part 2. PINN for 1D diffusion equation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-1-problem-set-up">Part 2.1. Problem set-up</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-2-model-training">Part 2.2. Model training</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-compare-to-numerical-solution">Part 3. Compare to numerical solution.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compared-to-finite-difference-method-fdm">Compared to finite difference method (FDM)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-the-relationship-between-analytical-numerical-and-machine-learning-results">Discussion: the relationship between analytical, numerical and machine learning results.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#this-link-goes-to-a-cool-website-that-uses-graphs-to-demonstrate-the-work-flow-of-neural-network">This link goes to a cool website that uses graphs to demonstrate the work flow of neural network.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#https-playground-tensorflow-org">https://playground.tensorflow.org</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mlip-machine-learning-interatomic-potentials">MLIP: machine learning interatomic potentials.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hui-Chia Yu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

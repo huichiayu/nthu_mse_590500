@@ -1,0 +1,1554 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Large Language Model (LLM) &#8212; MSE 590500 Course Website</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'daily/Day14_0601/LLM_demo';</script>
+    <link rel="icon" href="../../_static/Spartan_2.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Homework 1" href="../../section_files/HW01.html" />
+    <link rel="prev" title="Mini Demo: Tokenizer and Transformer in a Tiny Language Model" href="mini_tokenizer_transformer_demo.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/Spartan_2.png" class="logo__image only-light" alt="MSE 590500 Course Website - Home"/>
+    <script>document.write(`<img src="../../_static/Spartan_2.png" class="logo__image only-dark" alt="MSE 590500 Course Website - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Materials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/MSE590500_Syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/MSE590500_Calendar.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/SoftwareSetupGuide_NTHU_2.html">Software Setup Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/MSE590500_AI_policy.html">Generative AI Policy</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://upload.wikimedia.org/wikipedia/commons/7/79/Unix_command_cheatsheet.pdf">CLI (Unix/Mac/Linux) commands cheat sheet</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Daily Content</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_1.html">Day 1 02/23</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day01_0223/Jupyter_Notebook_Basics.html">Jupyter Notebook Basics (Hands-on)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day01_0223/Python_Data_Types_Teaching.html">Python Data Types (Hands-on)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day01_0223/UNIX_Command_Line_Basics.html">Introduction to UNIX Command Line Interface (CLI)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_2.html">Day 2 03/02</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day02_0302/numpy_teaching_module.html">Introduction to NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day02_0302/matplotlib_teaching_module.html">Introduction to Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day02_0302/sympy_teaching_module.html">SymPy Mini Teaching Module (Beginner)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_3.html">Day 3 03/09</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day03_0309/pandas_basics_teaching_notebook.html">Pandas Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day03_0309/pandas_demo_with_material_data.html">Pandas Demonstration Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day03_0309/Ideal_gas_calculation.html">Ideal gas behavior</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_4.html">Day 4 03/16</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://youtu.be/W8pjXJr98Ck">Classical thermo - enthalpy calculation 1</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://youtu.be/-O7L3ZuQ_8E">Classical thermo - enthalpy calculation 2</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://youtu.be/Y28fCO2Gtpc">Classical thermo - entropy calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day04_0316/Enthalpy_01.html">Calculating enthalpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day04_0316/Entropy_v01.html">Calculating entropy</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_5.html">Day 5 03/23</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_6.html">Day 6 03/30</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/PT_phaseDiagram.html">Phase diagram of a pure substance (single component system)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/water_pvt_with_solid_boundaries.html">Water PVT Phase Diagram with Solid–Liquid–Vapor Boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/RegularSolution_student.html">Regular solution model and phase diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/BinaryPhaseDiagram_MiscibleAlloys_student.html">Phase Diagrams for Completely Miscible Alloys</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day06_0330/EutecticPhaseDiagram_student.html">Construction of a Eutectic Phase Diagram</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_7.html">Day 7 04/13</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day07_0413/ConvexHull_CommonTangent_Construction.html">Bindary phase diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day07_0413/ternary_phase_diagram_module_student.html">Ternary Phase Diagram Teaching Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day07_0413/TieTriangle_demo.html">Demonstration of finding tie-triangle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day07_0413/PyCalPhas_demo.html">PyCalPhad</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_8.html">Day 8 04/20</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/first_order_ode_analytical_and_finite_difference_v1.html">First-order ODEs: analytical solution and finite-difference method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/damped_oscillator_finite_difference_v1.html">Damped oscillator using the finite-difference method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/elasticity_mechanics_analytical_and_finite_difference.html">Elasticity and mechanics: analytical and finite-difference solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/1D_diffusion_equation_sympy_scipy.html">Analytically solving the 1D diffusion equation with SymPy (and comparing with SciPy)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day08_0420/simple_2D_diffusion_FDM_center_source.html">Simple 2D diffusion FDM example: source at the center</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/Midterm.html">Midterm exam</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Midterm_0427/MidtermExam_student_v1.html">MSE 590500 Mid-term exam.</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_10.html">Day 10 05/04</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/beam_fdm_module_student.html">Euler–Bernoulli Beam Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/FourierCoefficients.html">Fourier coefficients</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/NOAA_student.html">Fast Fourier Transform (FFT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/FFT2D.html">Fast Fourier Transform (FFT) 2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day10_0504/Denoiser_student.html">Image denoise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_11.html">Day 11 05/11</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day11_0511/ImageProcess.html">Image filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day11_0511/FFT2_Image.html">FFT filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day11_0511/Segmentation_image.html">Image segmentation.</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_12.html">Day 12 05/18</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day12_0518/OOP_I_student_v1.html">Object orient programming (OOP)</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day12_0518/OOP_II_student_v1.html">Digital evolution</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../Day12_0518/LinearRegress_student_v1.html">Regression I: single variable regression</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day12_0518/MultiRegression_demo.html">Regression II: multiple variables linear regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day12_0518/Regression_student_v1.html">Regression.</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_13.html">Day 13 05/25</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/General_ML.html">Machine leanring algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/knn_students_v1.html">K-Nearest Neighbors (KNN) Teaching Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/Perceptron_demo_v2.html">Perceptron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/logisticRegression_student.html">Classification: Logistic Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/SVM_explained_2D_data.html">SVM example using a 2D dataset.</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/SVM_elemental_data_Student_v1.html">SVM Classification of chemical element data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/Image_classify.html">Image classification using SVM</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/unsupervised_learning_teaching_module_v2.html">Introduction to Unsupervised Learning</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../section_files/day_14.html">Day 14 06/01</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Artificial_Neuron_Network_explained.html">Artificial Neural Network</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="NN_Tensile_data.html">Tensile test data</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="ImageRgression_NN.html">Image Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CahnHilliardEquation_SpinodalDecomposition.html">Finite difference method to simulate Spinodal decomposition.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PINN_DampedSpringMass_student_v1.html">Physics informed neural network (PINN) for ODE</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="PINN_1D_diffustion_v1.html">PINN for solving PDEs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mini_tokenizer_transformer_demo.html">Mini Demo: Tokenizer and Transformer in a Tiny Language Model</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Large Language Model (LLM)</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/HW01.html">Homework 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../homework/HW01/MSE590500_HW1_student.html">MSE 590500 Homework assginment 1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/HW02_3.html">Homework 2-3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../homework/HW02/Homework2_3_student_v01.html">MSE590500 Homework assignment 2 &amp; 3</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/daily/Day14_0601/LLM_demo.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Large Language Model (LLM)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-tiny-language-model">1. Simple tiny language model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#https-huggingface-co">https://huggingface.co/</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meta-llama-3-2-model">2. Meta llama 3.2 model.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-the-meta-llama-3-2-model">3. Test the meta-llama 3.2 model.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-on-gtp-2-model">4. Test on GTP 2 model.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactions">5. Interactions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-load-models">Step 1. Load models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-build-speak-functions">Step 2. Build speak functions.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-modes-of-conversations">Step 3. Modes of Conversations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-start-the-conversation">Step 4. Start the conversation.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-build-a-tinyllama-speak-function-for-a-three-way-chat">Let’s build a TinyLlama speak function for a three-way chat.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-language-model">Train language model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-what-can-language-models-be-used-in-materials-science-study">Discussion: What can language models be used in materials science study?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#robotic-lab-autonomous-lab">Robotic lab, autonomous lab.</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="large-language-model-llm">
+<h1>Large Language Model (LLM)<a class="headerlink" href="#large-language-model-llm" title="Link to this heading">#</a></h1>
+<p>This notebook file is mainly generated by <strong>ChatGPT 5.1 and Claude</strong>. It demonstrates how to use LLM interactive in a Jupyter notebook file.</p>
+<section id="simple-tiny-language-model">
+<h2>1. Simple tiny language model<a class="headerlink" href="#simple-tiny-language-model" title="Link to this heading">#</a></h2>
+<p>To install the interface to run the trained language models. You need to install <code class="docutils literal notranslate"><span class="pre">langchain_community</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">langchain_community</span></code> is the community-maintained integration package for LangChain.
+It contains connectors for models, vector databases, tools, and LLM backends such as LlamaCpp, HuggingFace, etc.</p>
+<p>Here is how to install it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install langchain_community</span>
+<span class="c1"># !pip install langchain</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, you can download some pre-trained language models from this website. After you download the model data, place it in the same folder to your notebook file or include the path to where the model is.</p>
+<section id="https-huggingface-co">
+<h3><a class="reference external" href="https://huggingface.co/">https://huggingface.co/</a><a class="headerlink" href="#https-huggingface-co" title="Link to this heading">#</a></h3>
+<p>Here, we use a pretrained language model <code class="docutils literal notranslate"><span class="pre">tinyllama-1.1b-chat-v1.0.Q2_K.gguf</span></code> for demonstration. This tiny model is free to access.</p>
+<p>The cell below is the demonstration of calling Llama.</p>
+<blockquote>
+<div><p>Llama (pronounced “lah-mah”) is a family of open-source large language models (LLMs) created by Meta (Facebook).
+They are similar in purpose to GPT models, but fully downloadable and runnable on your own computer (CPU/GPU), even laptops.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">langchain_community.llms</span><span class="w"> </span><span class="kn">import</span> <span class="n">LlamaCpp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="n">model_path</span> <span class="o">=</span> <span class="s2">&quot;/Users/huichiayu/Work/MSE590400/Day28/models/tinyllama-1.1b-chat-v1.0.Q2_K.gguf&quot;</span>
+
+<span class="n">llm</span> <span class="o">=</span> <span class="n">LlamaCpp</span><span class="p">(</span>
+    <span class="n">model_path</span><span class="o">=</span><span class="n">model_path</span><span class="p">,</span>
+    <span class="n">n_ctx</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span>
+    <span class="n">n_gpu_layers</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">use_mmap</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">temperature</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">top_p</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
+    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+    <span class="n">stop</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Q:&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Q:&quot;</span><span class="p">,</span> <span class="s2">&quot;Question:&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">],</span>  <span class="c1"># This stops the unwanted continuation</span>
+<span class="p">)</span>
+
+<span class="n">system_prompt</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;You are a concise, helpful AI assistant. &quot;</span>
+    <span class="s2">&quot;Answer user questions directly in 2-3 sentences.&quot;</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Chat started! (Type &#39;stop&#39; to exit)</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">question</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;You: &quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">question</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;stop&quot;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Goodbye!&quot;</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    
+    <span class="n">prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">system_prompt</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">Question: </span><span class="si">{</span><span class="n">question</span><span class="si">}</span><span class="se">\n</span><span class="s2">Answer:&quot;</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Assistant: </span><span class="si">{</span><span class="n">output</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="meta-llama-3-2-model">
+<h2>2. Meta llama 3.2 model.<a class="headerlink" href="#meta-llama-3-2-model" title="Link to this heading">#</a></h2>
+<p>Here, we use a pretrained meta-llama 3.2 model for further demonstration.</p>
+<p>You can download the model to your local directory. However, before that you need to sign-up a huggingface account to get access to the model repository. You will also need to log-in before dowloadning.</p>
+<ul class="simple">
+<li><p>In your terminal (or in a Jupyter cell with a !):</p></li>
+<li><p>Go to <a class="reference external" href="https://huggingface.co/settings/tokens">https://huggingface.co/settings/tokens</a></p></li>
+<li><p>Click “New token”, give it a name, choose read scope.</p></li>
+<li><p>Copy the token and paste it into the terminal prompt.</p></li>
+</ul>
+<p>After that, your machine is authenticated. You can check by running: <code class="docutils literal notranslate"><span class="pre">huggingface-cli</span> <span class="pre">whoami</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import os</span>
+<span class="c1"># os.environ[&quot;TOKENIZERS_PARALLELISM&quot;] = &quot;false&quot;</span>
+
+<span class="c1"># !hf download meta-llama/Llama-3.2-1B-Instruct --local-dir Llama-3.2-1B-Instruct --include &quot;*.json&quot; &quot;*.model&quot; &quot;*.safetensors&quot; &quot;original/*&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">)</span>
+
+<span class="o">!{</span>sys.executable<span class="o">}</span><span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--force-reinstall<span class="w"> </span><span class="s2">&quot;huggingface-hub&gt;=0.34.0,&lt;1.0&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Initialize the lanuage model.</p>
+<ul class="simple">
+<li><p>access the tokenizer.</p></li>
+<li><p>initialize the LM.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Load tokenizer and model</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoTokenizer</span><span class="p">,</span> <span class="n">AutoModelForCausalLM</span>
+
+<span class="n">model_path</span> <span class="o">=</span> <span class="s2">&quot;/Users/huichiayu/Work/MSE590400/Day28/Llama-3.2-1B-Instruct&quot;</span>
+
+<span class="n">tokenizer_meta</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span>
+<span class="c1"># adjust tokenizer</span>
+<span class="n">tokenizer_meta</span><span class="o">.</span><span class="n">pad_token</span> <span class="o">=</span> <span class="n">tokenizer_meta</span><span class="o">.</span><span class="n">eos_token</span>
+<span class="n">tokenizer_meta</span><span class="o">.</span><span class="n">pad_token_id</span> <span class="o">=</span> <span class="n">tokenizer_meta</span><span class="o">.</span><span class="n">eos_token_id</span>
+
+<span class="n">model_meta</span> <span class="o">=</span> <span class="n">AutoModelForCausalLM</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+    <span class="n">model_path</span><span class="p">,</span>
+    <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float16</span><span class="p">,</span>   <span class="c1"># or torch.float32 if float16 complains</span>
+<span class="p">)</span>
+
+<span class="c1"># choose device: MPS on Apple Silicon if available, else CPU</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;mps&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">mps</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+<span class="n">model_meta</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<hr class="docutils" />
+<p>Alternative to explicitly set up the download path. You can directly access the online model repository and download it to the caches folder.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Load tokenizer and model</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoTokenizer</span><span class="p">,</span> <span class="n">AutoModelForCausalLM</span>
+
+<span class="n">model_id</span> <span class="o">=</span> <span class="s2">&quot;meta-llama/Llama-3.2-1B-Instruct&quot;</span>
+
+<span class="n">tokenizer_meta</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_id</span><span class="p">)</span>
+<span class="n">model_meta</span> <span class="o">=</span> <span class="n">AutoModelForCausalLM</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+    <span class="n">model_id</span><span class="p">,</span>
+    <span class="c1"># just let it use default dtype for now</span>
+<span class="p">)</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+<span class="n">model_meta</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+</section>
+<hr class="docutils" />
+<section id="test-the-meta-llama-3-2-model">
+<h2>3. Test the meta-llama 3.2 model.<a class="headerlink" href="#test-the-meta-llama-3-2-model" title="Link to this heading">#</a></h2>
+<p>Build an <code class="docutils literal notranslate"><span class="pre">ask_llama</span></code> function using the language model and tokenizer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2. Build a ask_llama function</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">ask_llama</span><span class="p">(</span><span class="n">question</span><span class="p">):</span>
+    <span class="n">messages</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">question</span><span class="p">}]</span>
+    <span class="n">inputs</span> <span class="o">=</span> <span class="n">tokenizer_meta</span><span class="o">.</span><span class="n">apply_chat_template</span><span class="p">(</span>
+        <span class="n">messages</span><span class="p">,</span>
+        <span class="n">return_tensors</span><span class="o">=</span><span class="s2">&quot;pt&quot;</span><span class="p">,</span>
+        <span class="n">add_generation_prompt</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+    
+    <span class="n">outputs</span> <span class="o">=</span> <span class="n">model_meta</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span>
+        <span class="n">inputs</span><span class="p">,</span>
+        <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+        <span class="n">temperature</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+        <span class="n">do_sample</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">eos_token_id</span><span class="o">=</span><span class="n">tokenizer_meta</span><span class="o">.</span><span class="n">eos_token_id</span><span class="p">,</span>  <span class="c1"># KEY: stops at EOS</span>
+    <span class="p">)</span>
+    
+    <span class="c1"># Decode only the answer (skip prompt)</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="n">tokenizer_meta</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span>
+        <span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">inputs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:],</span>
+        <span class="n">skip_special_tokens</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">answer</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Use this language model by asking a question.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3. Encode a prompt</span>
+<span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;what is Newton&#39;s law?&quot;</span>
+
+<span class="c1"># 4. Use it</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ask_llama</span><span class="p">(</span><span class="n">prompt</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ask_llama</span><span class="p">(</span><span class="s2">&quot;Where is Tsing Hua University?&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="test-on-gtp-2-model">
+<h2>4. Test on GTP 2 model.<a class="headerlink" href="#test-on-gtp-2-model" title="Link to this heading">#</a></h2>
+<p>Demonstration of using GTP2 model on Jupyter notebook. We follow a similar workflow.</p>
+<ul class="simple">
+<li><p>Import GTP2 model and tokenizer</p></li>
+<li><p>Use tokenizer to encode the texts.</p></li>
+<li><p>Use the model to generate texts following the input.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Load tokenizer and model</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">GPT2LMHeadModel</span><span class="p">,</span> <span class="n">GPT2TokenizerFast</span>
+
+<span class="c1"># Setup</span>
+<span class="n">model_GPT</span> <span class="o">=</span> <span class="n">GPT2LMHeadModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">&quot;gpt2&quot;</span><span class="p">)</span>
+<span class="n">tokenizer_GPT</span> <span class="o">=</span> <span class="n">GPT2TokenizerFast</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">&quot;gpt2&quot;</span><span class="p">)</span>
+<span class="n">device</span> <span class="o">=</span> <span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span>
+<span class="n">model_GPT</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">tokenizer_GPT</span><span class="o">.</span><span class="n">pad_token</span> <span class="o">=</span> <span class="n">tokenizer_GPT</span><span class="o">.</span><span class="n">eos_token</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Build an <code class="docutils literal notranslate"><span class="pre">ask_GPT</span></code> function.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2. ask_GPT function</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">ask_GPT</span><span class="p">(</span><span class="n">question</span><span class="p">):</span>
+    <span class="n">prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Q: </span><span class="si">{</span><span class="n">question</span><span class="si">}</span><span class="se">\n</span><span class="s2">A:&quot;</span>
+    <span class="n">inputs</span> <span class="o">=</span> <span class="n">tokenizer_GPT</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s2">&quot;pt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+    
+    <span class="n">outputs</span> <span class="o">=</span> <span class="n">model_GPT</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span>
+        <span class="o">**</span><span class="n">inputs</span><span class="p">,</span>
+        <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+        <span class="n">temperature</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+        <span class="n">do_sample</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">eos_token_id</span><span class="o">=</span><span class="n">tokenizer_GPT</span><span class="o">.</span><span class="n">eos_token_id</span><span class="p">,</span>
+    <span class="p">)</span>
+    
+    <span class="c1"># Get only the answer part</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="n">tokenizer_GPT</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span>
+        <span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">inputs</span><span class="p">[</span><span class="s1">&#39;input_ids&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:],</span>
+        <span class="n">skip_special_tokens</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    
+    <span class="c1"># Stop at double newline</span>
+    <span class="k">return</span> <span class="n">answer</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Ask GPT2 a question.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3. Encode a prompt</span>
+<span class="c1"># prompt = &quot;what is Newton&#39;s law?&quot;</span>
+<span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Where is Tsing Hua University?&quot;</span>
+
+<span class="c1"># 4. Use it</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ask_GPT</span><span class="p">(</span><span class="n">prompt</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>You may observe GPT2 is much faster than llama.</p>
+<p><strong>Size Comparison</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>Parameters</p></th>
+<th class="head"><p>Layers</p></th>
+<th class="head"><p>Hidden Size</p></th>
+<th class="head"><p>Speed (relative)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GPT-2</p></td>
+<td><p>124M</p></td>
+<td><p>12</p></td>
+<td><p>768</p></td>
+<td><p>faster</p></td>
+</tr>
+<tr class="row-odd"><td><p>Llama 3.2-1B</p></td>
+<td><p>1.2B</p></td>
+<td><p>16</p></td>
+<td><p>2048</p></td>
+<td><p>baseline</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="interactions">
+<h2>5. Interactions<a class="headerlink" href="#interactions" title="Link to this heading">#</a></h2>
+<p>You can in fact embed language models into you Python code for further iterations. The conversation code was written by Claude (Gen AI).</p>
+<section id="step-1-load-models">
+<h3>Step 1. Load models<a class="headerlink" href="#step-1-load-models" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoTokenizer</span><span class="p">,</span> <span class="n">AutoModelForCausalLM</span><span class="p">,</span> <span class="n">GPT2LMHeadModel</span><span class="p">,</span> <span class="n">GPT2TokenizerFast</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="c1"># ============================================</span>
+<span class="c1"># SETUP: Load Both Models</span>
+<span class="c1"># ============================================</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Loading models... (this may take a moment)&quot;</span><span class="p">)</span>
+
+<span class="c1"># Load Llama 3.2</span>
+<span class="n">model_name_llama</span> <span class="o">=</span> <span class="s2">&quot;meta-llama/Llama-3.2-1B-Instruct&quot;</span>
+<span class="n">tokenizer_llama</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name_llama</span><span class="p">)</span>
+<span class="n">model_llama</span> <span class="o">=</span> <span class="n">AutoModelForCausalLM</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name_llama</span><span class="p">)</span>
+<span class="n">tokenizer_llama</span><span class="o">.</span><span class="n">pad_token</span> <span class="o">=</span> <span class="n">tokenizer_llama</span><span class="o">.</span><span class="n">eos_token</span>
+
+<span class="c1"># Load GPT-2</span>
+<span class="n">tokenizer_gpt2</span> <span class="o">=</span> <span class="n">GPT2TokenizerFast</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">&quot;gpt2&quot;</span><span class="p">)</span>
+<span class="n">model_gpt2</span> <span class="o">=</span> <span class="n">GPT2LMHeadModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">&quot;gpt2&quot;</span><span class="p">)</span>
+<span class="n">tokenizer_gpt2</span><span class="o">.</span><span class="n">pad_token</span> <span class="o">=</span> <span class="n">tokenizer_gpt2</span><span class="o">.</span><span class="n">eos_token</span>
+
+<span class="c1"># Move to GPU if available</span>
+<span class="n">device</span> <span class="o">=</span> <span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span>
+<span class="n">model_llama</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">model_gpt2</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✓ Models loaded on </span><span class="si">{</span><span class="n">device</span><span class="si">}</span><span class="s2">!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-2-build-speak-functions">
+<h3>Step 2. Build speak functions.<a class="headerlink" href="#step-2-build-speak-functions" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ============================================</span>
+<span class="c1"># HELPER FUNCTIONS</span>
+<span class="c1"># ============================================</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">llama_speak</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">conversation_history</span><span class="o">=</span><span class="p">[]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Llama 3.2 generates a response&quot;&quot;&quot;</span>
+    <span class="c1"># Build conversation with history</span>
+    <span class="n">messages</span> <span class="o">=</span> <span class="n">conversation_history</span> <span class="o">+</span> <span class="p">[{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">prompt</span><span class="p">}]</span>
+    
+    <span class="n">inputs</span> <span class="o">=</span> <span class="n">tokenizer_llama</span><span class="o">.</span><span class="n">apply_chat_template</span><span class="p">(</span>
+        <span class="n">messages</span><span class="p">,</span>
+        <span class="n">return_tensors</span><span class="o">=</span><span class="s2">&quot;pt&quot;</span><span class="p">,</span>
+        <span class="n">add_generation_prompt</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+    
+    <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="n">model_llama</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span>
+            <span class="n">inputs</span><span class="p">,</span>
+            <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+            <span class="n">temperature</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+            <span class="n">top_p</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
+            <span class="n">do_sample</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">pad_token_id</span><span class="o">=</span><span class="n">tokenizer_llama</span><span class="o">.</span><span class="n">pad_token_id</span><span class="p">,</span>
+            <span class="n">eos_token_id</span><span class="o">=</span><span class="n">tokenizer_llama</span><span class="o">.</span><span class="n">eos_token_id</span><span class="p">,</span>
+        <span class="p">)</span>
+    
+    <span class="n">response</span> <span class="o">=</span> <span class="n">tokenizer_llama</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span>
+        <span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">inputs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:],</span>
+        <span class="n">skip_special_tokens</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    
+    <span class="k">return</span> <span class="n">response</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">gpt2_speak</span><span class="p">(</span><span class="n">prompt</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;GPT-2 generates a response&quot;&quot;&quot;</span>
+    <span class="c1"># Format as Q&amp;A for better results</span>
+    <span class="n">formatted_prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Person: </span><span class="si">{</span><span class="n">prompt</span><span class="si">}</span><span class="se">\n</span><span class="s2">Response:&quot;</span>
+    
+    <span class="n">inputs</span> <span class="o">=</span> <span class="n">tokenizer_gpt2</span><span class="p">(</span><span class="n">formatted_prompt</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s2">&quot;pt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+    
+    <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="n">model_gpt2</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span>
+            <span class="o">**</span><span class="n">inputs</span><span class="p">,</span>
+            <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+            <span class="n">temperature</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+            <span class="n">top_p</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
+            <span class="n">do_sample</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">eos_token_id</span><span class="o">=</span><span class="n">tokenizer_gpt2</span><span class="o">.</span><span class="n">eos_token_id</span><span class="p">,</span>
+            <span class="n">pad_token_id</span><span class="o">=</span><span class="n">tokenizer_gpt2</span><span class="o">.</span><span class="n">pad_token_id</span><span class="p">,</span>
+        <span class="p">)</span>
+    
+    <span class="n">full_text</span> <span class="o">=</span> <span class="n">tokenizer_gpt2</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">skip_special_tokens</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">full_text</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">formatted_prompt</span><span class="p">):]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    
+    <span class="c1"># Stop at double newline</span>
+    <span class="k">if</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">response</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-3-modes-of-conversations">
+<h3>Step 3. Modes of Conversations<a class="headerlink" href="#step-3-modes-of-conversations" title="Link to this heading">#</a></h3>
+<p>Here, there are five different types of interactions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ============================================</span>
+<span class="c1"># CONVERSATION MODES</span>
+<span class="c1"># ============================================</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">mode_1_debate</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">turns</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Mode 1: The models debate a topic&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">60</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🎭 DEBATE MODE: </span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">60</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Llama starts</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🦙 Llama 3.2: Starting the debate...&quot;</span><span class="p">)</span>
+    <span class="n">llama_prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;You are debating this topic: &#39;</span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">&#39;. State your position in 2-3 sentences.&quot;</span>
+    <span class="n">llama_response</span> <span class="o">=</span> <span class="n">llama_speak</span><span class="p">(</span><span class="n">llama_prompt</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🦙 Llama 3.2: </span><span class="si">{</span><span class="n">llama_response</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    
+    <span class="n">conversation</span> <span class="o">=</span> <span class="n">llama_response</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">turns</span><span class="p">):</span>
+        <span class="c1"># GPT-2 responds</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🤖 GPT-2: Thinking...&quot;</span><span class="p">)</span>
+        <span class="n">gpt2_prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Respond to this argument: &#39;</span><span class="si">{</span><span class="n">llama_response</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+        <span class="n">gpt2_response</span> <span class="o">=</span> <span class="n">gpt2_speak</span><span class="p">(</span><span class="n">gpt2_prompt</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🤖 GPT-2: </span><span class="si">{</span><span class="n">gpt2_response</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+        
+        <span class="c1"># Llama counters</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🦙 Llama 3.2: Counter-arguing...&quot;</span><span class="p">)</span>
+        <span class="n">llama_prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Respond to this counter-argument: &#39;</span><span class="si">{</span><span class="n">gpt2_response</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+        <span class="n">llama_response</span> <span class="o">=</span> <span class="n">llama_speak</span><span class="p">(</span><span class="n">llama_prompt</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🦙 Llama 3.2: </span><span class="si">{</span><span class="n">llama_response</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">mode_2_storytelling</span><span class="p">(</span><span class="n">theme</span><span class="p">,</span> <span class="n">turns</span><span class="o">=</span><span class="mi">6</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Mode 2: They collaborate on a story&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">60</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;📖 STORYTELLING MODE: </span><span class="si">{</span><span class="n">theme</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">60</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="n">story</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="c1"># Llama starts</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🦙 Llama 3.2: Starting the story...&quot;</span><span class="p">)</span>
+    <span class="n">llama_prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Start a short story about: </span><span class="si">{</span><span class="n">theme</span><span class="si">}</span><span class="s2">. Write 2-3 sentences.&quot;</span>
+    <span class="n">llama_response</span> <span class="o">=</span> <span class="n">llama_speak</span><span class="p">(</span><span class="n">llama_prompt</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🦙 </span><span class="si">{</span><span class="n">llama_response</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">story</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">llama_response</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">turns</span><span class="p">):</span>
+        <span class="c1"># GPT-2 continues</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🤖 GPT-2: Adding to the story...&quot;</span><span class="p">)</span>
+        <span class="n">gpt2_prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Continue this story: </span><span class="si">{</span><span class="n">story</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">gpt2_response</span> <span class="o">=</span> <span class="n">gpt2_speak</span><span class="p">(</span><span class="n">gpt2_prompt</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🤖 </span><span class="si">{</span><span class="n">gpt2_response</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">story</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gpt2_response</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+        
+        <span class="c1"># Llama continues</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🦙 Llama 3.2: Continuing...&quot;</span><span class="p">)</span>
+        <span class="n">llama_prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Continue this story: </span><span class="si">{</span><span class="n">story</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">llama_response</span> <span class="o">=</span> <span class="n">llama_speak</span><span class="p">(</span><span class="n">llama_prompt</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🦙 </span><span class="si">{</span><span class="n">llama_response</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">story</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">llama_response</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">60</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;📚 COMPLETE STORY:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">60</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">story</span><span class="p">))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">mode_3_interview</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Mode 3: One interviews the other&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">60</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🎤 INTERVIEW MODE: GPT-2 interviews Llama 3.2&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">60</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="n">questions</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;What do you think makes a good AI assistant?&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;How would you explain your purpose to someone?&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;What&#39;s the most interesting thing about language?&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+    
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">question</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">questions</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🤖 GPT-2 (Interviewer): </span><span class="si">{</span><span class="n">question</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Llama answers</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🦙 Llama 3.2: Thinking...&quot;</span><span class="p">)</span>
+        <span class="n">llama_response</span> <span class="o">=</span> <span class="n">llama_speak</span><span class="p">(</span><span class="n">question</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🦙 Llama 3.2: </span><span class="si">{</span><span class="n">llama_response</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        
+        <span class="c1"># GPT-2 follow-up</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">questions</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🤖 GPT-2: That&#39;s interesting. Let me ask another question.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">mode_4_user_mediated</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Mode 4: User controls the conversation&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">60</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;👤 USER-MEDIATED CONVERSATION&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">60</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You control what they talk about!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Commands: &#39;switch&#39; (change speaker), &#39;stop&#39; (exit)</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="n">current_speaker</span> <span class="o">=</span> <span class="s2">&quot;llama&quot;</span>  <span class="c1"># Start with Llama</span>
+    <span class="n">conversation_history</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="c1"># Initial prompt from user</span>
+    <span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;You: Start the conversation with a topic or question: &quot;</span><span class="p">)</span>
+    
+    <span class="k">while</span> <span class="n">user_input</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">!=</span> <span class="s2">&quot;stop&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">user_input</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;switch&quot;</span><span class="p">:</span>
+            <span class="n">current_speaker</span> <span class="o">=</span> <span class="s2">&quot;gpt2&quot;</span> <span class="k">if</span> <span class="n">current_speaker</span> <span class="o">==</span> <span class="s2">&quot;llama&quot;</span> <span class="k">else</span> <span class="s2">&quot;llama&quot;</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;→ Switched to </span><span class="si">{</span><span class="s1">&#39;🦙 Llama 3.2&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">current_speaker</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;llama&#39;</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;🤖 GPT-2&#39;</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;You: &quot;</span><span class="p">)</span>
+            <span class="k">continue</span>
+        
+        <span class="k">if</span> <span class="n">current_speaker</span> <span class="o">==</span> <span class="s2">&quot;llama&quot;</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🦙 Llama 3.2: Thinking...&quot;</span><span class="p">)</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">llama_speak</span><span class="p">(</span><span class="n">user_input</span><span class="p">,</span> <span class="n">conversation_history</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🦙 Llama 3.2: </span><span class="si">{</span><span class="n">response</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">conversation_history</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">user_input</span><span class="p">})</span>
+            <span class="n">conversation_history</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">response</span><span class="p">})</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🤖 GPT-2: Thinking...&quot;</span><span class="p">)</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">gpt2_speak</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🤖 GPT-2: </span><span class="si">{</span><span class="n">response</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># User can continue or switch</span>
+        <span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;You (or &#39;switch&#39;/&#39;stop&#39;): &quot;</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Conversation ended!&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">mode_5_automatic_chat</span><span class="p">(</span><span class="n">turns</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Mode 5: They chat freely about random topics&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">60</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;💬 AUTOMATIC CHAT MODE&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">60</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Starting topic</span>
+    <span class="n">topics</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;artificial intelligence&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;the future of technology&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;what makes humans unique&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;the nature of consciousness&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+    
+    <span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+    <span class="n">topic</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">topics</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Topic: </span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Llama starts</span>
+    <span class="n">llama_prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Let&#39;s have a casual conversation about </span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">. What are your thoughts?&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🦙 Llama 3.2: </span><span class="si">{</span><span class="n">llama_prompt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">llama_response</span> <span class="o">=</span> <span class="n">llama_speak</span><span class="p">(</span><span class="n">llama_prompt</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🦙 Llama 3.2: </span><span class="si">{</span><span class="n">llama_response</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    
+    <span class="n">last_response</span> <span class="o">=</span> <span class="n">llama_response</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">turns</span><span class="p">):</span>
+        <span class="c1"># Alternate speakers</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># GPT-2&#39;s turn</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🤖 GPT-2: Responding...&quot;</span><span class="p">)</span>
+            <span class="n">gpt2_response</span> <span class="o">=</span> <span class="n">gpt2_speak</span><span class="p">(</span><span class="n">last_response</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🤖 GPT-2: </span><span class="si">{</span><span class="n">gpt2_response</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">last_response</span> <span class="o">=</span> <span class="n">gpt2_response</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Llama&#39;s turn</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🦙 Llama 3.2: Responding...&quot;</span><span class="p">)</span>
+            <span class="n">llama_response</span> <span class="o">=</span> <span class="n">llama_speak</span><span class="p">(</span><span class="n">last_response</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🦙 Llama 3.2: </span><span class="si">{</span><span class="n">llama_response</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">last_response</span> <span class="o">=</span> <span class="n">llama_response</span>
+        
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
+
+<span class="c1"># ============================================</span>
+<span class="c1"># MAIN MENU</span>
+<span class="c1"># ============================================</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Interactive menu for conversation modes&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;🤖 LLAMA 3.2 vs GPT-2 CONVERSATION SIMULATOR 🦙&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+    
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Choose a conversation mode:&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1. 🎭 Debate - They argue about a topic&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2. 📖 Storytelling - They create a story together&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3. 🎤 Interview - GPT-2 interviews Llama&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;4. 👤 User-Mediated - You control the conversation&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;5. 💬 Automatic Chat - They chat freely&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;6. 🚪 Exit&quot;</span><span class="p">)</span>
+        
+        <span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Your choice (1-6): &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        
+        <span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span>
+            <span class="n">topic</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Debate topic (or press Enter for &#39;AI is beneficial&#39;): &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">topic</span><span class="p">:</span>
+                <span class="n">topic</span> <span class="o">=</span> <span class="s2">&quot;AI is beneficial to humanity&quot;</span>
+            <span class="n">mode_1_debate</span><span class="p">(</span><span class="n">topic</span><span class="p">)</span>
+        
+        <span class="k">elif</span> <span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;2&quot;</span><span class="p">:</span>
+            <span class="n">theme</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Story theme (or press Enter for &#39;a robot discovering emotions&#39;): &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">theme</span><span class="p">:</span>
+                <span class="n">theme</span> <span class="o">=</span> <span class="s2">&quot;a robot discovering emotions&quot;</span>
+            <span class="n">mode_2_storytelling</span><span class="p">(</span><span class="n">theme</span><span class="p">)</span>
+        
+        <span class="k">elif</span> <span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;3&quot;</span><span class="p">:</span>
+            <span class="n">mode_3_interview</span><span class="p">()</span>
+        
+        <span class="k">elif</span> <span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;4&quot;</span><span class="p">:</span>
+            <span class="n">mode_4_user_mediated</span><span class="p">()</span>
+        
+        <span class="k">elif</span> <span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;5&quot;</span><span class="p">:</span>
+            <span class="n">mode_5_automatic_chat</span><span class="p">()</span>
+        
+        <span class="k">elif</span> <span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;6&quot;</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Thanks for watching the AIs chat! 👋&quot;</span><span class="p">)</span>
+            <span class="k">break</span>
+        
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid choice. Please enter 1-6.&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Ask if user wants to continue</span>
+        <span class="n">cont</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Try another mode? (y/n): &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">cont</span> <span class="o">!=</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Thanks for watching the AIs chat! 👋&quot;</span><span class="p">)</span>
+            <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-4-start-the-conversation">
+<h3>Step 4. Start the conversation.<a class="headerlink" href="#step-4-start-the-conversation" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ============================================</span>
+<span class="c1"># RUN IT!</span>
+<span class="c1"># ============================================</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+
+
+<span class="c1"># ============================================</span>
+<span class="c1"># QUICK DEMOS (comment out main() and run these)</span>
+<span class="c1"># ============================================</span>
+
+<span class="c1"># Quick debate demo</span>
+<span class="c1"># mode_1_debate(&quot;Pineapple belongs on pizza&quot;, turns=3)</span>
+
+<span class="c1"># Quick story demo</span>
+<span class="c1"># mode_2_storytelling(&quot;a time traveler&#39;s mistake&quot;, turns=4)</span>
+
+<span class="c1"># Quick chat demo</span>
+<span class="c1"># mode_5_automatic_chat(turns=6)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="let-s-build-a-tinyllama-speak-function-for-a-three-way-chat">
+<h3>Let’s build a TinyLlama speak function for a three-way chat.<a class="headerlink" href="#let-s-build-a-tinyllama-speak-function-for-a-three-way-chat" title="Link to this heading">#</a></h3>
+<p>Below, a TinyLlama model is loaded and a <code class="docutils literal notranslate"><span class="pre">speak</span></code> function is built.</p>
+<p><strong>Note that if you do not have Llama 3.2 model downloaded in the cell above. You can use this TinyLlama model for the conversation by replacing the Llama 3.2 model with the TinyLlama.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoTokenizer</span><span class="p">,</span> <span class="n">AutoModelForCausalLM</span>
+
+<span class="c1"># Load TinyLlama (non-GGUF version)</span>
+<span class="n">model_name</span> <span class="o">=</span> <span class="s2">&quot;TinyLlama/TinyLlama-1.1B-Chat-v1.0&quot;</span>
+<span class="n">tokenizer_tiny</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
+<span class="n">model_tiny</span> <span class="o">=</span> <span class="n">AutoModelForCausalLM</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
+
+<span class="c1"># Setup</span>
+<span class="n">tokenizer_tiny</span><span class="o">.</span><span class="n">pad_token</span> <span class="o">=</span> <span class="n">tokenizer_tiny</span><span class="o">.</span><span class="n">eos_token</span>
+<span class="n">device</span> <span class="o">=</span> <span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span>
+<span class="n">model_tiny</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✓ All models loaded on </span><span class="si">{</span><span class="n">device</span><span class="si">}</span><span class="s2">!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="c1"># Helper functions</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">tinyllama_speak</span><span class="p">(</span><span class="n">prompt</span><span class="p">):</span>
+    <span class="n">messages</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">prompt</span><span class="p">}]</span>
+    <span class="n">inputs</span> <span class="o">=</span> <span class="n">tokenizer_tiny</span><span class="o">.</span><span class="n">apply_chat_template</span><span class="p">(</span>
+        <span class="n">messages</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s2">&quot;pt&quot;</span><span class="p">,</span> <span class="n">add_generation_prompt</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+    
+    <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="n">model_tiny</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span>
+            <span class="n">inputs</span><span class="p">,</span> <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+            <span class="n">do_sample</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">eos_token_id</span><span class="o">=</span><span class="n">tokenizer_tiny</span><span class="o">.</span><span class="n">eos_token_id</span>
+        <span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">tokenizer_tiny</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span>
+        <span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">inputs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:],</span> <span class="n">skip_special_tokens</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Three-way conversation</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Three-way conversation!</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">three_way_chat</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">turns</span><span class="o">=</span><span class="mi">6</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">60</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🔷 TinyLlama vs 🦙 Llama 3.2 vs 🤖 GPT-2&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Topic: </span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">60</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="n">current_prompt</span> <span class="o">=</span> <span class="n">topic</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">turns</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🔷 TinyLlama:&quot;</span><span class="p">)</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">tinyllama_speak</span><span class="p">(</span><span class="n">current_prompt</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">response</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🦙 Llama 3.2:&quot;</span><span class="p">)</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">llama_speak</span><span class="p">(</span><span class="n">current_prompt</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">response</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🤖 GPT-2:&quot;</span><span class="p">)</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">gpt2_speak</span><span class="p">(</span><span class="n">current_prompt</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">response</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="n">current_prompt</span> <span class="o">=</span> <span class="n">response</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Start the conversation.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run it!</span>
+<span class="n">three_way_chat</span><span class="p">(</span><span class="s2">&quot;What is the future of AI?&quot;</span><span class="p">,</span> <span class="n">turns</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="train-language-model">
+<h3>Train language model<a class="headerlink" href="#train-language-model" title="Link to this heading">#</a></h3>
+<p>Here is a demonstration of training a language model with text.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">AutoTokenizer</span><span class="p">,</span>
+    <span class="n">AutoModelForCausalLM</span><span class="p">,</span>
+    <span class="n">DataCollatorForLanguageModeling</span><span class="p">,</span>
+    <span class="n">TrainingArguments</span><span class="p">,</span>
+    <span class="n">Trainer</span>
+<span class="p">)</span>
+
+<span class="c1"># ======================================================</span>
+<span class="c1"># 1. Load text</span>
+<span class="c1"># ======================================================</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;textbook.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">Dataset</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span><span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">text</span><span class="p">]})</span>
+
+<span class="c1"># ======================================================</span>
+<span class="c1"># 2. Load GPT-2 tokenizer and model</span>
+<span class="c1"># ======================================================</span>
+<span class="n">model_name</span> <span class="o">=</span> <span class="s2">&quot;gpt2&quot;</span>
+
+<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">AutoModelForCausalLM</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
+
+<span class="c1"># GPT-2 has no default padding token</span>
+<span class="n">tokenizer</span><span class="o">.</span><span class="n">pad_token</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">eos_token</span>
+<span class="n">model</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">pad_token_id</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">eos_token_id</span>
+
+<span class="c1"># ======================================================</span>
+<span class="c1"># 3. Tokenize</span>
+<span class="c1"># ======================================================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">tokenize_function</span><span class="p">(</span><span class="n">examples</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">tokenizer</span><span class="p">(</span><span class="n">examples</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">])</span>
+
+<span class="n">tokenized_dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+    <span class="n">tokenize_function</span><span class="p">,</span>
+    <span class="n">batched</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">remove_columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="c1"># ======================================================</span>
+<span class="c1"># 4. Split into fixed-length blocks</span>
+<span class="c1"># ======================================================</span>
+<span class="n">block_size</span> <span class="o">=</span> <span class="mi">128</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">group_texts</span><span class="p">(</span><span class="n">examples</span><span class="p">):</span>
+    <span class="n">concatenated</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">ids</span> <span class="ow">in</span> <span class="n">examples</span><span class="p">[</span><span class="s2">&quot;input_ids&quot;</span><span class="p">]:</span>
+        <span class="n">concatenated</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+
+    <span class="n">total_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">concatenated</span><span class="p">)</span>
+    <span class="n">total_length</span> <span class="o">=</span> <span class="p">(</span><span class="n">total_length</span> <span class="o">//</span> <span class="n">block_size</span><span class="p">)</span> <span class="o">*</span> <span class="n">block_size</span>
+
+    <span class="n">input_ids</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">concatenated</span><span class="p">[</span><span class="n">i</span> <span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="n">block_size</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">total_length</span><span class="p">,</span> <span class="n">block_size</span><span class="p">)</span>
+    <span class="p">]</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;input_ids&quot;</span><span class="p">:</span> <span class="n">input_ids</span><span class="p">,</span>
+        <span class="s2">&quot;labels&quot;</span><span class="p">:</span> <span class="n">input_ids</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="p">}</span>
+
+<span class="n">lm_dataset</span> <span class="o">=</span> <span class="n">tokenized_dataset</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+    <span class="n">group_texts</span><span class="p">,</span>
+    <span class="n">batched</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">remove_columns</span><span class="o">=</span><span class="n">tokenized_dataset</span><span class="o">.</span><span class="n">column_names</span>
+<span class="p">)</span>
+
+<span class="c1"># ======================================================</span>
+<span class="c1"># 5. Training setup</span>
+<span class="c1"># ======================================================</span>
+<span class="n">training_args</span> <span class="o">=</span> <span class="n">TrainingArguments</span><span class="p">(</span>
+    <span class="n">output_dir</span><span class="o">=</span><span class="s2">&quot;./gpt2_textbook_model&quot;</span><span class="p">,</span>
+    <span class="n">overwrite_output_dir</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">num_train_epochs</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">per_device_train_batch_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">learning_rate</span><span class="o">=</span><span class="mf">5e-5</span><span class="p">,</span>
+    <span class="n">logging_steps</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">save_steps</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+    <span class="n">save_total_limit</span><span class="o">=</span><span class="mi">2</span>
+<span class="p">)</span>
+
+<span class="n">data_collator</span> <span class="o">=</span> <span class="n">DataCollatorForLanguageModeling</span><span class="p">(</span>
+    <span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenizer</span><span class="p">,</span>
+    <span class="n">mlm</span><span class="o">=</span><span class="kc">False</span>   <span class="c1"># important: GPT-2 uses causal language modeling</span>
+<span class="p">)</span>
+
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">Trainer</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+    <span class="n">args</span><span class="o">=</span><span class="n">training_args</span><span class="p">,</span>
+    <span class="n">train_dataset</span><span class="o">=</span><span class="n">lm_dataset</span><span class="p">,</span>
+    <span class="n">data_collator</span><span class="o">=</span><span class="n">data_collator</span>
+<span class="p">)</span>
+
+<span class="c1"># ======================================================</span>
+<span class="c1"># 6. Train</span>
+<span class="c1"># ======================================================</span>
+<span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+
+<span class="c1"># ======================================================</span>
+<span class="c1"># 7. Save model</span>
+<span class="c1"># ======================================================</span>
+<span class="n">trainer</span><span class="o">.</span><span class="n">save_model</span><span class="p">(</span><span class="s2">&quot;./gpt2_textbook_model&quot;</span><span class="p">)</span>
+<span class="n">tokenizer</span><span class="o">.</span><span class="n">save_pretrained</span><span class="p">(</span><span class="s2">&quot;./gpt2_textbook_model&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="discussion-what-can-language-models-be-used-in-materials-science-study">
+<h2>Discussion: What can language models be used in materials science study?<a class="headerlink" href="#discussion-what-can-language-models-be-used-in-materials-science-study" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<section id="robotic-lab-autonomous-lab">
+<h3>Robotic lab, autonomous lab.<a class="headerlink" href="#robotic-lab-autonomous-lab" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">YouTubeVideo</span>
+
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;RLO4sfK37w4&quot;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">360</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-base-py"
+        },
+        kernelOptions: {
+            name: "conda-base-py",
+            path: "./daily/Day14_0601"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-base-py'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="mini_tokenizer_transformer_demo.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Mini Demo: Tokenizer and Transformer in a Tiny Language Model</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../section_files/HW01.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Homework 1</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-tiny-language-model">1. Simple tiny language model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#https-huggingface-co">https://huggingface.co/</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meta-llama-3-2-model">2. Meta llama 3.2 model.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-the-meta-llama-3-2-model">3. Test the meta-llama 3.2 model.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-on-gtp-2-model">4. Test on GTP 2 model.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactions">5. Interactions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-load-models">Step 1. Load models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-build-speak-functions">Step 2. Build speak functions.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-modes-of-conversations">Step 3. Modes of Conversations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-start-the-conversation">Step 4. Start the conversation.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-build-a-tinyllama-speak-function-for-a-three-way-chat">Let’s build a TinyLlama speak function for a three-way chat.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-language-model">Train language model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-what-can-language-models-be-used-in-materials-science-study">Discussion: What can language models be used in materials science study?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#robotic-lab-autonomous-lab">Robotic lab, autonomous lab.</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hui-Chia Yu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
