@@ -1,6 +1,6 @@
-Day 13 05/13
+Day 13 05/25
 =======================
-This section contains the course materials for day 13.
+This section contains the course materials for day 25.
 
 **Classification.**
 
