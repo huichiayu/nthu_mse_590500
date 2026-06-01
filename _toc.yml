@@ -117,7 +117,18 @@ parts:
         - file: daily/Day13_0525/Image_classify        
         - file: daily/Day13_0525/unsupervised_learning_teaching_module_v2    
         
-
+      - file: section_files/day_14
+        sections: 
+        - file: daily/Day14_0601/Artificial_Neuron_Network_explained
+        - file: daily/Day14_0601/NN_Tensile_data
+        - file: daily/Day14_0601/ImageRgression_NN
+        - file: daily/Day14_0601/CahnHilliardEquation_SpinodalDecomposition
+        - file: daily/Day14_0601/PINN_DampedSpringMass_student_v1
+        - file: daily/Day14_0601/PINN_1D_diffustion_v1
+        - file: daily/Day14_0601/mini_tokenizer_transformer_demo        
+        - file: daily/Day14_0601/LLM_demo
+        
+        
   - caption: Exam/Quiz
     chapters:
     - file: section_files/Midterm_0427/Midterm.md
