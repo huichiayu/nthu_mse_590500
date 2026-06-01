@@ -698,10 +698,11 @@ Value provides:
 Here’s the information you get from me.
 How Q, K, V work together</p>
 </div></blockquote>
-<p>Given a sequence of tokens, we compute Q, K, and V for each one using learned weight matrices:
-$<span class="math notranslate nohighlight">\(\mathbf{Q}=\mathbf{X}\mathbf{W}_Q ,\mathbf{K}=\mathbf{X}\mathbf{W}_K, \mathbf{V}=\mathbf{X}\mathbf{W}_V\)</span><span class="math notranslate nohighlight">\(
-\)</span>\mathbf{X}<span class="math notranslate nohighlight">\( = embedding of tokens (shape [seq_len, d_model]), &lt;br&gt;
-\)</span>\mathbf{W}_Q, \mathbf{W}_K, \mathbf{W}_V$ = learned projection matrices.</p>
+<p>Given a sequence of tokens, we compute Q, K, and V for each one using learned weight matrices:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{Q}=\mathbf{X}\mathbf{W}_Q ,\mathbf{K}=\mathbf{X}\mathbf{W}_K, \mathbf{V}=\mathbf{X}\mathbf{W}_V\]</div>
+<p><span class="math notranslate nohighlight">\(\mathbf{X}\)</span> = embedding of tokens (shape [seq_len, d_model]), <br>
+<span class="math notranslate nohighlight">\(\mathbf{W}_Q, \mathbf{W}_K, \mathbf{W}_V\)</span> = learned projection matrices.</p>
 </div></blockquote>
 <ul>
 <li><p>Attention Score Calculation:</p>
