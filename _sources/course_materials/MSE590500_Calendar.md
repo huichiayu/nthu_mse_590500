@@ -71,11 +71,11 @@
   </tr>       
   <tr> <!-- week 14 -->
     <td style="border: 1px solid #ddd; padding: 8px;">13 (May 25)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;">TBA </span>(<strong>May ?: Homework 4-5 release</strong>)</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">Classification, KNN, Logistic, perceptron, SVM </td>
   </tr>
   <tr style="background-color: #f9f9f9;"> <!-- week 15 -->
     <td style="border: 1px solid #ddd; padding: 8px;">14 (Jun 1)</td>
-    <td style="border: 1px solid #ddd; padding: 8px;">TBA</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">ANN, CNN, LLM. </span>(<strong>May ?: Homework 4-5 release</strong>)</td>
   </tr>     
   <tr> <!-- week 16 -->
     <td style="border: 1px solid #ddd; padding: 8px;">15 (Jun 8)</td>
