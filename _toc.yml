@@ -127,15 +127,23 @@ parts:
         - file: daily/Day14_0601/PINN_1D_diffustion_v1
         - file: daily/Day14_0601/mini_tokenizer_transformer_demo        
         - file: daily/Day14_0601/LLM_demo
-        
+
+      - file: section_files/FinalExam
+        sections: 
+        - file: daily/FinalExam_0608/Final_exam_student_v1
+                
         
   - caption: Exam/Quiz
     chapters:
-    - file: section_files/Midterm_0427/Midterm.md
+    - file: section_files/Midterm.md
       title: Midterm Exam
 #       - file: course_materials/ExamQuiz_NTHU.md 
 #       - file: course_materials/Midterm.md     
-#         title: Exam/Quiz Details        
+#         title: Exam/Quiz Details    
+
+#     - file: section_files/FinalExam.md
+#       title: Final Exam
+          
 
   - caption: Homework
     chapters:
