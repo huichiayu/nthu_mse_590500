@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -268,6 +268,38 @@
 <li class="toctree-l2"><a class="reference internal" href="../Day12_0518/MultiRegression_demo.html">Regression II: multiple variables linear regression</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Day12_0518/Regression_student_v1.html">Regression.</a></li>
 
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_13.html">Day 13 05/25</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/General_ML.html">Machine leanring algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/knn_students_v1.html">K-Nearest Neighbors (KNN) Teaching Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/Perceptron_demo_v2.html">Perceptron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/logisticRegression_student.html">Classification: Logistic Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/SVM_explained_2D_data.html">SVM example using a 2D dataset.</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/SVM_elemental_data_Student_v1.html">SVM Classification of chemical element data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/Image_classify.html">Image classification using SVM</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/unsupervised_learning_teaching_module_v2.html">Introduction to Unsupervised Learning</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_14.html">Day 14 06/01</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day14_0601/Artificial_Neuron_Network_explained.html">Artificial Neural Network</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day14_0601/NN_Tensile_data.html">Tensile test data</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day14_0601/ImageRgression_NN.html">Image Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day14_0601/CahnHilliardEquation_SpinodalDecomposition.html">Finite difference method to simulate Spinodal decomposition.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day14_0601/PINN_DampedSpringMass_student_v1.html">Physics informed neural network (PINN) for ODE</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day14_0601/PINN_1D_diffustion_v1.html">PINN for solving PDEs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day14_0601/mini_tokenizer_transformer_demo.html">Mini Demo: Tokenizer and Transformer in a Tiny Language Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day14_0601/LLM_demo.html">Large Language Model (LLM)</a></li>
 </ul>
 </details></li>
 </ul>
@@ -515,11 +547,11 @@ That is why a ternary composition can be shown on a <strong>2D triangular plot</
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="c1"># mpltern is a Matplotlib extension for ternary axes</span>
-<span class="kn">import</span> <span class="nn">mpltern</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">mpltern</span>
 </pre></div>
 </div>
 </div>
@@ -548,7 +580,7 @@ That is why a ternary composition can be shown on a <strong>2D triangular plot</
 <p>This is a barycentric-coordinate interpretation. Below is a code snippet to convert Cartesian coordinates to ternary coordinates (Gibbs triangle).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ternary_to_cartesian</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">,</span> <span class="n">xC</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ternary_to_cartesian</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">,</span> <span class="n">xC</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert ternary composition to 2D Cartesian coordinates</span>
 <span class="sd">    for an equilateral Gibbs triangle.</span>
@@ -719,7 +751,7 @@ It works as a Matplotlib projection, so the plotting style feels familiar.</p>
 <p>Note that <strong>every valid composition must satisfy the constraint</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_ternary_grid</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">40</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">make_ternary_grid</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">40</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return arrays of ternary compositions on a uniform grid.</span>
 <span class="sd">    n controls the resolution.</span>
@@ -836,7 +868,7 @@ This could represent:</p>
 <p>Below, we define a synthetic property function with a few peaks and valleys.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">synthetic_property</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">,</span> <span class="n">xC</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">synthetic_property</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">,</span> <span class="n">xC</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A smooth illustrative property field over composition space.</span>
 <span class="sd">    This is not tied to a real material system.</span>
@@ -908,11 +940,11 @@ The interaction parameters <span class="math notranslate nohighlight">\(\Omega_{
 <p>Below we use a simple illustrative model, not a calibrated thermodynamic database.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">safe_xlogx</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">safe_xlogx</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mf">1e-12</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">toy_free_energy</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">,</span> <span class="n">xC</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">OmegaAB</span><span class="o">=</span><span class="mf">2.8</span><span class="p">,</span> <span class="n">OmegaBC</span><span class="o">=</span><span class="mf">3.4</span><span class="p">,</span> <span class="n">OmegaCA</span><span class="o">=</span><span class="mf">2.2</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">toy_free_energy</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">,</span> <span class="n">xC</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">OmegaAB</span><span class="o">=</span><span class="mf">2.8</span><span class="p">,</span> <span class="n">OmegaBC</span><span class="o">=</span><span class="mf">3.4</span><span class="p">,</span> <span class="n">OmegaCA</span><span class="o">=</span><span class="mf">2.2</span><span class="p">):</span>
     <span class="n">ideal</span> <span class="o">=</span> <span class="n">T</span> <span class="o">*</span> <span class="p">(</span><span class="n">safe_xlogx</span><span class="p">(</span><span class="n">xA</span><span class="p">)</span> <span class="o">+</span> <span class="n">safe_xlogx</span><span class="p">(</span><span class="n">xB</span><span class="p">)</span> <span class="o">+</span> <span class="n">safe_xlogx</span><span class="p">(</span><span class="n">xC</span><span class="p">))</span>
     <span class="n">excess</span> <span class="o">=</span> <span class="n">OmegaAB</span><span class="o">*</span><span class="n">xA</span><span class="o">*</span><span class="n">xB</span> <span class="o">+</span> <span class="n">OmegaBC</span><span class="o">*</span><span class="n">xB</span><span class="o">*</span><span class="n">xC</span> <span class="o">+</span> <span class="n">OmegaCA</span><span class="o">*</span><span class="n">xC</span><span class="o">*</span><span class="n">xA</span>
 
@@ -1001,8 +1033,8 @@ In real thermodynamics, the full story is more subtle because phase equilibria a
 <p>Here, we can make a 3D interactive surface to examine the given free energy surface.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="kn">import</span> <span class="n">Delaunay</span>
-<span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.spatial</span><span class="w"> </span><span class="kn">import</span> <span class="n">Delaunay</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
 
 <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">ternary_to_cartesian</span><span class="p">(</span><span class="n">A_grid</span><span class="p">,</span> <span class="n">B_grid</span><span class="p">,</span> <span class="n">C_grid</span><span class="p">)</span>
 

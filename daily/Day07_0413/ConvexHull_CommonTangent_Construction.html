@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -270,6 +270,38 @@
 
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_13.html">Day 13 05/25</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/General_ML.html">Machine leanring algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/knn_students_v1.html">K-Nearest Neighbors (KNN) Teaching Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/Perceptron_demo_v2.html">Perceptron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/logisticRegression_student.html">Classification: Logistic Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/SVM_explained_2D_data.html">SVM example using a 2D dataset.</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/SVM_elemental_data_Student_v1.html">SVM Classification of chemical element data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/Image_classify.html">Image classification using SVM</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day13_0525/unsupervised_learning_teaching_module_v2.html">Introduction to Unsupervised Learning</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_14.html">Day 14 06/01</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Day14_0601/Artificial_Neuron_Network_explained.html">Artificial Neural Network</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day14_0601/NN_Tensile_data.html">Tensile test data</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day14_0601/ImageRgression_NN.html">Image Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day14_0601/CahnHilliardEquation_SpinodalDecomposition.html">Finite difference method to simulate Spinodal decomposition.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day14_0601/PINN_DampedSpringMass_student_v1.html">Physics informed neural network (PINN) for ODE</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Day14_0601/PINN_1D_diffustion_v1.html">PINN for solving PDEs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day14_0601/mini_tokenizer_transformer_demo.html">Mini Demo: Tokenizer and Transformer in a Tiny Language Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Day14_0601/LLM_demo.html">Large Language Model (LLM)</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
 <ul class="nav bd-sidenav">
@@ -484,17 +516,17 @@ and
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import NumPy numerical package</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># Import SciPy</span>
-<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">scipy</span>
-<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span><span class="p">,</span> <span class="n">newton</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">scipy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">fsolve</span><span class="p">,</span> <span class="n">newton</span>
 
 <span class="c1"># Enable displaying of math output such as display(Math(r&#39;Area: {}m^2 \\ Volume: {}m^3&#39;.format(a, round(b,2), A, V)))</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
 
 <span class="c1"># plotting package</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="c1"># import matplotlib</span>
 </pre></div>
@@ -516,17 +548,17 @@ Here, \)</span>R<span class="math notranslate nohighlight">\( is the gas constan
 <span class="n">R</span> <span class="o">=</span> <span class="mf">8.314</span> <span class="c1"># J/mol/K</span>
 
 <span class="c1"># Return the ideal entropy of mixing as a function of temperature and mole fraction </span>
-<span class="k">def</span> <span class="nf">get_S_id</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_S_id</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
     <span class="n">S_id</span> <span class="o">=</span> <span class="o">-</span><span class="n">R</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">S_id</span>
 
 <span class="c1"># Return the enthalpy for a regular solution</span>
-<span class="k">def</span> <span class="nf">get_H_rs</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_H_rs</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="n">H_rs</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">H_rs</span>
 
 <span class="c1"># Return the Gibbs free energy of mixing for a regular solution</span>
-<span class="k">def</span> <span class="nf">get_G_rs</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_G_rs</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="n">S_id</span> <span class="o">=</span> <span class="n">get_S_id</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
     <span class="n">H_rs</span> <span class="o">=</span> <span class="n">get_H_rs</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="n">G_rs</span> <span class="o">=</span> <span class="n">H_rs</span> <span class="o">-</span> <span class="n">T</span> <span class="o">*</span> <span class="n">S_id</span>
@@ -543,7 +575,7 @@ Here, \)</span>R<span class="math notranslate nohighlight">\( is the gas constan
 
 <span class="c1"># Difference in Gibbs free energy between the liquid and solid phase for the pure components A and B</span>
 <span class="c1"># Assume that the Gibbs free energy difference is simply linear in temperature</span>
-<span class="k">def</span> <span class="nf">get_Gref</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_Gref</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">T</span><span class="o">-</span><span class="n">b</span>
     
 <span class="n">aA</span> <span class="o">=</span> <span class="mi">24</span>
@@ -552,10 +584,10 @@ Here, \)</span>R<span class="math notranslate nohighlight">\( is the gas constan
 <span class="n">aB</span> <span class="o">=</span> <span class="mi">16</span>
 <span class="n">bB</span> <span class="o">=</span> <span class="mf">12e3</span>
 
-<span class="k">def</span> <span class="nf">GrefA_func</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">GrefA_func</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">get_Gref</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">aA</span><span class="p">,</span> <span class="n">bA</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">GrefB_func</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">GrefB_func</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">get_Gref</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">aB</span><span class="p">,</span> <span class="n">bB</span><span class="p">)</span>
 
 <span class="n">TmA</span> <span class="o">=</span> <span class="n">newton</span><span class="p">(</span><span class="n">GrefA_func</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
@@ -590,10 +622,10 @@ Here, \)</span>R<span class="math notranslate nohighlight">\( is the gas constan
 
 <span class="c1"># Return the Gibbs free energy accounting for the reference states for A and B</span>
 <span class="c1"># We select the liquid phase as the reference state for both pure components</span>
-<span class="k">def</span> <span class="nf">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">get_G_rs</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">get_Gref</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">aA</span><span class="p">,</span> <span class="n">bA</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">get_Gref</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">aB</span><span class="p">,</span> <span class="n">bB</span><span class="p">)</span><span class="o">*</span><span class="n">x</span>
 
-<span class="k">def</span> <span class="nf">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">get_G_rs</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 
 <span class="n">G_S</span> <span class="o">=</span> <span class="n">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">xv</span><span class="p">)</span>
@@ -626,10 +658,10 @@ Here, \)</span>R<span class="math notranslate nohighlight">\( is the gas constan
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Return the Gibbs free energy accounting for the reference states for A and B</span>
 <span class="c1"># We select the liquid phase as the reference state for both pure components</span>
-<span class="k">def</span> <span class="nf">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">get_G_rs</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">get_Gref</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">aB</span><span class="p">,</span> <span class="n">bB</span><span class="p">)</span><span class="o">*</span><span class="n">x</span>
 
-<span class="k">def</span> <span class="nf">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">get_G_rs</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">get_Gref</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">aA</span><span class="p">,</span> <span class="n">bA</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
 
 <span class="n">G_S</span> <span class="o">=</span> <span class="n">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">xv</span><span class="p">)</span>
@@ -735,7 +767,7 @@ and
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a function, this function needs an input x</span>
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span>
 
 <span class="c1"># initial guess</span>
@@ -767,7 +799,7 @@ x - y = 1
 \)</span>$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">F</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">F</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">p</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">5</span><span class="p">,</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
 
@@ -793,7 +825,7 @@ x - y = 1
 <span class="n">G_L</span> <span class="o">=</span> <span class="n">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">xv</span><span class="p">)</span>
 
 <span class="c1"># Return the chemical potentials of components A and B for the solid phase</span>
-<span class="k">def</span> <span class="nf">get_mu_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_mu_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="n">dx</span> <span class="o">=</span> <span class="mf">0.0001</span>
     <span class="n">dGdx</span> <span class="o">=</span> <span class="p">(</span><span class="n">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="n">dx</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="o">-</span><span class="n">dx</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span><span class="o">/</span><span class="n">dx</span>
     <span class="n">mu_A</span> <span class="o">=</span> <span class="n">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="n">dGdx</span>
@@ -801,7 +833,7 @@ x - y = 1
     <span class="k">return</span> <span class="n">mu_A</span><span class="p">,</span> <span class="n">mu_B</span>
 
 <span class="c1"># Return the chemical potentials of components A and B for the liquid phase</span>
-<span class="k">def</span> <span class="nf">get_mu_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_mu_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="n">dx</span> <span class="o">=</span> <span class="mf">0.0001</span>
     <span class="n">dGdx</span> <span class="o">=</span> <span class="p">(</span><span class="n">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="n">dx</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="o">-</span><span class="n">dx</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span><span class="o">/</span><span class="n">dx</span>
     <span class="n">mu_A</span> <span class="o">=</span> <span class="n">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="n">dGdx</span>
@@ -809,7 +841,7 @@ x - y = 1
     <span class="k">return</span> <span class="n">mu_A</span><span class="p">,</span> <span class="n">mu_B</span>
 
 <span class="c1"># Find the composition x such that mu_A^S = mu_A^L and mu_B^S = mu_B^L</span>
-<span class="k">def</span> <span class="nf">commontangent</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">commontangent</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
     <span class="n">x_S</span><span class="p">,</span> <span class="n">x_L</span> <span class="o">=</span> <span class="n">p</span>
     <span class="n">mu_A_S</span><span class="p">,</span> <span class="n">mu_B_S</span> <span class="o">=</span> <span class="n">get_mu_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x_S</span><span class="p">)</span>
     <span class="n">mu_A_L</span><span class="p">,</span> <span class="n">mu_B_L</span> <span class="o">=</span> <span class="n">get_mu_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x_L</span><span class="p">)</span>
@@ -947,7 +979,7 @@ x - y = 1
 <p>The lower envelope must be convex. If three consecutive points make a concave bend, then the middle point cannot belong to the lower convex boundary, because a straight line connecting the two outer points lies below it. Removing such points leaves only the points that define the lowest convex boundary.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">lower_hull</span><span class="p">(</span><span class="n">points</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">lower_hull</span><span class="p">(</span><span class="n">points</span><span class="p">):</span>
     <span class="n">points</span> <span class="o">=</span> <span class="n">points</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">points</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])]</span>
     <span class="n">hull</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -1071,7 +1103,7 @@ Common tangent: y = -4003.035480 x + -2879.895089
 <p>Here is an example of find close envelop of a set of data points.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="kn">import</span> <span class="n">ConvexHull</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.spatial</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConvexHull</span>
 
 <span class="n">hull</span> <span class="o">=</span> <span class="n">ConvexHull</span><span class="p">(</span><span class="n">p_rnd</span><span class="p">)</span>
 

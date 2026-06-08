@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -269,6 +269,38 @@
 
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_13.html">Day 13 05/25</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day13_0525/General_ML.html">Machine leanring algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day13_0525/knn_students_v1.html">K-Nearest Neighbors (KNN) Teaching Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day13_0525/Perceptron_demo_v2.html">Perceptron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day13_0525/logisticRegression_student.html">Classification: Logistic Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day13_0525/SVM_explained_2D_data.html">SVM example using a 2D dataset.</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day13_0525/SVM_elemental_data_Student_v1.html">SVM Classification of chemical element data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day13_0525/Image_classify.html">Image classification using SVM</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day13_0525/unsupervised_learning_teaching_module_v2.html">Introduction to Unsupervised Learning</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_14.html">Day 14 06/01</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day14_0601/Artificial_Neuron_Network_explained.html">Artificial Neural Network</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day14_0601/NN_Tensile_data.html">Tensile test data</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day14_0601/ImageRgression_NN.html">Image Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day14_0601/CahnHilliardEquation_SpinodalDecomposition.html">Finite difference method to simulate Spinodal decomposition.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day14_0601/PINN_DampedSpringMass_student_v1.html">Physics informed neural network (PINN) for ODE</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day14_0601/PINN_1D_diffustion_v1.html">PINN for solving PDEs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day14_0601/mini_tokenizer_transformer_demo.html">Mini Demo: Tokenizer and Transformer in a Tiny Language Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day14_0601/LLM_demo.html">Large Language Model (LLM)</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
 <ul class="current nav bd-sidenav">
@@ -505,18 +537,18 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load libraries</span>
 <span class="c1"># Import NumPy numerical package</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># Import SciPy</span>
-<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">scipy</span>
-<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span><span class="p">,</span> <span class="n">newton</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">scipy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">fsolve</span><span class="p">,</span> <span class="n">newton</span>
 
 <span class="c1"># Enable displaying of math output such as display(Math(r&#39;Area: {}m^2 \\ Volume: {}m^3&#39;. </span>
 <span class="c1"># format(a, round(b,2), A, V)))</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
 
 <span class="c1"># plotting package</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
@@ -524,15 +556,15 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the free energy functions</span>
-<span class="k">def</span> <span class="nf">safe_x</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">safe_x</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-6</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">eps</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">eps</span><span class="p">)</span>
     
-<span class="k">def</span> <span class="nf">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">safe_x</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">return</span> <span class="o">??</span>
 
-<span class="k">def</span> <span class="nf">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">safe_x</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">return</span> <span class="o">??</span>   
 </pre></div>
@@ -604,14 +636,14 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># put your code here</span>
 
-<span class="k">def</span> <span class="nf">get_mu_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_mu_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="n">dx</span> <span class="o">=</span> <span class="mf">0.000001</span>
     <span class="n">dGdx</span> <span class="o">=</span> <span class="o">??</span>
     <span class="n">mu_A</span> <span class="o">=</span> <span class="n">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="n">dGdx</span>
     <span class="n">mu_B</span> <span class="o">=</span> <span class="n">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">dGdx</span>
     <span class="k">return</span> <span class="n">mu_A</span><span class="p">,</span> <span class="n">mu_B</span>
 
-<span class="k">def</span> <span class="nf">get_mu_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_mu_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="n">dx</span> <span class="o">=</span> <span class="mf">0.000001</span>
     <span class="o">??</span>
     <span class="k">return</span> <span class="n">mu_A</span><span class="p">,</span> <span class="n">mu_B</span>  
@@ -628,12 +660,12 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># put your code here</span>
-<span class="k">def</span> <span class="nf">commontangent_solid_liquid</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">commontangent_solid_liquid</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
     <span class="o">??</span>
     <span class="k">return</span> <span class="n">mu_A_S1</span><span class="o">-</span><span class="n">mu_A_L1</span><span class="p">,</span> <span class="n">mu_B_S1</span><span class="o">-</span><span class="n">mu_B_L1</span>
 
     
-<span class="k">def</span> <span class="nf">commontangent_solid_solid</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">commontangent_solid_solid</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
     <span class="o">??</span>
     <span class="k">return</span> <span class="n">mu_A_S1</span><span class="o">-</span><span class="n">mu_A_S2</span><span class="p">,</span> <span class="n">mu_B_S1</span><span class="o">-</span><span class="n">mu_B_S2</span>    
     
@@ -814,15 +846,15 @@ document.write(`
 <img src="https://i.ibb.co/pjbysZTw/free-energy-2.png" width="600">
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">safe_x</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">safe_x</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-6</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">eps</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">eps</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_G_L</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">safe_x</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">return</span> <span class="o">??</span>
     
-<span class="k">def</span> <span class="nf">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_G_S</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">safe_x</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">return</span> <span class="o">??</span>
 </pre></div>
@@ -863,13 +895,13 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># put your code here</span>
-<span class="k">def</span> <span class="nf">commontangent_liquid_liquid</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">commontangent_liquid_liquid</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
     <span class="n">x_L1</span><span class="p">,</span> <span class="n">x_L2</span> <span class="o">=</span> <span class="n">p</span>
     <span class="n">mu_A_L1</span><span class="p">,</span> <span class="n">mu_B_L1</span> <span class="o">=</span> <span class="o">??</span>
     <span class="n">mu_A_L2</span><span class="p">,</span> <span class="n">mu_B_L2</span> <span class="o">=</span> <span class="o">??</span>
     <span class="k">return</span> <span class="n">mu_A_L1</span><span class="o">-</span><span class="n">mu_A_L2</span><span class="p">,</span> <span class="n">mu_B_L1</span><span class="o">-</span><span class="n">mu_B_L2</span>
 
-<span class="k">def</span> <span class="nf">commontangent_liquid_liquid_solid</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">commontangent_liquid_liquid_solid</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
     <span class="n">x_S1</span><span class="p">,</span> <span class="n">x_L1</span><span class="p">,</span> <span class="n">x_L2</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="n">p</span>
     <span class="o">??</span>
     <span class="k">return</span> <span class="n">mu_A_S1</span><span class="o">-</span><span class="n">mu_A_L1</span><span class="p">,</span> <span class="n">mu_B_S1</span><span class="o">-</span><span class="n">mu_B_L1</span><span class="p">,</span> <span class="n">mu_A_S1</span><span class="o">-</span><span class="n">mu_A_L2</span><span class="p">,</span> <span class="n">mu_B_S1</span><span class="o">-</span><span class="n">mu_B_L2</span>
@@ -987,20 +1019,20 @@ document.write(`
 <p><strong>Complete the code below to construct the Gibbs free energy function.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">R</span> <span class="o">=</span> <span class="mf">8.314</span>
 <span class="n">T</span> <span class="o">=</span> <span class="mi">800</span>
 
-<span class="k">def</span> <span class="nf">gaussian_well</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">,</span> <span class="n">xA0</span><span class="p">,</span> <span class="n">xB0</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">gaussian_well</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">,</span> <span class="n">xA0</span><span class="p">,</span> <span class="n">xB0</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
     <span class="k">return</span> <span class="o">??</span>
 
 
 <span class="c1"># -----------------------------</span>
 <span class="c1">#   Gibbs free energy</span>
 <span class="c1"># -----------------------------</span>
-<span class="k">def</span> <span class="nf">G_ternary</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">G_ternary</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">):</span>
     <span class="n">xC</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">xA</span> <span class="o">-</span> <span class="n">xB</span>
 
     <span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-12</span>
@@ -1037,7 +1069,7 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -----------------------------</span>
 <span class="c1">#   Ternary grid</span>
 <span class="c1"># -----------------------------</span>
-<span class="k">def</span> <span class="nf">ternary_grid</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">60</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">ternary_grid</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">60</span><span class="p">):</span>
     <span class="n">pts</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">i</span><span class="p">):</span>
@@ -1058,7 +1090,7 @@ document.write(`
 </ul>
 <img src="https://i.ibb.co/s9Gfr7m3/ternary1.png" width="600"><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mpltern</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">mpltern</span>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s2">&quot;ternary&quot;</span><span class="p">)</span>
@@ -1097,7 +1129,7 @@ document.write(`
 <span class="c1">#   Numerical chemical potentials: mu_A = dG/dxA, mu_B = dG/dxB</span>
 <span class="c1"># ============================================================</span>
 
-<span class="k">def</span> <span class="nf">chemical_potentials</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">chemical_potentials</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">):</span>
     <span class="c1"># central differences</span>
     <span class="n">muA</span> <span class="o">=</span> <span class="o">??</span>
     <span class="n">muB</span> <span class="o">=</span> <span class="o">??</span>
@@ -1131,7 +1163,7 @@ document.write(`
     <span class="p">[</span><span class="err">??</span><span class="p">,</span> <span class="err">??</span><span class="p">],</span>
     <span class="p">[</span><span class="err">??</span><span class="p">,</span> <span class="err">??</span><span class="p">]])</span>
 
-<span class="k">def</span> <span class="nf">residuals</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">residuals</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
     <span class="n">xA1</span><span class="p">,</span> <span class="n">xB1</span><span class="p">,</span> <span class="n">xA2</span><span class="p">,</span> <span class="n">xB2</span><span class="p">,</span> <span class="n">xA3</span><span class="p">,</span> <span class="n">xB3</span> <span class="o">=</span> <span class="n">p</span>
 
     <span class="n">comps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
@@ -1183,7 +1215,7 @@ How many variables the <code class="docutils literal notranslate"><span class="p
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ============================================================</span>
 <span class="c1">#   Solve for tie-triangle vertices</span>
 <span class="c1"># ============================================================</span>
-<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">least_squares</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">least_squares</span>
 
 <span class="c1"># initial guess near the three wells</span>
 <span class="n">p0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
@@ -1273,9 +1305,9 @@ How many variables the <code class="docutils literal notranslate"><span class="p
 <p><strong>Your task: draw the tie triangle you obtained on the 3D plot as in the right panel of figure above.</strong> You are expecting a result like the right one in the figure above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">mpltern</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">mpltern</span>
 <span class="o">%</span><span class="k">matplotlib</span> widget
 
 <span class="c1"># --------------------------------------------</span>
@@ -1423,14 +1455,14 @@ How many variables the <code class="docutils literal notranslate"><span class="p
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tangent_intercept</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tangent_intercept</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">):</span>
     <span class="n">G</span> <span class="o">=</span> <span class="n">G_ternary</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">)</span>
     <span class="n">muA</span><span class="p">,</span> <span class="n">muB</span> <span class="o">=</span> <span class="n">chemical_potentials</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">)</span>
     <span class="n">b</span> <span class="o">=</span> <span class="n">G</span> <span class="o">-</span> <span class="n">muA</span><span class="o">*</span><span class="n">xA</span> <span class="o">-</span> <span class="n">muB</span><span class="o">*</span><span class="n">xB</span>
     <span class="k">return</span> <span class="n">b</span>
 
 
-<span class="k">def</span> <span class="nf">residuals_ls</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">residuals_ls</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
     <span class="n">xA1</span><span class="p">,</span> <span class="n">xB1</span><span class="p">,</span> <span class="n">xA2</span><span class="p">,</span> <span class="n">xB2</span><span class="p">,</span> <span class="n">xA3</span><span class="p">,</span> <span class="n">xB3</span> <span class="o">=</span> <span class="n">p</span>
 
     <span class="n">muA1</span><span class="p">,</span> <span class="n">muB1</span> <span class="o">=</span> <span class="o">??</span>
@@ -1502,7 +1534,7 @@ How many variables the <code class="docutils literal notranslate"><span class="p
 <li><p>Your answer:</p></li>
 </ul>
 <p>✅ Do This – Use your code above to verify your answer. Screenshot your figure of the tie triangle at <span class="math notranslate nohighlight">\(T = 1250\)</span> K. You should be able to use some code snippets like below to embed the obtained image in this notebook file.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span>
 
 <span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;Figs/my_image.png&quot;</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 </pre></div>
