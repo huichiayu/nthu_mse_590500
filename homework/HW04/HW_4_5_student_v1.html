@@ -1,0 +1,1224 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>MSE590500 Homework assignment 4-5 &#8212; MSE 590500 Course Website</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'homework/HW04/HW_4_5_student_v1';</script>
+    <link rel="icon" href="../../_static/Spartan_2.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Homework 4-5" href="../../section_files/HW04_5.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/Spartan_2.png" class="logo__image only-light" alt="MSE 590500 Course Website - Home"/>
+    <script>document.write(`<img src="../../_static/Spartan_2.png" class="logo__image only-dark" alt="MSE 590500 Course Website - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Materials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/MSE590500_Syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/MSE590500_Calendar.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/SoftwareSetupGuide_NTHU_2.html">Software Setup Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/MSE590500_AI_policy.html">Generative AI Policy</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://upload.wikimedia.org/wikipedia/commons/7/79/Unix_command_cheatsheet.pdf">CLI (Unix/Mac/Linux) commands cheat sheet</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Daily Content</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_1.html">Day 1 02/23</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day01_0223/Jupyter_Notebook_Basics.html">Jupyter Notebook Basics (Hands-on)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day01_0223/Python_Data_Types_Teaching.html">Python Data Types (Hands-on)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day01_0223/UNIX_Command_Line_Basics.html">Introduction to UNIX Command Line Interface (CLI)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_2.html">Day 2 03/02</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day02_0302/numpy_teaching_module.html">Introduction to NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day02_0302/matplotlib_teaching_module.html">Introduction to Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day02_0302/sympy_teaching_module.html">SymPy Mini Teaching Module (Beginner)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_3.html">Day 3 03/09</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day03_0309/pandas_basics_teaching_notebook.html">Pandas Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day03_0309/pandas_demo_with_material_data.html">Pandas Demonstration Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day03_0309/Ideal_gas_calculation.html">Ideal gas behavior</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_4.html">Day 4 03/16</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://youtu.be/W8pjXJr98Ck">Classical thermo - enthalpy calculation 1</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://youtu.be/-O7L3ZuQ_8E">Classical thermo - enthalpy calculation 2</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://youtu.be/Y28fCO2Gtpc">Classical thermo - entropy calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day04_0316/Enthalpy_01.html">Calculating enthalpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day04_0316/Entropy_v01.html">Calculating entropy</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_5.html">Day 5 03/23</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_6.html">Day 6 03/30</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day06_0330/PT_phaseDiagram.html">Phase diagram of a pure substance (single component system)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day06_0330/water_pvt_with_solid_boundaries.html">Water PVT Phase Diagram with Solid–Liquid–Vapor Boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day06_0330/RegularSolution_student.html">Regular solution model and phase diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day06_0330/BinaryPhaseDiagram_MiscibleAlloys_student.html">Phase Diagrams for Completely Miscible Alloys</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day06_0330/EutecticPhaseDiagram_student.html">Construction of a Eutectic Phase Diagram</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_7.html">Day 7 04/13</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day07_0413/ConvexHull_CommonTangent_Construction.html">Bindary phase diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day07_0413/ternary_phase_diagram_module_student.html">Ternary Phase Diagram Teaching Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day07_0413/TieTriangle_demo.html">Demonstration of finding tie-triangle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day07_0413/PyCalPhas_demo.html">PyCalPhad</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_8.html">Day 8 04/20</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day08_0420/first_order_ode_analytical_and_finite_difference_v1.html">First-order ODEs: analytical solution and finite-difference method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day08_0420/damped_oscillator_finite_difference_v1.html">Damped oscillator using the finite-difference method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day08_0420/elasticity_mechanics_analytical_and_finite_difference.html">Elasticity and mechanics: analytical and finite-difference solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day08_0420/1D_diffusion_equation_sympy_scipy.html">Analytically solving the 1D diffusion equation with SymPy (and comparing with SciPy)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day08_0420/simple_2D_diffusion_FDM_center_source.html">Simple 2D diffusion FDM example: source at the center</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/Midterm.html">Midterm exam</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Midterm_0427/MidtermExam_student_v1.html">MSE 590500 Mid-term exam.</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_10.html">Day 10 05/04</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day10_0504/beam_fdm_module_student.html">Euler–Bernoulli Beam Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day10_0504/FourierCoefficients.html">Fourier coefficients</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day10_0504/NOAA_student.html">Fast Fourier Transform (FFT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day10_0504/FFT2D.html">Fast Fourier Transform (FFT) 2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day10_0504/Denoiser_student.html">Image denoise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_11.html">Day 11 05/11</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day11_0511/ImageProcess.html">Image filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day11_0511/FFT2_Image.html">FFT filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day11_0511/Segmentation_image.html">Image segmentation.</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_12.html">Day 12 05/18</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day12_0518/OOP_I_student_v1.html">Object orient programming (OOP)</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day12_0518/OOP_II_student_v1.html">Digital evolution</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day12_0518/LinearRegress_student_v1.html">Regression I: single variable regression</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day12_0518/MultiRegression_demo.html">Regression II: multiple variables linear regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day12_0518/Regression_student_v1.html">Regression.</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_13.html">Day 13 05/25</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day13_0525/General_ML.html">Machine leanring algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day13_0525/knn_students_v1.html">K-Nearest Neighbors (KNN) Teaching Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day13_0525/Perceptron_demo_v2.html">Perceptron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day13_0525/logisticRegression_student.html">Classification: Logistic Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day13_0525/SVM_explained_2D_data.html">SVM example using a 2D dataset.</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day13_0525/SVM_elemental_data_Student_v1.html">SVM Classification of chemical element data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day13_0525/Image_classify.html">Image classification using SVM</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day13_0525/unsupervised_learning_teaching_module_v2.html">Introduction to Unsupervised Learning</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/day_14.html">Day 14 06/01</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day14_0601/Artificial_Neuron_Network_explained.html">Artificial Neural Network</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day14_0601/NN_Tensile_data.html">Tensile test data</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day14_0601/ImageRgression_NN.html">Image Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day14_0601/CahnHilliardEquation_SpinodalDecomposition.html">Finite difference method to simulate Spinodal decomposition.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day14_0601/PINN_DampedSpringMass_student_v1.html">Physics informed neural network (PINN) for ODE</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day14_0601/PINN_1D_diffustion_v1.html">PINN for solving PDEs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day14_0601/mini_tokenizer_transformer_demo.html">Mini Demo: Tokenizer and Transformer in a Tiny Language Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Day14_0601/LLM_demo.html">Large Language Model (LLM)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/FinalExam.html">Final exam</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/FinalExam_0608/Final_exam_student_v1.html">MSE 590500 (2026 Spring term) final exam, coding part.</a></li>
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Exam/Quiz</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/Midterm.html">Midterm Exam</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../daily/Midterm_0427/MidtermExam_student_v1.html">MSE 590500 Mid-term exam.</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/HW01.html">Homework 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../HW01/MSE590500_HW1_student.html">MSE 590500 Homework assginment 1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../section_files/HW02_3.html">Homework 2-3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../HW02/Homework2_3_student_v01.html">MSE590500 Homework assignment 2 &amp; 3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../section_files/HW04_5.html">Homework 4-5</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">MSE590500 Homework assignment 4-5</a></li>
+
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/homework/HW04/HW_4_5_student_v1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>MSE590500 Homework assignment 4-5</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">MSE590500 Homework assignment 4-5</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#due-on-june-18-thursday-2026">Due on June 18 (Thursday), 2026</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#put-your-name-here"><p style="text-align: right;"> ✅ <strong>put your name here</strong> </p></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-simulation-of-binary-diffusion-in-2d-30-pt">Problem 1. Simulation of binary diffusion in 2D. (30 pt)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discretization">Discretization:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stencils">Stencils:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">Boundary conditions:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#materials-parameters">Materials parameters:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-the-code-below-to-run-the-simulation">Complete the code below to run the simulation.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-calculate-averge-grain-size-30-pt">Problem 2. Calculate averge grain size. (30 pt)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-phase-boundaries-30-pt">Problem 3. Phase boundaries. (30 pt)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">Visualization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4-survery-questionnaire-10-pt">Problem 4. Survery questionnaire (10 pt)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lastly-please-complete-this-survey">Lastly, Please complete this <strong>survey</strong>.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#congradulations-you-re-done-please-upload-you-completed-file-via-the-link">Congradulations! You’re done. Please upload you completed file via the <strong>LINK</strong>.</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="mse590500-homework-assignment-4-5">
+<h1>MSE590500 Homework assignment 4-5<a class="headerlink" href="#mse590500-homework-assignment-4-5" title="Link to this heading">#</a></h1>
+<section id="due-on-june-18-thursday-2026">
+<h2>Due on June 18 (Thursday), 2026<a class="headerlink" href="#due-on-june-18-thursday-2026" title="Link to this heading">#</a></h2>
+<p>This is our last homework assignment. There are three problem sets, including 1) finite difference method for binary diffusion, 2) calculating average grain size, and 3) identify phase boundaries. <strong>Please complete and submit it before the dealine such that it can be included into your final grades.</strong></p>
+<section id="put-your-name-here">
+<h3><p style="text-align: right;"> ✅ <strong>put your name here</strong> </p><a class="headerlink" href="#put-your-name-here" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<hr class="docutils" />
+<section id="problem-1-simulation-of-binary-diffusion-in-2d-30-pt">
+<h2>Problem 1. Simulation of binary diffusion in 2D. (30 pt)<a class="headerlink" href="#problem-1-simulation-of-binary-diffusion-in-2d-30-pt" title="Link to this heading">#</a></h2>
+<p>In a 2D domain, the dimensions are 130 and 42 for width (horizontal) and height (vertical), respectively. There are two materials sources on the north boundary, with a width of 16, see the red and blue line segments in the figure below. The two segments are 31 and 80 away from the west boundary, respectively.</p>
+<img src="https://i.ibb.co/4w320rLR/2-D-diff-2.jpg" width="500">
+<p>Materials A and B are diffusing into the 2D region from the red and blue segments, respectively. You are asked to simulate the diffusion process of the two species. The governing equations for the two diffusions are</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial C_A}{\partial t} = D_A \nabla^2 C_A - r_A C_A C_B,\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial C_B}{\partial t} = D_B \nabla^2 C_B - r_B C_A C_B,\]</div>
+<p>where <span class="math notranslate nohighlight">\(C_i\)</span> are concentrations, <span class="math notranslate nohighlight">\(D_i\)</span> are diffusion coefficients , and <span class="math notranslate nohighlight">\(r_i\)</span> are the recombining rates of the <span class="math notranslate nohighlight">\(i\)</span>-th species. The recombination means when <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> meet together, they annihilate.</p>
+<section id="discretization">
+<h3>Discretization:<a class="headerlink" href="#discretization" title="Link to this heading">#</a></h3>
+<p>We will discretize the domain with uniform grid spacings. 130 grids and 42 grids in the width and height directions, respectively, i.e., <span class="math notranslate nohighlight">\(\Delta x=1\)</span>.
+As such, the indice along the width direction, <span class="math notranslate nohighlight">\(j\)</span>, go from 0 to 129, and <span class="math notranslate nohighlight">\(i\)</span> along the height direction go from 0 to 41.</p>
+</section>
+<section id="stencils">
+<h3>Stencils:<a class="headerlink" href="#stencils" title="Link to this heading">#</a></h3>
+<p>The finite difference method stencils are</p>
+<div class="math notranslate nohighlight">
+\[\frac{C_{A(i,j)}^{(n+1)}-C_{A(i,j)}^{(n)}}{\Delta t} = D_A \frac{C_{A(i-1,j)}^{(n)}+C_{A(i+1,j)}^{(n)}+C_{A(i,j-1)}^{(n)}+C_{A(i,j+1)}^{(n)}-4C_{A(i,j)}^{(n)}}{\Delta x^2} - r_A C_{A(i,j)}^{(n)}C_{B(i,j)}^{(n)},\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{C_{B(i,j)}^{(n+1)}-C_{B(i,j)}^{(n)}}{\Delta t} = D_B \frac{C_{B(i-1,j)}^{(n)}+C_{B(i+1,j)}^{(n)}+C_{B(i,j-1)}^{(n)}+C_{B(i,j+1)}^{(n)}-4C_{B(i,j)}^{(n)}}{\Delta x^2} - r_B C_{A(i,j)}^{(n)}C_{B(i,j)}^{(n)},\]</div>
+<p>where subscripts <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> are the indices of grid points, superscripts <span class="math notranslate nohighlight">\((n)\)</span> denote time steps, <span class="math notranslate nohighlight">\(\Delta x\)</span> is the grid spacing, and <span class="math notranslate nohighlight">\(\Delta t \)</span> is the time step size. Thus, the concentration of <span class="math notranslate nohighlight">\(A\)</span> at grid point <span class="math notranslate nohighlight">\((i,j)\)</span> is updated by</p>
+<div class="math notranslate nohighlight">
+\[C_{A(i,j)}^{(n+1)} = C_{A(i,j)}^{(n)} + \Delta t \times \bigg( D_A \frac{C_{A(i-1,j)}^{(n)}+C_{A(i+1,j)}^{(n)}+C_{A(i,j-1)}^{(n)}+C_{A(i,j+1)}^{(n)}-4C_{A(i,j)}^{(n)}}{\Delta x^2} - r_A C_{A(i,j)}^{(n)}C_{B(i,j)}^{(n)} \bigg);\]</div>
+<p>similar method for updating <span class="math notranslate nohighlight">\(C_B\)</span>.</p>
+</section>
+<section id="boundary-conditions">
+<h3>Boundary conditions:<a class="headerlink" href="#boundary-conditions" title="Link to this heading">#</a></h3>
+<p>We solve the concentrations only within the domain. Thus, values on the domain boundaries are calculated. Here, we assume no-flux boundary conditions on all box boundaries except for the two materials sources (red and blue segments). For no-flux boundary condition on the west boundary, we have</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial C}{\partial x}\bigg|_w = 0 ~~\Longrightarrow~~\frac{C_{i,0}-C_{i,1}}{\Delta x} = 0 ~~\Longrightarrow~~ C_{i,0} = C_{i,1}.\]</div>
+<p>Thus, to impose such boundary conditons, we just need to simply set <code class="docutils literal notranslate"><span class="pre">C[:,0]</span> <span class="pre">=</span> <span class="pre">C[:,1]</span></code>. Similarly, for the east boundary, we set <code class="docutils literal notranslate"><span class="pre">C[:,-1]</span> <span class="pre">=</span> <span class="pre">C[:,-2]</span></code>, after every time stepping. On the south side: <code class="docutils literal notranslate"><span class="pre">C[0,:]</span> <span class="pre">=</span> <span class="pre">C[1,:]</span></code>. On the north side: <code class="docutils literal notranslate"><span class="pre">C[-1,:]</span> <span class="pre">=</span> <span class="pre">C[-2,:]</span></code> except for the regions of materials sources.</p>
+<p>At the materials sources, the source concentrations are fixed: <span class="math notranslate nohighlight">\(C_A = 1\)</span> in the red segment region, and <span class="math notranslate nohighlight">\(C_B = 0.75\)</span> in the blue segment region, i.e., <code class="docutils literal notranslate"><span class="pre">CA[-1,31:47]</span> <span class="pre">=</span> <span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">CB[-1,80:96]</span> <span class="pre">=</span> <span class="pre">0.75</span></code>.</p>
+</section>
+<section id="materials-parameters">
+<h3>Materials parameters:<a class="headerlink" href="#materials-parameters" title="Link to this heading">#</a></h3>
+<p>The materials parameters are <span class="math notranslate nohighlight">\(D_A=0.8\)</span>, <span class="math notranslate nohighlight">\(D_B=1\)</span>, <span class="math notranslate nohighlight">\(r_A=0.4\)</span>, and <span class="math notranslate nohighlight">\(r_B = 0.2\)</span>. Time step size is <span class="math notranslate nohighlight">\(\Delta t= 0.05\)</span>.</p>
+<section id="complete-the-code-below-to-run-the-simulation">
+<h4>Complete the code below to run the simulation.<a class="headerlink" href="#complete-the-code-below-to-run-the-simulation" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">clear_output</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="c1"># complete the code, fill up ??</span>
+
+<span class="c1"># grid</span>
+<span class="n">px</span> <span class="o">=</span> <span class="mi">130</span>
+<span class="n">py</span> <span class="o">=</span> <span class="mi">42</span>
+
+<span class="n">CA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">py</span><span class="p">,</span> <span class="n">px</span><span class="p">))</span>
+<span class="n">CB</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">py</span><span class="p">,</span> <span class="n">px</span><span class="p">))</span>
+
+<span class="c1"># parameters</span>
+<span class="n">DA</span> <span class="o">=</span> <span class="o">??</span>
+<span class="n">DB</span> <span class="o">=</span> <span class="o">??</span>
+<span class="n">rA</span> <span class="o">=</span> <span class="o">??</span>
+<span class="n">rB</span> <span class="o">=</span> <span class="o">??</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="o">??</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="o">??</span>
+
+<span class="c1"># initial boundary conditions</span>
+<span class="n">CA</span><span class="p">[</span><span class="err">??</span><span class="p">,</span> <span class="err">??</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">CB</span><span class="p">[</span><span class="err">??</span><span class="p">,</span> <span class="err">??</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.75</span>
+
+<span class="c1"># plotting: create figure only once</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+
+<span class="n">im0</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">CA</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;jet&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;CA&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">im1</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">CB</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;jet&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;CB&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="c1"># display once</span>
+<span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+
+
+
+<span class="c1"># time evolution</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40000</span><span class="p">):</span>
+
+    <span class="n">CA_new</span> <span class="o">=</span> <span class="n">CA</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">CB_new</span> <span class="o">=</span> <span class="n">CB</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="n">lap_CA</span> <span class="o">=</span> <span class="p">(</span><span class="n">CA</span><span class="p">[</span><span class="err">??</span><span class="p">,</span><span class="err">??</span><span class="p">]</span> <span class="o">+</span> <span class="n">CA</span><span class="p">[</span><span class="err">??</span><span class="p">,</span><span class="err">??</span><span class="p">]</span> <span class="o">+</span> <span class="n">CA</span><span class="p">[</span><span class="err">??</span><span class="p">,</span><span class="err">??</span><span class="p">]</span> <span class="o">+</span> <span class="n">CA</span><span class="p">[</span><span class="err">??</span><span class="p">,</span><span class="err">??</span><span class="p">]</span> 
+              <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">CA</span><span class="p">[</span><span class="err">??</span><span class="p">,</span><span class="err">??</span><span class="p">])</span> <span class="o">/</span> <span class="n">dx</span><span class="o">**</span><span class="mi">2</span>
+
+    <span class="n">lap_CB</span> <span class="o">=</span> <span class="p">(</span><span class="n">CB</span><span class="p">[</span><span class="err">??</span><span class="p">,</span><span class="err">??</span><span class="p">]</span> <span class="o">+</span> <span class="n">CB</span><span class="p">[</span><span class="err">??</span><span class="p">,</span><span class="err">??</span><span class="p">]</span> <span class="o">+</span> <span class="n">CB</span><span class="p">[</span><span class="err">??</span><span class="p">,</span><span class="err">??</span><span class="p">]</span> <span class="o">+</span> <span class="n">CB</span><span class="p">[</span><span class="err">??</span><span class="p">,</span><span class="err">??</span><span class="p">]</span>
+              <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">CB</span><span class="p">[</span><span class="err">??</span><span class="p">,</span><span class="err">??</span><span class="p">])</span> <span class="o">/</span> <span class="n">dx</span><span class="o">**</span><span class="mi">2</span>
+
+    <span class="n">recombA</span> <span class="o">=</span> <span class="n">rA</span> <span class="o">*</span> <span class="n">CA</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">CB</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">recombB</span> <span class="o">=</span> <span class="n">rB</span> <span class="o">*</span> <span class="n">CA</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">CB</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">CA_new</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">DA</span> <span class="o">*</span> <span class="err">??</span> <span class="o">-</span> <span class="err">??</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>
+    <span class="n">CB_new</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">DB</span> <span class="o">*</span> <span class="err">??</span> <span class="o">-</span> <span class="err">??</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>
+
+    <span class="n">CA</span> <span class="o">=</span> <span class="n">CA_new</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">CB</span> <span class="o">=</span> <span class="n">CB_new</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="c1"># boundary conditions</span>
+    <span class="n">CA</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">CA</span><span class="p">[</span><span class="err">??</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="n">CA</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="err">??</span><span class="p">]</span> <span class="o">=</span> <span class="n">CA</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="n">CA</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">CA</span><span class="p">[:,</span> <span class="err">??</span><span class="p">]</span>
+    <span class="n">CA</span><span class="p">[:,</span> <span class="err">??</span><span class="p">]</span> <span class="o">=</span> <span class="n">CA</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">CA</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">31</span><span class="p">:</span><span class="mi">47</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+    <span class="n">CB</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">CB</span><span class="p">[</span><span class="err">??</span><span class="p">,</span><span class="err">??</span><span class="p">]</span>
+    <span class="n">CB</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">CB</span><span class="p">[</span><span class="err">??</span><span class="p">,</span><span class="err">??</span><span class="p">]</span>
+    <span class="n">CB</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">CB</span><span class="p">[</span><span class="err">??</span><span class="p">,</span><span class="err">??</span><span class="p">]</span>
+    <span class="n">CB</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">CB</span><span class="p">[</span><span class="err">??</span><span class="p">,</span><span class="err">??</span><span class="p">]</span>
+    <span class="n">CB</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">80</span><span class="p">:</span><span class="mi">96</span><span class="p">]</span> <span class="o">=</span> <span class="o">??</span>
+
+    <span class="c1"># visualization</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="o">%</span> <span class="mi">200</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+
+        <span class="n">im0</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">CA</span><span class="p">)</span>
+        <span class="n">im1</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">CB</span><span class="p">)</span>
+
+        <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CA, step=</span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CB, step=</span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.0002</span><span class="p">)</span>   
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="problem-2-calculate-averge-grain-size-30-pt">
+<h2>Problem 2. Calculate averge grain size. (30 pt)<a class="headerlink" href="#problem-2-calculate-averge-grain-size-30-pt" title="Link to this heading">#</a></h2>
+<p>Below is a snythetic SEM image with EBSD determined grain orientations, generated by GPT. You are asked to write a code to calculate the average grain size.</p>
+<img src="https://i.ibb.co/DPb1Kgmb/Grains2.png" width="500">
+<ul class="simple">
+<li><p>Download the image and load in the image.
+<code class="docutils literal notranslate"><span class="pre">https://raw.githubusercontent.com/huichiayu/cmse_202_802/main/IMGs/Grains2.png</span></code></p></li>
+<li><p>Plot and examine the image.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># put your code here</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">imageio.v2</span><span class="w"> </span><span class="kn">import</span> <span class="n">imread</span>
+
+<span class="n">img</span> <span class="o">=</span> <span class="o">??</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Convert this image a gray-scale one.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># put your code here</span>
+
+<span class="n">g_img</span> <span class="o">=</span> <span class="o">??</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">g_img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">g_img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Use the thresholding code in the previous coding assignments to segment the gray-scale image to binary image. Find a good set of <code class="docutils literal notranslate"><span class="pre">vmin</span></code> and <code class="docutils literal notranslate"><span class="pre">vmax</span></code>. You are expecting something like this.</p></li>
+</ul>
+<img src="https://i.ibb.co/HTskGhwG/Grain-g.png" width="500"><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># put your code here</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ipywidgets</span><span class="w"> </span><span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">fixed</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">gray_threshold</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+
+    <span class="n">b_img</span> <span class="o">=</span> <span class="p">(</span><span class="n">im</span> <span class="o">&gt;</span> <span class="n">vmin</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">im</span> <span class="o">&lt;</span> <span class="n">vmax</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;vmin =&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;vmax =&quot;</span><span class="p">,</span> <span class="n">vmax</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">s</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+    
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Original&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+    
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">b_img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Binary segmentation&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+    
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">b_img</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Run the cell below to find a good set to <code class="docutils literal notranslate"><span class="pre">vmin</span></code> and <code class="docutils literal notranslate"><span class="pre">vmax</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span> <span class="o">=</span> <span class="n">interact</span><span class="p">(</span>
+    <span class="n">gray_threshold</span><span class="p">,</span>
+    <span class="n">im</span><span class="o">=</span><span class="n">fixed</span><span class="p">(</span><span class="n">g_img</span><span class="p">),</span>
+    <span class="n">vmin</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span>
+    <span class="n">vmax</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span>
+    <span class="n">__manual</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">erosion</span></code> and <code class="docutils literal notranslate"><span class="pre">dilation</span></code> in <code class="docutils literal notranslate"><span class="pre">ndimage</span></code> of <code class="docutils literal notranslate"><span class="pre">scipy</span></code> to highlight the grain boundary areas, for example, as in the figure below. You should try different iterations of erosion and dilation. In this case, grains are separated more.</p></li>
+</ul>
+<img src="https://i.ibb.co/5WPYctP9/binary.png" width="500">
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># put your code here</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">misc</span><span class="p">,</span> <span class="n">ndimage</span>
+
+<span class="n">b_img</span> <span class="o">=</span> <span class="n">gray_threshold</span><span class="p">(</span><span class="n">g_img</span><span class="p">,</span> <span class="err">??</span><span class="p">)</span>
+
+<span class="n">after_erosion</span> <span class="o">=</span> ndimage.<span class="o">??</span>
+<span class="n">after_dialation</span> <span class="o">=</span> ndimage.<span class="o">??</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">after_dialation</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">label</span></code> in <code class="docutils literal notranslate"><span class="pre">ndimage</span></code> to count how many separate regions (grains) in the image you obtained.</p></li>
+<li><p>Divide the total area of the image to the number of grains.</p></li>
+<li><p>Then, use</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ r_{eff} = \sqrt{A/\pi}\]</div>
+<p>to calculate the effect grain radius.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># put your code here</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.ndimage</span><span class="w"> </span><span class="kn">import</span> <span class="n">label</span>
+
+<span class="n">lab</span><span class="p">,</span> <span class="n">num_features</span> <span class="o">=</span> <span class="o">??</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">lab</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+
+<span class="n">n_grains</span> <span class="o">=</span> <span class="o">??</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">n_grains</span><span class="p">)</span>
+
+<span class="n">A_tot</span> <span class="o">=</span> <span class="o">??</span>
+<span class="n">r_eff</span> <span class="o">=</span> <span class="o">??</span>
+<span class="n">r_eff</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="problem-3-phase-boundaries-30-pt">
+<h2>Problem 3. Phase boundaries. (30 pt)<a class="headerlink" href="#problem-3-phase-boundaries-30-pt" title="Link to this heading">#</a></h2>
+<p>Here, you are asked to use SVM classifier to delineate phases boundaries on a ternay phase diagarm. You are expecting a result like the figure below.</p>
+<img src="https://i.ibb.co/BHx5SX1C/ternary-pd.png" width="500">
+<ul class="simple">
+<li><p>Download the dataset from <code class="docutils literal notranslate"><span class="pre">https://raw.githubusercontent.com/huichiayu/cmse_202_802/main/data/synthetic_ternary_phase_data.csv</span></code>. It contains 120 data point, each point contains the composition of three components and a label of its corresponding phase. For instance,</p></li>
+</ul>
+<img src="https://i.ibb.co/3m9SLyMH/data-ternary.png" width="360">
+<ul class="simple">
+<li><p>Read the csv file using <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !Curl -O ??</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># put your code</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">Data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="err">??</span><span class="p">)</span>
+<span class="n">Data</span> <span class="o">=</span> <span class="n">Data</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">Data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Plot these data points a ternary composition space. You are expecting something like the figure below.</p></li>
+</ul>
+<img src="https://i.ibb.co/NdJH3s18/Ternery-Points.png" width="400">
+<ul class="simple">
+<li><p>Convert ternary points to Cartesian coordinate for plotting.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">ternary_to_xy</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">,</span> <span class="n">xC</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="o">??</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="o">??</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+
+<span class="n">xA</span> <span class="o">=</span> <span class="n">Data</span><span class="p">[</span><span class="s2">&quot;xA&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">xB</span> <span class="o">=</span> <span class="n">Data</span><span class="p">[</span><span class="s2">&quot;xB&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">xC</span> <span class="o">=</span> <span class="n">Data</span><span class="p">[</span><span class="s2">&quot;xC&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="n">Xplot</span><span class="p">,</span> <span class="n">Yplot</span> <span class="o">=</span> <span class="n">ternary_to_xy</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">,</span> <span class="n">xC</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>To assign colors, we need to convert string labels to numeric labels, i.e., A, B, C, ABC to 0, 1 , 2, 3, respectively.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="n">Data</span><span class="p">[</span><span class="s2">&quot;phase&quot;</span><span class="p">]</span>
+
+<span class="n">phase_to_int</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;A&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;B&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;C&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;ABC&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">phase_to_int</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="k">for</span> <span class="err">??</span> <span class="ow">in</span> <span class="err">??</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="n">Xplot</span><span class="p">,</span>
+    <span class="n">Yplot</span><span class="p">,</span>
+    <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span>
+    <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Make a feature array from the composition data (i.e., xA, xB, xC).</p></li>
+<li><p>Make a output vector from the phase data. Note that, for SVM library, we need to numeric labels, i.e., 0, 1, 2, 3.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_features</span> <span class="o">=</span> <span class="o">??</span>
+<span class="n">y</span> <span class="o">=</span> <span class="o">??</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Create train and test data using 0.25 of them as the test data.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span> <span class="err">??</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Scale the features</p></li>
+<li><p>Build a SVM classifier model</p></li>
+<li><p>Train the model</p></li>
+<li><p>Evaluate the model performance</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.svm</span><span class="w"> </span><span class="kn">import</span> <span class="n">SVC</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span>
+
+<span class="c1"># scale features</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+
+<span class="n">X_train_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_test_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># SVM classifier</span>
+<span class="n">svm_model</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="err">??</span><span class="p">)</span>
+
+<span class="n">svm_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="err">??</span><span class="p">,</span> <span class="err">??</span><span class="p">)</span>
+
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">svm_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="err">??</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="err">??</span><span class="p">,</span> <span class="err">??</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="err">??</span><span class="p">,</span> <span class="err">??</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="visualization">
+<h3>Visualization<a class="headerlink" href="#visualization" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Set up ternary grids uniformly over the composition space</p></li>
+<li><p>Use the SVM classifier for these grid points</p></li>
+<li><p>Plot the predicted label values using <code class="docutils literal notranslate"><span class="pre">tricontour</span></code>. Note that <code class="docutils literal notranslate"><span class="pre">tricontour</span></code> needs coordinates (<span class="math notranslate nohighlight">\(x,y\)</span>). Thus, you need to convert ternary composition to Cartesian for plotting.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># =====================================================</span>
+<span class="c1"># 1. Create dense ternary grid</span>
+<span class="c1"># =====================================================</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">make_ternary_grid</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">250</span><span class="p">):</span>
+    <span class="n">pts</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">i</span><span class="p">):</span>
+
+            <span class="n">xA</span> <span class="o">=</span> <span class="n">i</span> <span class="o">/</span> <span class="n">n</span>
+            <span class="n">xB</span> <span class="o">=</span> <span class="n">j</span> <span class="o">/</span> <span class="n">n</span>
+            <span class="n">xC</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">xA</span> <span class="o">-</span> <span class="n">xB</span>
+
+            <span class="n">pts</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">xA</span><span class="p">,</span> <span class="n">xB</span><span class="p">,</span> <span class="n">xC</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span>
+
+
+<span class="n">grid</span> <span class="o">=</span> <span class="n">make_ternary_grid</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span>
+
+<span class="c1"># =====================================================</span>
+<span class="c1"># 2. Predict phase labels on ternary grid</span>
+<span class="c1"># =====================================================</span>
+
+<span class="n">grid_pred</span> <span class="o">=</span> <span class="n">svm_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="err">??</span><span class="p">)</span>
+
+<span class="c1"># =====================================================</span>
+<span class="c1"># 3. Convert ternary coordinates to 2D Cartesian</span>
+<span class="c1"># =====================================================</span>
+
+<span class="n">xg</span><span class="p">,</span> <span class="n">yg</span> <span class="o">=</span> <span class="n">ternary_to_xy</span><span class="p">(</span><span class="err">??</span><span class="p">,</span> <span class="err">??</span><span class="p">,</span> <span class="err">??</span><span class="p">)</span>
+
+<span class="c1"># =====================================================</span>
+<span class="c1"># 4. Plot predicted phase regions</span>
+<span class="c1"># =====================================================</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tricontourf</span><span class="p">(</span>
+    <span class="o">??</span><span class="p">,</span>
+    <span class="o">??</span><span class="p">,</span>
+    <span class="n">grid_pred</span><span class="p">,</span>
+    <span class="n">levels</span><span class="o">=</span> <span class="err">??</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.45</span><span class="p">)</span>
+
+<span class="c1"># draw phase boundaries</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tricontour</span><span class="p">(</span>
+    <span class="n">xg</span><span class="p">,</span>
+    <span class="n">yg</span><span class="p">,</span>
+    <span class="n">grid_pred</span><span class="p">,</span>
+    <span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">grid_pred</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">grid_pred</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">colors</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span>
+    <span class="n">linewidths</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+
+
+
+<span class="c1"># =====================================================</span>
+<span class="c1"># Annotate phase names</span>
+<span class="c1"># =====================================================</span>
+
+<span class="n">phase_names</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;ABC co-exist&quot;</span><span class="p">}</span>
+
+<span class="k">for</span> <span class="n">phase_id</span><span class="p">,</span> <span class="n">phase_name</span> <span class="ow">in</span> <span class="n">phase_names</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+
+    <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">grid_pred</span> <span class="o">==</span> <span class="n">phase_id</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">continue</span>
+
+    <span class="n">x_center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">xg</span><span class="p">[</span><span class="n">mask</span><span class="p">])</span>
+    <span class="n">y_center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">yg</span><span class="p">[</span><span class="n">mask</span><span class="p">])</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+        <span class="n">x_center</span><span class="p">,</span>
+        <span class="n">y_center</span><span class="p">,</span>
+        <span class="n">phase_name</span><span class="p">,</span>
+        <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span>
+        <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span>
+        <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>
+        <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>
+        <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+            <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+            <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+            <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;SVM-Predicted Ternary Phase Regions&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="problem-4-survery-questionnaire-10-pt">
+<h2>Problem 4. Survery questionnaire (10 pt)<a class="headerlink" href="#problem-4-survery-questionnaire-10-pt" title="Link to this heading">#</a></h2>
+<section id="lastly-please-complete-this-survey">
+<h3>Lastly, Please complete this <a class="reference external" href="https://msu.co1.qualtrics.com/jfe/form/SV_01bGLQLo78tifH0"><strong>survey</strong></a>.<a class="headerlink" href="#lastly-please-complete-this-survey" title="Link to this heading">#</a></h3>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="congradulations-you-re-done-please-upload-you-completed-file-via-the-link">
+<h1>Congradulations! You’re done. Please upload you completed file via the <a class="reference external" href="https://www.dropbox.com/request/v0lou94ybz28k8huexh5"><strong>LINK</strong></a>.<a class="headerlink" href="#congradulations-you-re-done-please-upload-you-completed-file-via-the-link" title="Link to this heading">#</a></h1>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-base-py"
+        },
+        kernelOptions: {
+            name: "conda-base-py",
+            path: "./homework/HW04"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-base-py'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../section_files/HW04_5.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Homework 4-5</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">MSE590500 Homework assignment 4-5</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#due-on-june-18-thursday-2026">Due on June 18 (Thursday), 2026</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#put-your-name-here"><p style="text-align: right;"> ✅ <strong>put your name here</strong> </p></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-simulation-of-binary-diffusion-in-2d-30-pt">Problem 1. Simulation of binary diffusion in 2D. (30 pt)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discretization">Discretization:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stencils">Stencils:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">Boundary conditions:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#materials-parameters">Materials parameters:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-the-code-below-to-run-the-simulation">Complete the code below to run the simulation.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-calculate-averge-grain-size-30-pt">Problem 2. Calculate averge grain size. (30 pt)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-phase-boundaries-30-pt">Problem 3. Phase boundaries. (30 pt)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">Visualization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4-survery-questionnaire-10-pt">Problem 4. Survery questionnaire (10 pt)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lastly-please-complete-this-survey">Lastly, Please complete this <strong>survey</strong>.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#congradulations-you-re-done-please-upload-you-completed-file-via-the-link">Congradulations! You’re done. Please upload you completed file via the <strong>LINK</strong>.</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hui-Chia Yu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
